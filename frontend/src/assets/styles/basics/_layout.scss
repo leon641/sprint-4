@@ -2,9 +2,13 @@
 
 .basad {
     position: absolute;
-    top: 3;
-    right: 3;
+    top: 3px;
+    right: 3px;
 }
+
+// .main-layout {
+//     display: grid;
+// }
 
 .container {
     max-width: 1500px;
@@ -23,19 +27,39 @@
         }
     }
 
-    @include for-narrow-layout {
+    // @include for-narrow-layout {
+    //     grid-template-columns:
+    //         minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+    // }
+
+    // @include for-normal-layout {
+    //     grid-template-columns:
+    //         minmax(20px, 1fr) minmax(auto, $narrow-breakpoint) minmax(20px, 1fr);
+    // }
+
+    // @include for-wide-layout {
+    //     grid-template-columns:
+    //         minmax(20px, 1fr) minmax(auto, $normal-breakpoint) minmax(20px, 1fr);
+    // }
+
+    @include for-mobile-layout {
         grid-template-columns:
-            minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+            20px auto 20px;
     }
 
     @include for-normal-layout {
         grid-template-columns:
-            minmax(20px, 1fr) minmax(auto, $narrow-breakpoint) minmax(20px, 1fr);
+            20px auto 20px;
     }
 
     @include for-wide-layout {
         grid-template-columns:
-            minmax(20px, 1fr) minmax(auto, $normal-breakpoint) minmax(20px, 1fr);
+            20px auto 20px;
+    }
+
+    @include for-big-layout {
+        grid-template-columns:
+            20px auto 20px;
     }
 }
 

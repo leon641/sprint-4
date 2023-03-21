@@ -1,7 +1,7 @@
 // בס"ד
 
-// import { stayService } from '../services/stay.service.local'
-import { stayService } from '../services/stay.service'
+import { stayService } from '../services/stay.service.local'
+// import { stayService } from '../services/stay.service'
 
 export function getActionRemoveStay(stayId) {
     return {

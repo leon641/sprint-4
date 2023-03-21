@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <header>
+  <header class="main-container full main-header">
     <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
