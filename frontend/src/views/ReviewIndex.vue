@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <div class="container home">
     <h2>Reviews</h2>

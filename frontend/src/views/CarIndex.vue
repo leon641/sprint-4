@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <div class="container home">
     <ul class="car-list">

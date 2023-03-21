@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <section>
     <AppHeader />

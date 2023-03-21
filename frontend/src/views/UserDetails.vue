@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <section v-if="user">
     <h1>User Details - {{ user.fullname }}</h1>

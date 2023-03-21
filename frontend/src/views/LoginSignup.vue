@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <div class="container about">
     <p>{{ msg }}</p>

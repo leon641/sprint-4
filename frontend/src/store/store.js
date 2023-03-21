@@ -1,3 +1,5 @@
+// בס"ד
+
 import Vuex from 'vuex'
 
 import { userStore } from './user.store.js'
