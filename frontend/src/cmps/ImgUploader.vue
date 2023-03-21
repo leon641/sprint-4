@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <div className="upload-preview">
     <img v-if="imgUrl" :src="imgUrl" :style="{ maxWidth: '200px', float: 'right' }" />

@@ -1,3 +1,5 @@
+// בס"ד
+ה
 export const uploadService = {
   uploadImg
 }

@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
   <div v-show="alive" class="alert" :class="alertClass">
     {{ msg?.txt }}

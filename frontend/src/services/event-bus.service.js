@@ -1,3 +1,5 @@
+// בס"ד
+
 export const SHOW_MSG = 'show-msg'
 
 function createEventEmitter() {

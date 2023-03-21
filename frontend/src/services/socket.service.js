@@ -1,3 +1,5 @@
+// בס"ד
+
 import io from 'socket.io-client'
 import { userService } from './user.service'
 
