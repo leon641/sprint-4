@@ -1,3 +1,5 @@
+// בס"ד
+
 function makeId(length = 5) {
   var txt = ''
   var possible =

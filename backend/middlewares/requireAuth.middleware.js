@@ -1,3 +1,5 @@
+// בס"ד
+
 const authService = require('../api/auth/auth.service')
 const logger = require('../services/logger.service')
 const config = require('../config')

@@ -1,3 +1,5 @@
+// בס"ד
+
 var config
 
 if (process.env.NODE_ENV === 'production') {

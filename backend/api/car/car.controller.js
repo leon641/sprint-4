@@ -1,3 +1,5 @@
+// בס"ד
+
 const carService = require('./car.service.js')
 
 const logger = require('../../services/logger.service')

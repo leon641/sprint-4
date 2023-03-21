@@ -1,3 +1,5 @@
+// בס"ד
+
 const authService = require('./auth.service')
 const logger = require('../../services/logger.service')
 
