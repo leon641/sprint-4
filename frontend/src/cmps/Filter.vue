@@ -8,16 +8,25 @@
     <div>Any week</div>
   </button>
   <button>
-    <div>Add guests</div>
+    <div>
+      Add guests
+      <div className="icon" v-html="getSvg('search')"></div>
+    </div>
   </button>
 </template>
 
 <script>
+import { svgService } from "../services/svg.service.js";
+
 export default {
   data() {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    getSvg(iconName) {
+      return svgService.getStaySvg(iconName);
+    },
+  },
 };
 </script>
