@@ -1,3 +1,5 @@
+<!-- בס"ד -->
+
 <template>
     <router-link :to="'stay/' + stay._id">
         <article class="stay-preview">

@@ -1,0 +1,20 @@
+// בס"ד
+
+.filter{
+    width: fit-content;
+}
+
+.filter:first-child{
+    border-top-left-radius:4px ;
+}
+
+.filter:last-child{
+    border-top-right-radius:4px ;
+}
+
+.filter .icon{
+    background-color: #ff385c;
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+}
