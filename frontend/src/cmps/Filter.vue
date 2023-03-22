@@ -36,17 +36,12 @@
 </template>
 
 <script>
-import { svgService } from "../services/svg.service.js";
-
 export default {
   data() {
     return {};
   },
   computed: {},
   methods: {
-    getSvg(iconName) {
-      return svgService.getSvg(iconName);
-    },
   },
 };
 </script>

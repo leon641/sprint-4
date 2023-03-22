@@ -2,6 +2,7 @@
 
 .filter {
     width: fit-content;
+    transform: translate(60px, 0px);
 }
 
 .filter-btns {
@@ -15,6 +16,11 @@
     padding-inline: rem(9px);
     padding-block: 0;
     height: 48px;
+    
+    &:hover {
+        box-shadow: 0 1px 3px #bbb            
+
+    }
 
     button {
         color: rgb(34, 34, 34);
