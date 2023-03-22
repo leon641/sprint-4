@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <header class="main-header full stay-app">
+  <header class="full stay-app">
     <!-- <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
@@ -18,14 +18,36 @@
       <span>{{ loggedInUser.score.toLocaleString() }}</span>
       <img :src="loggedInUser.imgUrl" />
     </section> -->
-    <div class="logo">
-      <img src="../assets/img/logo.png" alt="logo" />
-      Appbnb
-    </div>
-    <Filter />
-    <div class="user-area">
-      <a>Airbnb your home</a>
-      <div class="hamburger">
+    <div class="main-header">
+      <div class="logo">
+        <img src="../assets/img/logo.png" alt="logo" />
+        appbnb
+      </div>
+      <Filter />
+      <div class="user-area">
+        <div>
+          <a>Airbnb your home</a>
+        </div>
+        <div class="hamburger">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+          >
+            <g fill="none" fill-rule="nonzero">
+              <path d="m2 16h28"></path>
+              <path d="m2 24h28"></path>
+              <path d="m2 8h28"></path>
+            </g>
+          </svg>
+          <img
+            class="fnky2vc dir dir-ltr"
+            src="https://a0.muscache.com/im/pictures/user/71e528e9-e78f-4f64-9be2-568194f777b0.jpg?aki_policy=profile_medium"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   </header>
@@ -38,6 +60,7 @@ export default {
       return this.$store.getters.loggedinUser;
     },
   },
+  methods: {},
   components: {
     Filter,
   },
