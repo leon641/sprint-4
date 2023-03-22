@@ -1,37 +1,48 @@
-<!-- בס"ד -->
+<!--בס"ד-->
 
 <template>
-    <router-link :to="'stay/' + stay._id">
-        <article class="stay-preview">
-           
-            <section class="preview-info">
-                <p class="location">
-                    {{ location }}<span class="rate">rate will be here</span>
-                </p>
-                <main>
+    <!-- <router-link :to="'stay/' + stay._id"/> -->
+        <div v-if="stay" class="stay-preview">
+            <section >
+                <div class="card">
+                    <ImgCarousel :imgs="stay.imgUrls"/>
+                    <!-- <img src="../assets/img/demo.jpeg" alt=""> -->
                     <p class="stay-name">{{ stay.name }}</p>
-                    <p class="stay-name">{{ stay.summary }}</p>
-                    <p class="date">date will be here</p>
-                </main>
-                <p class="price"><span class="price-label">{{ formattedPrice }}</span> night</p>
+                    <span class="stay-name">
+                        {{ stay.labels[0] }}
+                        </span>
+                    <span class="date"
+                    >Apr 1 - 6
+                    </span>
+                    <p class="price">${{ stay.price }} night</p>
+
+                </div>
+                <!-- <p class="price"><span class="price-label">{{ formattedPrice }}</span> night</p> -->
                
             </section>
-        </article>
-    </router-link>
+        </div>
+    
    
 
 
 </template>
 
 <script>
+import ImgCarousel from './ImgCarousel.vue';
+
 
 export default {
     props: {
         stay: Object,
     },
+    data() { 
+        return {
+            imgs : ["../assets/img/demo.jpeg","../assets/img/demo.jpeg","../assets/img/demo.jpeg","../assets/img/demo.jpeg"]
+        }
+    },
    
     created() {
-    console.log(this.stay);
+console.log(this.stay);
     },
     methods: {
        
@@ -45,11 +56,13 @@ export default {
                 maximumFractionDigits: 0,
             })
             let num = Number(formatter.format(this.stay.price));
+            console.log(num);
             return formatter.format(this.stay.price);
         },
         
     },
     components: {
+        ImgCarousel
        
     },
 }
