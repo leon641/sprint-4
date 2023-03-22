@@ -100,7 +100,7 @@ function getSvg(iconName) {
 export const svgService = { getSvg, /*getNoteSvg, getMailSvg, getStaySvg*/ }
 
 // in template
-// <div className="icon" v-html="getSvg('bars')"></div>
+// <div v-html="getSvg('bars')"></div>
 // <img style="width:24px; height:24px" :src="getSvg('add')" alt="" />
 
 // in methodes

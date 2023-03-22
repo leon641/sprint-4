@@ -41,8 +41,25 @@
     height: fit-content;
     color: #717171;
     font-size: 0.9825rem;
+    font-family: Airbnb_Cereal-Book;
     
  }
+
+ .grid-item-3 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    flex-wrap: nowrap;
+    justify-self: end;
+    align-items: center;
+    padding-top: 11px;
+    p {
+        font-size: 14px;
+        margin: 0;
+        font-family: Airbnb_Cereal-Book;
+        
+     }
+ }
+
 
 .grid-item-4 {
     grid-column: 1/2;
@@ -58,6 +75,7 @@
     grid-row: 2/3;
     line-height: 31px;
     color: #717171;
+    font-family: Airbnb_Cereal-Book;
 }
 
  p span.price {
