@@ -20,12 +20,13 @@ window.cs = stayService
 async function query(filterBy = { txt: '', price: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
+      const regex = new RegExp(filterBy.txt, 'i')
         stays = stays.filter(stay => regex.test(stay.vendor) || regex.test(stay.description))
-    }
-    if (filterBy.price) {
+      }
+      if (filterBy.price) {
         stays = stays.filter(stay => stay.price <= filterBy.price)
-    }
+      }
+      // console.log('stays', stays)
     return stays
 }
 
