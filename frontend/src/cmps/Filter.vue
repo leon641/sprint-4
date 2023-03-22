@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <section>
+  <section class="filter">
     <button>
       <div>Anywhere</div>
     </button>
