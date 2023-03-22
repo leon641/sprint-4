@@ -4,17 +4,22 @@
     <!-- <router-link :to="'stay/' + stay._id"/> -->
         <div v-if="stay" class="stay-preview">
             <section >
-                <div class="card">
+                <div class="card" @click="cardClicked">
                     <ImgCarousel :imgs="stay.imgUrls"/>
-                    <!-- <img src="../assets/img/demo.jpeg" alt=""> -->
-                    <p class="stay-name">{{ stay.name }}</p>
-                    <span class="stay-name">
-                        {{ stay.labels[0] }}
-                        </span>
-                    <span class="date"
-                    >Apr 1 - 6
-                    </span>
-                    <p class="price">${{ stay.price }} night</p>
+                    <div class="stay-desc">
+                        <div class="bottom">
+                         <p class="stay-name grid-item-1">{{ stay.name }}</p>
+                          <p class="grid-item-2">
+                               {{ stay.labels[0] }}
+                            </p>
+                             <p class="grid-item-5">5&nbsp;beds</p>
+                               <p class="grid-item-4">
+                                <span class="price">${{ stay.price }}</span> 
+                                 night
+                                 </p>
+                        </div>
+                    </div>
+                   
 
                 </div>
                 <!-- <p class="price"><span class="price-label">{{ formattedPrice }}</span> night</p> -->
@@ -37,15 +42,22 @@ export default {
     },
     data() { 
         return {
-            imgs : ["../assets/img/demo.jpeg","../assets/img/demo.jpeg","../assets/img/demo.jpeg","../assets/img/demo.jpeg"]
+            imgs : [
+            "../assets/img/demo.jpeg",
+            "../assets/img/demo.jpeg",
+            "../assets/img/demo.jpeg",
+            "../assets/img/demo.jpeg",
+            "../assets/img/demo.jpeg",
+            "../assets/img/demo.jpeg"]
         }
     },
    
     created() {
-console.log(this.stay);
     },
     methods: {
-       
+       cardClicked() {
+         this.$router.push('/details')
+       }
     },
     computed: {
       
@@ -61,6 +73,8 @@ console.log(this.stay);
         },
         
     },
+
+
     components: {
         ImgCarousel
        

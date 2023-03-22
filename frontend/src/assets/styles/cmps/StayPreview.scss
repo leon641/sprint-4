@@ -1,0 +1,67 @@
+
+
+
+.bottom {
+    margin-top: 0.75rem;
+    padding: 0;
+    min-height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: repeat(2,18px) 18px;
+    grid-column-gap: 0.1875rem;
+    grid-row-gap: 0.125rem;
+    height: 88px;
+}
+
+ p.stay-name {
+    grid-column: 1/2;
+    grid-row: 1;
+    font-family: Airbnb-Cereal-Medium;
+    font-size: .9375rem;
+    line-height: 1.125rem;
+    text-transform: capitalize;
+    color: #222;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    height: fit-content;
+    padding-block-start: 2px;
+    margin: 0;
+ }
+
+ p.grid-item-2 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    height: fit-content;
+    color: #717171;
+    font-size: 0.9825rem;
+    
+ }
+
+.grid-item-4 {
+    grid-column: 1/2;
+    grid-row: 5/6;
+    color: #222;
+    margin-block-start: 6px;
+    align-self: center;
+    
+}
+
+ .grid-item-5 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    line-height: 31px;
+    color: #717171;
+}
+
+ p span.price {
+    font-family: Airbnb-Cereal-Medium;
+    color: #222;
+    font-weight: 700;
+ }
