@@ -1,0 +1,21 @@
+.main-container {
+    @include for-mobile-layout {
+        grid-template-columns:
+            20px auto 20px;
+    }
+
+    @include for-normal-layout {
+        grid-template-columns:
+            20px auto 20px;
+    }
+
+    @include for-wide-layout {
+        grid-template-columns:
+            20px auto 20px;
+    }
+
+    @include for-big-layout {
+        grid-template-columns:
+            20px auto 20px;
+    }
+}
