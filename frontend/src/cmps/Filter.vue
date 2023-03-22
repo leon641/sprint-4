@@ -28,5 +28,6 @@ export default {
       return svgService.getStaySvg(iconName);
     },
   },
+  
 };
 </script>

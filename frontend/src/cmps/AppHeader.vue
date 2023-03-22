@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <header class="main-header full stay-app ">
+  <header class="main-header full stay-app">
     <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
@@ -18,14 +18,19 @@
       <span>{{ loggedInUser.score.toLocaleString() }}</span>
       <img :src="loggedInUser.imgUrl" />
     </section>
+    <Filter />
   </header>
 </template>
 <script>
+import Filter from "./Filter.vue";
 export default {
   computed: {
     loggedInUser() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser;
     },
-  }
-}
+  },
+  components: {
+    Filter,
+  },
+};
 </script>
