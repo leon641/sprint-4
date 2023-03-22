@@ -21,6 +21,24 @@
         <img class="item item4" src="src/assets/img/fire.png" />
         <img class="item item5" src="src/assets/img/fire.png" />
       </section>
+
+      <section class="stay-data">
+
+        <section class="place-content">
+            <div class="subtitle">
+                 <div>
+                    <span>entire place</span>
+                    <h2> hosted by 'name of the host'</h2>
+                 </div>
+                 <div class="place-cpacity">
+                    <span>8 guests</span>
+                    <span>.</span>
+                    <span>2 bedrooms</span>
+                 </div>
+            </div>
+            <img class="host-img" src="">
+        </section>
+
         <section class="reserve-moadl">
             <form @submit="reserve">
                 <header>
@@ -32,19 +50,25 @@
                         <a href="#">9reviews</a>
                     </div>
                 </header>
-                
+                <div class="date-picker">
+                    date picker
+                </div>
+            <ReserveBtn/>         
             </form>
-
         </section>
-
+      </section>
+        
     </section>
   </section>
 </template>
 <script>
+import ReserveBtn from '../cmps/ReserveBtn.vue';
 export default {
   data() {
     return {};
   },
-  computed: {},
+  components:{
+ReserveBtn
+  }
 };
 </script>
