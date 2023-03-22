@@ -7,9 +7,16 @@
         <h2>name of place</h2>
         <section class="details-links">
           <div>
-            <span>Star Svg</span> <a>9reviews</a>.<span>name of region</span>
+            <span class="user-stay-info-svg"
+             v-html="getSvg('starFill')"></span> <span class="d-link">4.7 </span>
+             <a class="d-link">9 reviews</a>.<span class="d-link">Maui, United States</span>
           </div>
-          <div><span>share</span><span>save</span></div>
+          <div class="share-save-container"><span class="d-link-share">
+            <span class="user-stay-info-svg"
+             v-html="getSvg('share')"></span>
+            share</span>
+          <span class="d-link-save"><span class="user-stay-info-svg"
+             v-html="getSvg('hreat')"></span>save</span></div>
         </section>
       </div>
 
@@ -72,27 +79,55 @@
           </section>
           <section class="amenities-container">
             <h2>What this place offers</h2>
+            
             <div class="stay-amenities">
-                
+            <div class="amenity">
+                   <div class="user-stay-info-svg"
+             v-html="getSvg('gardenView')"></div>
+             <p>Garden view</p>
+            </div>
+             <div class="amenity">
+                <div class="user-stay-info-svg"
+             v-html="getSvg('essentials')"></div>
+             <p>Essentials</p>
+             </div>
+            <div class="amenity">
+                   <div class="user-stay-info-svg"
+             v-html="getSvg('smoke')"></div>
+             <p>Smoke detector</p>
+            </div>
+
+            <div class="amenity">
+              <div class="user-stay-info-svg"
+             v-html="getSvg('air')"></div>
+             <p>Air conditioning</p>
+            </div>
+
+            <div class="amenity">
+            <div class="user-stay-info-svg"
+             v-html="getSvg('freeParking')"></div>
+             <p>Free parking on premises</p>
+            </div>
+            <div class="amenity">
+                <div class="user-stay-info-svg"
+             v-html="getSvg('tv')"></div>
+             <p>TV</p>
+            </div>
+
+            <div class="amenity">
+
+                <div class="user-stay-info-svg"
+             v-html="getSvg('carbon')"></div>
+             <p>Carbon monoxide detector</p>
+           
+            </div>
+              
+            
             </div>
           </section>
         </section>
-
-        <section class="reserve-moadl">
-          <form @submit="reserve">
-            <header>
-              <div class="review-totals">
-                <h4>
-                  <span>$555</span>
-                  night
-                </h4>
-                <a href="#">9reviews</a>
-              </div>
-            </header>
-            <div class="date-picker">date picker</div>
-            <ReserveBtn />
-          </form>
-        </section>
+        <RaservationModal/>
+        
       </section>
     </section>
   </section>
@@ -100,7 +135,8 @@
 
 <script>
 import { svgService } from "../services/svg.service.js";
-import ReserveBtn from "../cmps/ReserveBtn.vue";
+import RaservationModal from "../cmps/RaservationModal.vue"
+
 export default {
   data() {
     return {};
@@ -111,7 +147,8 @@ export default {
     },
   },
   components: {
-    ReserveBtn,
+  
+    RaservationModal,
   },
 };
 </script>

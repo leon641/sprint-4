@@ -13,13 +13,32 @@
 .details-subtitle {
     display: flex;
     flex-direction: column;
+    gap:4px;
+
+    h2 {
+        padding: 0;
+margin-bottom: 7px;
+font-family: FlowCircular;
+    }
 
     .details-links {
         display: flex;
         justify-content: space-between;
-
-        span {
+        .share-save-container{
+             display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: .25s;
+        margin-left: auto;
+        }
+       
+       .d-link {
             font-weight: 600;
+            font-size: 14px;
+            color: #222;
+            text-decoration: underline;
+        }
+        .d-link-share,.d-link-save{
             font-size: 14px;
             color: #222;
             text-decoration: underline;
@@ -62,32 +81,41 @@
 
 .user-stay-info {
     display: grid;
-    grid-template-columns:20px 1fr;
+    grid-template-columns: 20px 1fr;
     gap: 24px 16px;
-    .user-stay-info-svg{
+
+    .user-stay-info-svg {
         width: 1.3rem;
     }
 }
-.air-cover{
-    span{
-        color:$clr1
+
+.air-cover {
+    span {
+        color: $clr1
     }
 }
-.amenities-container{
-    padding-bottom:0 ;
+
+.amenities-container {
+    padding-bottom: 0;
     border-bottom: 0;
-    .stay-amenities{
+
+    .stay-amenities {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    .user-stay-info-svg {
+        display: inline;
+    }
+
+    .amenity {
+        display: flex;
+        align-items: center;
+        padding-bottom: 16px;
+    }
 }
-.reserve-moadl {
-    border: 1px solid #00000030;
-    border-radius: 13px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 0 5px 5px #00000015;
-}
+
+
 
 
 //  airbnb button

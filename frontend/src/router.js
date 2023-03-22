@@ -18,11 +18,7 @@ const routes = [
     name: 'StayIndex',
     component: StayIndex
   },
-  {
-    path: '/stay',
-    name: 'StayIndex',
-    component: StayIndex
-  },
+
   {
     path: '/details',
     name: 'StayDetails',
