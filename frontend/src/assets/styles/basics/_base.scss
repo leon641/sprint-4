@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-::selection {
-    background-color: $clr1;
-    color: $clr6;
-}
+// ::selection {
+//     background-color: $clr1;
+//     color: $clr6;
+// }
 
 html {
     font-family: Airbnb_Cereal-Medium;
@@ -20,14 +20,21 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Airbnb_Cereal-Medium;
     margin: 0 0 0.6em;
     line-height: 1;
 }
 
 
-section, main, footer {
+section,
+main,
+footer {
     padding: 5px;
 }
 
@@ -43,7 +50,11 @@ p {
 a {
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
 
+button {
+    cursor: pointer;
+}
