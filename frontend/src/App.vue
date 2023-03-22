@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="stay-app">
+  <section >
     <AppHeader />
     <RouterView/>
     <AppFooter/>
