@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <header class="main-container full main-header">
+  <header class="main-header full stay-app ">
     <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>

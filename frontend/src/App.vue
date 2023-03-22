@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="main-container">
+  <section class="stay-app">
     <AppHeader />
     <RouterView/>
     <UserMsg/>

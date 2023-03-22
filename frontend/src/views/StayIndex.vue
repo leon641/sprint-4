@@ -2,7 +2,7 @@
 
 <template>
   <div class="container home">
-    <ul class="stay-list">
+    <ul class="stay-list ">
       <li v-for="stay in stays" :key="stay._id">
         <p>
           {{stay.vendor}}
