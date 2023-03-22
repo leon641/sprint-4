@@ -2,8 +2,9 @@
 
 <template>
   <div class="container home">
-    <ul class="stay-list ">
-      <li v-for="stay in stays" :key="stay._id">
+    <StayList />
+    <!-- <ul class="stay-list "> -->
+      <!-- <li v-for="stay in stays" :key="stay._id">
         <p>
           {{stay.vendor}}
         </p>
@@ -17,7 +18,7 @@
         <button @click="printStayToConsole(stay)">Print msgs to console</button>
 
       </li>
-    </ul>
+    </ul> -->
     <hr />
     <form @submit.prevent="addStay()">
       <h2>Add stay</h2>
@@ -28,10 +29,12 @@
 </template>
 
 <script>
+import StayList from '../cmps/StayList.vue'
 import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
 import {stayService} from '../services/stay.service.local'
 import { getActionRemoveStay, getActionUpdateStay, getActionAddStayMsg } from '../store/stay.store'
 export default {
+  components: { StayList },
   data() {
     return {
       stayToAdd: stayService.getEmptyStay()
@@ -93,7 +96,11 @@ export default {
     printStayToConsole(stay) {
       console.log('Stay msgs:', stay.msgs)
     }
+  },
+  components : {
+    StayList,
   }
+  
 
   
 }

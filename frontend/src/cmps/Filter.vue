@@ -1,18 +1,19 @@
 <!-- בס"ד -->
 
 <template>
-  <button>
-    <div>Anywhere</div>
-  </button>
-  <button>
-    <div>Any week</div>
-  </button>
-  <button>
-    <div>
-      Add guests
+  <section>
+    <button>
+      <div>Anywhere</div>
+    </button>
+    <button>
+      <div>Any week</div>
+    </button>
+    <button>
+      <div>Add guests
       <div className="icon" v-html="getSvg('search')"></div>
-    </div>
-  </button>
+      </div>
+    </button>
+  </section>
 </template>
 
 <script>
@@ -25,7 +26,7 @@ export default {
   computed: {},
   methods: {
     getSvg(iconName) {
-      return svgService.getStaySvg(iconName);
+      return svgService.getSvg(iconName);
     },
   },
 };
