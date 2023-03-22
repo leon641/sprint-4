@@ -15,14 +15,14 @@
       </div>
 
       <section class="details-gallery">
-        <img class="item item1" src="src/assets/img/fire.png" />
-        <img class="item item2" src="src/assets/img/fire.png" />
-        <img class="item item3" src="src/assets/img/fire.png" />
-        <img class="item item4" src="src/assets/img/fire.png" />
-        <img class="item item5" src="src/assets/img/fire.png" />
+        <img class="item item1" src="src/assets/img/demo.jpeg" />
+        <img class="item item2" src="src/assets/img/demo.jpeg" />
+        <img class="item item3" src="src/assets/img/demo.jpeg" />
+        <img class="item item4" src="src/assets/img/demo.jpeg" />
+        <img class="item item5" src="src/assets/img/demo.jpeg" />
       </section>
 
-      <section class="stay-data">
+      <section class="place-info">
 
         <section class="place-content">
             <div class="subtitle">

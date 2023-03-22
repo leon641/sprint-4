@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="container home">
+  <div class="stay-app">
     <StayList />
     <!-- <ul class="stay-list "> -->
       <!-- <li v-for="stay in stays" :key="stay._id">
