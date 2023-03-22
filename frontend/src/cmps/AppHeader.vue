@@ -2,7 +2,7 @@
 
 <template>
   <header class="main-header full stay-app">
-    <nav>
+    <!-- <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
       </RouterLink>
@@ -17,8 +17,17 @@
       </RouterLink>
       <span>{{ loggedInUser.score.toLocaleString() }}</span>
       <img :src="loggedInUser.imgUrl" />
-    </section>
+    </section> -->
+    <div class="logo">
+      <img src="../assets/img/logo.png" alt="logo" />
+      Appbnb
+    </div>
     <Filter />
+    <div class="user-area">
+      <a>Airbnb your home</a>
+      <div class="hamburger">
+      </div>
+    </div>
   </header>
 </template>
 <script>
