@@ -8,6 +8,7 @@ import StayIndex from './views/StayIndex.vue'
 import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
+import StayDetails from './views/StayDetails.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: '/stay',
     name: 'StayIndex',
     component: StayIndex
+  },
+  {
+    path: '/details',
+    name: 'StayDetails',
+    component: StayDetails
   },
   {
     path: '/review',

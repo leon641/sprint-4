@@ -4,6 +4,7 @@
   <section class="stay-app">
     <AppHeader />
     <RouterView/>
+    <AppFooter/>
     <UserMsg/>
   </section>
 </template>
@@ -13,6 +14,7 @@ import { userService } from './services/user.service'
 import { store } from './store/store'
 
 import AppHeader from './cmps/AppHeader.vue'
+import AppFooter from './cmps/AppFooter.vue'
 import UserMsg from './cmps/UserMsg.vue'
 
 export default {
@@ -24,7 +26,9 @@ export default {
   },
   components: {
     AppHeader,
-    UserMsg
+    UserMsg,
+    AppFooter,
+    
   },
 }
 </script>
