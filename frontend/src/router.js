@@ -13,9 +13,12 @@ import StayDetails from './views/StayDetails.vue'
 const routes = [
   {
     path: '/',
+    // name: 'Home',
+    // component: Home
     name: 'StayIndex',
     component: StayIndex
   },
+
   {
     path: '/details',
     name: 'StayDetails',
