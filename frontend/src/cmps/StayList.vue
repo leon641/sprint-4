@@ -18,8 +18,7 @@ export default {
     },
     computed : {
           stays() {
-            return stayService.query().then(stays => {console.log(stays)
-             return stays})
+           return this.$store.getters.stays
           }
     },
   components: {
