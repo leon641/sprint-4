@@ -1,15 +1,13 @@
+<!-- בס"ד -->
+
 <template>
- <small> footer</small>
+  <small> footer</small>
 </template>
 <script>
 export default {
-    data(){
-        return {
-
-        }
-    },
-  computed: {
-    
-  }
-}
+  data() {
+    return {};
+  },
+  computed: {},
+};
 </script>

@@ -1,11 +1,17 @@
+<!-- בס"ד -->
+
 <template>
   <section class="reserve-moadl">
     <form @submit="reserve">
       <div class="order-form-header">
         <p><span class="cost">$150</span> night</p>
-        <p><span class="order-form-header-rateing">
+        <p>
+          <span class="order-form-header-rateing">
             <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-            4.38</span> <span class="reviews">(4 reviews)</span></p>
+            4.38</span
+          >
+          <span class="reviews">(4 reviews)</span>
+        </p>
       </div>
       <div class="order-data">
         <div class="date-picker">
@@ -47,7 +53,7 @@
     </div>
     <div class="total">
       <p class="total-txt">Total</p>
-      <p class="total-amount" >$3,022.60</p>
+      <p class="total-amount">$3,022.60</p>
     </div>
   </section>
 </template>
@@ -57,8 +63,9 @@ import ReserveBtn from "../cmps/ReserveBtn.vue";
 export default {
   data() {
     return {};
-  },methods:{
-     getSvg(type) {
+  },
+  methods: {
+    getSvg(type) {
       return svgService.getSvg(type);
     },
   },

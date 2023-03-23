@@ -43,7 +43,7 @@ export default {
   computed: {},
   methods: {
     expand() {
-      this.$emit("expand")
+      this.$emit("expand");
     },
   },
   emits: ["expand"],

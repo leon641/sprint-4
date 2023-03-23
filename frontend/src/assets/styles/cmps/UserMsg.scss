@@ -6,11 +6,12 @@
     top: 0;
     right: 0.5em;
     padding: 1em;
+
     &.alert-success {
         background-color: lightgreen;
     }
+
     &.alert-error {
         background-color: lightcoral;
     }
 }
-

@@ -7,27 +7,28 @@
         <h2>Kabak Aura Villa</h2>
         <section class="details-links">
           <div>
-
             <div class="details-links-reviews">
-            <span class="details-links-svg" v-html="getSvg('starFill')"></span>
-            <span class="d-link"> 4.73 </span> <span class="dot">•</span> 
-            <a class="d-link reviews">9 reviews</a>
-            </div> <span class="dot">•</span> 
-            
-            <span class="d-link"
-              >Maui, United States</span>
+              <span
+                class="details-links-svg"
+                v-html="getSvg('starFill')"
+              ></span>
+              <span class="d-link"> 4.73 </span> <span class="dot">•</span>
+              <a class="d-link reviews">9 reviews</a>
+            </div>
+            <span class="dot">•</span>
+
+            <span class="d-link">Maui, United States</span>
           </div>
 
           <div class="share-save-container">
-            <span class="d-link-share">
-              <span class="share-save-info-svg" v-html="getSvg('share2')"></span>
-              Share</span
-            >
-            <span class="d-link-save"
-              ><span class="share-save-info-svg" v-html="getSvg('detailsHreat')"></span
-              >Save</span
-            >
-          </div>
+              <span class="share-svg" v-html="getSvg('share2')"></span> 
+             <span class="d-link-share"> Share</span>
+           
+              <span class="share-save-info-svg" v-html="getSvg('detailsHreat')"></span>
+            <span class="d-link-save">Save</span>
+           
+             
+          </div> 
         </section>
       </div>
 
@@ -43,7 +44,7 @@
         <section class="place-content">
           <div class="subtitle">
             <div>
-              <h2> Entire villa hosted by Demet</h2>
+              <h2>Entire villa hosted by Demet</h2>
             </div>
             <div class="place-cpacity">
               <span>8 guests</span>
