@@ -3,7 +3,6 @@
 <template>
   <el-carousel :interval="5000" arrow="always" >
     <el-carousel-item v-for="item in imgs" :key="item">
-      <span class="heart-svg" v-html="getSvg('hreatCaroousel')"></span>
       <img :src="item">
     </el-carousel-item>
   </el-carousel>

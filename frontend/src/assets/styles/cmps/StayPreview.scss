@@ -1,99 +1,100 @@
 // בס"ד 
 
-.bottom {
-   margin-top: 0.75rem;
-   padding: 0;
-   min-height: auto;
-   width: 100%;
-   display: grid;
-   grid-template-columns: 4fr 1fr;
-   grid-template-rows: repeat(2, 18px) 18px;
-   grid-column-gap: 0.1875rem;
-   grid-row-gap: 0.125rem;
-   height: 88px;
-}
+.stay-preview {
+   position: relative;
 
-p.stay-name {
-   grid-column: 1/2;
-   grid-row: 1;
-   font-size: rem(15px);
-   line-height: 1.125rem;
-   text-transform: capitalize;
-   color: #222;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   display: block;
-   overflow: hidden;
-   height: fit-content;
-   padding-block-start: 2px;
-   margin-top: 0.195rem;
-   font-weight: 400;
-}
+   .stay-desc-container {
 
-p.grid-item-2 {
-   grid-column: 1/2;
-   grid-row: 1/2;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   display: block;
-   overflow: hidden;
-   height: fit-content;
-   color: #717171;
-   font-size: rem(15px);
-   font-family: Airbnb_Cereal-Book;
-   margin-top: 1.4rem;
+      .stay-desc {
+         margin-top: 0.75rem;
+         padding: 0;
+         min-height: auto;
+         width: 100%;
+         display: grid;
+         grid-template-columns: 4fr 1fr;
+         grid-template-rows: repeat(2, 18px) 18px;
+         grid-column-gap: 0.1875rem;
+         grid-row-gap: 0.125rem;
+         height: 88px;
 
-}
-
-.grid-item-3 {
-   display: flex;
-   grid-column: 2/3;
-   grid-row: 1/2;
-   flex-wrap: nowrap;
-   justify-self: end;
-   align-items: center;
-   padding-top: 11px;
-
-   .star-svg {
-      transform: translate(4px, -1px);
+         .stay-name {
+            grid-column: 1/2;
+            grid-row: 1;
+            font-size: rem(15px);
+            line-height: 1.125rem;
+            text-transform: capitalize;
+            color: $clr8;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: block;
+            overflow: hidden;
+            height: fit-content;
+            padding-block-start: 2px;
+            margin-top: 0.195rem;
+            font-weight: 400;
+         }
+         .stay-summery {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: block;
+            overflow: hidden;
+            height: fit-content;
+            color: $clr9;
+            font-size: rem(15px);
+            font-family: Airbnb_Cereal-Book;
+            margin-top: 1.4rem;
+         
+         }
+         .stay-capacity {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            line-height: 31px;
+            color: $clr9;
+            font-family: Airbnb_Cereal-Book;
+            font-size: rem(15px);
+            margin-top: 1.3rem;
+         }
+         .stay-price {
+            grid-column: 1/2;
+            grid-row: 5/6;
+            color: $clr8;
+            margin-block-start: 6px;
+            align-self: center;
+            font-size: rem(15px);
+            font-family: Airbnb_Cereal-Book;
+             span {
+               font-family: Airbnb-Cereal-Medium;
+               color: $clr8;
+               font-weight: 700;
+               font-size: rem(17px);
+             }
+   
+         }
+      }
+      .stay-rate {
+         display: flex;
+         grid-column: 2/3;
+         grid-row: 1/2;
+         flex-wrap: nowrap;
+         justify-self: end;
+         align-items: center;
+         padding-top: 11px;
+      
+         .star-svg {
+            transform: translate(4px, -1px);
+         }
+      
+         span {
+            font-size: 0.9825rem;
+            font-family: Airbnb_Cereal-Book;
+            transform: translate(6px, 0px);
+      
+         }
+      }
+    
    }
-
-   span {
-      font-size: 0.9825rem;
-      font-family: Airbnb_Cereal-Book;
-      transform: translate(6px, 0px);
-
-   }
-}
-
-
-.grid-item-4 {
-   grid-column: 1/2;
-   grid-row: 5/6;
-   color: #222;
-   margin-block-start: 6px;
-   align-self: center;
-   font-size: rem(15px);
-   font-family: Airbnb_Cereal-Book;
-
-
-}
-
-.grid-item-5 {
-   grid-column: 1/2;
-   grid-row: 2/3;
-   line-height: 31px;
-   color: #717171;
-   font-family: Airbnb_Cereal-Book;
-   font-size: rem(15px);
-   margin-top: 1.3rem;
-}
-
-p span.price {
-   font-family: Airbnb-Cereal-Medium;
-   color: #222;
-   font-weight: 700;
-   font-size: rem(17px);
 }
 
 .el-carousel__button {
