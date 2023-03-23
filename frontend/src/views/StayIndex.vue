@@ -2,6 +2,7 @@
 
 <template>
   <div class="stay-app">
+    <Carousel />
     <StayList />
     <hr />
     <form @submit.prevent="addStay()">
@@ -14,6 +15,7 @@
 
 <script>
 import StayList from "../cmps/StayList.vue";
+import Carousel from "../cmps/FilterCarousel.vue";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { stayService } from "../services/stay.service.local";
 import {
@@ -21,6 +23,9 @@ import {
   getActionUpdateStay,
   getActionAddStayMsg,
 } from "../store/stay.store";
+// import 'vue3-carousel/carousel.css'
+
+
 export default {
   components: { StayList },
   data() {
@@ -85,6 +90,7 @@ export default {
   },
   components: {
     StayList,
+    Carousel
   },
 };
 </script>
