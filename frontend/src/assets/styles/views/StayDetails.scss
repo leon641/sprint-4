@@ -1,3 +1,5 @@
+// בס"ד 
+
 .stay-details {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
@@ -32,33 +34,36 @@
         font-family: CircularAir-Light;
         line-height: em(20.0167px);
     }
-   
+
     .details-links {
         display: flex;
         justify-content: space-between;
-        .details-links-reviews{
-  display: inline-flex;
-        min-width:0;
-       align-items: center;
-       margin-block-start: em(0.5px);
-      
-        .d-link .reviews{
-            margin-inline-start: em(2px);
-        }
+
+        .details-links-reviews {
+            display: inline-flex;
+            min-width: 0;
+            align-items: center;
+            margin-block-start: em(0.5px);
+
+            .d-link .reviews {
+                margin-inline-start: em(2px);
+            }
         }
 
         .d-link {
             margin-inline-start: em(4px);
-       
+
             font-size: 14px;
             color: #222;
             text-decoration: underline;
         }
+
         .share-save-container {
             display: flex;
             justify-content: flex-end;
             gap: 5px;
-            .share-save-info-svg{
+
+            .share-save-info-svg {
                 margin-block-start: 7px;
                 margin-inline-end: 6px;
                 font-weight: 400;
@@ -159,10 +164,11 @@
         padding-bottom: 16px;
     }
 }
-.dot{
+
+.dot {
     margin-inline-start: em(4px);
     font-size: em(10px);
- }
+}
 
 
 

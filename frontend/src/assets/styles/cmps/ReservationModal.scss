@@ -1,3 +1,5 @@
+// בס"ד 
+
 .btn-container {
   position: relative;
   left: 10px;
@@ -112,12 +114,14 @@
   text-align: center;
   font-size: 14px;
 }
-.fees-decs{
+
+.fees-decs {
   margin: 0;
   text-decoration: underline;
   margin-inline-start: 13px
 }
-.amount{
+
+.amount {
   margin: 0;
   text-align: right;
   margin-inline-end: 13px;
@@ -134,10 +138,12 @@
 .total {
   display: flex;
   justify-content: space-between;
-  .total-txt{
+
+  .total-txt {
     margin-inline-start: 13px;
   }
-  .total-amount{
+
+  .total-amount {
     margin-inline-end: 13px;
   }
 }
@@ -225,6 +231,5 @@ span.reviews {
   margin-inline-end: 12px;
 
 }
-.total-amount{
 
-}
+.total-amount {}

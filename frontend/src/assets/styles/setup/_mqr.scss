@@ -1,31 +1,26 @@
+// בס"ד 
+
 .main-container {
-    @include for-mobile-layout {
-      
-    }
+    @include for-mobile-layout {}
 
-    @include for-normal-layout {
-      
-    }
+    @include for-normal-layout {}
 
-    @include for-wide-layout {
-     
-    }
+    @include for-wide-layout {}
 
-    @include for-big-layout {
-     
-    }
+    @include for-big-layout {}
 }
-    // @include for-narrow-layout {
-    //     grid-template-columns:
-    //         minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
-    // }
 
-    // @include for-normal-layout {
-    //     grid-template-columns:
-    //         minmax(20px, 1fr) minmax(auto, $narrow-breakpoint) minmax(20px, 1fr);
-    // }
+// @include for-narrow-layout {
+//     grid-template-columns:
+//         minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+// }
 
-    // @include for-wide-layout {
-    //     grid-template-columns:
-    //         minmax(20px, 1fr) minmax(auto, $normal-breakpoint) minmax(20px, 1fr);
-    // }
+// @include for-normal-layout {
+//     grid-template-columns:
+//         minmax(20px, 1fr) minmax(auto, $narrow-breakpoint) minmax(20px, 1fr);
+// }
+
+// @include for-wide-layout {
+//     grid-template-columns:
+//         minmax(20px, 1fr) minmax(auto, $normal-breakpoint) minmax(20px, 1fr);
+// }

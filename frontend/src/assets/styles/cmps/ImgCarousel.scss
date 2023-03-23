@@ -1,15 +1,14 @@
+// בס"ד 
+
 .el-carousel {
   position: relative;
-  
 }
 
 .el-carousel__button {
-  width: 4px ;
+  width: 4px;
   height: 4px;
   border-radius: 50%;
 }
-
-
 
 .heart-svg {
 
@@ -29,20 +28,21 @@
 
 
 .el-carousel__item h3 {
-    display: flex;
-    color: #475669;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
-  }
-  .card {
-    cursor: pointer;
-  }
+  display: flex;
+  color: #475669;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+
+.card {
+  cursor: pointer;
+}
