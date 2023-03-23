@@ -10,11 +10,7 @@
     min-height: 96vh;
 }
 
-.subtitle {
-    h2 {
-        font-family: CircularAir-Light
-    }
-}
+
 
 .details-subtitle {
     display: flex;
@@ -32,44 +28,60 @@
         font-family: CircularAir-Light;
         line-height: em(20.0167px);
     }
-   
+
     .details-links {
         display: flex;
         justify-content: space-between;
-        .details-links-reviews{
-  display: inline-flex;
-        min-width:0;
-       align-items: center;
-       margin-block-start: em(0.5px);
-      
-        .d-link .reviews{
-            margin-inline-start: em(2px);
-        }
+
+        .details-links {
+            display: inline-flex;
+            min-width: 0;
+            align-items: center;
+            margin-block-start: em(0.5px);
+
+            .review-rate {
+                font-size: em(14px);
+                color: #222;
+                text-decoration: none;
+            }
+
+            .d-link .reviews {
+                margin-inline-start: em(2px);
+            }
         }
 
         .d-link {
             margin-inline-start: em(4px);
-       
-            font-size: 14px;
+
+            font-size: em(14px);
             color: #222;
             text-decoration: underline;
         }
 
-        .share-save-container {
-            display: flex;      
+        .actions-container {
+            display: flex;
+            align-items: center;
             gap: 13px;
-        
-            .share-save-info-svg{
+
+            .action-link-container {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .share-save-info-svg {
                 margin-block-start: 4px;
                 margin-inline-end: 0px;
                 font-weight: 400;
             }
-            .share-svg{
-                margin-block-start: 7px;
+
+            .share-svg {
+                margin-block-start: 0px;
             }
+
             .d-link-share,
             .d-link-save {
-                display: contents;
+
                 font-size: 14px;
                 color: #222;
                 text-decoration: underline;
@@ -83,9 +95,10 @@
 
 .details-gallery {
     display: grid;
+
     grid-template-rows: repeat(2, minmax(150px, 200px));
     grid-template-columns: 2fr 1fr 1fr;
-    margin-bottom: 15px;
+    margin-bottom: 48px;
     gap: 10px;
 
     .item {
@@ -101,6 +114,15 @@
         border-bottom-left-radius: 15px;
         border-top-left-radius: 15px;
     }
+
+    .item3 {
+        border-top-right-radius: 15px;
+    }
+
+    .item5 {
+        border-bottom-right-radius: 15px;
+
+    }
 }
 
 .place-info {
@@ -111,6 +133,47 @@
 
 .place-content {
     width: 58%;
+
+    .subtitle {
+        display: grid;
+        grid-template-columns: 1fr 70px;
+        border-bottom: 1px solid #dddddd;
+
+        h2 {
+            font-family: CircularAir-Light
+        }
+    }
+
+    h2 {
+        font-size: em(22.1px)
+    }
+
+    .place-cpacity-services {
+        grid-column: 1;
+        position: relative;
+        font-family: CircularAir-Light;
+        font-size: em(14px);
+        font-weight: 400;
+        color: #222
+    }
+
+    .place-services-info {
+        display: flex;
+        align-items: center;
+
+        .num-of-beds {
+            margin-inline-start: em(5px);
+        }
+    }
+
+    .host-pic {
+        grid-column: 2;
+        position: relative;
+        bottom: 39px;
+        width: em(56px);
+        height: em(56px);
+        border-radius: 50%;
+    }
 }
 
 .user-stay-info {
@@ -121,13 +184,14 @@
     border-bottom: 1px solid #dddddd;
 
     .user-stay-info-title {
+        color: $clr7;
         margin-top: 0px;
         margin-bottom: 0px;
     }
 
     .user-stay-info-svg {
         width: 1.3rem;
-        margin-top: 3px;
+        margin-top: 9px;
     }
 
     .subtext {
@@ -139,14 +203,29 @@
 }
 
 .air-cover {
+    padding-top: em(32px);
+    padding-bottom: em(32px);
+    border-bottom: 1px solid #dddddd;
+
+    h3 {
+        font-size: em(32px);
+    }
+
     span {
         color: $clr1
     }
 }
 
+.stay-decription {
+    padding-top: em(32px);
+    padding-bottom: em(32px);
+    border-bottom: 1px solid #dddddd;
+}
+
 .amenities-container {
     padding-bottom: 0;
     border-bottom: 0;
+    padding-top: 32px;
 
     .stay-amenities {
         display: grid;
@@ -161,12 +240,130 @@
         display: flex;
         align-items: center;
         padding-bottom: 16px;
+        gap: em(10px);
+        font-family: CircularAir-Light;
+
+        p {
+            margin: 0;
+        }
     }
 }
-.dot{
-    margin-inline-start: em(4px);
-    font-size: em(10px);
- }
+
+.details-reviews {
+    margin-top: 32px;
+    border-top: 1px solid #dddddd;
+    padding-block: 48px;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    margin-bottom: 40px;
+
+    .review-preview {
+        display: flex;
+        flex-direction: column;
+        margin-right: 130px;
+        padding-bottom: 16px;
+    }
+}
+
+.details-rating {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rating-bar {
+        border-radius: 30em;
+        height: min-content;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        font-size: .75em;
+
+        progress::-moz-progress-bar {
+            background: $clr7;
+        }
+
+        progress::-webkit-progress-value {
+            background: $clr7;
+        }
+
+        progress {
+            color: $clr7;
+        }
+    }
+
+    progress {
+        font-size: 1em;
+        height: 4px;
+        border-radius: 40px;
+        margin-inline-end: 6px;
+    }
+}
+
+.total-review {
+    .review-score {
+        font-size: 1.375em;
+    }
+
+    .num-of-reviews {
+        margin-inline-start: 15px;
+    }
+}
+
+.reviews-container {
+    .review-preview {
+        margin-right: 130px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 16px;
+    }
+
+    .user-details {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+
+        p {
+            margin: 0;
+            font-size: 1em;
+            padding-inline-start: 12px;
+            font-weight: 600;
+            margin-bottom: .3em;
+            line-height: normal;
+        }
+
+        span {
+            font-size: .875em;
+            padding-inline-start: 12px;
+            color: #717171;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            grid-row: 1/-1;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+.dot {
+    margin-inline-start: em(15px);
+    font-size: em(5px);
+    font-family: CircularAir-Light
+}
 
 
 
