@@ -2,8 +2,9 @@
   <section class="reserve-moadl">
     <form @submit="reserve">
       <div class="order-form-header">
-        <p><span class="cost">$150</span> / night</p>
-        <p>4.38 <span class="reviews">(4 reviews)</span></p>
+        <p><span class="cost">$150</span> night</p>
+        <p><span class="order-form-header-rateing"><span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
+            4.38</span> <span class="reviews">(4 reviews)</span></p>
       </div>
       <div class="order-data">
         <div class="date-picker">
@@ -35,25 +36,30 @@
       <ReserveBtn />
     </form>
     <p class="details-disclamer">You won't be charged yet</p>
-  <div class="prices">
-    <p class="under-line">$555 X 4 nights</p>
-    <p class="text-align-right">2,380</p>
-    <p class="under-line" >Cleaning fee </p>
-    <p class="text-align-right">$238</p>
-    <p class="under-line">Sercives fee </p>
-    <p class="text-align-right">$400.6</p>
-  </div>
-  <div class="total">
-        <p>Total </p>
-    <p>$3,022.60</p>
-  </div>
+    <div class="prices">
+      <p class="fees-decs">$555 X 4 nights</p>
+      <p class="amount">2,380</p>
+      <p class="fees-decs">Cleaning fee</p>
+      <p class="amount">$238</p>
+      <p class="fees-decs">Sercives fee</p>
+      <p class="amount">$400.6</p>
+    </div>
+    <div class="total">
+      <p>Total</p>
+      <p class="total-amount" >$3,022.60</p>
+    </div>
   </section>
 </template>
 <script>
+import { svgService } from "../services/svg.service.js";
 import ReserveBtn from "../cmps/ReserveBtn.vue";
 export default {
   data() {
     return {};
+  },methods:{
+     getSvg(type) {
+      return svgService.getSvg(type);
+    },
   },
   components: {
     ReserveBtn,
