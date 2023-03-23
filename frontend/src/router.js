@@ -17,7 +17,7 @@ const routes = [
     component: StayIndex
   },
   {
-    path: '/details',
+    path: '/details/:stayId?',
     name: 'StayDetails',
     component: StayDetails
   },

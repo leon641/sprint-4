@@ -3,7 +3,7 @@
 <template>
   <div v-if="stay" class="stay-preview">
     <section>
-      <div class="card" @click="cardClicked">
+      <div class="card" @click="cardClicked(stay._id)">
         <ImgCarousel :imgs= "stay.imgUrls" />
               <span class="heart-svg" v-html="getSvg('hreatCaroousel')"></span>
 
@@ -71,8 +71,8 @@ export default {
 
   created() {},
   methods: {
-    cardClicked() {
-      this.$router.push("/details");
+    cardClicked(stayId) {
+      this.$router.push(`/details/${stayId}`);
     },
      getSvg(iconName) {
       return svgService.getSvg(iconName);
