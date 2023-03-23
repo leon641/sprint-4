@@ -19,11 +19,11 @@
       <img :src="loggedInUser.imgUrl" />
     </section> -->
     <div class="main-header">
-      <div class="logo">
+      <div class="logo" @click="toHome">
         <img src="../assets/img/logo.png" alt="logo" />
         appbnb
       </div>
-      <Filter />
+      <Filter @expand="expand" />
       <div class="user-area">
         <div>
           <a>Airbnb your home</a>
@@ -50,17 +50,35 @@
         </div>
       </div>
     </div>
+    <div v-if="isExpanded" class="secondary-header">
+      <div>
+        <div class="big-pill"></div>
+      </div>
+      <div class="screen"></div>
+    </div>
   </header>
 </template>
 <script>
 import Filter from "./Filter.vue";
 export default {
+  data() {
+    return {
+      isExpanded: false,
+    };
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
   },
-  methods: {},
+  methods: {
+    toHome() {
+      this.$router.push("/");
+    },
+    expand() {
+      this.isExpanded = !this.isExpanded;
+    },
+  },
   components: {
     Filter,
   },
