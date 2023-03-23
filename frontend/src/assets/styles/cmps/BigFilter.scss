@@ -1,0 +1,45 @@
+// בס"ד
+
+.big-pill {
+    display: flex;
+    width: 850px;
+    height: 66px;
+    background-color: #ebebeb;
+    border-radius: 40px;
+    border: 0.8px solid rgb(211, 211, 211);
+    z-index: 2;
+
+    & div:first-child,
+    .in,
+    .out {
+        display: inline-block;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    input {
+        background-color: #ededed;
+        width: rem(226.09px);
+    }
+
+    svg {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        stroke: #fff;
+        stroke-width: 4;
+        overflow: visible;
+    }
+
+    .search button {
+        color: #fff;
+        height: rem(48px);
+        width: rem(111.75px);
+        border-radius: 25px;
+        font-size: rem(16px);
+        font-weight: 400;
+        // font-family: Circuk;
+    }
+}
