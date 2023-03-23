@@ -4,11 +4,13 @@
   <div v-if="stay" class="stay-preview">
     <section>
       <div class="card" @click="cardClicked">
-        <ImgCarousel :imgs="stay.imgUrls" />
-        <div class="stay-desc">
-          <div class="bottom">
-            <p class="stay-name grid-item-1">{{ stay.name }}</p>
-            <div class="grid-item-3 flex row">
+        <ImgCarousel :imgs= "stay.imgUrls" />
+              <span class="heart-svg" v-html="getSvg('hreatCaroousel')"></span>
+
+        <div class="stay-desc-container">
+          <div class="stay-desc">
+            <p class="stay-name">{{ stay.name }}</p>
+            <div class="stay-rate">
               <svg
                 class="star-svg"
                 viewBox="0 0 32 32"
@@ -30,12 +32,12 @@
               </svg>
               <span>&nbsp;4.88&nbsp;</span>
             </div>
-            <p class="grid-item-2">
+            <p class="stay-summery">
               {{ stay.labels[0] }}
             </p>
-            <p class="grid-item-5">5&nbsp;beds</p>
-            <p class="grid-item-4">
-              <span class="price">${{ stay.price }}</span>
+            <p class="stay-capacity">5&nbsp;beds</p>
+            <p class="stay-price">
+              <span>${{ stay.price }}</span>
               night
             </p>
           </div>
@@ -47,6 +49,8 @@
 
 <script>
 import ImgCarousel from "./ImgCarousel.vue";
+import { svgService } from "../services/svg.service.js";
+
 
 export default {
   props: {
@@ -70,6 +74,9 @@ export default {
     cardClicked() {
       this.$router.push("/details");
     },
+     getSvg(iconName) {
+      return svgService.getSvg(iconName);
+    },
   },
   computed: {
     formattedPrice() {
@@ -89,3 +96,4 @@ export default {
   },
 };
 </script>
+
