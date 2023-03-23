@@ -312,6 +312,8 @@
 }
 
 .total-review {
+    margin-bottom: 32px;
+
     .review-score {
         font-size: 1.375em;
     }
@@ -323,10 +325,26 @@
 
 .reviews-container {
     .review-preview {
-        margin-right: 130px;
+        margin-right: em(130px);
         display: flex;
         flex-direction: column;
         padding-bottom: 16px;
+        margin-inline-end: 132px;
+
+        .review-text {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            line-height: em(24px);
+            color: $clr7;
+            font-family: CircularAir-Light
+        }
+
+        .show-more-btn {
+            display: flex;
+            align-items: baseline;
+            margin-top: 10px;
+        }
     }
 
     .user-details {
@@ -350,12 +368,14 @@
         }
 
         img {
-            width: 40px;
-            height: 40px;
+            width: em(40px);
+            height: em(40px);
             grid-row: 1/-1;
             border-radius: 50%;
             object-fit: cover;
         }
+
+
     }
 }
 
