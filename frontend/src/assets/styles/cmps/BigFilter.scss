@@ -10,6 +10,7 @@
     border-radius: 40px;
     border: 0.8px solid rgb(211, 211, 211);
     z-index: 2;
+    cursor: pointer;
 
     & div:first-child,
     .in,
@@ -57,11 +58,52 @@
         font-family: CircularAir-Light;
     }
 
-    .where {
-        transform: translate(32px, 5px);
+    .where-container {
+        width: 327.688px;
+        padding-inline-start: 35px;
+        height: 65.6px;
+        border-radius: 40px;
 
-        input {
-            transform: translate(0px, -6px);
+        .where {
+            transform: translate(9px, 14px);
         }
+
+        &.focus {
+            background-color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 2);
+
+            input {
+                background-color: #fff;
+            }
+        }
+
+    }
+
+    .search-container {
+        width: 262.55px;
+        height: 66.4px;
+        border-radius: 40px;
+
+        &:hover {
+            background-color: blue;
+        }
+
+        .search-content {
+            transform: translate(66px, 4px);
+        }
+
+        .who {
+            transform: translate(-44px, 13px);
+
+            :first-child {
+                transform: translate(0px, 2px);
+            }
+        }
+    }
+
+    .in,
+    .out {
+        padding-block: 14px;
+        padding-inline: 24px;
     }
 }
