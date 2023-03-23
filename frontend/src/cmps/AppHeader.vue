@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <header class="full stay-app">
+  <header :class="border" class="full stay-app">
     <!-- <nav>
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
@@ -50,20 +50,21 @@
         </div>
       </div>
     </div>
-    <div v-if="isExpanded" class="secondary-header">
-      <div>
-        <div class="big-pill"></div>
-      </div>
-      <div class="screen"></div>
-    </div>
   </header>
+  <div v-if="isExpanded" class="secondary-header">
+    <BigFilter />
+    <div class="screen" @click="expand"></div>
+  </div>
 </template>
 <script>
 import Filter from "./Filter.vue";
+import BigFilter from "./BigFilter.vue";
+
 export default {
   data() {
     return {
       isExpanded: false,
+      border: "",
     };
   },
   computed: {
@@ -77,10 +78,12 @@ export default {
     },
     expand() {
       this.isExpanded = !this.isExpanded;
+      this.border = this.isExpanded ? "no-border" : "";
     },
   },
   components: {
     Filter,
+    BigFilter,
   },
 };
 </script>

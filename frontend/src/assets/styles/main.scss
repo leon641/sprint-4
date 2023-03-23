@@ -1,5 +1,5 @@
 // בס"ד
-//hi
+
 // Setup
 @import "setup/variables";
 @import "setup/functions";
@@ -19,13 +19,11 @@
 @import "cmps/UserMsg";
 @import "cmps/ReviewList";
 @import "cmps/StayList";
-@import "cmps/filter.scss";
+@import "cmps/Filter.scss";
+@import "cmps/BigFilter.scss";
 @import "cmps/ReservationModal.scss";
 @import "cmps/ImgCarousel.scss";
 @import "cmps/StayPreview.scss";
 
 //  views
 @import "views/StayDetails";
-
-
-
