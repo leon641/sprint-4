@@ -3,7 +3,7 @@
 <template>
   <div class="filter" @click="expand">
     <section class="filter-btns">
-      <button>
+      <button @click="toWhere">
         <div>Anywhere</div>
       </button>
       <div class="separator"></div>
@@ -43,9 +43,12 @@ export default {
   computed: {},
   methods: {
     expand() {
-      this.$emit("expand")
+      this.$emit("expand");
+    },
+    toWhere() {
+      this.$emit("toWhere");
     },
   },
-  emits: ["expand"],
+  emits: ["expand, toWhere"],
 };
 </script>

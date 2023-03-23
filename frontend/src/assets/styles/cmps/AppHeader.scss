@@ -1,10 +1,10 @@
 // בס"ד
 
-header {
+.header-container {
     border-block-end: 1px solid #ccc;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     height: 80px;
 
     .loggedin-user {
@@ -48,7 +48,7 @@ header {
 .main-header {
     display: flex;
     justify-content: space-between;
-    grid-column: 2;
+    // grid-column: 2;
 }
 
 .logo {
@@ -125,7 +125,7 @@ header {
     height: 80px;
     width: 100vw;
     position: absolute;
-    top: 80px;
+    top: 79px;
     z-index: 1;
 
     .screen {

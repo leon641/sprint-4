@@ -1,48 +1,24 @@
+// בס"ד 
+
 .el-carousel {
   position: relative;
-  
 }
-
-.el-carousel__button {
-  width: 4px ;
-  height: 4px;
-  border-radius: 50%;
-}
-
-
 
 .heart-svg {
 
   svg {
-
     position: absolute;
     top: 15px;
     right: 15px;
     z-index: 1;
-    fill: rgba(0, 0, 0, 0.5);
+    fill: $clr7;
     height: 24px;
     width: 24px;
-    stroke: rgb(255, 255, 255);
+    stroke: $clr6;
     stroke-width: 2;
   }
 }
 
-
-.el-carousel__item h3 {
-    display: flex;
-    color: #475669;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n + 1) {
-    background-color: #d3dce6;
-  }
-  .card {
-    cursor: pointer;
-  }
+.card {
+  cursor: pointer;
+}

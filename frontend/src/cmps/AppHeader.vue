@@ -1,29 +1,13 @@
 <!-- בס"ד -->
 
 <template>
-  <header :class="border" class="full stay-app">
-    <!-- <nav>
-      <RouterLink to="/">
-        <span role="img" aria-label="logo">🙏</span>
-      </RouterLink>
-      <RouterLink to="/stay">Stays</RouterLink>
-      <RouterLink to="/review">Reviews</RouterLink>
-      <RouterLink to="/chat">Chat</RouterLink>
-      <RouterLink to="/login">Login / Signup</RouterLink>
-    </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
-      <RouterLink :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
-      </RouterLink>
-      <span>{{ loggedInUser.score.toLocaleString() }}</span>
-      <img :src="loggedInUser.imgUrl" />
-    </section> -->
+  <div class="header-container full stay-app">
     <div class="main-header">
       <div class="logo" @click="toHome">
         <img src="../assets/img/logo.png" alt="logo" />
         appbnb
       </div>
-      <Filter @expand="expand" />
+      <Filter @expand="expand" @toWhere="toWhere" />
       <div class="user-area">
         <div>
           <a>Airbnb your home</a>
@@ -50,10 +34,10 @@
         </div>
       </div>
     </div>
-  </header>
+  </div>
   <div v-if="isExpanded" class="secondary-header">
-    <BigFilter />
-    <div class="screen" @click="expand"></div>
+    <BigFilter :propWhere="propWhere" />
+    <div class="screen" @click="closeFilter"></div>
   </div>
 </template>
 <script>
@@ -64,7 +48,7 @@ export default {
   data() {
     return {
       isExpanded: false,
-      border: "",
+      propWhere: "",
     };
   },
   computed: {
@@ -78,7 +62,13 @@ export default {
     },
     expand() {
       this.isExpanded = !this.isExpanded;
-      this.border = this.isExpanded ? "no-border" : "";
+    },
+    toWhere() {
+      this.propWhere = "focus";
+    },
+    closeFilter() {
+      this.expand();
+      this.propWhere = "";
     },
   },
   components: {
