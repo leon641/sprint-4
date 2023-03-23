@@ -3,8 +3,9 @@
 .stay-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(321.2px, 323px));
+    grid-template-columns: repeat(auto-fit, minmax(321.2px, 321px));
     gap: 23px;
+    row-gap: 45px;
     li {
         // background-color: $clr2;
         color: $clr6;
@@ -18,7 +19,7 @@
     }
 
     img {
-        height: 280px;
+        height: 300px;
         width: -webkit-fill-available;
         border-radius: 9px;
     }
