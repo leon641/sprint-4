@@ -134,6 +134,12 @@
 .total {
   display: flex;
   justify-content: space-between;
+  .total-txt{
+    margin-inline-start: 13px;
+  }
+  .total-amount{
+    margin-inline-end: 13px;
+  }
 }
 
 .order-data {
@@ -220,5 +226,5 @@ span.reviews {
 
 }
 .total-amount{
-  
+
 }
