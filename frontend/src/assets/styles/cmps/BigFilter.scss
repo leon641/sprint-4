@@ -2,6 +2,8 @@
 
 .big-pill {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 850px;
     height: 66px;
     background-color: #ebebeb;
@@ -13,6 +15,18 @@
     .in,
     .out {
         display: inline-block;
+
+        :first-child {
+            font-size: rem(12px);
+            font-weight: 800;
+            color: rgb(34, 34, 34);
+        }
+
+        :last-child {
+            font-size: rem(14px);
+            font-weight: 50;
+            color: rgb(113, 113, 113);
+        }
     }
 
     p {
@@ -39,7 +53,15 @@
         width: rem(111.75px);
         border-radius: 25px;
         font-size: rem(16px);
-        font-weight: 400;
-        // font-family: Circuk;
+        font-weight: 600;
+        font-family: CircularAir-Light;
+    }
+
+    .where {
+        transform: translate(32px, 5px);
+
+        input {
+            transform: translate(0px, -6px);
+        }
     }
 }
