@@ -68,16 +68,21 @@
                 margin-inline-end: 6px;
                 font-weight: 400;
             }
+
+            .share-svg {
+                margin-block-start: 7px;
+            }
+
+            .d-link-share,
+            .d-link-save {
+                display: contents;
+                font-size: 14px;
+                color: #222;
+                text-decoration: underline;
+            }
         }
 
 
-        .d-link-share,
-        .d-link-save {
-            display: contents;
-            font-size: 14px;
-            color: #222;
-            text-decoration: underline;
-        }
     }
 }
 

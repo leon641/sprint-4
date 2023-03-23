@@ -21,21 +21,14 @@
           </div>
 
           <div class="share-save-container">
-            <span class="d-link-share">
-              <span
-                class="share-save-info-svg"
-                v-html="getSvg('share2')"
-              ></span>
-              Share</span
-            >
-            <span class="d-link-save"
-              ><span
-                class="share-save-info-svg"
-                v-html="getSvg('detailsHreat')"
-              ></span
-              >Save</span
-            >
-          </div>
+              <span class="share-svg" v-html="getSvg('share2')"></span> 
+             <span class="d-link-share"> Share</span>
+           
+              <span class="share-save-info-svg" v-html="getSvg('detailsHreat')"></span>
+            <span class="d-link-save">Save</span>
+           
+             
+          </div> 
         </section>
       </div>
 
