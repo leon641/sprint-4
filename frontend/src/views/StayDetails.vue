@@ -4,7 +4,7 @@
   <section class="stay-details">
     <section class="stay-details-container">
       <div class="details-subtitle">
-        <h2>Kabak Aura Villa</h2>
+        <h2>{{stay.name}}</h2>
         <section class="details-links">
           <div>
             <div class="details-links">
@@ -268,9 +268,6 @@ We will be back!</p>
 </div>
             </div>
             </main>
-          
-
-  
       </section>
     </section>
   </section>
@@ -282,13 +279,25 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      stay:{}
+    };
+  }, created(){
+     (async()=>{const {stayId}=this.$route.params
+        const stay= await this.$store.dispatch({type:'getStayById',stayId:stayId})
+         this.stay=stay})() 
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-  },
+  },computed:{
+ 
+
+   // this.name=stay
+   
+    },
+  
   components: {
     RaservationModal,
   },

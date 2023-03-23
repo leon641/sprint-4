@@ -15,6 +15,7 @@ export function getActionAddStay(stay) {
         stay
     }
 }
+
 export function getActionUpdateStay(stay) {
     return {
         type: 'updateStay',
@@ -35,6 +36,7 @@ export const stayStore = {
     },
     getters: {
         stays({stays}) { return stays },
+       
     },
     mutations: {
         setStays(state, { stays }) {
@@ -57,6 +59,11 @@ export const stayStore = {
         },
     },
     actions: {
+        async getStayById(context,{stayId}){
+           const stay = await stayService.getById(stayId)
+           return stay
+
+        },
         async addStay(context, { stay }) {
             try {
                 stay = await stayService.save(stay)
@@ -80,6 +87,8 @@ export const stayStore = {
         async loadStays(context) {
             try {
                 const stays = await stayService.query()
+                console.log(stays);
+                
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
                 console.log('stayStore: Error in loadStays', err)
