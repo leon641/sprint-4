@@ -35,25 +35,18 @@
         display: flex;
         justify-content: space-between;
 
-<<<<<<< HEAD
         .details-links {
-=======
-        .details-links-reviews {
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
             display: inline-flex;
             min-width: 0;
             align-items: center;
             margin-block-start: em(0.5px);
 
-<<<<<<< HEAD
             .review-rate {
                 font-size: em(14px);
                 color: #222;
                 text-decoration: none;
             }
 
-=======
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
             .d-link .reviews {
                 margin-inline-start: em(2px);
             }
@@ -62,16 +55,11 @@
         .d-link {
             margin-inline-start: em(4px);
 
-<<<<<<< HEAD
             font-size: em(14px);
-=======
-            font-size: 14px;
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
             color: #222;
             text-decoration: underline;
         }
 
-<<<<<<< HEAD
         .actions-container {
             display: flex;
             align-items: center;
@@ -86,25 +74,11 @@
             .share-save-info-svg {
                 margin-block-start: 4px;
                 margin-inline-end: 0px;
-=======
-        .share-save-container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 5px;
-
-            .share-save-info-svg {
-                margin-block-start: 7px;
-                margin-inline-end: 6px;
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
                 font-weight: 400;
             }
 
             .share-svg {
-<<<<<<< HEAD
                 margin-block-start: 0px;
-=======
-                margin-block-start: 7px;
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
             }
 
             .d-link-share,
@@ -277,126 +251,9 @@
     }
 }
 
-<<<<<<< HEAD
-.details-reviews {
-    margin-top: 32px;
-    border-top: 1px solid #dddddd;
-    padding-block: 48px;
-}
-
-.reviews-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 40px;
-    margin-bottom: 40px;
-
-    .review-preview {
-        display: flex;
-        flex-direction: column;
-        margin-right: 130px;
-        padding-bottom: 16px;
-    }
-}
-
-.details-rating {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 30px;
-    align-items: center;
-
-    p {
-        margin: 0;
-        padding: 0;
-    }
-
-    .rating-bar {
-        border-radius: 30em;
-        height: min-content;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        font-size: .75em;
-
-        progress::-moz-progress-bar {
-            background: $clr7;
-        }
-
-        progress::-webkit-progress-value {
-            background: $clr7;
-        }
-
-        progress {
-            color: $clr7;
-        }
-    }
-
-    progress {
-        font-size: 1em;
-        height: 4px;
-        border-radius: 40px;
-        margin-inline-end: 6px;
-    }
-}
-
-.total-review {
-    .review-score {
-        font-size: 1.375em;
-    }
-
-    .num-of-reviews {
-        margin-inline-start: 15px;
-    }
-}
-
-.reviews-container {
-    .review-preview {
-        margin-right: 130px;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 16px;
-    }
-
-    .user-details {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto 1fr;
-
-        p {
-            margin: 0;
-            font-size: 1em;
-            padding-inline-start: 12px;
-            font-weight: 600;
-            margin-bottom: .3em;
-            line-height: normal;
-        }
-
-        span {
-            font-size: .875em;
-            padding-inline-start: 12px;
-            color: #717171;
-        }
-
-        img {
-            width: 40px;
-            height: 40px;
-            grid-row: 1/-1;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    }
-}
-
-.dot {
-    margin-inline-start: em(15px);
-    font-size: em(5px);
-    font-family: CircularAir-Light
-=======
 .dot {
     margin-inline-start: em(4px);
     font-size: em(10px);
->>>>>>> 3ef7168f2db30046afee9f801147dceaea7a26cb
 }
 
 
