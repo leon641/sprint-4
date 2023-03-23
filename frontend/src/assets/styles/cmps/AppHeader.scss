@@ -5,6 +5,7 @@ header {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    height: 80px;
 
     .loggedin-user {
         background-color: $clr1;
@@ -54,6 +55,7 @@ header {
     cursor: pointer;
     color: #ff385c;
     font-weight: 400;
+    // font-family: ;
 
     img {
         height: 32px;
@@ -76,7 +78,8 @@ header {
         // transition: color 2500ms ease;
 
         &:hover {
-            background-color: #eee;
+            background-color: #f7f7f7;
+            height: 42px;
         }
     }
 
@@ -113,4 +116,26 @@ header {
             box-shadow: 0 2px 5px #ddd;
         }
     }
+}
+
+.secondary-header {
+    display: flex;
+    justify-content: center;
+
+    :first-child {
+        height: 80px;
+
+        .big-pill {
+            width: 850px;
+            height: 66px;
+            background-color: #ebebeb;
+            border-radius: 40px;
+        }
+    }
+
+    .screen{
+
+    }
+    
+
 }
