@@ -47,16 +47,22 @@
  }
 
  .grid-item-3 {
+   display: flex;
     grid-column: 2/3;
     grid-row: 1/2;
     flex-wrap: nowrap;
     justify-self: end;
     align-items: center;
     padding-top: 11px;
-    p {
-        font-size: 14px;
-        margin: 0;
+
+    .star-svg {
+      transform: translate(4px,-1px);
+    }
+    
+    span {
+       font-size: 0.9825rem;
         font-family: Airbnb_Cereal-Book;
+        transform: translate(6px, 0px);
         
      }
  }
@@ -69,6 +75,7 @@
     margin-block-start: 6px;
     align-self: center;
     font-size: rem(15px);
+    font-family: Airbnb_Cereal-Book;
   
     
 }

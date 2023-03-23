@@ -119,12 +119,14 @@ header {
 }
 
 .secondary-header {
+    background-color: #fff;
     display: flex;
     justify-content: center;
     height: 80px;
+    width: 100vw;
     position: absolute;
     top: 80px;
-    left: 335px;
+    z-index: 1;
 
     .screen {
         background-color: rgba(40, 40, 40, 0.25);
