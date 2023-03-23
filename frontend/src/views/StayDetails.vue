@@ -4,23 +4,28 @@
   <section class="stay-details">
     <section class="stay-details-container">
       <div class="details-subtitle">
-        <h2>name of place</h2>
+        <h2>Kabak Aura Villa</h2>
         <section class="details-links">
           <div>
-            <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-            <span class="d-link">4.7 </span>
-            <a class="d-link">9 reviews</a>.<span class="d-link"
-              >Maui, United States</span
-            >
+
+            <div class="details-links-reviews">
+            <span class="details-links-svg" v-html="getSvg('starFill')"></span>
+            <span class="d-link"> 4.73 </span> <span class="dot">•</span> 
+            <a class="d-link reviews">9 reviews</a>
+            </div> <span class="dot">•</span> 
+            
+            <span class="d-link"
+              >Maui, United States</span>
           </div>
+
           <div class="share-save-container">
             <span class="d-link-share">
-              <span class="user-stay-info-svg" v-html="getSvg('share')"></span>
-              share</span
+              <span class="share-save-info-svg" v-html="getSvg('share2')"></span>
+              Share</span
             >
             <span class="d-link-save"
-              ><span class="user-stay-info-svg" v-html="getSvg('hreat')"></span
-              >save</span
+              ><span class="share-save-info-svg" v-html="getSvg('detailsHreat')"></span
+              >Save</span
             >
           </div>
         </section>
@@ -38,12 +43,11 @@
         <section class="place-content">
           <div class="subtitle">
             <div>
-              <span>entire place</span>
-              <h2>hosted by 'name of the host'</h2>
+              <h2> Entire villa hosted by Demet</h2>
             </div>
             <div class="place-cpacity">
               <span>8 guests</span>
-              <span>.</span>
+              <span>•</span>
               <span>2 bedrooms</span>
             </div>
             <img class="host-img" src="" />
