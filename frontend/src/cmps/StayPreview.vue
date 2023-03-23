@@ -1,7 +1,6 @@
 <!--בס"ד-->
 
 <template>
-    <!-- <router-link :to="'stay/' + stay._id"/> -->
         <div v-if="stay" class="stay-preview">
             <section >
                 <div class="card" @click="cardClicked">
@@ -26,7 +25,6 @@
                    
 
                 </div>
-                <!-- <p class="price"><span class="price-label">{{ formattedPrice }}</span> night</p> -->
                
             </section>
         </div>
