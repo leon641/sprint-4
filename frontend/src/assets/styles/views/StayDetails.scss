@@ -54,25 +54,29 @@
             color: #222;
             text-decoration: underline;
         }
+
         .share-save-container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 5px;
+            display: flex;      
+            gap: 13px;
+        
             .share-save-info-svg{
-                margin-block-start: 7px;
-                margin-inline-end: 6px;
+                margin-block-start: 4px;
+                margin-inline-end: 0px;
                 font-weight: 400;
+            }
+            .share-svg{
+                margin-block-start: 7px;
+            }
+            .d-link-share,
+            .d-link-save {
+                display: contents;
+                font-size: 14px;
+                color: #222;
+                text-decoration: underline;
             }
         }
 
 
-        .d-link-share,
-        .d-link-save {
-            display: contents;
-            font-size: 14px;
-            color: #222;
-            text-decoration: underline;
-        }
     }
 }
 
