@@ -7,11 +7,11 @@
         <div>Anywhere</div>
       </button>
       <div class="separator"></div>
-      <button>
+      <button @click="toCheck">
         <div>Any week</div>
       </button>
       <div class="separator"></div>
-      <button>
+      <button @click="toWho">
         <div>
           Add guests
           <div className="icon">
@@ -48,7 +48,13 @@ export default {
     toWhere() {
       this.$emit("toWhere");
     },
+    toCheck() {
+      this.$emit("toCheck");
+    },
+    toWho() {
+      this.$emit("toWho");
+    },
   },
-  emits: ["expand, toWhere"],
+  emits: ["expand", "toWhere", "toCheck", "toWho"],
 };
 </script>

@@ -8,7 +8,7 @@
         <input type="text" placeholder="Search destinations" />
       </div>
     </div>
-    <div class="check">
+    <div class="check" :class="propCheck">
       <div class="in">
         <div>Check in</div>
         <div>Add dates</div>
@@ -18,7 +18,7 @@
         <div>Add dates</div>
       </div>
     </div>
-    <div class="search-container">
+    <div class="search-container" :class="propWho">
       <div class="search-content">
         <div class="who">
           <div>Who</div>
@@ -53,11 +53,17 @@
 export default {
   props: {
     propWhere: String,
+    propCheck: String,
+    propWho: String,
   },
   data() {
     return {};
   },
-  created() {},
+  created() {
+    // console.log("propWhere", this.propWhere);
+    console.log("propCheck", this.propCheck);
+    // console.log("propWho", propWho);
+  },
   computed: {},
   methods: {},
 };
