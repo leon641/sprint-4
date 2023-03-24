@@ -19,8 +19,9 @@
             height: 410px;
             border-right: 1px solid #ebebeb;
 
-            h5{
-                padding-inline-start: 32px; ;
+            h5 {
+                padding-inline-start: 32px;
+                ;
             }
         }
 
@@ -60,7 +61,7 @@
 .check-modal {
     position: absolute;
     top: 159px;
-    left: 343px;
+    left: 214px;
     z-index: 101;
     height: 552px;
     width: 850px;
@@ -77,4 +78,37 @@
     width: 407px;
     border-radius: 29px;
     background-color: #fff;
+    padding-block: 40px;
+    padding-inline-start: 36px;
+    padding-inline-end: 44px;
+
+    p {
+        margin: 0;
+    }
+
+    &>.flex {
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 24px;
+
+        &:first-child {
+            padding-block-start: 0px;
+        }
+
+        .flex {
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+    }
+
+    &>*:not(:last-child) {
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    button {
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+    }
 }
