@@ -28,7 +28,6 @@ export default defineComponent({
     Navigation,
   },
   created() {
-    console.log(this.labels);
   },
   data: () => ({
     // carousel settings
