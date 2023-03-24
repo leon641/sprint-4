@@ -38,11 +38,14 @@
   <div v-if="isExpanded" class="secondary-header">
     <BigFilter :propWhere="propWhere" />
     <div class="screen" @click="closeFilter"></div>
+    <FilterModal :propWhere="propWhere" />
   </div>
 </template>
+
 <script>
 import Filter from "./Filter.vue";
 import BigFilter from "./BigFilter.vue";
+import FilterModal from "./FilterModal.vue";
 
 export default {
   data() {
@@ -74,6 +77,7 @@ export default {
   components: {
     Filter,
     BigFilter,
+    FilterModal,
   },
 };
 </script>

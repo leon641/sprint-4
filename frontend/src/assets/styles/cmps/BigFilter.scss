@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 850px;
-    height: 66px;
+    width: 852px;
+    height: 68px;
     background-color: #ebebeb;
     border-radius: 40px;
     border: 0.8px solid rgb(211, 211, 211);
@@ -46,16 +46,7 @@
         stroke: #fff;
         stroke-width: 4;
         overflow: visible;
-    }
-
-    .search button {
-        color: #fff;
-        height: rem(48px);
-        width: rem(111.75px);
-        border-radius: 25px;
-        font-size: rem(16px);
-        font-weight: 600;
-        font-family: CircularAir-Light;
+        transform: translate(-2px, 0px);
     }
 
     .where-container {
@@ -66,6 +57,14 @@
 
         .where {
             transform: translate(9px, 14px);
+
+            p {
+                transform: translate(-10px, -1px);
+            }
+
+            input {
+                transform: translate(-11px, -4px);
+            }
         }
 
         &.focus {
@@ -89,14 +88,39 @@
         }
 
         .search-content {
-            transform: translate(66px, 4px);
+            transform: translate(67px, 4px);
+
+            div {
+                transform: translate(-9px, 2px);
+
+                .search-txt {
+                    display: inline-block;
+                    color: #fff;
+                    transform: translate(6px, -4px);
+                }
+            }
+
+            .search-btn {
+                color: #fff;
+                height: rem(48px);
+                width: rem(111.75px);
+                border-radius: 25px;
+                font-size: rem(16px);
+                font-weight: 600;
+                font-family: CircularAir-Light;
+                // font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
         }
 
         .who {
-            transform: translate(-44px, 13px);
+            transform: translate(-41px, 7px);
 
             :first-child {
-                transform: translate(0px, 2px);
+                transform: translate(-32px, 7px);
+            }
+
+            :last-child {
+                transform: translate(-33px, 5px);
             }
         }
     }
@@ -111,6 +135,29 @@
 
         &:hover {
             background-color: #ddd;
+        }
+    }
+
+
+    .in {
+
+        :first-child {
+            transform: translate(-12px, -1px);
+        }
+
+        :last-child {
+            transform: translate(-14px, -6px);
+        }
+    }
+
+    .out {
+
+        :first-child {
+            transform: translate(3px, -1px);
+        }
+
+        :last-child {
+            transform: translate(0px, -6px);
         }
     }
 

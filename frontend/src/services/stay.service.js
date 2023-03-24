@@ -4,6 +4,7 @@
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { storageService } from './async-storage.service.js'
 
 
 const STORAGE_KEY = 'stay'
@@ -34,25 +35,25 @@ async function query(filterBy = { txt: '', price: 0 }) {
 
 }
 function getById(stayId) {
-    // return storageService.get(STORAGE_KEY, stayId)
-    return httpService.get(`stay/${stayId}`)
+    return storageService.get(STORAGE_KEY, stayId)
+    // return httpService.get(`stay/${stayId}`)
 }
 
 async function remove(stayId) {
-    // await storageService.remove(STORAGE_KEY, stayId)
-    return httpService.delete(`stay/${stayId}`)
+    await storageService.remove(STORAGE_KEY, stayId)
+    // return httpService.delete(`stay/${stayId}`)
 }
 async function save(stay) {
     var savedStay
     if (stay._id) {
-        // savedStay = await storageService.put(STORAGE_KEY, stay)
-        savedStay = await httpService.put(`stay/${stay._id}`, stay)
+        savedStay = await storageService.put(STORAGE_KEY, stay)
+        // savedStay = await httpService.put(`stay/${stay._id}`, stay)
 
     } else {
         // Later, owner is set by the backend
         stay.owner = userService.getLoggedinUser()
-        // savedStay = await storageService.post(STORAGE_KEY, stay)
-        savedStay = await httpService.post('stay', stay)
+        savedStay = await storageService.post(STORAGE_KEY, stay)
+        // savedStay = await httpService.post('stay', stay)
     }
     return savedStay
 }
