@@ -11,13 +11,23 @@
 }
 
 .check-modal {
-    height: 100px;
-    width: 100px;
-    background-color: green;
+    position: absolute;
+    top: 159px;
+    left: 343px;
+    z-index: 101;
+    height: 552px;
+    width: 850px;
+    border-radius: 30px;
+    background-color: #fff;
 }
 
 .who-modal {
-    height: 100px;
-    width: 100px;
-    background-color: red;
+    position: absolute;
+    top: 159px;
+    left: 786px;
+    z-index: 101;
+    height: 400px;
+    width: 407px;
+    border-radius: 29px;
+    background-color: #fff;
 }
