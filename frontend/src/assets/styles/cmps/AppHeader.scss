@@ -6,6 +6,10 @@
     // display: flex;
     // justify-content: space-between;
     height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #fff;
 
     .loggedin-user {
         background-color: $clr1;
@@ -126,7 +130,7 @@
     width: 100vw;
     position: absolute;
     top: 79px;
-    z-index: 1;
+    z-index: 100;
 
     .screen {
         background-color: rgba(40, 40, 40, 0.25);
