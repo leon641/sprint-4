@@ -65,10 +65,15 @@
 
             .action-link-container {
                 display: flex;
-                gap: 10px;
+                gap: em(10px);
                 align-items: center;
+                padding: em(7px);
+                max-height: 29px;
             }
-
+            .action-link-container:hover{
+                border-radius: 7px;
+                background-color:$clr11;
+            }
             .share-save-info-svg {
                 margin-block-start: 4px;
                 margin-inline-end: 0px;
@@ -260,6 +265,7 @@
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
     margin-bottom: 40px;
+    min-width: em(1000px);
 
     .review-preview {
         display: flex;

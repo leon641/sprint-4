@@ -8,7 +8,7 @@
         <p>
           <span class="order-form-header-rateing">
             <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-            4.38</span
+           {{avregeRate}}</span
           >
           <span class="reviews">(4 reviews)</span>
         </p>
@@ -40,7 +40,7 @@
           </svg>
         </div>
       </div>
-      <ReserveBtn />
+      <ReserveBtn @click="reservation" />
     </form>
     <p class="details-disclamer">You won't be charged yet</p>
     <div class="prices">
@@ -58,6 +58,7 @@
   </section>
 </template>
 <script>
+
 import ReserveBtn from "../cmps/ReserveBtn.vue";
 import { svgService } from "../services/svg.service.js";
 import { stayService } from '../services/stay.service.local.js';
@@ -67,12 +68,14 @@ export default {
     stay:Object
   },
  created(){
+
   this.order=stayService.getEmptyOrder()
   console.log('stay in revertion modal',this.stay);
-  
+      this.rate();
  },
   data() {
     return {
+      avregeRate: 0,
       order:{
     "_id": utilService.makeId(),
     "hostId": this.stay?.host?.fullname,
@@ -98,12 +101,22 @@ export default {
     };
   },
   methods: {
+    reservation(){
+      this.$router.push('/reservation')
+    },
     getSvg(type) {
       return svgService.getSvg(type);
+    },
+    rate() {
+      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
+      const avregeRate = sum / this.stay.reviews?.length;
+      this.avregeRate = avregeRate;
+ 
     },
   },
   components: {
     ReserveBtn,
+
   },
 };
 </script>
