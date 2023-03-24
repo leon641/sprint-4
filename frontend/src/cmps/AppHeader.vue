@@ -7,7 +7,12 @@
         <img src="../assets/img/logo.png" alt="logo" />
         appbnb
       </div>
-      <Filter @expand="expand" @toWhere="toWhere" />
+      <Filter
+        @expand="expand"
+        @toWhere="toWhere"
+        @toCheck="toCheck"
+        @toWho="toWho"
+      />
       <div class="user-area">
         <div>
           <a>Airbnb your home</a>
@@ -36,19 +41,32 @@
     </div>
   </div>
   <div v-if="isExpanded" class="secondary-header">
-    <BigFilter :propWhere="propWhere" />
+    <BigFilter
+      :propWhere="propWhere"
+      :propCheck="propCheck"
+      :propWho="propWho"
+    />
     <div class="screen" @click="closeFilter"></div>
   </div>
+  <FilterModal
+    :propWhere="propWhere"
+    :propCheck="propCheck"
+    :propWho="propWho"
+  />
 </template>
+
 <script>
 import Filter from "./Filter.vue";
 import BigFilter from "./BigFilter.vue";
+import FilterModal from "./FilterModal.vue";
 
 export default {
   data() {
     return {
       isExpanded: false,
       propWhere: "",
+      propCheck: "",
+      propWho: "",
     };
   },
   computed: {
@@ -66,14 +84,23 @@ export default {
     toWhere() {
       this.propWhere = "focus";
     },
+    toCheck() {
+      this.propCheck = "focus";
+    },
+    toWho() {
+      this.propWho = "focus";
+    },
     closeFilter() {
       this.expand();
       this.propWhere = "";
+      this.propCheck = "";
+      this.propWho = "";
     },
   },
   components: {
     Filter,
     BigFilter,
+    FilterModal,
   },
 };
 </script>

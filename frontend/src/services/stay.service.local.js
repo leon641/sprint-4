@@ -139,12 +139,12 @@ function getEmptyStay() {
     })
     await storageService.post(STORAGE_KEY,   {
       "_id": "10006546",
-      "name": "Ribeira Charming Duplex",
+      "name": "Murter, croatia",
       "type": "House",
-      "imgUrls": ["https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
-      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large",
-      "https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large"],
-      "price": 80.00,
+      "imgUrls": ["https://avatars.mds.yandex.net/i?id=b7a0845296a732326fe5c3927e50de6f34ec0b30-3654623-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=d95e8cb51e081d883fbc82fa20f5a7e878a9a1cd-9229366-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=e5ce18b894033de6ba3b5eee075e3e00ed1be2d5-7097242-images-thumbs&n=13"],
+      "price": 280.00,
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -188,6 +188,57 @@ function getEmptyStay() {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
           "rate": 5,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+    })
+    await storageService.post(STORAGE_KEY,   {
+      "_id": "10006546",
+      "name": "Los Angeles, California",
+      "type": "House",
+      "imgUrls": ["https://avatars.mds.yandex.net/i?id=9cb7fdd80c897cd629e41208ff081f6b28b90485-8192006-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=27085786c1a015236f97982a309864bc-5219731-images-thumbs&n=13",
+      "https://avatars.mds.yandex.net/i?id=b5a00c685749835d0e9adf1b0ab9e1a8604e2f8f-8487401-images-thumbs&n=13"],
+      "price": 321.00,
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "labels": [
+        "Trending",
+        "Top of the world",
+        "Play",
+        "Tropical"
+      ],
+      "host": {
+        "_id": "u101",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "city": "Porto",
+        "address": "17 Kombo st",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4,
           "by": {
             "_id": "u102",
             "fullname": "user2",
