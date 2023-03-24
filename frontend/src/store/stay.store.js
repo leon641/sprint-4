@@ -32,10 +32,13 @@ export function getActionAddStayMsg(stayId) {
 
 export const stayStore = {
     state: {
-        stays: []
+        stays: [],
+        wishList : []
     },
     getters: {
         stays({stays}) { return stays },
+
+        wishList({wishList}) { return wishList},
        
     },
     mutations: {
@@ -57,11 +60,20 @@ export const stayStore = {
             if (!stay.msgs) stay.msgs = []
             stay.msgs.push(msg)
         },
+        addToWishList(state, {stay}) {
+            state.wishList.push(stay)
+        }
     },
     actions: {
         async getStayById(context,{stayId}){
            const stay = await stayService.getById(stayId)
            return stay
+
+        },
+         setWishlist({commit},{stay}){
+            console.log('in store', stay);
+           commit( {type : 'addToWishList', stay})
+           
 
         },
         async addStay(context, { stay }) {

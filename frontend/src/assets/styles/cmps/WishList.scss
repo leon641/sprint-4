@@ -1,4 +1,12 @@
 .wishlist-header {
     margin-block-start: rem(56px);
-    font-size: rem(33px);;
+    font-size: rem(32px);;
+}
+
+.wish-stay-list {
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    justify-content: space-between;
 }
