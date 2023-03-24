@@ -3,6 +3,22 @@
 .stay-preview {
    position: relative;
 
+   .heartCarousel {
+      position:absolute;
+      height: 24px;
+      width: 24px; 
+
+      top: 15px;
+      right: 15px; 
+      fill: rgba(0, 0, 0, 0.5); 
+      stroke: rgb(255,255,255); 
+      stroke-width: 2; 
+      overflow: visible
+   }
+   .mark {
+      fill: $clr1;
+    }
+
    .stay-desc-container {
 
       .stay-desc {
@@ -102,3 +118,4 @@
    height: 4px;
    border-radius: 50%;
  }
+

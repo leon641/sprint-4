@@ -5,7 +5,7 @@
     <section>
       <div class="card" @click="cardClicked">
         <ImgCarousel :imgs= "stay.imgUrls" />
-              <span class="heart-svg" v-html="getSvg('hreatCaroousel')"></span>
+              <span class="heartCarousel" @click.stop.prevent="setWishlist" :class="{ mark: isMark }" v-html="getSvg('hreatCaroousel')"></span>
 
         <div class="stay-desc-container">
           <div class="stay-desc">
@@ -66,7 +66,8 @@ export default {
         "../assets/img/demo.jpeg",
         "../assets/img/demo.jpeg",
       ],
-    };
+      isMark: false,
+    }
   },
 
   created() {},
@@ -75,8 +76,17 @@ export default {
       this.$router.push("/details");
     },
      getSvg(iconName) {
-      return svgService.getSvg(iconName);
+      return svgService.getSvg(iconName)
     },
+     async setWishlist() {
+            this.isMark = !this.isMark
+            // await this.$store.dispatch({
+            //     type: "setWishlist",
+            //     stayId: this.stay._id,
+            // })
+            this.$router.push("/wishlist")
+           
+        },
   },
   computed: {
     formattedPrice() {
