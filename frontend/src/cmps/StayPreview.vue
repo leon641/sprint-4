@@ -78,12 +78,13 @@ export default {
      getSvg(iconName) {
       return svgService.getSvg(iconName)
     },
-     async setWishlist() {
+      setWishlist() {
             this.isMark = !this.isMark
-            // await this.$store.dispatch({
-            //     type: "setWishlist",
-            //     stayId: this.stay._id,
-            // })
+            console.log('IN STAYPREIVEW',this.stay);
+             this.$store.dispatch({
+                type: "setWishlist",
+                stay: this.stay,
+            })
             this.$router.push("/wishlist")
            
         },

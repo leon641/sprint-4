@@ -9,7 +9,7 @@ import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
 import StayDetails from './views/StayDetails.vue'
-import StayWishlist from './views/StayWishlist.vue'
+import Wishlist from './views/Wishlist.vue'
 
 const routes = [
   {
@@ -24,8 +24,8 @@ const routes = [
   },
   {
     path: '/wishlist',
-    name: 'StayWishlist',
-    component: StayWishlist
+    name: 'Wishlist',
+    component: Wishlist
   },
   {
     path: '/review',

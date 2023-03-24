@@ -12,10 +12,10 @@
                 class="details-links-svg"
                 v-html="getSvg('starFill')"
               ></span>
-              <span class="review-rate"> 4.73 </span> <span class="dot">•</span>
-              <a class="d-link reviews">9 reviews</a>
+              <span class="review-rate"> {{avregeRate}} </span> <span class="dot">•</span>
+              <a class="d-link reviews">{{stay.reviews?.length}}reviews</a>
               <span class="dot">•</span>
-              <span class="d-link">Maui, United States</span>
+              <span class="d-link">{{stay.loc.country}}</span>
             </div>
           </div>
 
@@ -37,7 +37,7 @@
       </div>
 
       <section class="details-gallery">
-        <img class="item item1" src="src/assets/img/demo.jpeg" />
+        <img class="item item1" :src="getUrl" />
         <img class="item item2" src="src/assets/img/demo.jpeg" />
         <img class="item item3" src="src/assets/img/demo.jpeg" />
         <img class="item item4" src="src/assets/img/demo.jpeg" />
@@ -280,24 +280,31 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 export default {
   data() {
     return {
-      stay:{}
+      stay:{},
+      avregeRate:0,
     };
   }, created(){
-     (async()=>{const {stayId}=this.$route.params
+     (async()=>{const { stayId }=this.$route.params
         const stay= await this.$store.dispatch({type:'getStayById',stayId:stayId})
-         this.stay=stay})() 
+         this.stay=stay
+         this.rate()
+         })() 
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-  },computed:{
- 
-
-   // this.name=stay
    
+    rate(){
+      const sum= this.stay.reviews.reduce((a,b)=>a.rate+b.rate)
+      const avregeRate=sum/this.stay.reviews.length
+      this.avregeRate=avregeRate
+      
+    },getUrl(){
+      return this.stay.imgUrl
     },
-  
+  },computed:{
+  },
   components: {
     RaservationModal,
   },
