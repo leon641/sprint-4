@@ -2,12 +2,59 @@
 .where-modal {
     position: absolute;
     top: 159px;
-    left: 343px;
+    left: 214px;
     z-index: 101;
     width: 840px;
     height: 472px;
     border-radius: 31px;
     background-color: #fff;
+
+    .flex {
+        padding-block: 32px;
+        justify-content: center;
+        align-items: center;
+
+        .resent-searches {
+            width: 345px;
+            height: 410px;
+            border-right: 1px solid #ebebeb;
+
+            h5{
+                padding-inline-start: 32px; ;
+            }
+        }
+
+        .regions {
+            width: 478.8px;
+            height: 386px;
+            padding-inline-start: 44px;
+
+            h5 {
+                margin-bottom: 28px;
+                margin-block-start: 5px;
+            }
+
+            .grid {
+
+                grid-template-columns: repeat(3, min-content);
+                column-gap: 5px;
+                row-gap: 24px;
+
+                >* {
+                    padding: 4px;
+                    // display: inline-block;
+                }
+
+                img {
+                    height: 122.4px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }
 
 .check-modal {
