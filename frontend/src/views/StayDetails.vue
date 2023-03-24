@@ -14,7 +14,7 @@
               ></span>
               <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
-              <a class="d-link reviews">{{ stay.reviews?.length }}reviews</a>
+              <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
               <span class="dot">•</span>
               <span class="d-link">{{ stay.loc?.country }}</span>
             </div>
@@ -78,13 +78,14 @@
             </p>
           </section>
           <section class="stay-decription">
+            
             {{ stay.summary }}
           </section>
           <StayAmenities />
         </section>
         <RaservationModal :stay="stay" />
       </section>
-      <StayReviews />
+      <StayReviews :stay="stay" />
     </section>
   </section>
 </template>
@@ -95,11 +96,14 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 import UserStayInfo from "../cmps/UserStayInfo.vue";
 import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
+
+
 export default {
   data() {
     return {
       stay: {},
       avregeRate: 0,
+      desc:""
     };
   },
   created() {
@@ -111,7 +115,7 @@ export default {
       });
       this.stay = stay;
       this.rate();
-      console.log("this.stay.imgUrls", this.stay.imgUrls);
+      this.desc=this.stay.summary
     })();
   },
   methods: {
@@ -130,6 +134,7 @@ export default {
     UserStayInfo,
     StayAmenities,
     StayReviews,
+   
   },
 };
 </script>

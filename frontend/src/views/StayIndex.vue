@@ -7,7 +7,7 @@
     <hr />
     <form @submit.prevent="addStay()">
       <h2>Add stay</h2>
-      <input type="text" v-model="stayToAdd.vendor" />
+      <input type="text" />
       <button>Save</button>
     </form>
   </div>
@@ -30,7 +30,6 @@ export default {
   components: { StayList },
   data() {
     return {
-      stayToAdd: stayService.getEmptyStay(),
     };
   },
   computed: {
