@@ -8,7 +8,7 @@
     height: 80px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 101;
     background-color: #fff;
 
     .loggedin-user {
@@ -126,11 +126,11 @@
     background-color: #fff;
     display: flex;
     justify-content: center;
-    height: 80px;
+    height: 81px;
     width: 100vw;
     position: absolute;
     top: 79px;
-    z-index: 100;
+    z-index: 101;
 
     .screen {
         background-color: rgba(40, 40, 40, 0.25);

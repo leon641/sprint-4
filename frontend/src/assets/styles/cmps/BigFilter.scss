@@ -9,7 +9,7 @@
     background-color: #ebebeb;
     border-radius: 40px;
     border: 0.8px solid rgb(211, 211, 211);
-    z-index: 2;
+    z-index: 101;
     cursor: pointer;
 
     & div:first-child,
@@ -66,16 +66,15 @@
                 transform: translate(-11px, -4px);
             }
         }
+    }
 
-        &.focus {
+    .focus {
+        background-color: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+        input {
             background-color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 2);
-
-            input {
-                background-color: #fff;
-            }
         }
-
     }
 
     .search-container {
