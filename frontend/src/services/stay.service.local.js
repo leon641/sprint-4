@@ -123,6 +123,16 @@ function getEmptyStay() {
             "fullname": "user2",
             "imgUrl": "/img/img2.jpg"
           }
+        },
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4.5,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
         }
       ],
       "likedByUsers": ['mini-user'] // for user-wishlist : use $in
@@ -169,6 +179,15 @@ function getEmptyStay() {
           "id": "madeId",
           "txt": "Very helpful hosts. Cooked traditional...",
           "rate": 4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }, {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 5,
           "by": {
             "_id": "u102",
             "fullname": "user2",
