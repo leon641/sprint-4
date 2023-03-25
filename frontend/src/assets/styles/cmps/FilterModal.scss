@@ -2,17 +2,17 @@
 .where-modal {
     position: absolute;
     top: 159px;
-    left: 214px;
+    left: 343px;
     z-index: 101;
     width: 840px;
-    height: 472px;
+    height: 473px;
     border-radius: 31px;
     background-color: #fff;
 
     .flex {
         padding-block: 32px;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
 
         .resent-searches {
             width: 345px;
@@ -21,6 +21,7 @@
 
             h5 {
                 padding-inline-start: 32px;
+                padding-block-start: 10px;
                 ;
             }
         }
@@ -31,27 +32,55 @@
             padding-inline-start: 44px;
 
             h5 {
-                margin-bottom: 28px;
-                margin-block-start: 5px;
+                margin-block-end: 30px;
+                margin-block-start: 8px;
+                padding-inline-start: 6px;
             }
 
             .grid {
 
                 grid-template-columns: repeat(3, min-content);
                 column-gap: 5px;
-                row-gap: 24px;
+                row-gap: 18px;
 
                 >* {
                     padding: 4px;
-                    // display: inline-block;
                 }
 
-                img {
-                    height: 122.4px;
-                }
+                .flex {
+                    flex-direction: column;
 
-                p {
-                    font-size: 14px;
+                    .region-img {
+                        height: 124px;
+                        width: 124px;
+
+                        img {
+                            cursor: pointer;
+                            height: 124px;
+                            border-radius: 12px;
+                            border: 1px solid rgb(221, 221, 221);
+
+                            &:hover {
+                                border-color: #000;
+
+                                &:active {
+                                    height: 100px;
+                                    margin: 12px;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .region-title {
+                        padding: 3px;
+
+                        p {
+                            font-size: 14px;
+                            margin: 0;
+                            padding-block-start: 3px;
+                        }
+                    }
                 }
             }
         }
@@ -61,7 +90,7 @@
 .check-modal {
     position: absolute;
     top: 159px;
-    left: 214px;
+    left: 343px;
     z-index: 101;
     height: 552px;
     width: 850px;
@@ -78,9 +107,13 @@
     width: 407px;
     border-radius: 29px;
     background-color: #fff;
-    padding-block: 40px;
+    padding-block: 30px;
     padding-inline-start: 36px;
-    padding-inline-end: 44px;
+    padding-inline-end: 42px;
+
+    h5 {
+        margin-block-end: 0;
+    }
 
     p {
         margin: 0;
@@ -89,14 +122,23 @@
     &>.flex {
         justify-content: space-between;
         align-items: center;
-        padding-block: 24px;
+        padding-block: 19px;
 
         &:first-child {
             padding-block-start: 0px;
+
+            .guests-title {
+                padding-block-start: 9px;
+            }
         }
 
+        .guests-title {
+            padding-block-start: 12px;
+        }
+
+
+
         .flex {
-            justify-content: space-between;
             align-items: center;
             gap: 15px;
         }
@@ -106,9 +148,53 @@
         border-bottom: 1px solid rgb(235, 235, 235);
     }
 
-    button {
+    button.flex {
+        justify-content: center;
+        background-color: #fff;
+        border: 1px solid rgb(235, 235, 235);
         border-radius: 50%;
         height: 32px;
         width: 32px;
+
+        svg {
+            display: block;
+            height: 12px;
+            width: 12px;
+            stroke: rgb(113, 113, 113);
+            stroke-width: 5.33333;
+        }
+
+        &:hover {
+            border-color: rgb(34, 34, 34);
+
+            svg {
+                stroke: rgb(34, 34, 34);
+            }
+        }
     }
 }
+
+.demo-date-picker {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  
+  .demo-date-picker .block {
+    padding: 30px 0;
+    text-align: center;
+    border-right: solid 1px var(--el-border-color);
+    flex: 1;
+  }
+  
+  .demo-date-picker .block:last-child {
+    border-right: none;
+  }
+  
+  .demo-date-picker .demonstration {
+    display: block;
+    color: var(--el-text-color-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }

@@ -5,7 +5,7 @@
     <div class="main-header">
       <div class="logo" @click="toHome">
         <img src="../assets/img/logo.png" alt="logo" />
-        appbnb
+        <p>appbnb</p>
       </div>
       <Filter
         @expand="expand"

@@ -4,11 +4,11 @@
   <div class="filter" @click="expand">
     <section class="filter-btns">
       <button @click="toWhere">
-        <div>Anywhere</div>
+        <div class="anywhere">Anywhere</div>
       </button>
       <div class="separator"></div>
       <button @click="toCheck">
-        <div>Any week</div>
+        <div class="any-week">Any week</div>
       </button>
       <div class="separator"></div>
       <button @click="toWho">
