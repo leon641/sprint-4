@@ -8,7 +8,7 @@
         <p>
           <span class="order-form-header-rateing">
             <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-            4.38</span
+           {{avregeRate}}</span
           >
           <span class="reviews">(4 reviews)</span>
         </p>
@@ -40,7 +40,7 @@
           </svg>
         </div>
       </div>
-      <ReserveBtn />
+      <ReserveBtn @click="reservation" />
     </form>
     <p class="details-disclamer">You won't be charged yet</p>
     <div class="prices">
@@ -58,19 +58,65 @@
   </section>
 </template>
 <script>
-import { svgService } from "../services/svg.service.js";
+
 import ReserveBtn from "../cmps/ReserveBtn.vue";
+import { svgService } from "../services/svg.service.js";
+import { stayService } from '../services/stay.service.local.js';
+import { utilService } from "../services/util.service.js"
 export default {
+  props:{
+    stay:Object
+  },
+ created(){
+
+  this.order=stayService.getEmptyOrder()
+  console.log('stay in revertion modal',this.stay);
+      this.rate();
+ },
   data() {
-    return {};
+    return {
+      avregeRate: 0,
+      order:{
+    "_id": utilService.makeId(),
+    "hostId": this.stay?.host?.fullname,
+    "buyer": {
+      "_id": "u101",
+      "fullname": "Loggedin user"
+    },
+    "totalPrice": 160,
+    "startDate": "2025/10/15",
+    "endDate": "2025/10/17",
+    "guests": {
+      "adults": 2,
+      "kids": 1
+    },
+    "stay": {
+      "_id": "h102",
+      "name": this.stay?.name,
+      "price": this.stay?.price
+    },
+    "msgs": [],
+    "status": "pending" // pending, approved
+  }
+    };
   },
   methods: {
+    reservation(){
+      this.$router.push('/reservation')
+    },
     getSvg(type) {
       return svgService.getSvg(type);
+    },
+    rate() {
+      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
+      const avregeRate = sum / this.stay.reviews?.length;
+      this.avregeRate = avregeRate;
+ 
     },
   },
   components: {
     ReserveBtn,
+
   },
 };
 </script>

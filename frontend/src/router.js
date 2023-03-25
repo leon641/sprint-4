@@ -10,6 +10,7 @@ import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
 import StayDetails from './views/StayDetails.vue'
 import Wishlist from './views/Wishlist.vue'
+import Reservation from './views/Reservation.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/wishlist',
     name: 'Wishlist',
     component: Wishlist
+  },
+  {
+    path: '/reservation',
+    name: 'reservation',
+    component: Reservation
   },
   {
     path: '/review',

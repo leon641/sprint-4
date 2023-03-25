@@ -60,9 +60,6 @@ export default {
     return {};
   },
   created() {
-    // console.log("propWhere", this.propWhere);
-    console.log("propCheck", this.propCheck);
-    // console.log("propWho", propWho);
   },
   computed: {},
   methods: {},
