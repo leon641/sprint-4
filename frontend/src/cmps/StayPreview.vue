@@ -80,7 +80,6 @@ export default {
     },
       setWishlist() {
             this.isMark = !this.isMark
-            console.log('IN STAYPREIVEW',this.stay);
              this.$store.dispatch({
                 type: "setWishlist",
                 stay: this.stay,

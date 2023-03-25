@@ -1,9 +1,9 @@
 <template>
-<ul>
-    <li v-for="place in wishList" :key="place._id">
+<div class="wish-stay-list">
+    <div v-for="place in wishList" :key="place._id">
         <WishStayPreview :place="place"/>
-    </li>
-</ul>
+    </div>
+</div>
 </template>
 <script>
 

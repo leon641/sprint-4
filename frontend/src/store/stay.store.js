@@ -33,7 +33,11 @@ export function getActionAddStayMsg(stayId) {
 export const stayStore = {
     state: {
         stays: [],
-        wishList : []
+        wishList : [],
+        filterBy : {
+            label : '',
+            price : 0,
+        },
     },
     getters: {
         stays({stays}) { return stays },
@@ -55,6 +59,10 @@ export const stayStore = {
         removeStay(state, { stayId }) {
             state.stays = state.stays.filter(stay => stay._id !== stayId)
         },
+        setFilterBy(state, { label }) {
+            state.filterBy.label = label
+          
+        },
         addStayMsg(state, { stayId , msg}) {
             const stay = state.stays.find(stay => stay._id === stayId)
             if (!stay.msgs) stay.msgs = []
@@ -71,8 +79,15 @@ export const stayStore = {
 
         },
          setWishlist({commit},{stay}){
-            console.log('in store', stay);
            commit( {type : 'addToWishList', stay})
+           
+
+        },
+        setFilterBy(context, {label}){
+
+           context.commit( {type : 'setFilterBy', label})
+           context.dispatch( {type : 'loadStays', filterBy : context.state.filterBy} )
+           
            
 
         },
@@ -96,10 +111,9 @@ export const stayStore = {
                 throw err
             }
         },
-        async loadStays(context) {
+        async loadStays(context, { filterBy }) {
             try {
-                const stays = await stayService.query()
-                console.log(stays);
+                const stays = await stayService.query(filterBy)
                 
                 context.commit({ type: 'setStays', stays })
             } catch (err) {

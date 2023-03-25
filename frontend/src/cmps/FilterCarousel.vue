@@ -2,7 +2,7 @@
   <Carousel class="stay-filter" :settings="settings" :breakpoints="breakpoints">
     <Slide v-for="label in labels" :key="label">
       <!-- <div class="carousel__item ">{{ slide }}</div> -->
-      <div class="filter-labels main-container full">
+      <div class="filter-labels main-container full" @click="filterLabel(label.key)">
       <img :src="label.url">
       <p>{{label.key}}</p>
       </div>
@@ -35,6 +35,7 @@ export default defineComponent({
       itemsToShow: 1,
       snapAlign: 'center',
     },
+    filterLabels : {},
              labels : [
             
     {
@@ -150,6 +151,17 @@ export default defineComponent({
       },
     },
   }),
+  methods : {
+    filterLabel(label) {
+      this.filterLabels = label
+      console.log('in cmp', label);
+      console.log('in cmp this.filterLabels', this.filterLabels);
+          this.$store.dispatch({
+                type: "setFilterBy",
+                label: this.filterLabels,
+            })
+    },
+  },
   computed : {
 
   },
