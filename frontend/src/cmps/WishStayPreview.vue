@@ -1,5 +1,12 @@
 <template>
 
+<div v-if="place.imgUrls" class="imgs-container">
+        <img  v-for="(url,index) in place.imgUrls" :src="url" :class="`wish-img`+(index+1)"  :key="index" />
+      </div>
+      <h3>{{place.name}}</h3>
+
+
+
 </template>
 <script>
 export default {
@@ -7,11 +14,11 @@ export default {
         place : Object
     },
     created() {
-            console.log('in wishStayPreview cmp', this.place.imgUrls[0]);
+        
     },
   data() {
     return {
-     
+    
     };
   },
   computed: {},
