@@ -1,0 +1,199 @@
+.reservation-view-container {
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(auto, 88.3vw) minmax(20px, 1fr);
+
+    .reservation-header {
+        grid-column: 2;
+        display: flex;
+        align-items: center;
+        padding-block: 64px 50px;
+        height: max-content;
+
+        .reservation-header-svg {
+            position: relative;
+            top: 30%;
+            left: 30%;
+        }
+
+        .reservation-header-svg-container {
+            position: relative;
+            height: 40px;
+            width: 40px;
+            border-radius: 100px;
+
+        }
+
+        .reservation-header-svg-container:hover {
+            background-color: $clr11;
+        }
+
+        h2 {
+            margin: 0;
+            padding-left: 18px;
+            font-size: rem(30px);
+        }
+    }
+
+    .reservation-container {
+        grid-column: 2;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 80px;
+        color: $clr12;
+
+        .trip-summary {
+            border-bottom: 1px solid rgb(222, 222, 222);
+
+            h2 {
+                font-size: rem(20px);
+                margin-block-end: 31px;
+            }
+
+            span {
+                margin-block-start: 8px;
+            }
+            
+            .trip-summary-dates {
+                padding-bottom: 24px;
+                h3{
+                    margin-bottom: 6px;
+                    font-size: 16px;
+
+                }
+                span{
+                    font-size: 16px;
+                }
+            }
+
+            .trip-summary-guests {
+                padding-bottom: 24px;
+                h3{
+                    margin-bottom: 6px;
+                    font-size: 16px;
+
+                }
+                span{
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .reservation-container-info-cancellation {
+            padding-top: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgb(222, 222, 222);
+        }
+
+        .reservation-container-info-ground-rouls {
+            padding-top: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgb(222, 222, 222);
+
+            p {
+                display: flex;
+                align-items: center;
+            }
+
+            .remainder {
+                margin-inline-start: 8px;
+            }
+        }
+
+        .reservation-container-info-wont-confirmed {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgb(222, 222, 222);
+
+            p {
+                margin: 0;
+            }
+
+            .wont-confirmed-svg {
+                margin-block-start: 4px;
+                margin-inline-end: 24px;
+            }
+        }
+
+        .reservation-price-details-modal {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 32px;
+            margin-left: 8.3333333333%;
+            border: 1px solid rgb(221, 221, 221);
+            border-radius: 12px;
+            padding: 24px;
+            position: sticky;
+            top: 128px;
+            box-shadow: #0000001f 0 6px 16px;
+            width: 50%;
+            height: max-content;
+
+            .reservation-privew {
+                min-width: 300px;
+                display: grid;
+                grid-template-columns: 150px 2fr;
+                gap: .625em 1.875em;
+                border-bottom: 1px solid rgb(222, 222, 222);
+                padding-bottom: 24px;
+
+                .reservation-privew-info {
+                    p {
+                        margin: 0;
+                    }
+                }
+
+                .reservation-privew-img {
+                    width: 100%;
+                    object-fit: cover;
+                    grid-row: 1/4;
+                    border-radius: 4px;
+
+                }
+            }
+
+            .reservation-privew-cover {
+                padding-bottom: 24px;
+                border-bottom: 1px solid rgb(222, 222, 222);
+
+
+            }
+
+            .reservation-price-details {
+                padding-bottom: 24px;
+
+                h3 {
+                    font-size: 1.375em;
+                    margin-bottom: 24px;
+                }
+
+                .prices {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    padding-bottom: 15px;
+                    gap: 10px;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .reservation-price-total {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 700;
+            }
+
+            .reservation-container-info-ground-rouls {}
+        }
+    }
+    .reservation-btn-container{
+        padding-block-start: 24px ;
+        width: 50%;
+    }
+}
