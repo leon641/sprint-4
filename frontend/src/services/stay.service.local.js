@@ -3,6 +3,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { includes } from 'lodash'
 
 const STORAGE_KEY = 'stay'
 
@@ -17,16 +18,18 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { label: '', price: 0 }) {
     var stays = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
       const regex = new RegExp(filterBy.txt, 'i')
         stays = stays.filter(stay => regex.test(stay.vendor) || regex.test(stay.description))
       }
+      if (filterBy.label) {
+        stays = stays.filter(stay => stay.labels.includes(filterBy.label))
+      }
       if (filterBy.price) {
         stays = stays.filter(stay => stay.price <= filterBy.price)
       }
-      // console.log('stays', stays)
     return stays
 }
 
@@ -126,10 +129,10 @@ function getEmptyOrder() {
         "Cooking basics"
       ],
       "labels": [
+        "Tropical",
         "Top of the world",
         "Trending",
         "Play",
-        "Tropical"
       ],
       "host": {
         "_id": "u101",
@@ -187,10 +190,10 @@ function getEmptyOrder() {
         "Cooking basics"
       ],
       "labels": [
-        "Top of the world",
+        "Iconic",
         "Trending",
-        "Play",
-        "Tropical"
+        "Minsus",
+        "Private"
       ],
       "host": {
         "_id": "u101",
@@ -247,10 +250,10 @@ function getEmptyOrder() {
         "Cooking basics"
       ],
       "labels": [
+        "OMG!",
         "Trending",
-        "Top of the world",
+        "Tropical",
         "Play",
-        "Tropical"
       ],
       "host": {
         "_id": "u101",
