@@ -3,13 +3,13 @@
 .header-container {
     border-block-end: 1px solid #ccc;
     padding: 10px;
-    // display: flex;
-    // justify-content: space-between;
     height: 80px;
     position: sticky;
     top: 0;
     z-index: 101;
     background-color: #fff;
+    font-family: Airbnb_Cereal-Book;
+
 
     .loggedin-user {
         background-color: $clr1;
@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
 
-    :first-child {
+    :first-child:not(.login) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -88,7 +88,7 @@
         transition: color 250ms ease;
         color: rgb(34, 34, 34);
 
-        &:hover:not(svg) {
+        &:hover:not(svg, .login) {
             background-color: #f7f7f7;
             height: 42px;
         }
@@ -116,7 +116,7 @@
             width: 16px;
             stroke: rgb(34, 34, 34);
             stroke-width: 3;
-            transform: translate(11px, 12px);
+            transform: translate(-56px, 12px);
         }
 
         img {
@@ -150,5 +150,17 @@
         z-index: 1;
     }
 
+}
 
+.user-modal {
+    background-color: #fff;
+    border: 1px solid black;
+
+    &>*:hover {
+        background-color: rgb(221, 221, 221);
+    }
+
+    .login {
+        border-block-end: 1px solid black;
+    }
 }

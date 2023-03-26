@@ -26,7 +26,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Airbnb_Cereal-Medium;
+    // font-family: Airbnb_Cereal-Medium;
+    font-family: Airbnb_Cereal-Book;
     margin: 0 0 0.6em;
     line-height: 1;
 }
@@ -37,4 +38,5 @@ h6 {
 
 button {
     cursor: pointer;
+    font-family: unset;
 }
