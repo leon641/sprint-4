@@ -4,7 +4,7 @@
   <div class="stay-list">
     <StayPreview v-for="stay in stays" :stay="stay" :key="stay._id" />
   </div>
-  <LoginSignUp />
+  <!-- <LoginSignUp /> -->
   
 </template>
 
