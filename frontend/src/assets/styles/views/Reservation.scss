@@ -1,7 +1,7 @@
 .reservation-view-container {
     display: grid;
     grid-template-columns: minmax(20px, 1fr) minmax(auto, 88.3vw) minmax(20px, 1fr);
-
+    color: $clr12;
     .reservation-header {
         grid-column: 2;
         display: flex;
@@ -35,6 +35,7 @@
     }
 
     .reservation-container {
+        color: $clr12;
         grid-column: 2;
         display: flex;
         justify-content: space-between;
@@ -42,6 +43,7 @@
         color: $clr12;
 
         .trip-summary {
+            color: $clr12;
             border-bottom: 1px solid rgb(222, 222, 222);
 
             h2 {
@@ -144,6 +146,7 @@
                 .reservation-privew-info {
                     p {
                         margin: 0;
+                        font-size: 16px;
                     }
                 }
 

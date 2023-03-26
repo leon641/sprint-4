@@ -4,7 +4,7 @@
 <section class="user-stay-info">
             <div class="user-stay-info-svg" v-html="getSvg('superhost')"></div>
             <div>
-              <p class="user-stay-info-title">this host is super host</p>
+              <p class="user-stay-info-title">This host is super host</p>
               <p class="subtext">
                 Superhosts are experienced, highly rated hosts who are committed
                 to providing great stays for guests.

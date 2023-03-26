@@ -36,7 +36,7 @@
          .stay-name {
             grid-column: 1/2;
             grid-row: 1;
-            font-size: rem(15px);
+            font-size: rem(16px);
             line-height: 1.125rem;
             text-transform: capitalize;
             color: $clr8;
@@ -81,10 +81,10 @@
             font-size: rem(15px);
             font-family: Airbnb_Cereal-Book;
              span {
-               font-family: Airbnb-Cereal-Medium;
+               // font-family: CircularAir-Light;
                color: $clr8;
-               font-weight: 700;
-               font-size: rem(17px);
+               font-weight: 800;
+               font-size: rem(14px);
              }
    
          }

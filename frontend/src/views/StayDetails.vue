@@ -5,7 +5,7 @@
     <section class="stay-details-container">
       <div class="details-subtitle">
         <h2>{{ stay.name }}</h2>
-        <section class="details-links">
+        <section class="details-links-container">
           <div>
             <div class="details-links">
               <span
@@ -71,7 +71,7 @@
           <UserStayInfo />
 
           <section class="air-cover">
-            <h3><span>air</span>cover</h3>
+         <img class="l1li2ovm dir dir-ltr" src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" alt="AirCover">
             <p>
               Every booking includes free protection from Host cancellations,
               listing inaccuracies, and other issues like trouble checking in.
