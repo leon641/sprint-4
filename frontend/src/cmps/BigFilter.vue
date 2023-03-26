@@ -8,16 +8,19 @@
         <input type="text" placeholder="Search destinations" />
       </div>
     </div>
-    <div class="check" :class="propCheck">
-      <div class="in">
+    <div class="separator where-in"></div>
+    <div class="check">
+      <div class="in" :class="propCheck">
         <div>Check in</div>
         <div>Add dates</div>
       </div>
+      <div class="separator in-out"></div>
       <div class="out">
         <div>Check out</div>
         <div>Add dates</div>
       </div>
     </div>
+    <div class="separator out-search"></div>
     <div class="search-container" :class="propWho">
       <div class="search-content">
         <div class="who">
@@ -59,8 +62,7 @@ export default {
   data() {
     return {};
   },
-  created() {
-  },
+  created() {},
   computed: {},
   methods: {},
 };
