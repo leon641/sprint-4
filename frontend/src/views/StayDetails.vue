@@ -5,7 +5,7 @@
     <section class="stay-details-container">
       <div class="details-subtitle">
         <h2>{{ stay.name }}</h2>
-        <section class="details-links">
+        <section class="details-links-container">
           <div>
             <div class="details-links">
               <span
