@@ -111,6 +111,7 @@ function getEmptyOrder() {
       
     ],
       "price": 80.00,
+      "shortSummary" : "Duplex apartment with three bedrooms",
       "summary":` Villa Aura is located in the Kabak district of Fethiye Faralya
       neighborhood. It is a villa with private swimming pool overlooking
       the sea from Kabak Bay and its balcony. The villa is surrounded by
@@ -179,6 +180,7 @@ function getEmptyOrder() {
       "https://avatars.mds.yandex.net/i?id=d95e8cb51e081d883fbc82fa20f5a7e878a9a1cd-9229366-images-thumbs&n=13",
       "https://avatars.mds.yandex.net/i?id=e5ce18b894033de6ba3b5eee075e3e00ed1be2d5-7097242-images-thumbs&n=13"],
       "price": 280.00,
+      "shortSummary" : "Located in the historic area",
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [
@@ -239,6 +241,7 @@ function getEmptyOrder() {
       "https://avatars.mds.yandex.net/i?id=27085786c1a015236f97982a309864bc-5219731-images-thumbs&n=13",
       "https://avatars.mds.yandex.net/i?id=b5a00c685749835d0e9adf1b0ab9e1a8604e2f8f-8487401-images-thumbs&n=13"],
       "price": 321.00,
+      "shortSummary" : "Amazing 4 bedrooms apartment",
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 8,
       "amenities": [

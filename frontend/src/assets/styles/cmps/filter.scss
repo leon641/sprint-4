@@ -2,7 +2,7 @@
 
 .filter {
     width: fit-content;
-    transform: translate(60px, 0px);
+    transform: translate(70px, 6px);
 }
 
 .filter-btns {
@@ -32,6 +32,14 @@
         padding-inline: 15px;
     }
 
+    .anywhere {
+        transform: translate(-5px, 1px);
+    }
+
+    .any-week{
+        transform: translate(-3px, 1px);
+    }
+
     :nth-child(5) {
         color: rgb(113, 113, 113);
         font-weight: 400;
@@ -48,7 +56,7 @@
 }
 
 .filter .icon {
-    transform: translate(8px, 11px);
+    transform: translate(14px, 11px);
     background-color: #ff385c;
     border-radius: 50%;
     position: relative;

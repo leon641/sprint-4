@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="stay-app">
+  <div class="stay-index">
     <Carousel />
     <StayList />
     <hr />
