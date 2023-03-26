@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(20px, 1fr) minmax(auto, 88.3vw) minmax(20px, 1fr);
     color: $clr12;
+
     .reservation-header {
         grid-column: 2;
         display: flex;
@@ -45,36 +46,46 @@
         .trip-summary {
             color: $clr12;
             border-bottom: 1px solid rgb(222, 222, 222);
+       
+            font-family: CircularAir-Light;
+       
 
             h2 {
                 font-size: rem(20px);
                 margin-block-end: 31px;
+             
+
             }
 
             span {
                 margin-block-start: 8px;
             }
-            
+
             .trip-summary-dates {
                 padding-bottom: 24px;
-                h3{
+       
+
+                h3 {
                     margin-bottom: 6px;
                     font-size: 16px;
-
+                    font-weight: 400;
+                    
                 }
-                span{
+
+                span {
                     font-size: 16px;
                 }
             }
 
             .trip-summary-guests {
                 padding-bottom: 24px;
-                h3{
+                h3 {
                     margin-bottom: 6px;
                     font-size: 16px;
 
                 }
-                span{
+
+                span {
                     font-size: 16px;
                 }
             }
@@ -84,19 +95,41 @@
             padding-top: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgb(222, 222, 222);
+            h2{
+                font-family: CircularAir-Light;
+                font-size: em(22px);
+                margin-bottom: 20px;
+                
+            }
+            p{
+                font-family: CircularAir-Light;
+                font-size: 16px;
+            }
         }
 
         .reservation-container-info-ground-rouls {
             padding-top: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgb(222, 222, 222);
-
+                h2{
+              font-family: CircularAir-Light;
+                font-size: em(20px);
+                margin-bottom: 20px;
+                }
             p {
+                font-family: CircularAir-Light;
                 display: flex;
                 align-items: center;
+                font-size: em(16px);
+                margin-top: 25px;
+                margin-bottom: 0;
+            }
+            .rules{
+                margin: 0;
             }
 
             .remainder {
+                margin-block:0;
                 margin-inline-start: 8px;
             }
         }
@@ -110,93 +143,167 @@
             border-bottom: 1px solid rgb(222, 222, 222);
 
             p {
+                font-family: CircularAir-Light;
+                font-weight: 600;
                 margin: 0;
+                span{
+                    font-weight: 400;
+
+                }
             }
 
             .wont-confirmed-svg {
                 margin-block-start: 4px;
-                margin-inline-end: 24px;
+                margin-inline-end: 30px;
             }
         }
 
         .reservation-price-details-modal {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 24px;
+            position: sticky;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-between;
+            // gap: 24px;
             margin-top: 32px;
             margin-left: 8.3333333333%;
             border: 1px solid rgb(221, 221, 221);
             border-radius: 12px;
             padding: 24px;
-            position: sticky;
             top: 128px;
             box-shadow: #0000001f 0 6px 16px;
-            width: 50%;
+            width: 40%;
             height: max-content;
 
             .reservation-privew {
                 min-width: 300px;
                 display: grid;
-                grid-template-columns: 150px 2fr;
-                gap: .625em 1.875em;
+                grid-template-columns: 125px 2fr;
+                column-gap: em(10px);
                 border-bottom: 1px solid rgb(222, 222, 222);
-                padding-bottom: 24px;
+                padding-bottom: 11px;
 
                 .reservation-privew-info {
+                    position: relative;
+                    top: -5px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-family: CircularAir-Light;
+
+                    .stay-type {
+                        margin-top: 0;
+                        font-size: 12px;
+                        color: $clr9;
+                    }
+
                     p {
                         margin: 0;
-                        font-size: 16px;
+                        font-size: 14px;
+                    }
+
+                    .reservation-privew-info-reviews-container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+
+                        .rate-score {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+
+                        .num-of-reviews {
+                            font-size: 12px;
+                            margin-inline-start: 4px;
+
+                        }
+
+                        .super-host {
+                            font-size: 12px;
+                            margin-inline-start: 4px;
+                        }
+
+                        .dot {
+                            margin-inline-start: 11px;
+
+                        }
+
+                        .superHost-svg {
+                            margin-inline-start: 5.5px;
+
+                        }
                     }
                 }
 
-                .reservation-privew-img {
-                    width: 100%;
-                    object-fit: cover;
-                    grid-row: 1/4;
-                    border-radius: 4px;
+                .reservation-privew-img-container {
 
+                    .reservation-privew-img {
+                        width: 100%;
+                        object-fit: cover;
+                        grid-row: 1/4;
+                        border-radius: 9px;
+                        height: 107px;
+
+                    }
                 }
+
             }
 
             .reservation-privew-cover {
-                padding-bottom: 24px;
+                padding-block: 45px;
+       
                 border-bottom: 1px solid rgb(222, 222, 222);
-
-
+                font-family: CircularAir-Light;
+                font-size: 1em;
+                .air-cover-img{
+                    width: 60px;
+                }
             }
 
             .reservation-price-details {
-                padding-bottom: 24px;
-
+                font-family: CircularAir-Light;
+                padding-bottom: 20px;
+                
                 h3 {
-                    font-size: 1.375em;
-                    margin-bottom: 24px;
+                    padding-top: 30px;
+                    font-size: 21px;
+                
+                    margin-bottom: 22px;
                 }
 
                 .prices {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    padding-bottom: 15px;
+                    padding-bottom: 14px;
                     gap: 10px;
 
                     p {
                         margin: 0;
                     }
+                    .flex-end{
+                        justify-self: flex-end;
+                    }
                 }
             }
 
             .reservation-price-total {
+                margin: 0;
+                padding: 0;
                 display: flex;
                 justify-content: space-between;
-                font-weight: 700;
+                font-weight: 600;
+                font-family: CircularAir-Light;
+                p{
+                    font-size: 0.8em;
+                    margin: 0;
+                }
+
             }
 
-            .reservation-container-info-ground-rouls {}
         }
     }
-    .reservation-btn-container{
-        padding-block-start: 24px ;
-        width: 50%;
+
+    .reservation-btn-container {
+        padding-block-start: 24px;
+        width: em(190px);
     }
 }

@@ -1,5 +1,5 @@
 <template>
- <p>{{txt}}
+ <p >{{txt}}
     
 </p>
  <div class="show-more-btn">

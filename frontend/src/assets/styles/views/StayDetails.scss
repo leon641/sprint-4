@@ -203,7 +203,8 @@
     display: grid;
     grid-template-columns: 20px 1fr;
     gap: 24px 16px;
-    padding-block: 32px;
+    padding-block-start: 32px;
+    padding-block-end: 36px;
     border-bottom: 1px solid #dddddd;
 
     .user-stay-info-title {
@@ -220,6 +221,7 @@
     .subtext {
         padding-bottom: 0;
         margin-top: 0px;
+        margin-bottom: 0;
         font-size: .875em;
         color: #222;
 
@@ -316,7 +318,7 @@
     grid-template-columns: repeat(4, 1fr);
    column-gap: 10px;
    row-gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     align-items: center;
 .rating-bar-container{
     display: flex;
