@@ -1,6 +1,7 @@
 // בס"ד
 
-// import { storageService } from './async-storage.service'
+import { storageService } from './async-storage.service'
+import { utilService } from './util.service'
 import { httpService } from './http.service'
 import { store } from '../store/store'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from './socket.service'
@@ -25,8 +26,8 @@ window.userService = userService
 
 
 function getUsers() {
-    // return storageService.query('user')
-    return httpService.get(`user`)
+    return storageService.query('user')
+    // return httpService.get(`user`)
 }
 
 function onUserUpdate(user) {
@@ -63,20 +64,21 @@ async function update({_id, score}) {
 
 
 async function login(userCred) {
-    // const users = await storageService.query('user')
-    // const user = users.find(user => user.username === userCred.username)
-    const user = await httpService.post('auth/login', userCred)
+    const users = await storageService.query('user')
+    const user = users.find(user => user.username === userCred.username)
+    console.log('in user service', user);
+    // const user = await httpService.post('auth/login', userCred)
     if (user) {
-        socketService.login(user._id)
+        // socketService.login(user._id)
         return saveLocalUser(user)
     }
 }
 async function signup(userCred) {
     userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    // const user = await storageService.post('user', userCred)
-    const user = await httpService.post('auth/signup', userCred)
-    socketService.login(user._id)
+    const user = await storageService.post('user', userCred)
+    // const user = await httpService.post('auth/signup', userCred)
+    // socketService.login(user._id)
     return saveLocalUser(user)
 }
 async function logout() {
@@ -106,9 +108,18 @@ function getLoggedinUser() {
 
 
 // ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+//     await userService.signup({_id:utilService.makeId(),  "_id": "u101",
+//     "fullname": "nadav dori",
+//     "imgUrl": "/img/img1.jpg",
+//     "username": "nadav",
+//     "password": "111",
+//     "orders": [],
+//     "trips": [],
+//     "stays": [],
+//     "wishlist": [],
+//     "reviews" : []})
+//     await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
+//     await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
 

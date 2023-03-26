@@ -105,7 +105,7 @@ function getEmptyOrder() {
     "type": "Villa ",
     "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/c06def22-bd48-4900-8e7c-ca46092f952a.jpeg?im_w=1200",
     "https://a0.muscache.com/im/pictures/22ad6a9b-3c38-4a8a-81a1-9b588872913c.jpg?im_w=720",
-    "https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/e7d8a88e-89e2-4648-8c04-be05d3de1c78.jpeg?im_w=720"],
+    "https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/e7d8a88e-89e2-4648-8c04-be05d3de1c78.jpeg?im_w=720",],
     "price": 549.00,
     "shortSummary" : "Entire villa hosted by Berkan",
     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
@@ -159,7 +159,7 @@ function getEmptyOrder() {
     "https://a0.muscache.com/im/pictures/miso/Hosting-31170206/original/690311e1-4f5a-450f-ba21-e6b5b1067929.jpeg?im_w=720",
     "https://a0.muscache.com/im/pictures/miso/Hosting-31170206/original/e3a991e6-ac64-47a5-b2dd-851a9add01f9.jpeg?im_w=720"],
     "price": 489.00,
-    "shortSummary" : "Entire villa hosted by Berkan",
+    "shortSummary" : "Fantastic villa in amazing greece",
     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
     "capacity": 14,
     "amenities": [

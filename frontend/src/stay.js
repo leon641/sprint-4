@@ -85,7 +85,12 @@ const users = [
     "fullname": "User 1",
     "imgUrl": "/img/img1.jpg",
     "username": "user1",
-    "password": "secret"
+    "password": "secret",
+    "orders": [],
+    "trips": [],
+    "stays": [],
+    "wishlist": [],
+    "reviews" : []
   },
   {
     "_id": "u102",
