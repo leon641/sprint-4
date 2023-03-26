@@ -153,15 +153,67 @@ function getEmptyOrder() {
   })
   await storageService.post(STORAGE_KEY,   {
     "_id": "10006546",
-    "name": "Terrasini, Sicilia, Italy",
-    "type": "Container",
-    "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3d966c94-4c87-479b-8eeb-4889e9fb6ac9.jpeg?im_w=1200",
-    "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/eeffdea4-bbcf-4a05-bcb9-579a03bf41ab.jpeg?im_w=720",
-    "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3c44f9fd-0a88-41dd-acb5-ebf58bde739f.jpeg?im_w=720"],
-    "price": 168.00,
-    "shortSummary" : "Container suite hosted by Vittorio",
+    "name": "Koutsouras, Greece",
+    "type": "Villa ",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-31170206/original/03762295-2ff7-4b9e-a824-f542d7a95c00.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-31170206/original/690311e1-4f5a-450f-ba21-e6b5b1067929.jpeg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-31170206/original/e3a991e6-ac64-47a5-b2dd-851a9add01f9.jpeg?im_w=720"],
+    "price": 489.00,
+    "shortSummary" : "Entire villa hosted by Berkan",
     "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-    "capacity": 2,
+    "capacity": 14,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    "labels": [
+      "OMG!",
+      "Trending",
+      "Tropical",
+      "Play",
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    "loc": {
+      "country": "Portugal",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    },
+    "reviews": [
+      {
+        "id": "madeId",
+        "txt": "Very helpful hosts. Cooked traditional...",
+        "rate": 4,
+        "by": {
+          "_id": "u102",
+          "fullname": "user2",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ],
+    "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+  })
+  await storageService.post(STORAGE_KEY,   {
+    "_id": "10006546",
+    "name": "Mikonos, Greece",
+    "type": "Container",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-599018293718594460/original/2ea12839-e390-4c53-a429-58e34439a358.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-599018293718594460/original/0b7385cd-5dc8-47e2-8e43-61716e0c2e03.jpeg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-599018293718594460/original/6a40a4b4-9366-4888-9038-79e99230bead.jpeg?im_w=720"],
+    "price": 849.00,
+    "shortSummary" : "Entire villa hosted by Dionyssios",
+    "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    "capacity": 16,
     "amenities": [
       "TV",
       "Wifi",
@@ -338,6 +390,58 @@ function getEmptyOrder() {
     })
     await storageService.post(STORAGE_KEY,   {
       "_id": "10006546",
+      "name": "Milbrook, United Kingdom",
+      "type": "Villa ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/bf43c691-a93b-4ab0-9d14-4fa0ec05018d.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/b12472e4-bfa8-4983-ad06-93550c00300e.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e5674196-2ed6-459d-97b8-8b3febdf2861.jpg?im_w=720"],
+      "price": 319.00,
+      "shortSummary" : "Entire chalet hosted by Lisett",
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 4,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "labels": [
+        "OMG!",
+        "Trending",
+        "Tropical",
+        "Play",
+      ],
+      "host": {
+        "_id": "u101",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "city": "Porto",
+        "address": "17 Kombo st",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+    })
+    await storageService.post(STORAGE_KEY,   {
+      "_id": "10006546",
       "name": "Los Angeles, California",
       "type": "House",
       "imgUrls": ["https://avatars.mds.yandex.net/i?id=9cb7fdd80c897cd629e41208ff081f6b28b90485-8192006-images-thumbs&n=13",
@@ -451,6 +555,58 @@ function getEmptyOrder() {
       "shortSummary" : "Entire villa hosted by Berkan",
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 6,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "labels": [
+        "OMG!",
+        "Trending",
+        "Tropical",
+        "Play",
+      ],
+      "host": {
+        "_id": "u101",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "city": "Porto",
+        "address": "17 Kombo st",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+    })
+    await storageService.post(STORAGE_KEY,   {
+      "_id": "10006546",
+      "name": "Milbrook, United Kingdom",
+      "type": "Villa ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/bf43c691-a93b-4ab0-9d14-4fa0ec05018d.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/b12472e4-bfa8-4983-ad06-93550c00300e.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e5674196-2ed6-459d-97b8-8b3febdf2861.jpg?im_w=720"],
+      "price": 319.00,
+      "shortSummary" : "Entire chalet hosted by Lisett",
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 4,
       "amenities": [
         "TV",
         "Wifi",
