@@ -4,7 +4,7 @@
     
           <div class="total-review" >
             <span class="total-review-svg" v-html="getSvg('starFill')"></span>
-            <span class="review-score"> 4.73 </span> <span>•</span>
+            <span class="review-score"> 4.73 </span> <span class="review-score-dot">•</span>
             <span class="num-of-reviews">9 reviews</span>
           </div>
    
