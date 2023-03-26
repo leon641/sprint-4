@@ -2,6 +2,19 @@
 
 .stay-preview {
    position: relative;
+&:hover {
+
+   .el-carousel__arrow--right {
+      right: 16px;
+      background-color: #efeeeefa;
+      color: black;
+  }
+   .el-carousel__arrow--left {
+      right: 16px;
+      background-color: #efeeeefa;
+      color: black;
+  }
+}
 
    .heartCarousel {
       position:absolute;
