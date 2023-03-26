@@ -35,7 +35,7 @@
         <p >We ask every guest to remember a few simple things about what makes a great guest.</p>
  
          <p><span class="dot">•</span> <span class="remainder">Follow the house rules</span></p>  
-           <p><span class="dot">•</span> <span class="remainder">Treat your Host’s home like your own</span></p> 
+         <p><span class="dot">•</span> <span class="remainder">Treat your Host’s home like your own</span></p> 
       
       </div>
       <div class="reservation-container-info-wont-confirmed">
