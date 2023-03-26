@@ -1,27 +1,27 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="reserve-moadl">
+  <section class="reserve-modal">
     <form @submit="reserve">
+
       <div class="order-form-header">
-        <p><span class="cost">$150</span> night</p>
-        <p>
-          <span class="order-form-header-rateing">
-            <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-           {{avregeRate}}</span
-          >
-          <span class="reviews">(4 reviews)</span>
-        </p>
+    <div> <span class="cost">$281</span><span class="per-night"> night</span></div>  
+        <div class="order-form-header-rateing-container">
+            <span class="user-stay-info-svg" v-html="getSvg('starFillDetails')"></span>
+          <span class="order-form-header-rateing">5.0 <span class="dot-header-rateing">•</span></span>
+          <span class="reviews"> 5 reviews</span>
+        </div>
       </div>
+
       <div class="order-data">
         <div class="date-picker">
           <div class="date-input">
-            <label>CHECK IN</label>
-            <input value="Tue Sep 07 2021" />
+            <label>CHECK-IN</label>
+            <input value="4/1/2023" />
           </div>
           <div class="date-input">
-            <label>CHECK OUT</label>
-            <input value="Tue Sep 07 2021" />
+            <label>CHECKOUT</label>
+            <input value="6/1/2023" />
           </div>
         </div>
 
@@ -44,8 +44,8 @@
     </form>
     <p class="details-disclamer">You won't be charged yet</p>
     <div class="prices">
-      <p class="fees-decs">$555 X 4 nights</p>
-      <p class="amount">2,380</p>
+      <p class="fees-decs">$281 X 5 nights</p>
+      <p class="amount">$2,380</p>
       <p class="fees-decs">Cleaning fee</p>
       <p class="amount">$238</p>
       <p class="fees-decs">Sercives fee</p>
@@ -53,7 +53,7 @@
     </div>
     <div class="total">
       <p class="total-txt">Total</p>
-      <p class="total-amount">$3,022.60</p>
+      <p class="total-amount">$3,022</p>
     </div>
   </section>
 </template>

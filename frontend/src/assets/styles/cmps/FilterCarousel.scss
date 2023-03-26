@@ -5,12 +5,32 @@
     top: 80px;
     z-index: 100;
     background-color: $clr6;
-    padding: 1.025rem;
+    padding: 1.6rem;
+    padding-bottom: rem(20px);
     
 .carousel__next--disabled, .carousel__prev--disabled {
     /* cursor: not-allowed; */
     display: none;
     opacity: 0.5;
+}
+
+.carousel__next {
+    margin: 0;
+    margin-bottom: 16px;
+}
+.carousel__prev {
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.carousel__icon { 
+    box-shadow: 0px 0px 2px 12px $clr6;
+    color: black;
+    background-color: $clr6;
+    &:hover {
+        scale: 1.07;
+        
+    }
 }
 
 
@@ -35,11 +55,9 @@
        
        &:hover {
         p {
-            color: $clr10;
+            box-shadow: inset 0 -2px #e7e2e2;
         }
 
-        border-bottom: rem(3px) solid $clr9;
-        
     }
   
         img {
