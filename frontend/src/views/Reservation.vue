@@ -45,18 +45,19 @@
       </div>
      <div class="reservation-btn-container"><ReserveBtnReservation/></div> 
     </section>
+
     <section class="reservation-price-details-modal">
       <div class="reservation-privew">
-        <img
-          class="reservation-privew-img"
+       <div class="reservation-privew-img-container"><img class="reservation-privew-img"
           src="src/assets/img/demo.jpeg"
-          alt=""
-        />
+          alt=""/></div>
+
         <div class="reservation-privew-info">
-          <p>Entire villa</p>
-          <p>A whole medieval castle for you</p>
+          <span>Entire home</span>
+          <p>Entire Villa, Cilento Paestum for 28 p!</p>
           <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-          <span>4.83 (18)</span>
+          <span>4.83 (18)</span> <span class="user-stay-info-svg" v-html="getSvg('superHost1')"></span>
+         <span class="dot">•</span>  <span>Superhost</span>
         </div>
       </div>
       <section class="reservation-privew-cover">
