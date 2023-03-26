@@ -99,6 +99,110 @@ function getEmptyOrder() {
 
 // TEST DATA
 ;(async ()=>{
+  await storageService.post(STORAGE_KEY,   {
+    "_id": "10006546",
+    "name": "Gelemis, Anatalya, Turkey",
+    "type": "Villa ",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/c06def22-bd48-4900-8e7c-ca46092f952a.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/22ad6a9b-3c38-4a8a-81a1-9b588872913c.jpg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/e7d8a88e-89e2-4648-8c04-be05d3de1c78.jpeg?im_w=720"],
+    "price": 549.00,
+    "shortSummary" : "Entire villa hosted by Berkan",
+    "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    "capacity": 6,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    "labels": [
+      "OMG!",
+      "Trending",
+      "Tropical",
+      "Play",
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    "loc": {
+      "country": "Portugal",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    },
+    "reviews": [
+      {
+        "id": "madeId",
+        "txt": "Very helpful hosts. Cooked traditional...",
+        "rate": 4,
+        "by": {
+          "_id": "u102",
+          "fullname": "user2",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ],
+    "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+  })
+  await storageService.post(STORAGE_KEY,   {
+    "_id": "10006546",
+    "name": "Terrasini, Sicilia, Italy",
+    "type": "Container",
+    "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3d966c94-4c87-479b-8eeb-4889e9fb6ac9.jpeg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/eeffdea4-bbcf-4a05-bcb9-579a03bf41ab.jpeg?im_w=720",
+    "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3c44f9fd-0a88-41dd-acb5-ebf58bde739f.jpeg?im_w=720"],
+    "price": 168.00,
+    "shortSummary" : "Container suite hosted by Vittorio",
+    "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+    "capacity": 2,
+    "amenities": [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    "labels": [
+      "OMG!",
+      "Trending",
+      "Tropical",
+      "Play",
+    ],
+    "host": {
+      "_id": "u101",
+      "fullname": "Davit Pok",
+      "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    "loc": {
+      "country": "Portugal",
+      "countryCode": "PT",
+      "city": "Porto",
+      "address": "17 Kombo st",
+      "lat": -8.61308,
+      "lng": 41.1413
+    },
+    "reviews": [
+      {
+        "id": "madeId",
+        "txt": "Very helpful hosts. Cooked traditional...",
+        "rate": 4,
+        "by": {
+          "_id": "u102",
+          "fullname": "user2",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ],
+    "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+  })
     await storageService.post(STORAGE_KEY,   {
       "_id": "10006546",
       "name": "Ribeira Charming Duplex",
@@ -243,6 +347,110 @@ function getEmptyOrder() {
       "shortSummary" : "Amazing 4 bedrooms apartment",
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
       "capacity": 4,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "labels": [
+        "OMG!",
+        "Trending",
+        "Tropical",
+        "Play",
+      ],
+      "host": {
+        "_id": "u101",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "city": "Porto",
+        "address": "17 Kombo st",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+    })
+    await storageService.post(STORAGE_KEY,   {
+      "_id": "10006546",
+      "name": "Terrasini, Sicilia, Italy",
+      "type": "Container",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3d966c94-4c87-479b-8eeb-4889e9fb6ac9.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/eeffdea4-bbcf-4a05-bcb9-579a03bf41ab.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-45465864/original/3c44f9fd-0a88-41dd-acb5-ebf58bde739f.jpeg?im_w=720"],
+      "price": 168.00,
+      "shortSummary" : "Container suite hosted by Vittorio",
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 2,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Kitchen",
+        "Smoking allowed",
+        "Pets allowed",
+        "Cooking basics"
+      ],
+      "labels": [
+        "OMG!",
+        "Trending",
+        "Tropical",
+        "Play",
+      ],
+      "host": {
+        "_id": "u101",
+        "fullname": "Davit Pok",
+        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+      },
+      "loc": {
+        "country": "Portugal",
+        "countryCode": "PT",
+        "city": "Porto",
+        "address": "17 Kombo st",
+        "lat": -8.61308,
+        "lng": 41.1413
+      },
+      "reviews": [
+        {
+          "id": "madeId",
+          "txt": "Very helpful hosts. Cooked traditional...",
+          "rate": 4,
+          "by": {
+            "_id": "u102",
+            "fullname": "user2",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ],
+      "likedByUsers": ['mini-user'] // for user-wishlist : use $in
+    })
+    await storageService.post(STORAGE_KEY,   {
+      "_id": "10006546",
+      "name": "Gelemis, Anatalya, Turkey",
+      "type": "Villa ",
+      "imgUrls": ["https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/c06def22-bd48-4900-8e7c-ca46092f952a.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/22ad6a9b-3c38-4a8a-81a1-9b588872913c.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-50079973/original/e7d8a88e-89e2-4648-8c04-be05d3de1c78.jpeg?im_w=720"],
+      "price": 549.00,
+      "shortSummary" : "Entire villa hosted by Berkan",
+      "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
+      "capacity": 6,
       "amenities": [
         "TV",
         "Wifi",
