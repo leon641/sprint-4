@@ -2,8 +2,15 @@
  <p>{{txt}}
     
 </p>
+ <div class="show-more-btn">
+          <a>Show More</a><span
+            class="total-review-svg"
+            v-html="getSvg('showMoreArrowRight')"
+          ></span>
+        </div>
 </template>
 <script>
+import { svgService } from '../services/svg.service';
 export default {
     props:{
         desc:String
@@ -16,8 +23,12 @@ export default {
      
             isShown: false,
         }
-    }
-    , computed: {
+    },methods: {
+    getSvg(type) {
+      return svgService.getSvg(type);
+    },
+  },
+     computed: {
         
         txt() {
        
