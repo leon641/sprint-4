@@ -20,7 +20,7 @@
         </div>
         <div class="trip-summary-guests">
           <h3>Guests</h3>
-          <span>1</span><span>guest</span>
+          <span>1 guest</span>
         </div>
       </section>
       <div class="reservation-container-info-cancellation">
@@ -34,13 +34,13 @@
         <h2>Ground rules</h2>
         <p >We ask every guest to remember a few simple things about what makes a great guest.</p>
  
-         <p><span class="dot">•</span> <span class="remainder">Follow the house rules</span></p>  
-         <p><span class="dot">•</span> <span class="remainder">Treat your Host’s home like your own</span></p> 
+         <p class="rules"><span class="dot">•</span> <span class="remainder">Follow the house rules</span></p>  
+         <p class="rules"><span class="dot">•</span> <span class="remainder">Treat your Host’s home like your own</span></p> 
       
       </div>
       <div class="reservation-container-info-wont-confirmed">
          <div class="wont-confirmed-svg" v-html="getSvg('hostRoles')"></div>
-         <p>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours). You won’t be charged until then.</p>
+         <p>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours). <span>You won’t be charged until then.</span></p>
         
       </div>
      <div class="reservation-btn-container"><ReserveBtnReservation/></div> 
@@ -53,28 +53,34 @@
           alt=""/></div>
 
         <div class="reservation-privew-info">
-          <span>Entire home</span>
-          <p>Entire Villa, Cilento Paestum for 28 p!</p>
-          <span class="user-stay-info-svg" v-html="getSvg('starFill')"></span>
-          <span>4.83 (18)</span> <span class="user-stay-info-svg" v-html="getSvg('superHost1')"></span>
-         <span class="dot">•</span>  <span>Superhost</span>
+          <div><span class="stay-type">Entire home</span>
+          <p>Entire Villa, Cilento Paestum for 28 p!</p></div>
+          <div class="reservation-privew-info-reviews-container"> 
+            <span class="user-stay-info-svg" v-html="getSvg('starFillSmall')"></span>
+          <span class="rate-score">4.83</span> <span class="num-of-reviews">(5 reviews)</span> 
+         <span class="dot">•</span>  
+          <span class="superHost-svg" v-html="getSvg('superHost1')"></span>
+          <span class="super-host">Superhost</span>
+         </div>
+        
         </div>
       </div>
       <section class="reservation-privew-cover">
-        Your booking is protected by <span class="red-air">air</span
-        ><span>cover</span>
+        <span >Your booking is protected by </span><img class="air-cover-img" src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" alt="AirCover">
+
+  
       </section>
       <section class="reservation-price-details">
         <h3>Price details</h3>
         <div class="prices">
           <p>$565 x 4 nights</p>
-          <p>$2,380</p>
+          <p class="flex-end">$2,380.36</p>
           <p>total guests</p>
-          <p>1</p>
+          <p class="flex-end">1</p>
         </div>
       </section>
       <section class="reservation-price-total">
-        <p>Total</p>
+        <p>Total(USD)</p>
         <p>$3,022.60</p>
       </section>
     </section>
