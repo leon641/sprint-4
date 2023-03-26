@@ -13,7 +13,7 @@
       <div class="separator"></div>
       <button @click="toWho">
         <div>
-          Add guests
+          <div class="add-guests">Add guests</div>
           <div className="icon">
             <svg
               viewBox="0 0 32 32"
