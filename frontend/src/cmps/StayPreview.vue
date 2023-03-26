@@ -33,7 +33,7 @@
               <span>&nbsp;4.88&nbsp;</span>
             </div>
             <p class="stay-summery">
-              {{ stay.labels[0] }}
+              {{ stay.shortSummary }}
             </p>
             <p class="stay-capacity">5&nbsp;beds</p>
             <p class="stay-price">
