@@ -146,7 +146,7 @@ export default defineComponent({
       },
       // 1024 and up
       1024: {
-        itemsToShow: 13,
+        itemsToShow: 14,
         snapAlign: 'start',
       },
     },

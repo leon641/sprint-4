@@ -58,8 +58,8 @@
 .logo {
     cursor: pointer;
     color: #ff385c;
-    font-weight: 400;
-    // font-family: ;
+    font-weight: bolder;
+    font-size: 22px;
 
     img {
         height: 32px;
@@ -85,9 +85,10 @@
         border-radius: 20px;
         text-align: center;
         cursor: pointer;
-        // transition: color 2500ms ease;
+        transition: color 250ms ease;
+        color: rgb(34, 34, 34);
 
-        &:hover {
+        &:hover:not(svg) {
             background-color: #f7f7f7;
             height: 42px;
         }
@@ -102,19 +103,19 @@
         width: 76.6px;
         height: 42px;
         border-radius: 25px;
-        border: 1px solid #bbb;
+        border: 1px solid rgb(221, 221, 221);
         margin-inline-start: 15px;
         padding-inline-start: 2.2px;
         padding-block-start: 0.5px;
-        
+        transition: box-shadow 0.2s ease;
+
+
         svg {
             display: block;
-            fill: none;
             height: 16px;
             width: 16px;
-            stroke: currentcolor;
+            stroke: rgb(34, 34, 34);
             stroke-width: 3;
-            overflow: visible;
             transform: translate(11px, 12px);
         }
 
@@ -125,7 +126,7 @@
         }
 
         &:hover {
-            box-shadow: 0 2px 5px #ddd;
+            box-shadow: 0 2px 4px rgb(0, 0, 0, 0.18);
         }
     }
 }
