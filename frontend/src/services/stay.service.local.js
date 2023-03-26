@@ -120,7 +120,7 @@ function getEmptyOrder() {
       Kabak beach with your vehicle. Right next to the villa is a 50m
       restaurant and 60m grocery store. My guidebook includes nearby
       places to visit`,
-      "capacity": 8,
+      "capacity": 5,
       "amenities": [
         "TV",
         "Wifi",
@@ -243,7 +243,7 @@ function getEmptyOrder() {
       "price": 321.00,
       "shortSummary" : "Amazing 4 bedrooms apartment",
       "summary": "Fantastic duplex apartment with three bedrooms, located in the historic area of Porto, Ribeira (Cube)...",
-      "capacity": 8,
+      "capacity": 4,
       "amenities": [
         "TV",
         "Wifi",

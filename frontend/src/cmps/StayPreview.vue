@@ -35,7 +35,7 @@
             <p class="stay-summery">
               {{ stay.shortSummary }}
             </p>
-            <p class="stay-capacity">5&nbsp;beds</p>
+            <p class="stay-capacity">{{stay.capacity}}&nbsp;beds</p>
             <p class="stay-price">
               <span>${{ stay.price }}</span>
               night
