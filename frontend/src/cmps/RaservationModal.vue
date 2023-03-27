@@ -5,7 +5,8 @@
     <form @submit="reserve">
       <div class="order-form-header">
         <div>
-          <span class="cost">${{stay.price}}</span><span class="per-night"> night</span>
+          <span class="cost">${{ stay.price }}</span
+          ><span class="per-night"> night</span>
         </div>
         <div class="order-form-header-rateing-container">
           <span
@@ -13,36 +14,40 @@
             v-html="getSvg('starFillDetails')"
           ></span>
           <span class="order-form-header-rateing"
-            >{{avregeRate}} <span class="dot-header-rateing">•</span></span
+            >{{ avregeRate }} <span class="dot-header-rateing">•</span></span
           >
-          <span class="reviews"> {{stay.reviews?.length}} reviews</span>
+          <span class="reviews"> {{ stay.reviews?.length }} reviews</span>
         </div>
       </div>
 
       <div class="order-data">
         <div class="date-picker">
           <section v-if="isShown" class="date-picker-modal">
-    <div class="date-picker-modal-date-display">
-          <div class="date-input" @click="isShown = true">
-            <label>CHECK-IN</label>
-            <input :value="order.startDate || '6/1/2023'"/>
-          </div>
-          <div class="date-input">
-            <label>CHECKOUT</label>
-            <input :value="order.startDate || '6/1/2023'" />
-          </div>
-    </div>
-    <VDatePicker
-      class="date-picker"
-      :attributes="attributes"
-      @click="renderDate()"
-      :columns="columns"
-      v-model="selectedDate"
-    />
-    <button @click="setDate()" class="close-btn-date-picker-modal" @click.stop="isShown = false">
-      Close
-    </button>
-  </section>
+            <div class="date-picker-modal-date-display">
+              <div class="date-input" @click="isShown = true">
+                <label>CHECK-IN</label>
+                <input :value="order.startDate || '6/1/2023'" />
+              </div>
+              <div class="date-input">
+                <label>CHECKOUT</label>
+                <input :value="order.startDate || '6/1/2023'" />
+              </div>
+            </div>
+            <VDatePicker
+              class="date-picker"
+              :attributes="attributes"
+              @click="renderDate()"
+              :columns="columns"
+              v-model="selectedDate"
+            />
+            <button
+              @click="setDate()"
+              class="close-btn-date-picker-modal"
+              @click.stop="isShown = false"
+            >
+              Close
+            </button>
+          </section>
           <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
             <input :value="order.startDate || '6/1/2023'" />
@@ -84,7 +89,6 @@
       <p class="total-amount">$3,022</p>
     </div>
   </section>
-  
 </template>
 <script>
 import { useScreens } from "vue-screen-utils";
@@ -94,15 +98,14 @@ import { stayService } from "../services/stay.service.local.js";
 import { utilService } from "../services/util.service.js";
 export default {
   props: {
-    avregeRate:Number,
+    avregeRate: Number,
     stay: Object,
   },
   created() {
-    
     console.log("stay in revertion modal", this.stay);
     // this.rate();
 
-       console.log('order',this.avregeRate);
+    console.log("order", this.avregeRate);
   },
   data() {
     return {
@@ -121,9 +124,9 @@ export default {
           // Attribute type definitions
           content: "true", // Boolean, String, Object
           highlight: {
-            start: { 
-              
-              fillMode: "outline" },
+            start: {
+              fillMode: "outline",
+            },
             base: { fillMode: "light" },
             end: { fillMode: "outline" },
           },
@@ -131,7 +134,7 @@ export default {
 
           customData: {},
 
-          dates: { start: new Date(), end: new Date(2023, 2,30 ) },
+          dates: { start: new Date(), end: new Date(2023, 2, 30) },
 
           order: 0,
         },
@@ -173,32 +176,29 @@ export default {
     //   const avregeRate = sum / this.stay.reviews?.length;
     //   this.avregeRate = avregeRate;
     // },
-    renderDate(){
-
-if(this.selectedDate < this.attributes[0].dates.start){
-this.attributes[0].dates.start=this.selectedDate
-  }else{
-     this.attributes[0].dates.end =this.selectedDate
-  }
+    renderDate() {
+      if (this.selectedDate < this.attributes[0].dates.start) {
+        this.attributes[0].dates.start = this.selectedDate;
+      } else {
+        this.attributes[0].dates.end = this.selectedDate;
+      }
     },
     setDate() {
-     const startYear= this.attributes[0].dates.start.getFullYear()
-     const startMonth= this.attributes[0].dates.start.getMonth()+1
-     const startDay= this.attributes[0].dates.start.getDate()
+      const startYear = this.attributes[0].dates.start.getFullYear();
+      const startMonth = this.attributes[0].dates.start.getMonth() + 1;
+      const startDay = this.attributes[0].dates.start.getDate();
 
-      const endYear=this.attributes[0].dates.end.getFullYear()
-      const endMonth=this.attributes[0].dates.end.getMonth()+1
-      const endDay =this.attributes[0].dates.end.getDate()
-   
-      const startDate = `${startDay}/${startMonth}/${startYear}` 
-      const endDate = `${endDay}/${endMonth}/${endYear}` 
+      const endYear = this.attributes[0].dates.end.getFullYear();
+      const endMonth = this.attributes[0].dates.end.getMonth() + 1;
+      const endDay = this.attributes[0].dates.end.getDate();
 
-        this.order.startDate=startDate
-        this.order.endDate =endDate
-        console.log(' this.order', this.order);
-        
-    }
-    
+      const startDate = `${startDay}/${startMonth}/${startYear}`;
+      const endDate = `${endDay}/${endMonth}/${endYear}`;
+
+      this.order.startDate = startDate;
+      this.order.endDate = endDate;
+      console.log(" this.order", this.order);
+    },
   },
   components: {
     ReserveBtn,
