@@ -1,0 +1,38 @@
+<!-- בס"ד -->
+
+<!-- בס"ד -->
+
+<template>
+  <div class="stay-index">
+    <h1>NUM</h1>
+    <StayList />
+    <!-- <hr />
+    <form @submit.prevent="addStay()">
+      <h2>Add stay</h2>
+      <input type="text" />
+      <button>Save</button>
+    </form> -->
+  </div>
+</template>
+
+<script>
+import StayList from "../cmps/StayList.vue";
+
+export default {
+  data() {
+    return {
+      filterBy: {
+        txt: this.$route.query.txt,
+      },
+    };
+  },
+  computed: {},
+  created() {
+    this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
+  },
+  methods: {},
+  components: {
+    StayList,
+  },
+};
+</script>

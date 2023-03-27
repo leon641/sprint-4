@@ -31,7 +31,7 @@
         </div>
         <span class="search">
           <div>
-            <SearchBtn />
+            <SearchBtn :filterBy="filterBy"/>
           </div>
         </span>
       </div>
