@@ -6,7 +6,7 @@
       <div class="where-contant">
         <div class="where">
           <p>Where</p>
-          <input type="text" placeholder="Search destinations" />
+          <input type="text" placeholder="Search destinations" v-model="filterBy.txt" />
         </div>
       </div>
     </div>
@@ -50,7 +50,12 @@ export default {
     propWho: String,
   },
   data() {
-    return {};
+    return {
+      filterBy:{
+        txt:''
+
+      }
+    };
   },
   created() {},
   computed: {},
