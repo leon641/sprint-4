@@ -34,17 +34,21 @@ export function getActionAddStayMsg(stayId) {
 export const stayStore = {
     state: {
         stays: [],
-        wishList : [],
-        filterBy : {
-            label : '',
-            price : 0,
+        wishList: [],
+        filterBy: {
+            label: '',
+            price: 0,
         },
+        currStay: {},
     },
     getters: {
-        stays({stays}) { return stays },
+        stays({ stays }) { return stays },
 
-        wishList({wishList}) { return wishList},
-       
+        wishList({ wishList }) { return wishList },
+
+        getCurrStay(id) {
+
+        }
     },
     mutations: {
         setStays(state, { stays }) {
@@ -62,21 +66,21 @@ export const stayStore = {
         },
         setFilterBy(state, { label }) {
             state.filterBy.label = label
-          
+
         },
-        addStayMsg(state, { stayId , msg}) {
+        addStayMsg(state, { stayId, msg }) {
             const stay = state.stays.find(stay => stay._id === stayId)
             if (!stay.msgs) stay.msgs = []
             stay.msgs.push(msg)
         },
-        addToWishList(state, {stay}) {
+        addToWishList(state, { stay }) {
             state.wishList.push(stay)
         }
     },
     actions: {
-        async getStayById(context,{stayId}){
-           const stay = await stayService.getById(stayId)
-           return stay
+        async getStayById(context, { stayId }) {
+            const stay = await stayService.getById(stayId)
+            return stay
 
         },
          setWishlist({commit},{stay}){
@@ -86,12 +90,12 @@ export const stayStore = {
            
 
         },
-        setFilterBy(context, {label}){
+        setFilterBy(context, { label }) {
 
-           context.commit( {type : 'setFilterBy', label})
-           context.dispatch( {type : 'loadStays', filterBy : context.state.filterBy} )
-           
-           
+            context.commit({ type: 'setFilterBy', label })
+            context.dispatch({ type: 'loadStays', filterBy: context.state.filterBy })
+
+
 
         },
         async addStay(context, { stay }) {
@@ -117,7 +121,7 @@ export const stayStore = {
         async loadStays(context, { filterBy }) {
             try {
                 const stays = await stayService.query(filterBy)
-                
+
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
                 console.log('stayStore: Error in loadStays', err)
@@ -136,7 +140,7 @@ export const stayStore = {
         async addStayMsg(context, { stayId, txt }) {
             try {
                 const msg = await stayService.addStayMsg(stayId, txt)
-                context.commit({type: 'addStayMsg', stayId, msg })
+                context.commit({ type: 'addStayMsg', stayId, msg })
             } catch (err) {
                 console.log('stayStore: Error in addStayMsg', err)
                 throw err

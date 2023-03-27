@@ -55,10 +55,10 @@
       <p class="total-txt">Total</p>
       <p class="total-amount">$3,022</p>
     </div>
+      <VDatePicker @click="showDate" v-model="date" />
   </section>
 </template>
 <script>
-
 import ReserveBtn from "../cmps/ReserveBtn.vue";
 import { svgService } from "../services/svg.service.js";
 import { stayService } from '../services/stay.service.local.js';
@@ -75,6 +75,30 @@ export default {
  },
   data() {
     return {
+      date:"",
+      attributes: [
+      // This is a single attribute
+      {
+        // An optional key can be used for retrieving this attribute later,
+        // and will most likely be derived from your data object
+        key: "",
+        // Attribute type definitions
+        content: 'red',   // Boolean, String, Object
+        highlight: true,  // Boolean, String, Object
+        dot: true,        // Boolean, String, Object
+        bar: true,        // Boolean, String, Object
+        popover: { }, // Only objects allowed
+        // Your custom data object for later access, if needed
+        customData: { },
+        // We also need some dates to know where to display the attribute
+        // We use a single date here, but it could also be an array of dates,
+        //  a date range or a complex date pattern.
+        dates: new Date(),
+        // Think of `order` like `z-index`
+        order: 0
+      }
+    ],
+  
       avregeRate: 0,
       order:{
     "_id": utilService.makeId(),
@@ -112,11 +136,13 @@ export default {
       const avregeRate = sum / this.stay.reviews?.length;
       this.avregeRate = avregeRate;
  
-    },
+    },showDate(){
+      console.log('this.date',this.date);
+      
+    }
   },
   components: {
     ReserveBtn,
-
   },
 };
 </script>
