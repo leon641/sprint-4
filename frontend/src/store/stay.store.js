@@ -83,7 +83,7 @@ export const stayStore = {
 
             const stay = await stayService.getById(stayId)
             commit({type:'setCurrStay',stay})
-
+            return Promise.resolve()
         },
          setWishlist({commit},{stay}){
             console.log('in set wishList',stay._id)

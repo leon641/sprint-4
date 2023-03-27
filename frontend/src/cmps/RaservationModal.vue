@@ -45,11 +45,11 @@
   </section>
           <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
-            <input value="4/1/2023" />
+            <input :value="order.startDate || '6/1/2023'" />
           </div>
           <div class="date-input">
             <label>CHECKOUT</label>
-            <input value="6/1/2023" />
+            <input :value="order.endDate || '6/1/2023'" />
           </div>
         </div>
 
@@ -100,9 +100,9 @@ export default {
   created() {
     
     console.log("stay in revertion modal", this.stay);
-    this.rate();
+    // this.rate();
 
-       console.log('order',this.order);
+       console.log('order',this.avregeRate);
   },
   data() {
     return {
@@ -137,7 +137,6 @@ export default {
         },
       ],
 
-      avregeRate: 0,
       order: {
         _id: utilService.makeId(),
         hostId: this.stay?.host?.fullname,
@@ -169,11 +168,11 @@ export default {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-    rate() {
-      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
-      const avregeRate = sum / this.stay.reviews?.length;
-      this.avregeRate = avregeRate;
-    },
+    // rate() {
+    //   const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
+    //   const avregeRate = sum / this.stay.reviews?.length;
+    //   this.avregeRate = avregeRate;
+    // },
     renderDate(){
 
 if(this.selectedDate < this.attributes[0].dates.start){

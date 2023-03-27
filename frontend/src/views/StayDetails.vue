@@ -12,7 +12,7 @@
                 class="details-links-svg"
                 v-html="getSvg('starFill')"
               ></span>
-              <span class="review-rate"> {{ rate }} </span>
+              <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
               <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
               <span class="dot">•</span>
@@ -109,25 +109,33 @@ export default {
   },
   created() {
     this.$emit("inDetails");
-
     const { stayId } = this.$route.params;
      this.$store.dispatch({type: "getStayById",stayId})
+     .then(res=>{
+       console.log('this.stay',this.stay.reviews.map(review=>review.rate));
+      this.rate()
+     })
+     
     this.desc = this.stay.summary;
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
+    rate() {
+      console.log('revoews',this.stay.reviews);
+      
+      const sum = this.stay.reviews?.reduce((a, b) =>
+       a + b.rate,0
+     ); 
+      const avregeRate = sum / this.stay.reviews?.length;
+      this.avregeRate=avregeRate.toFixed(2)      
+
+    },
   },
   computed: {
     stay(){
            return this.$store.getters.currStay
-    },
-    rate() {
-      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
-      const avregeRate = sum / this.stay.reviews?.length;
-      this.avregeRate=avregeRate
-      return  avregeRate;
     },
   },
   components: {
