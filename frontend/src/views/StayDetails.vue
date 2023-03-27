@@ -12,7 +12,7 @@
                 class="details-links-svg"
                 v-html="getSvg('starFill')"
               ></span>
-              <span class="review-rate"> {{ avregeRate }} </span>
+              <span class="review-rate"> {{ rate }} </span>
               <span class="dot">•</span>
               <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
               <span class="dot">•</span>
@@ -86,7 +86,7 @@
           </section>
           <StayAmenities />
         </section>
-        <RaservationModal :stay="stay" />
+        <RaservationModal :stay="stay" :avregeRate="avregeRate" />
       </section>
       <StayReviews :stay="stay" />
     </section>
@@ -103,7 +103,6 @@ import StayReviews from "../cmps/StayReviews.vue";
 export default {
   data() {
     return {
-      stay: {},
       avregeRate: 0,
       desc: "",
     };
@@ -112,39 +111,25 @@ export default {
     this.$emit("inDetails");
 
     const { stayId } = this.$route.params;
-    const stay = this.$store
-      .dispatch({
-        type: "getStayById",
-        stayId: stayId,
-      })
-      .then((stay) => {
-        this.stay = stay;
-        this.rate();
-        this.desc = this.stay.summary;
-      });
-
-    // (async () => {
-    //   const { stayId } = this.$route.params;
-    //   const stay = await this.$store.dispatch({
-    //     type: "getStayById",
-    //     stayId: stayId,
-    //   });
-    //   this.stay = stay;
-    //   this.rate();
-    //   this.desc = this.stay.summary;
-    // })();
+     this.$store.dispatch({type: "getStayById",stayId})
+    this.desc = this.stay.summary;
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
+  },
+  computed: {
+    stay(){
+           return this.$store.getters.currStay
+    },
     rate() {
-      const sum = this.stay.reviews.reduce((a, b) => a.rate + b.rate);
-      const avregeRate = sum / this.stay.reviews.length;
-      this.avregeRate = avregeRate;
+      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
+      const avregeRate = sum / this.stay.reviews?.length;
+      this.avregeRate=avregeRate
+      return  avregeRate;
     },
   },
-  computed: {},
   components: {
     RaservationModal,
     UserStayInfo,

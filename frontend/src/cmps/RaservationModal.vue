@@ -3,19 +3,47 @@
 <template>
   <section class="reserve-modal">
     <form @submit="reserve">
-
       <div class="order-form-header">
-    <div> <span class="cost">$281</span><span class="per-night"> night</span></div>  
+        <div>
+          <span class="cost">${{stay.price}}</span><span class="per-night"> night</span>
+        </div>
         <div class="order-form-header-rateing-container">
-            <span class="user-stay-info-svg" v-html="getSvg('starFillDetails')"></span>
-          <span class="order-form-header-rateing">5.0 <span class="dot-header-rateing">•</span></span>
-          <span class="reviews"> 5 reviews</span>
+          <span
+            class="user-stay-info-svg"
+            v-html="getSvg('starFillDetails')"
+          ></span>
+          <span class="order-form-header-rateing"
+            >{{avregeRate}} <span class="dot-header-rateing">•</span></span
+          >
+          <span class="reviews"> {{stay.reviews?.length}} reviews</span>
         </div>
       </div>
 
       <div class="order-data">
         <div class="date-picker">
+          <section v-if="isShown" class="date-picker-modal">
+    <div class="date-picker-modal-date-display">
+          <div class="date-input" @click="isShown = true">
+            <label>CHECK-IN</label>
+            <input value="4/1/2023" />
+          </div>
           <div class="date-input">
+            <label>CHECKOUT</label>
+            <input value="6/1/2023" />
+          </div>
+    </div>
+    <VDatePicker
+      class="date-picker"
+      :attributes="attributes"
+      @click="showDate($event)"
+      :columns="columns"
+      v-model="selectedDate"
+    />
+    <button class="close-btn-date-picker-modal" @click.stop="isShown = false">
+      Close
+    </button>
+  </section>
+          <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
             <input value="4/1/2023" />
           </div>
@@ -55,78 +83,88 @@
       <p class="total-txt">Total</p>
       <p class="total-amount">$3,022</p>
     </div>
-      <VDatePicker @click="showDate" v-model="date" />
   </section>
+  
 </template>
 <script>
+import { useScreens } from "vue-screen-utils";
 import ReserveBtn from "../cmps/ReserveBtn.vue";
 import { svgService } from "../services/svg.service.js";
-import { stayService } from '../services/stay.service.local.js';
-import { utilService } from "../services/util.service.js"
+import { stayService } from "../services/stay.service.local.js";
+import { utilService } from "../services/util.service.js";
 export default {
-  props:{
-    stay:Object
+  props: {
+    avregeRate:Number,
+    stay: Object,
   },
- created(){
+  created() {
+    
+    console.log("stay in revertion modal", this.stay);
+    this.rate();
 
-  this.order=stayService.getEmptyOrder()
-  console.log('stay in revertion modal',this.stay);
-      this.rate();
- },
+       console.log('order',this.order);
+  },
   data() {
     return {
-      date:"",
+      columns: useScreens({
+        xs: "0px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+      }).mapCurrent({ lg: 2 }, 1),
+      selectedDate: null,
+      isShown: false,
       attributes: [
-      // This is a single attribute
-      {
-        // An optional key can be used for retrieving this attribute later,
-        // and will most likely be derived from your data object
-        key: "",
-        // Attribute type definitions
-        content: 'red',   // Boolean, String, Object
-        highlight: true,  // Boolean, String, Object
-        dot: true,        // Boolean, String, Object
-        bar: true,        // Boolean, String, Object
-        popover: { }, // Only objects allowed
-        // Your custom data object for later access, if needed
-        customData: { },
-        // We also need some dates to know where to display the attribute
-        // We use a single date here, but it could also be an array of dates,
-        //  a date range or a complex date pattern.
-        dates: new Date(),
-        // Think of `order` like `z-index`
-        order: 0
-      }
-    ],
-  
+        // This is a single attribute
+        {
+          key: "",
+          // Attribute type definitions
+          content: "true", // Boolean, String, Object
+          highlight: {
+            start: { 
+              
+              fillMode: "outline" },
+            base: { fillMode: "light" },
+            end: { fillMode: "outline" },
+          },
+          popover: {},
+
+          customData: {},
+
+          dates: { start: new Date(2023, 2, 27), end: new Date(2023, 2,30 ) },
+
+          order: 0,
+        },
+      ],
+
       avregeRate: 0,
-      order:{
-    "_id": utilService.makeId(),
-    "hostId": this.stay?.host?.fullname,
-    "buyer": {
-      "_id": "u101",
-      "fullname": "Loggedin user"
-    },
-    "totalPrice": 160,
-    "startDate": "2025/10/15",
-    "endDate": "2025/10/17",
-    "guests": {
-      "adults": 2,
-      "kids": 1
-    },
-    "stay": {
-      "_id": "h102",
-      "name": this.stay?.name,
-      "price": this.stay?.price
-    },
-    "msgs": [],
-    "status": "pending" // pending, approved
-  }
+      order: {
+        _id: utilService.makeId(),
+        hostId: this.stay?.host?.fullname,
+        buyer: {
+          _id: "u101",
+          fullname: "Loggedin user",
+        },
+        totalPrice: 160,
+        startDate: "",
+        endDate: "",
+        guests: {
+          adults: 2,
+          kids: 1,
+        },
+        stay: {
+          _id: "h102",
+          name: this.stay?.name,
+          price: this.stay?.price,
+        },
+        msgs: [],
+        status: "pending", // pending, approved
+      },
     };
   },
   methods: {
-    reservation(){
-      this.$router.push('/reservation')
+    reservation() {
+      this.$router.push("/reservation");
     },
     getSvg(type) {
       return svgService.getSvg(type);
@@ -135,11 +173,20 @@ export default {
       const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
       const avregeRate = sum / this.stay.reviews?.length;
       this.avregeRate = avregeRate;
- 
-    },showDate(){
-      console.log('this.date',this.date);
-      
-    }
+    },
+    showDate() {
+      const year=this.selectedDate.getFullYear()
+      const month=this.selectedDate.getMonth()+1
+      const day =this.selectedDate.getDate()
+   
+      const date = `${day}/${month}/${year}` 
+
+      this.order.startDate
+        ? (this.order.endDate =date)
+        : (this.order.startDate = date);
+    console.log('order',this.order);
+    },
+    
   },
   components: {
     ReserveBtn,
