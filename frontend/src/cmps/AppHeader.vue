@@ -43,7 +43,7 @@
             alt=""
           />
           
-          <UserMenu v-if="isMenu"/>
+          <UserMenu v-if="isMenu" @openLogin="openLogin"/>
            
         </div>
       </div>
@@ -62,6 +62,8 @@
     :propCheck="propCheck"
     :propWho="propWho"
   />
+
+  <LoginSignUp v-if="isOpen" @openLogin="openLogin"/>
 </template>
 
 <script>
@@ -70,6 +72,7 @@ import DetailsFilter from "./DetailsFilter.vue";
 import BigFilter from "./BigFilter.vue";
 import FilterModal from "./FilterModal.vue";
 import UserMenu from "./UserMenu.vue";
+import LoginSignUp from "./LoginSignUp.vue";
 
 export default {
   props: {
@@ -82,6 +85,7 @@ export default {
       propCheck: "",
       propWho: "",
       isMenu: false,
+      isOpen: false,
     };
   },
   created() {
@@ -125,6 +129,9 @@ export default {
         closeMenu() {
             this.isMenu = false;
         },
+        openLogin() {
+          this.isOpen = !this.isOpen
+        }
   },
   emits: ["inIndex"],
   components: {
@@ -132,7 +139,8 @@ export default {
     BigFilter,
     FilterModal,
     DetailsFilter,
-    UserMenu
+    UserMenu,
+    LoginSignUp
   },
 };
 </script>

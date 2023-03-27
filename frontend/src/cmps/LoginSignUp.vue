@@ -69,6 +69,7 @@ export default {
     methods: {
             login() {
            this.$store.dispatch({type : 'login', userCred : {...this.userCred}})
+           this.isOpen = !this.isOpen;
            
         },
          signup() {
