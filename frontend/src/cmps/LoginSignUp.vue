@@ -78,7 +78,8 @@ export default {
             this.userCred.username = 'guest'
             this.userCred.password = '111'
             this.login()
-        }
+        },
+       
 
        
     },

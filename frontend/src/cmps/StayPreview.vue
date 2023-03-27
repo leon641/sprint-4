@@ -30,7 +30,7 @@
                   fill-rule="evenodd"
                 ></path>
               </svg>
-              <span>&nbsp;4.88&nbsp;</span>
+              <span>&nbsp;{{stay.rate}}&nbsp;</span>
             </div>
             <p class="stay-summery">
               {{ stay.shortSummary }}

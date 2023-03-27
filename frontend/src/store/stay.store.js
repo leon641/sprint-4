@@ -1,6 +1,7 @@
 // בס"ד
 
 import { stayService } from '../services/stay.service.local'
+import { userService } from '../services/user.service'
 // import { stayService } from '../services/stay.service'
 
 export function getActionRemoveStay(stayId) {
@@ -79,6 +80,8 @@ export const stayStore = {
 
         },
          setWishlist({commit},{stay}){
+            console.log('in set wishList',stay._id)
+            userService.saveWishListToUser(stay)
            commit( {type : 'addToWishList', stay})
            
 

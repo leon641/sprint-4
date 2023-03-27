@@ -6,6 +6,7 @@
     z-index: 100;
     background-color: $clr6;
     padding: 1.6rem;
+    padding-left: 0;
     padding-bottom: rem(20px);
     
 .carousel__next--disabled, .carousel__prev--disabled {
@@ -24,7 +25,7 @@
 }
 
 .carousel__icon { 
-    box-shadow: 0px 0px 2px 12px $clr6;
+    box-shadow: 0px 0px 5px 20px $clr6;
     color: black;
     background-color: $clr6;
     &:hover {
@@ -79,4 +80,15 @@
 
         
     }
+}
+
+.carousel__slide {
+    scroll-snap-stop: auto;
+    flex-shrink: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateZ(0);
 }
