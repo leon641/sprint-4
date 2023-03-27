@@ -21,6 +21,28 @@
 
       <div class="order-data">
         <div class="date-picker">
+          <section v-if="isShown" class="date-picker-modal">
+    <div class="date-picker-modal-date-display">
+          <div class="date-input" @click="isShown = true">
+            <label>CHECK-IN</label>
+            <input value="4/1/2023" />
+          </div>
+          <div class="date-input">
+            <label>CHECKOUT</label>
+            <input value="6/1/2023" />
+          </div>
+    </div>
+    <VDatePicker
+      class="date-picker"
+      :attributes="attributes"
+      @click="showDate($event)"
+      :columns="columns"
+      v-model="selectedDate"
+    />
+    <button class="close-btn-date-picker-modal" @click.stop="isShown = false">
+      Close
+    </button>
+  </section>
           <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
             <input value="4/1/2023" />
@@ -62,18 +84,7 @@
       <p class="total-amount">$3,022</p>
     </div>
   </section>
-  <section v-if="isShown" class="date-picker-modal">
-    <VDatePicker
-      class="date-picker"
-      :attributes="attributes"
-      @click="showDate($event)"
-      :columns="columns"
-      v-model="selectedDate"
-    />
-    <button class="close-btn-date-picker-modal" @click.stop="isShown = false">
-      Close
-    </button>
-  </section>
+  
 </template>
 <script>
 import { useScreens } from "vue-screen-utils";
@@ -120,7 +131,7 @@ export default {
 
           customData: {},
 
-          dates: new Date(),
+          dates: { start: new Date(2023, 2, 27), end: new Date(2023, 2,30 ) },
 
           order: 0,
         },
