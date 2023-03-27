@@ -8,10 +8,16 @@
         <p>appbnb</p>
       </div>
       <Filter
+        v-if="layout === 'stay-app'"
         @expand="expand"
         @toWhere="toWhere"
         @toCheck="toCheck"
         @toWho="toWho"
+      />
+      <DetailsFilter
+        v-if="layout === 'stay-details'"
+        @expand="expand"
+        @toWhere="toWhere"
       />
       <div class="user-area">
         <div>
@@ -61,13 +67,16 @@
 
 <script>
 import Filter from "./Filter.vue";
+import DetailsFilter from "./DetailsFilter.vue";
 import BigFilter from "./BigFilter.vue";
 import FilterModal from "./FilterModal.vue";
 
 export default {
+  props: {
+    layout: String,
+  },
   data() {
     return {
-      layout: "stay-app",
       isExpanded: false,
       propWhere: "",
       propCheck: "",
@@ -76,13 +85,11 @@ export default {
     };
   },
   created() {
-    console.log("km", this.$route);
-
-    if (this.$route.params.stayId) {
-      console.log("545", this.$route.params.stayId);
-
-      this.layout = "stay-details";
-    }
+    // console.log("km", this.$route);
+    // if (this.$route.params.stayId) {
+    //   console.log("545", this.$route.params.stayId);
+    //   this.layout = "stay-details";
+    // }
   },
   computed: {
     loggedInUser() {
@@ -92,6 +99,7 @@ export default {
   methods: {
     toHome() {
       this.$router.push("/");
+      this.$emit("inIndex");
     },
     expand() {
       this.isExpanded = !this.isExpanded;
@@ -115,10 +123,12 @@ export default {
       this.isOpen = !this.isOpen;
     },
   },
+  emits: ["inIndex"],
   components: {
     Filter,
     BigFilter,
     FilterModal,
+    DetailsFilter,
   },
 };
 </script>
