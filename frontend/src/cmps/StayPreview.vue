@@ -84,7 +84,7 @@ export default {
                 type: "setWishlist",
                 stay: this.stay,
             })
-            this.$router.push("/wishlist")
+            // this.$router.push("/wishlist")
            
         },
   },
