@@ -38,7 +38,6 @@ export const userStore = {
     actions: {
          login({ commit }, { userCred }) {
             
-                console.log('in user.store',userCred);
                 const user =  userService.login(userCred)
                 commit({ type: 'setLoggedinUser', user })
                 return user
@@ -47,15 +46,14 @@ export const userStore = {
             //     throw err
             // }
         },
-        async signup({ commit }, { userCred }) {
-            try {
-                const user = await userService.signup(userCred)
+        signup({ commit }, { userCred }) {
+                const user =  userService.signup(userCred)
                 commit({ type: 'setLoggedinUser', user })
                 return user
-            } catch (err) {
-                console.log('userStore: Error in signup', err)
-                throw err
-            }
+            // } catch (err) {
+            //     console.log('userStore: Error in signup', err)
+            //     throw err
+            // }
 
         },
         async logout({ commit }) {
