@@ -13,7 +13,32 @@
   top: 100px;
   margin-left: em(32.3167px)
 }
-
+.date-picker-modal{
+  display: flex;
+  flex-direction: column;
+  width: 822px;
+  height: 507px;
+  background-color: rgb(255, 255, 255);
+  z-index: 2222;
+  position: absolute;
+  border-radius: 15px;
+  bottom: -305px;
+  left: 604px;
+  .close-btn-date-picker-modal{
+    position: absolute;
+    bottom: 23px;
+    right: 33px;
+    padding: 10px;
+    width: 74px;
+    border-radius: 13px;
+  }
+  .date-picker{
+    position: absolute;
+    top:20% ;
+    width:660px;
+   height: 400px;
+  }
+}
 .order-form-header {
   display: flex;
   align-items: center;

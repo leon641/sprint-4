@@ -45,13 +45,14 @@ export const stayStore = {
 
         wishList({ wishList }) { return wishList },
 
-        getCurrStay(id) {
-
-        }
+        currStay({ currStay }) { return currStay }
     },
     mutations: {
         setStays(state, { stays }) {
             state.stays = stays
+        },
+        setCurrStay(state, { stay }) {    
+            state.currStay = stay
         },
         addStay(state, { stay }) {
             state.stays.push(stay)
@@ -77,9 +78,10 @@ export const stayStore = {
         }
     },
     actions: {
-        async getStayById(context, { stayId }) {
+        async getStayById({ commit }, { stayId }) {
+
             const stay = await stayService.getById(stayId)
-            return stay
+            commit({type:'setCurrStay',stay})
 
         },
         setWishlist({ commit }, { stay }) {
