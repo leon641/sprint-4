@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="header-container full stay-app">
+  <div class="header-container full" :class="layout">
     <div class="main-header">
       <div class="logo" @click="toHome">
         <img src="../assets/img/logo.png" alt="logo" />
@@ -17,7 +17,7 @@
         <div>
           <a>Airbnb your home</a>
         </div>
-        <div class="hamburger">
+        <div class="hamburger" @click="toggleModal">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +36,10 @@
             src="https://a0.muscache.com/im/pictures/user/71e528e9-e78f-4f64-9be2-568194f777b0.jpg?aki_policy=profile_medium"
             alt=""
           />
+          <div class="user-modal" v-if="isOpen">
+            <div class="login">Login</div>
+            <div class="singup">Singup</div>
+          </div>
         </div>
       </div>
     </div>
@@ -63,11 +67,22 @@ import FilterModal from "./FilterModal.vue";
 export default {
   data() {
     return {
+      layout: "stay-app",
       isExpanded: false,
       propWhere: "",
       propCheck: "",
       propWho: "",
+      isOpen: false,
     };
+  },
+  created() {
+    console.log('km',this.$route.params);
+    
+    if (this.$route.params.stayId) {
+      console.log('545');
+      
+      this.layout = "stay-details";
+    }
   },
   computed: {
     loggedInUser() {
@@ -95,6 +110,9 @@ export default {
       this.propWhere = "";
       this.propCheck = "";
       this.propWho = "";
+    },
+    toggleModal() {
+      this.isOpen = !this.isOpen;
     },
   },
   components: {
