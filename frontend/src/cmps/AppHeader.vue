@@ -12,6 +12,7 @@
         @expand="expand"
         @toWhere="toWhere"
         @toCheck="toCheck"
+        @toCheckOut="toCheckOut"
         @toWho="toWho"
       />
       <DetailsFilter
@@ -54,13 +55,19 @@
     <BigFilter
       :propWhere="propWhere"
       :propCheck="propCheck"
+      :propCheckOut="propCheckOut"
       :propWho="propWho"
+      @switchTWhere="switchTWhere"
+      @switchTCheck="switchTCheck"
+      @switchTCheckOut="switchTCheckOut"
+      @switchTWho="switchTWho"
     />
     <div class="screen" @click="closeFilter"></div>
   </div>
   <FilterModal
     :propWhere="propWhere"
     :propCheck="propCheck"
+    :propCheckOut="propCheckOut"
     :propWho="propWho"
   />
 </template>
@@ -80,6 +87,7 @@ export default {
       isExpanded: false,
       propWhere: "",
       propCheck: "",
+      propCheckOut: "",
       propWho: "",
       isOpen: false,
     };
@@ -110,17 +118,40 @@ export default {
     toCheck() {
       this.propCheck = "focus";
     },
+    toCheckOut() {
+      this.propCheckOut = "focus";
+    },
     toWho() {
       this.propWho = "focus";
     },
-    closeFilter() {
-      this.expand();
+    clearProps() {
       this.propWhere = "";
       this.propCheck = "";
+      this.propCheckOut = "";
       this.propWho = "";
+    },
+    closeFilter() {
+      this.expand();
+      this.clearProps();
     },
     toggleModal() {
       this.isOpen = !this.isOpen;
+    },
+    switchTWhere() {
+      this.clearProps();
+      this.propWhere = "focus";
+    },
+    switchTCheck() {
+      this.clearProps();
+      this.propCheck = "focus";
+    },
+    switchTCheckOut() {
+      this.clearProps();
+      this.propCheckOut = "focus";
+    },
+    switchTWho() {
+      this.clearProps();
+      this.propWho = "focus";
     },
   },
   emits: ["inIndex"],

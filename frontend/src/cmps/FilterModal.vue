@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div v-if="propCheck" class="check-modal">
+  <div v-if="propCheck || propCheckOut" class="check-modal">
     <el-radio-group v-model="size" label="size control" size="small">
       <el-radio-button label="large">large</el-radio-button>
       <el-radio-button label="default">default</el-radio-button>
@@ -187,6 +187,7 @@ export default {
   props: {
     propWhere: String,
     propCheck: String,
+    propCheckOut: String,
     propWho: String,
   },
   data() {
