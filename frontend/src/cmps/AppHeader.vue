@@ -23,7 +23,7 @@
         <div>
           <a>Airbnb your home</a>
         </div>
-        <div class="hamburger" @click="toggleModal">
+        <div class="hamburger" @click="toggleUserMenu">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -42,10 +42,9 @@
             src="https://a0.muscache.com/im/pictures/user/71e528e9-e78f-4f64-9be2-568194f777b0.jpg?aki_policy=profile_medium"
             alt=""
           />
-          <div class="user-modal" v-if="isOpen">
-            <div class="login">Login</div>
-            <div class="singup">Singup</div>
-          </div>
+          
+          <UserMenu v-if="isMenu" @openLogin="openLogin"/>
+           
         </div>
       </div>
     </div>
@@ -63,6 +62,8 @@
     :propCheck="propCheck"
     :propWho="propWho"
   />
+
+  <LoginSignUp v-if="isOpen" @openLogin="openLogin"/>
 </template>
 
 <script>
@@ -70,6 +71,8 @@ import Filter from "./Filter.vue";
 import DetailsFilter from "./DetailsFilter.vue";
 import BigFilter from "./BigFilter.vue";
 import FilterModal from "./FilterModal.vue";
+import UserMenu from "./UserMenu.vue";
+import LoginSignUp from "./LoginSignUp.vue";
 
 export default {
   props: {
@@ -81,6 +84,7 @@ export default {
       propWhere: "",
       propCheck: "",
       propWho: "",
+      isMenu: false,
       isOpen: false,
     };
   },
@@ -119,9 +123,15 @@ export default {
       this.propCheck = "";
       this.propWho = "";
     },
-    toggleModal() {
-      this.isOpen = !this.isOpen;
-    },
+      toggleUserMenu() {
+            this.isMenu = !this.isMenu;
+        },
+        closeMenu() {
+            this.isMenu = false;
+        },
+        openLogin() {
+          this.isOpen = !this.isOpen
+        }
   },
   emits: ["inIndex"],
   components: {
@@ -129,6 +139,8 @@ export default {
     BigFilter,
     FilterModal,
     DetailsFilter,
+    UserMenu,
+    LoginSignUp
   },
 };
 </script>
