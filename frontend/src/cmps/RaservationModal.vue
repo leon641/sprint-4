@@ -25,21 +25,21 @@
     <div class="date-picker-modal-date-display">
           <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
-            <input value="4/1/2023" />
+            <input :value="order.startDate || '6/1/2023'"/>
           </div>
           <div class="date-input">
             <label>CHECKOUT</label>
-            <input value="6/1/2023" />
+            <input :value="order.startDate || '6/1/2023'" />
           </div>
     </div>
     <VDatePicker
       class="date-picker"
       :attributes="attributes"
-      @click="showDate($event)"
+      @click="renderDate()"
       :columns="columns"
       v-model="selectedDate"
     />
-    <button class="close-btn-date-picker-modal" @click.stop="isShown = false">
+    <button @click="setDate()" class="close-btn-date-picker-modal" @click.stop="isShown = false">
       Close
     </button>
   </section>
@@ -131,7 +131,7 @@ export default {
 
           customData: {},
 
-          dates: { start: new Date(2023, 2, 27), end: new Date(2023, 2,30 ) },
+          dates: { start: new Date(), end: new Date(2023, 2,30 ) },
 
           order: 0,
         },
@@ -174,18 +174,31 @@ export default {
       const avregeRate = sum / this.stay.reviews?.length;
       this.avregeRate = avregeRate;
     },
-    showDate() {
-      const year=this.selectedDate.getFullYear()
-      const month=this.selectedDate.getMonth()+1
-      const day =this.selectedDate.getDate()
-   
-      const date = `${day}/${month}/${year}` 
+    renderDate(){
 
-      this.order.startDate
-        ? (this.order.endDate =date)
-        : (this.order.startDate = date);
-    console.log('order',this.order);
+if(this.selectedDate < this.attributes[0].dates.start){
+this.attributes[0].dates.start=this.selectedDate
+  }else{
+     this.attributes[0].dates.end =this.selectedDate
+  }
     },
+    setDate() {
+     const startYear= this.attributes[0].dates.start.getFullYear()
+     const startMonth= this.attributes[0].dates.start.getMonth()+1
+     const startDay= this.attributes[0].dates.start.getDate()
+
+      const endYear=this.attributes[0].dates.end.getFullYear()
+      const endMonth=this.attributes[0].dates.end.getMonth()+1
+      const endDay =this.attributes[0].dates.end.getDate()
+   
+      const startDate = `${startDay}/${startMonth}/${startYear}` 
+      const endDate = `${endDay}/${endMonth}/${endYear}` 
+
+        this.order.startDate=startDate
+        this.order.endDate =endDate
+        console.log(' this.order', this.order);
+        
+    }
     
   },
   components: {
