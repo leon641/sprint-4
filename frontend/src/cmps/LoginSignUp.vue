@@ -1,8 +1,8 @@
 <template>
-    <section class="login-layout">
+    <section class="login-layout" v-if="isOpen">
         <header class="login-title">
             <h2>Sign up or Login</h2>
-            <button @click="close" class="exit-login-btn">x</button>
+            <button @click="toggleModal" class="exit-login-btn">x</button>
         </header>
 
         <form @submit.prevent="login" class="login-main-content" v-if="isLogin">
@@ -53,6 +53,7 @@ export default {
     name: "LoginSignUp",
     data() {
         return {
+            isOpen: true,
             isLogin: true,
             userCred: {
                 username: "",
@@ -79,6 +80,9 @@ export default {
             this.userCred.password = '111'
             this.login()
         },
+         toggleModal() {
+      this.isOpen = !this.isOpen;
+    },
        
 
        
