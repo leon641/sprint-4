@@ -19,7 +19,8 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    changeScore,
+    saveWishListToUser
 }
 
 window.userService = userService
@@ -96,13 +97,20 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,wishlist : user.wishlist, score: user.score}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+}
+function saveWishListToUser(stay) {
+    console.log('in user service', stay);
+    const user = getLoggedinUser()
+    user.wishlist.push(stay)
+    console.log('in user service', user);
+    saveLocalUser(user)
 }
 
 

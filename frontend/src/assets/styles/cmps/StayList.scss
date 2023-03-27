@@ -3,7 +3,7 @@
 .stay-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(321.2px, 321px));
+    grid-template-columns: repeat(auto-fill, minmax(321.2px, 321px));
     gap: 23px;
     row-gap: 45px;
 
@@ -21,7 +21,7 @@
     }
 
     img {
-        height: 300px;
+        height: 305px;
         width: -webkit-fill-available;
         border-radius: 9px;
     }
