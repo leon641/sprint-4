@@ -1,57 +1,63 @@
 .login-layout {
-    background-color: #fff;
-    position: fixed;
-    top: 50%;
+    background-color: $clr6;
+    position: absolute;
+    top: 70%;
     right: 50%;
     transform: translate(50%,-50%);
-    box-shadow: #00000047 0 8px 28px;
-    border-radius: 12px;
+    box-shadow: $clr10 0 8px 28px;
+    border-radius: rem(12px);
     overflow: hidden;
     z-index: 11;
-    width: 551px;
-    padding-inline: 24px;
+    width: rem(551px);
+    padding-inline: rem(24px);
 
     .login-title {
         position: relative;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid rgb(235,235,235);
-        height: 64px;
+        border-bottom: 1px solid $clr14;
+        height: rem(64px);
 
-        .exit-login-title {
-            position: absolute;
+        .exit-login-btn {
+            margin-bottom: rem(10px);
+            border-radius: 50%;
+            &:hover {
+                background-color: $clr1;
+                scale: 1.1;
+            }
         }
     }
 }
 
 
 
+
 .login-layout .login-main-content {
-    padding-block: 24px;
+    padding-block: rem(24px);
 
     .app-title { 
         display: flex;
         justify-content: center;
         width: 100%;
         h3 {
-            margin-bottom: 20px;
+            margin-bottom: rem(13px);
             margin: 0;
             font-size: 1.375em;
         }
     }
 
     h3 {
-        margin-bottom: 20px;
+        margin-bottom: rem(20px);
         margin: 0;
         font-size: 1.375em;
     }
 
     .login-form-cont {
-        height: 112px;
+        height: rem(112px);
         width: 100%;
-        border-radius: 8px;
-        border: 1px solid rgba(27,27,27,.34);
+        border-radius: rem(8px);
+        border: 1px solid $clr10;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -60,15 +66,15 @@
         .form-line {
             height: 0.5px;
             width: 100%;
-            background-color: #1b1b1b57;
+            background-color: $clr15;
         }
 
         input {
-            font-size: 16px;
-            padding-left: 12px;
+            font-size: rem(16px);
+            padding-left: rem(12px);
             height: 47.5%;
             border: 0;
-            border-radius: 8px;
+            border-radius: rem(8px);
             outline: none;
         }
     }
@@ -83,16 +89,16 @@
 
 .btn-container {
     width: 100%;
-    color: #fff;
+    color: $clr6;
     border: none;
     background: radial-gradient(circle at left,#ff385c 0%,#e61e4d 27.5%,#e31c5f 40%,#d70466 57.5%,#bd1e59 75%,#bd1e59 100%);
-    border-radius: 10px;
+    border-radius: rem(10px);
     font-weight: 600;
-    height: 50px;
+    height: rem(50px);
     transition: 1s;
     margin: 30px 0 28px;
     margin-left: -10px;
-    font-size: 16px;
+    font-size: rem(16px);
     display: list-item;
 }
 

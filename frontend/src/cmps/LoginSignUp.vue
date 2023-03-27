@@ -2,7 +2,7 @@
     <section class="login-layout">
         <header class="login-title">
             <h2>Sign up or Login</h2>
-            <button @click="close" class="exit-login-btn">X</button>
+            <button @click="close" class="exit-login-btn">x</button>
         </header>
 
         <form @submit.prevent="login" class="login-main-content" v-if="isLogin">
@@ -25,7 +25,7 @@
 
         </form>
 
-        <!-- <form @submit.prevent="signup" class="login-main-content" v-if="!isLogin">
+        <form @submit.prevent="signup" class="login-main-content" v-if="!isLogin">
             <h3> Welcome to Appbnb </h3>
 
             <div class="sign-up-form-cont">
@@ -44,7 +44,7 @@
 
             <button @mousemove="hoverEffect" class="btn-container">Continue as a guest</button>
 
-        </form> -->
+        </form>
     </section>
 </template>
   
@@ -67,9 +67,17 @@ export default {
     },
     methods: {
             login() {
-                console.log('in login before store',this.userCred);
            this.$store.dispatch({type : 'login', userCred : {...this.userCred}})
            
+        },
+         signup() {
+             this.$store.dispatch({ type: "signup", cred: this.signupCred });
+            
+        },
+          loginAsGuest() {
+            this.userCred.username = 'guest'
+            this.userCred.password = '111'
+            this.login()
         }
 
        
