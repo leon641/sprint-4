@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="stay-details">
+  <section v-if="stay" class="stay-details">
     <section class="stay-details-container">
       <div class="details-subtitle">
         <h2>{{ stay.name }}</h2>
@@ -71,14 +71,17 @@
           <UserStayInfo />
 
           <section class="air-cover">
-         <img class="l1li2ovm dir dir-ltr" src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" alt="AirCover">
+            <img
+              class="l1li2ovm dir dir-ltr"
+              src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg"
+              alt="AirCover"
+            />
             <p>
               Every booking includes free protection from Host cancellations,
               listing inaccuracies, and other issues like trouble checking in.
             </p>
           </section>
           <section class="stay-decription">
-            
             {{ stay.summary }}
           </section>
           <StayAmenities />
@@ -97,26 +100,39 @@ import UserStayInfo from "../cmps/UserStayInfo.vue";
 import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
 
-
 export default {
   data() {
     return {
       stay: {},
       avregeRate: 0,
-      desc:""
+      desc: "",
     };
   },
   created() {
-    (async () => {
-      const { stayId } = this.$route.params;
-      const stay = await this.$store.dispatch({
+    this.$emit("inDetails");
+
+    const { stayId } = this.$route.params;
+    const stay = this.$store
+      .dispatch({
         type: "getStayById",
         stayId: stayId,
+      })
+      .then((stay) => {
+        this.stay = stay;
+        this.rate();
+        this.desc = this.stay.summary;
       });
-      this.stay = stay;
-      this.rate();
-      this.desc=this.stay.summary
-    })();
+
+    // (async () => {
+    //   const { stayId } = this.$route.params;
+    //   const stay = await this.$store.dispatch({
+    //     type: "getStayById",
+    //     stayId: stayId,
+    //   });
+    //   this.stay = stay;
+    //   this.rate();
+    //   this.desc = this.stay.summary;
+    // })();
   },
   methods: {
     getSvg(type) {
@@ -134,7 +150,7 @@ export default {
     UserStayInfo,
     StayAmenities,
     StayReviews,
-   
   },
+  emits: ["inDetails"],
 };
 </script>

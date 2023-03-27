@@ -76,11 +76,11 @@ export default {
     };
   },
   created() {
-    console.log('km',this.$route.params);
-    
+    console.log("km", this.$route);
+
     if (this.$route.params.stayId) {
-      console.log('545');
-      
+      console.log("545", this.$route.params.stayId);
+
       this.layout = "stay-details";
     }
   },
