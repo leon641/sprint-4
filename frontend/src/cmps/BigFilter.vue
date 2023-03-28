@@ -35,7 +35,7 @@
         </div>
         <span class="search">
           <div>
-            <SearchBtn :filterBy="filterBy" />
+            <SearchBtn :filterBy="filterBy" @closeFilter="closeFilter" />
           </div>
         </span>
       </div>
@@ -63,8 +63,8 @@ export default {
     };
   },
   created() {
-    console.log('filterBy',this.filterBy)
-    console.log('r',this.propRegion)
+    console.log("filterBy", this.filterBy);
+    console.log("r", this.propRegion);
     // this.filterBy.txt = "";
     // this.filterBy.region = "";
   },
@@ -89,7 +89,18 @@ export default {
     switchToWho() {
       this.$emit("switchTWho");
     },
+    clearProps() {
+      this.$emit("clearProps");
+      console.log('15');
+      
+    },
   },
-  emits: ["switchTWhere", "switchTCheck", "switchTCheckOut", "switchTWho"],
+  emits: [
+    "switchTWhere",
+    "switchTCheck",
+    "switchTCheckOut",
+    "switchTWho",
+    "closeFilter",
+  ],
 };
 </script>
