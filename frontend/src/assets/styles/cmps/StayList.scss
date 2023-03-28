@@ -3,7 +3,7 @@
 .stay-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(321.2px, 321px));
+    grid-template-columns: repeat(auto-fill, minmax(289px, 1fr));
     gap: 23px;
     row-gap: 45px;
 
@@ -23,10 +23,9 @@
     img {
         height: 305px;
         width: -webkit-fill-available;
-        border-radius: 9px;
     }
 
-    .el-carousel {
+    .el-carousel__item {
         border-radius: 9px;
     }
 

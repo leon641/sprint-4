@@ -31,7 +31,7 @@ const routes = [
     component: Wishlist
   },
   {
-    path: '//trips',
+    path: '/trips',
     name: 'UserTrips',
     component: UserTrips
   },

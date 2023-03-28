@@ -97,7 +97,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,wishlist : user.wishlist, score: user.score}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,likedByUsers : user.likedByUsers, score: user.score}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -107,25 +107,25 @@ function getLoggedinUser() {
 }
 function saveWishListToUser(stay) {
     const user = getLoggedinUser()
-    user.wishlist.push(stay)
+    user.likedByUsers.push(stay)
     saveLocalUser(user)
 }
 
 
-// ;(async ()=>{
-//     await userService.signup({_id:utilService.makeId(),  "_id": "u101",
-//     "fullname": "nadav dori",
-//     "imgUrl": "/img/img1.jpg",
-//     "username": "nadav",
-//     "password": "111",
-//     "orders": [],
-//     "trips": [],
-//     "stays": [],
-//     "wishlist": [],
-//     "reviews" : []})
-//     await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
+;(async ()=>{
+    await userService.signup({_id:utilService.makeId(),  "_id": "u101",
+    "fullname": "nadav dori",
+    "imgUrl": "/img/img1.jpg",
+    "username": "nadav",
+    "password": "111",
+    "orders": [],
+    "trips": [],
+    "stays": [],
+    "likedByUsers": [],
+    "reviews" : []})
+    await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
+    await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+})()
 
 
 
