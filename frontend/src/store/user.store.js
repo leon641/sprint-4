@@ -42,9 +42,9 @@ export const userStore = {
         },
     },
     actions: {
-        login({ commit }, { userCred }) {
+       async login({ commit }, { userCred }) {
 
-            const user = userService.login(userCred)
+            const user = await userService.login(userCred)
             commit({ type: 'setLoggedinUser', user })
             return user
             // catch (err) {

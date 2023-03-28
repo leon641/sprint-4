@@ -63,6 +63,8 @@ export default {
     };
   },
   created() {
+    console.log('filterBy',this.filterBy)
+    console.log('r',this.propRegion)
     // this.filterBy.txt = "";
     // this.filterBy.region = "";
   },
