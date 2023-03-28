@@ -6,14 +6,15 @@
   border: 1px solid rgba(0, 0, 0, 0.1882352941);
   border-radius: 13px;
   padding: 13px;
-  padding-bottom:5px ;
+  padding-bottom: 5px;
   width: 21.0em;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
   height: fit-content;
   top: 100px;
   margin-left: em(32.3167px)
 }
-.date-picker-modal{
+
+.date-picker-modal {
   display: flex;
   flex-direction: column;
   width: 666px;
@@ -23,41 +24,45 @@
   position: absolute;
   border-radius: 16px;
   right: -41px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px ;
-  .date-picker-modal-date-display{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+
+  .date-picker-modal-date-display {
     display: flex;
     position: relative;
-    top:12px;
+    top: 12px;
     padding: 1px;
     border: 1px solid #222;
     max-width: 315px;
     border-radius: 8px;
-    left:311px
+    left: 311px
   }
+
   .vc-arrow.vc-prev.vc-focus,
-  .vc-arrow.vc-next.vc-focus{
+  .vc-arrow.vc-next.vc-focus {
     background-color: transparent;
   }
+
   .vc-weekdays .vc-weekday-2,
   .vc-weekdays .vc-weekday-3,
   .vc-weekdays .vc-weekday-4,
   .vc-weekdays .vc-weekday-5,
   .vc-weekdays .vc-weekday-6,
-  .vc-weekdays .vc-weekday-7
-  {
-  font-family: CircularAir-Light;
-  color: #222;
-  font-size: 12px;
+  .vc-weekdays .vc-weekday-7 {
+    font-family: CircularAir-Light;
+    color: #222;
+    font-size: 12px;
   }
-  .vc-day-content{
+
+  .vc-day-content {
     font-size: 14px;
     margin-block: 7px;
   }
-  .vc-title{
+
+  .vc-title {
     font-size: 1rem;
   }
- 
-  .close-btn-date-picker-modal{
+
+  .close-btn-date-picker-modal {
     position: absolute;
     bottom: 23px;
     right: 33px;
@@ -66,66 +71,198 @@
     border-radius: 8px;
     max-height: 40px;
     font-weight: 600;
-    color:#fff;
+    color: #fff;
     background-color: #222;
     font-family: CircularAir-Light;
 
   }
-  .date-picker{
+
+  .date-picker {
     position: absolute;
-    top:20% ;
-    width:660px;
-   height: 400px;
+    top: 20%;
+    width: 660px;
+    height: 400px;
   }
 }
-.guests-info-model{
+
+.guests-info-model {
   position: absolute;
   display: grid;
   grid-template-columns: 15px 1fr 1fr 15px;
   grid-template-rows: 22px 1fr 1fr 1fr 1fr 1fr 1fr;
-  background-color: green;
+  background-color: #fff;
   width: 320px;
   height: 400px;
-  top:56px;
+  top: 56px;
   right: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
+  border-radius: 4px;
   z-index: 999;
-  .category-container{
+
+  .btn-close-guests-modal {
+    grid-column: 3;
+    grid-row: 6;
+    background-color: transparent;
+  }
+
+  .category-container {
     display: flex;
     flex-direction: column;
     margin-top: 22px;
     margin-left: 15px;
-    .category-title{
+    min-width: 150px;
+
+    .category-title {
       font-size: 1rem;
       color: #222;
     }
-    .category-subtitle{
+
+    .category-subtitle {
       color: #222;
     }
   }
-.btns-container{
-  grid-column: 3;
-  grid-row: 2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  
-  .btn-guests-modal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 20px;
-    margin-block-end: 9px;
-    margin-inline-end: 5px;
-  }
-  .add-more{
-    margin-inline-start: 35px;
 
+  .btns-container.item1 {
+    grid-column: 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 40px 30px 40px;
+    place-content: center;
+
+    .btn-guests-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      margin-block-end: 9px;
+      margin-inline-end: 5px;
+    }
+
+    .add-more {
+      grid-column: 4;
+    }
+
+    .subtract {
+      grid-column: 2;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 16px;
+    }
   }
-  
+
+  .btns-container.item2 {
+    grid-column: 3;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 40px 30px 40px;
+    place-content: center;
+
+    .btn-guests-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      margin-block-end: 9px;
+      margin-inline-end: 5px;
+    }
+
+    .add-more {
+      grid-column: 4;
+    }
+
+    .subtract {
+      grid-column: 2;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  .category2 {
+    grid-row: 3;
+  }
+
+  .btns-container.item3 {
+    grid-column: 3;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: 40px 30px 40px;
+    place-content: center;
+
+    .btn-guests-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      margin-block-end: 9px;
+      margin-inline-end: 5px;
+    }
+
+    .add-more {
+      grid-column: 4;
+    }
+
+    .subtract {
+      grid-column: 2;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  .category3 {
+    grid-row: 4;
+  }
+
+  .btns-container.item4 {
+    grid-column: 3;
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: 40px 30px 40px;
+    place-content: center;
+
+    .btn-guests-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 20px;
+      margin-block-end: 9px;
+      margin-inline-end: 5px;
+    }
+
+    .add-more {
+      grid-column: 4;
+    }
+
+    .subtract {
+      grid-column: 2;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  .category4 {
+    grid-row: 5;
+  }
 }
-}
+
 .order-form-header {
   display: flex;
   align-items: center;
@@ -139,13 +276,14 @@
     color: rgb(34, 34, 34);
     font-family: CircularAir-Light;
     font-size: 16px;
-  
+
   }
+
   .cost {
     font-weight: 900;
     font-size: 1.2em;
     margin-inline-start: 12px;
- font-family: CircularAir-Light;
+    font-family: CircularAir-Light;
 
   }
 
@@ -180,6 +318,7 @@
 
   }
 }
+
 .order-data {
   position: relative;
   left: 7px;
@@ -190,6 +329,7 @@
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
 .btn-container {
   position: relative;
   left: 10px;
@@ -302,9 +442,7 @@
   gap: 10px;
   font-family: CircularAir-Light;
   font-size: 16px;
-  color:rgb(34, 34, 34)
-
-
+  color: rgb(34, 34, 34)
 }
 
 .total {
@@ -337,7 +475,8 @@
   color: $clr12;
   font-size: 0.80rem;
   font-family: CircularAir-Light;
-  input{
+
+  input {
     font-size: 0.80rem;
   }
 
