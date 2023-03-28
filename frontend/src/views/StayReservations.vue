@@ -24,8 +24,12 @@
           <td>$546.00</td>
           <td>Completed</td>
           <td>Completed</td>
+          <td  v-for="order in orders" :key="order._id">{{order.hostId}}</td>
         </tbody>
       </table>
+      <ul v-for="order in orders" :key="order._id">
+        <li>{{order.hostId}}
+        </li></ul>
     </section>
   </section>
 </template>
@@ -35,13 +39,13 @@
 export default {
   props:{
     userId:String
-    
+
   },
 async created() {
-  
+    await this.$store.dispatch({ type: "loadOrders" });
   console.log('userId',this.userId);
 this.orders = this.$store.getters.orders;
- console.log("loging in reservation",  this.orders);
+ console.log("loging in reservation", { ...this.orders[0]});
 
   
   },
