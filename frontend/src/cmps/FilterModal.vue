@@ -22,7 +22,14 @@
     </div>
   </div>
   <div v-if="propCheck || propCheckOut" class="check-modal">
-    <el-radio-group v-model="size" label="size control" size="small">
+    <VDatePicker borderless
+      class="date-picker"
+      :min-date="new Date()"
+      :attributes="attributes"
+      :columns="columns"
+      v-model="selectedDate"
+    />
+    <!-- <el-radio-group v-model="size" label="size control" size="small">
       <el-radio-button label="large">large</el-radio-button>
       <el-radio-button label="default">default</el-radio-button>
       <el-radio-button label="small">small</el-radio-button>
@@ -50,9 +57,9 @@
           end-placeholder="End date"
           :shortcuts="shortcuts"
           :size="size"
-        />
+        /> 
       </div>
-    </div>
+    </div>-->
   </div>
   <div v-if="propWho" class="who-modal">
     <div class="flex">
@@ -183,6 +190,8 @@
 </template>
 
 <script>
+import { useScreens } from "vue-screen-utils";
+
 export default {
   props: {
     propWhere: String,
@@ -218,10 +227,64 @@ export default {
           url: "src/assets/img/regions/United Kingdom.jpg",
         },
       ],
+      columns: useScreens({
+        xs: "0px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+      }).mapCurrent({ lg: 2 }, 1),
+      selectedDate: null,
+      isShown: false,
+      attributes: [
+        // This is a single attribute
+        {
+          key: "",
+          // Attribute type definitions
+          content: "true", // Boolean, String, Object
+          highlight: {
+            start: {
+              fillMode: "outline",
+            },
+            base: { fillMode: "light" },
+            end: { fillMode: "outline" },
+          },
+          popover: {},
+
+          customData: {},
+
+          dates: { start: new Date(), end: new Date(2023, 2, 30) },
+
+          order: 0,
+        },
+      ],
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    setDate() {
+      const startYear = this.attributes[0].dates.start.getFullYear();
+      const startMonth = this.attributes[0].dates.start.getMonth() + 1;
+      const startDay = this.attributes[0].dates.start.getDate();
+
+      const endYear = this.attributes[0].dates.end.getFullYear();
+      const endMonth = this.attributes[0].dates.end.getMonth() + 1;
+      const endDay = this.attributes[0].dates.end.getDate();
+
+      const startDate = `${startDay}/${startMonth}/${startYear}`;
+      const endDate = `${endDay}/${endMonth}/${endYear}`;
+
+      this.order.startDate = startDate;
+      this.order.endDate = endDate;
+      console.log(" this.order", this.order);
+    },
+    renderDate() {
+      if (this.selectedDate < this.attributes[0].dates.start) {
+        this.attributes[0].dates.start = this.selectedDate;
+      } else {
+        this.attributes[0].dates.end = this.selectedDate;
+      }
+    },
+  },
   emits: [],
 };
 

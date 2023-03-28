@@ -21,21 +21,55 @@
   background-color: rgb(255, 255, 255);
   z-index: 2222;
   position: absolute;
-  border-radius: 15px;
+  border-radius: 16px;
   right: -41px;
-  // left: 835px;
-  background-color: antiquewhite;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px ;
   .date-picker-modal-date-display{
     display: flex;
-    
+    position: relative;
+    top:12px;
+    padding: 1px;
+    border: 1px solid #222;
+    max-width: 315px;
+    border-radius: 8px;
+    left:311px
   }
+  .vc-arrow.vc-prev.vc-focus,
+  .vc-arrow.vc-next.vc-focus{
+    background-color: transparent;
+  }
+  .vc-weekdays .vc-weekday-2,
+  .vc-weekdays .vc-weekday-3,
+  .vc-weekdays .vc-weekday-4,
+  .vc-weekdays .vc-weekday-5,
+  .vc-weekdays .vc-weekday-6,
+  .vc-weekdays .vc-weekday-7
+  {
+  font-family: CircularAir-Light;
+  color: #222;
+  font-size: 12px;
+  }
+  .vc-day-content{
+    font-size: 14px;
+    margin-block: 7px;
+  }
+  .vc-title{
+    font-size: 1rem;
+  }
+ 
   .close-btn-date-picker-modal{
     position: absolute;
     bottom: 23px;
     right: 33px;
-    padding: 10px;
-    width: 74px;
-    border-radius: 13px;
+    padding: 8px;
+    width: 72px;
+    border-radius: 8px;
+    max-height: 40px;
+    font-weight: 600;
+    color:#fff;
+    background-color: #222;
+    font-family: CircularAir-Light;
+
   }
   .date-picker{
     position: absolute;
@@ -43,6 +77,54 @@
     width:660px;
    height: 400px;
   }
+}
+.guests-info-model{
+  position: absolute;
+  display: grid;
+  grid-template-columns: 15px 1fr 1fr 15px;
+  grid-template-rows: 22px 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: green;
+  width: 320px;
+  height: 400px;
+  top:56px;
+  right: 1px;
+  z-index: 999;
+  .category-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+    margin-left: 15px;
+    .category-title{
+      font-size: 1rem;
+      color: #222;
+    }
+    .category-subtitle{
+      color: #222;
+    }
+  }
+.btns-container{
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+  .btn-guests-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin-block-end: 9px;
+    margin-inline-end: 5px;
+  }
+  .add-more{
+    margin-inline-start: 35px;
+
+  }
+  
+}
 }
 .order-form-header {
   display: flex;

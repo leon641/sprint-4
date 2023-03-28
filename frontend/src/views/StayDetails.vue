@@ -12,7 +12,7 @@
                 class="details-links-svg"
                 v-html="getSvg('starFill')"
               ></span>
-              <span class="review-rate"> {{ rate }} </span>
+              <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
               <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
               <span class="dot">•</span>
@@ -49,23 +49,25 @@
       <section class="place-info">
         <section class="place-content">
           <div class="subtitle">
-            <h2>Entire villa hosted by {{ stay.host?.fullname }}</h2>
+            <h2>{{stay.roomType}} hosted by {{ stay.host?.fullname }}</h2>
             <div class="place-cpacity-services">
               <div class="place-services-info">
                 <span>{{ stay.capacity }} guests</span>
                 <span class="dot">•</span>
-                <span class="num-of-beds">2 bedrooms</span>
+                <span class="num-of-beds">{{stay.bedrooms}} bedrooms</span>
+              <span class="dot">•</span>
+                <span class="num-of-beds">{{stay.bathrooms}} bathrooms</span>
               </div>
             </div>
             <img
               class="host-pic"
               style="object-fit: cover; vertical-align: bottom"
               aria-hidden="true"
-              alt="Demet is a superhost. Learn more about Demet."
+              alt=" Demet."
               decoding="async"
               elementtiming="LCP-target"
-              :src="stay.host?.imgUrl"
-              data-original-uri="https://a0.muscache.com/im/pictures/user/74d822d1-8a2d-47b1-99cf-52ea0f248b67.jpg?im_w=240"
+              src="https://robohash.org/10711825?set=set5 "
+              
             />
           </div>
           <UserStayInfo />
@@ -109,25 +111,31 @@ export default {
   },
   created() {
     this.$emit("inDetails");
-
     const { stayId } = this.$route.params;
      this.$store.dispatch({type: "getStayById",stayId})
+     .then(res=>{
+       console.log('this.stay',this.stay.reviews.map(review=>review.rate));
+      this.rate()
+     })
+     
     this.desc = this.stay.summary;
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
+    rate() {
+      console.log('revoews',this.stay.reviews);
+      
+      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate,0); 
+      const avregeRate = sum / this.stay.reviews?.length;
+      this.avregeRate=avregeRate.toFixed(2)      
+
+    },
   },
   computed: {
     stay(){
            return this.$store.getters.currStay
-    },
-    rate() {
-      const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
-      const avregeRate = sum / this.stay.reviews?.length;
-      this.avregeRate=avregeRate
-      return  avregeRate;
     },
   },
   components: {

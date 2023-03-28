@@ -36,6 +36,7 @@ export const stayStore = {
         stays: [],
         wishList: [],
         filterBy: {
+            txt: '',
             label: '',
             price: 0,
         },
@@ -52,7 +53,7 @@ export const stayStore = {
         setStays(state, { stays }) {
             state.stays = stays
         },
-        setCurrStay(state, { stay }) {    
+        setCurrStay(state, { stay }) {
             state.currStay = stay
         },
         addStay(state, { stay }) {
@@ -82,13 +83,14 @@ export const stayStore = {
         async getStayById({ commit }, { stayId }) {
 
             const stay = await stayService.getById(stayId)
-            commit({type:'setCurrStay',stay})
-
+            commit({ type: 'setCurrStay', stay })
+            return Promise.resolve()
         },
-         setWishlist({commit},{stay}){
+        setWishlist({ commit }, { stay }) {
+            console.log('in set wishList', stay._id)
             userService.saveWishListToUser(stay)
-           commit( {type : 'addToWishList', stay})
-           
+            commit({ type: 'addToWishList', stay })
+
 
         },
         setFilterBy(context, { label }) {
