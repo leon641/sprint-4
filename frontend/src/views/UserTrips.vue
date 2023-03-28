@@ -15,7 +15,20 @@
         <h1>Messages</h1>
       <h4>order #o1226 has been approved</h4>
       <button class="mini-card-btn">Go to messages</button>
+
+        
       </div>
+      <div class=" next-stay card-item-1">
+        <div class="mini-card">
+    <h1>Your Next Stay</h1>
+      <h4>Entire amazing views hosted by Patty And Beckett</h4>
+      <button class="mini-card-btn">Go to stay</button>
+
+        </div>
+     
+      </div>
+
+      <div class="next-stay-img"></div>
     
 
   </section>
