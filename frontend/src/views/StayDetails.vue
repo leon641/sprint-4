@@ -112,11 +112,12 @@ export default {
   },
   created() {
     this.$emit("inDetails");
+    this.loggedinUser= this.$store.getters.loggedinUser
+    
     const { stayId } = this.$route.params;
      this.$store.dispatch({type: "getStayById",stayId})
      .then(res=>{
       this.rate()
-      this.loggedinUser= this.$store.loggedinUser
       console.log('this.loggedinUser',this.loggedinUser);
       
      })
@@ -126,9 +127,7 @@ export default {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-    rate() {
-      console.log('revoews',this.stay.reviews);
-      
+    rate() {      
       const sum = this.stay.reviews?.reduce((a, b) => a + b.rate,0); 
       const avregeRate = sum / this.stay.reviews?.length;
       this.avregeRate=avregeRate.toFixed(2)      

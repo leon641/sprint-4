@@ -5,7 +5,7 @@
     <form @submit="reserve">
       <div class="order-form-header">
         <div>
-          <span class="cost">${{ stay.price }}</span
+          <span class="cost">{{ formattedPrice }}</span
           ><span class="per-night"> night</span>
         </div>
         <div class="order-form-header-rateing-container">
@@ -26,27 +26,34 @@
             <div class="date-picker-modal-date-display">
               <div class="date-input" @click="isShown = true">
                 <label>CHECK-IN</label>
-                <input :value="dateFormater(this.attributes[0].dates.start) || 'Add detes'" />
+                <input
+                  :value="
+                    dateFormater(this.attributes[0].dates.start) || 'Add detes'
+                  "
+                />
               </div>
               <div class="date-input">
                 <label>CHECKOUT</label>
-                <input :value="dateFormater(this.attributes[0].dates.end)  || 'Add detes'" />
+                <input
+                  :value="
+                    dateFormater(this.attributes[0].dates.end) || 'Add detes'
+                  "
+                />
               </div>
             </div>
             <VDatePicker
               class="date-picker"
-              expanded 
+              expanded
               :color="selectedColor"
-              :min-date="new Date()"
               borderless
               :attributes="attributes"
-              @click="renderDate()"
+              @click="renderDate"
               :columns="columns"
               :locale="locale"
               v-model="selectedDate"
             />
             <button
-              @click="setDate()"
+              @click="setDate"
               class="close-btn-date-picker-modal"
               @click.stop="isShown = false"
             >
@@ -55,11 +62,17 @@
           </section>
           <div class="date-input" @click="isShown = true">
             <label>CHECK-IN</label>
-            <input :value="dateFormater(this.attributes[0].dates.start) || 'Add dates'" />
+            <input
+              :value="
+                dateFormater(this.attributes[0].dates.start) || 'Add dates'
+              "
+            />
           </div>
           <div class="date-input">
             <label>CHECKOUT</label>
-            <input :value="dateFormater(this.attributes[0].dates.end) || 'Add dates'" />
+            <input
+              :value="dateFormater(this.attributes[0].dates.end) || 'Add dates'"
+            />
           </div>
         </div>
 
@@ -67,7 +80,7 @@
           <label>GUESTS</label>
           <input value="2" />
           <svg
-            @click="isShown2=!isShown2"
+            @click="isShown2 = !isShown2"
             class="angle-down-svg"
             viewBox="0 0 320 512"
             width="100"
@@ -78,7 +91,6 @@
             />
           </svg>
           <section v-if="isShown2" class="guests-info-model">
-
             <div class="category-container category1">
               <div class="category-title">Adults</div>
               <div class="category-subtitle">Age 13+</div>
@@ -86,95 +98,98 @@
 
             <div class="btns-container item1">
               <!-- <div></div> -->
-              <button class="btn-guests-modal subtract"><span
-            class="subtract-svg"
-            v-html="getSvg('subtract')"
-          ></span></button>
-          
-            <span class="counter">0</span>
-            
-              <button class="btn-guests-modal add-more"><span
-            class="user-stay-info-svg"
-            v-html="getSvg('addMore')"
-          ></span></button>
-           </div>
+              <button class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">0</span>
+
+              <button class="btn-guests-modal add-more">
+                <span
+                  class="user-stay-info-svg"
+                  v-html="getSvg('addMore')"
+                ></span>
+              </button>
+            </div>
 
             <div class="category-container category2">
               <div class="category-title">Childern</div>
               <div class="category-subtitle">Ages 2-12</div>
             </div>
 
-            <div class="btns-container item2 ">
-   
-              <button class="btn-guests-modal subtract"><span
-            class="subtract-svg"
-            v-html="getSvg('subtract')"
-          ></span></button>
-          
-            <span class="counter">1</span>
-            
-              <button class="btn-guests-modal add-more"><span
-            class="user-stay-info-svg"
-            v-html="getSvg('addMore')"
-          ></span></button>
-           </div>
+            <div class="btns-container item2">
+              <button class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">1</span>
+
+              <button class="btn-guests-modal add-more">
+                <span
+                  class="user-stay-info-svg"
+                  v-html="getSvg('addMore')"
+                ></span>
+              </button>
+            </div>
             <div class="category-container category3">
               <div class="category-title">Infants</div>
               <div class="category-subtitle">Under 2</div>
             </div>
 
-            <div class="btns-container item3 ">
-   
-              <button class="btn-guests-modal subtract"><span
-            class="subtract-svg"
-            v-html="getSvg('subtract')"
-          ></span></button>
-          
-            <span class="counter">1</span>
-            
-              <button class="btn-guests-modal add-more"><span
-            class="user-stay-info-svg"
-            v-html="getSvg('addMore')"
-          ></span></button>
-           </div>
+            <div class="btns-container item3">
+              <button class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">1</span>
+
+              <button class="btn-guests-modal add-more">
+                <span
+                  class="user-stay-info-svg"
+                  v-html="getSvg('addMore')"
+                ></span>
+              </button>
+            </div>
             <div class="category-container category4">
               <div class="category-title">Pets</div>
               <div class="category-subtitle">Bringing a service animal?</div>
             </div>
 
-            <div class="btns-container item4 ">
-   
-              <button class="btn-guests-modal subtract"><span
-            class="subtract-svg"
-            v-html="getSvg('subtract')"
-          ></span></button>
-          
-            <span class="counter">1</span>
-            
-              <button class="btn-guests-modal add-more"><span
-            class="user-stay-info-svg"
-            v-html="getSvg('addMore')"
-          ></span></button>
-           </div>
+            <div class="btns-container item4">
+              <button class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">1</span>
+
+              <button class="btn-guests-modal add-more">
+                <span
+                  class="user-stay-info-svg"
+                  v-html="getSvg('addMore')"
+                ></span>
+              </button>
+            </div>
             <!-- <small>This place has a maximum of 3 guests, not including infants. If you're bringing more than 2 pets, please let your host know.</small> -->
-             <button @click="closeGuestesModal" class="btn-close-guests-modal">Close</button>
-         </section>
+            <button @click="closeGuestesModal" class="btn-close-guests-modal">
+              Close
+            </button>
+          </section>
         </div>
       </div>
       <ReserveBtn @click="reservation" />
     </form>
     <p class="details-disclamer">You won't be charged yet</p>
     <div class="prices">
-      <p class="fees-decs">$281 X 5 nights</p>
-      <p class="amount">$2,380</p>
+      <p class="fees-decs">${{ stay.price }} X {{ nigths }} nights</p>
+      <p class="amount">${{ StayTotalPrice }}</p>
       <p class="fees-decs">Cleaning fee</p>
-      <p class="amount">$238</p>
+      <p class="amount">${{ cleaningFee }}</p>
       <p class="fees-decs">Sercives fee</p>
-      <p class="amount">$400.6</p>
+      <p class="amount">${{ sercivesFee }}</p>
     </div>
     <div class="total">
       <p class="total-txt">Total</p>
-      <p class="total-amount">$3,022</p>
+      <p class="total-amount">${{ totalPrice }}</p>
     </div>
   </section>
 </template>
@@ -186,20 +201,24 @@ import { stayService } from "../services/stay.service.local.js";
 import { utilService } from "../services/util.service.js";
 export default {
   props: {
-    avregeRate: String,
+    avregeRate: Number,
     stay: Object,
   },
   created() {
-    console.log("stay in revertion modal", this.stay);
-    // this.rate();
-
-    console.log("order", this.avregeRate);
+    let loggedinUser = this.$store.getters.loggedinUser;
+    console.log("this.loggedinUser in modal", this.loggedinUser);
+    this.order.buyer._id = loggedinUser._id;
+    this.order.buyer.fullname = loggedinUser.fullname;
+    console.log("this.order", this.order);
   },
   data() {
     return {
-      isShown2:false,
+      sercivesFee: 101,
+      cleaningFee: 221,
+      loggedinUser: null,
+      isShown2: false,
       selectedColor: "#222",
-      locale:{ id: 'en', firstDayOfWeek: 2, masks: { weekdays: 'WW' }},
+      locale: { id: "en", firstDayOfWeek: 2, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
         sm: "640px",
@@ -216,7 +235,7 @@ export default {
           highlight: {
             start: {
               content: "true", // Boolean, String, Object
-              content:"#222",
+              content: "#222",
               color: "#222",
               fillMode: "outline",
             },
@@ -237,18 +256,18 @@ export default {
         _id: utilService.makeId(),
         hostId: this.stay?.host?.fullname,
         buyer: {
-          _id: "u101",
-          fullname: "Loggedin user",
+          _id: null,
+          fullname: null,
         },
-        totalPrice: 160,
+        totalPrice: "",
         startDate: "",
         endDate: "",
         guests: {
-          adults: 2,
-          kids: 1,
+          adults: 0,
+          kids: 0,
         },
         stay: {
-          _id: "h102",
+          _id: this.stay?._id,
           name: this.stay?.name,
           price: this.stay?.price,
         },
@@ -259,14 +278,24 @@ export default {
   },
   methods: {
     reservation() {
+      console.log("reservation-order", this.order);
+      this.$store.dispatch({type: "setOrder",order:this.order})
       this.$router.push("/reservation");
     },
     getSvg(type) {
       return svgService.getSvg(type);
     },
-   closeGuestesModal(){
-    this.isShown2=false
-   },
+    closeGuestesModal() {
+      this.isShown2 = false;
+    },
+    setTotalPrice() {
+      const nigths =
+        this.attributes[0].dates.end - this.attributes[0].dates.start;
+      this.order.totalPrice =
+        +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24);
+      console.log("this.order", this.order);
+    },
+
     renderDate() {
       if (this.selectedDate < this.attributes[0].dates.start) {
         this.attributes[0].dates.start = this.selectedDate;
@@ -274,17 +303,16 @@ export default {
         this.attributes[0].dates.end = this.selectedDate;
       }
     },
-    dateFormater(date){
-        const year = date.getFullYear();
+    dateFormater(date) {
+      const year = date.getFullYear();
       const month = date.getMonth() + 1;
       const day = date.getDate();
-      const formatedDate=`${day}/${month}/${year}`
-      console.log('formatedDate',formatedDate);
-      
-      return formatedDate
+      const formatedDate = `${day}/${month}/${year}`;
+      return formatedDate;
     },
 
     setDate() {
+      this.setTotalPrice();
       const startYear = this.attributes[0].dates.start.getFullYear();
       const startMonth = this.attributes[0].dates.start.getMonth() + 1;
       const startDay = this.attributes[0].dates.start.getDate();
@@ -298,7 +326,35 @@ export default {
 
       this.order.startDate = startDate;
       this.order.endDate = endDate;
-      console.log(" this.order", this.order);
+    },
+  },
+  computed: {
+    totalPrice() {
+      const nigths =
+        this.attributes[0].dates.end - this.attributes[0].dates.start;
+      const Total = (this.order.totalPrice =
+        +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
+      return Total + this.cleaningFee + this.sercivesFee;
+    },
+    StayTotalPrice() {
+      const nigths =
+        this.attributes[0].dates.end - this.attributes[0].dates.start;
+      const Total = (this.order.totalPrice =
+        +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
+      return Total;
+    },
+    nigths() {
+      const nigths =
+        this.attributes[0].dates.end - this.attributes[0].dates.start;
+      return Math.ceil(nigths / 1000 / 60 / 60 / 24);
+    },
+    formattedPrice() {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+      return formatter.format(this.stay.price);
     },
   },
   components: {
