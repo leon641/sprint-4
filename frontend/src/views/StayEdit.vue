@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <small> footer</small>
+  <h1>hollllaaaa</h1>
 </template>
 <script>
 export default {

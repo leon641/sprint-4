@@ -122,44 +122,44 @@ function saveWishListToUser(stay) {
 }
 
 
-// ;(async ()=>{
+;(async ()=>{
 
-//     utilService.saveToStorage(STORAGE_KEY_USER,[
-//         { 
-//         _id : utilService.makeId(),
-//         fullname: "koki",
-//         imgUrl: "/img/img1.jpg",
-//         username: "koki",
-//         password: "000",
-//         orders: [],
-//         trips: [],
-//         stays: [],
-//         likedByUsers: [],
-//         reviews : []
-//     }])
+    utilService.saveToStorage(STORAGE_KEY_USER,[
+        { 
+        _id : utilService.makeId(),
+        fullname: "koki",
+        imgUrl: "/img/img1.jpg",
+        username: "koki",
+        password: "000",
+        orders: [],
+        trips: [],
+        stays: [],
+        likedByUsers: [],
+        reviews : []
+    }])
 
-//     await storageService.post(STORAGE_KEY_USER,{ 
-//     fullname: "nadav dori",
-//     imgUrl: "/img/img1.jpg",
-//     username: "nadav",
-//     password: "111",
-//     orders: [],
-//     trips: [],
-//     stays: [],
-//     likedByUsers: [],
-//     reviews : []})
-//     await storageService.post(STORAGE_KEY_USER, {  
-//         fullname: "Francesco",
-//         imgUrl: "/img/img1.jpg",
-//         username: "Francesco",
-//         password: "123",
-//         orders: [],
-//         trips: [],
-//         stays: [],
-//         likedByUsers: [],
-//         reviews : [] })
+    await storageService.post(STORAGE_KEY_USER,{ 
+    fullname: "nadav dori",
+    imgUrl: "/img/img1.jpg",
+    username: "nadav",
+    password: "111",
+    orders: [],
+    trips: [],
+    stays: [],
+    likedByUsers: [],
+    reviews : []})
+    await storageService.post(STORAGE_KEY_USER, {  
+        fullname: "Francesco",
+        imgUrl: "/img/img1.jpg",
+        username: "Francesco",
+        password: "123",
+        orders: [],
+        trips: [],
+        stays: [],
+        likedByUsers: [],
+        reviews : [] })
     // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
-// })()
-// 
+})()
+
 
 
