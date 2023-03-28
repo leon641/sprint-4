@@ -5,7 +5,6 @@
     <StayPreview v-for="stay in stays" :stay="stay" :key="stay._id" />
   </div>
   
-  
 </template>
 
 <script>

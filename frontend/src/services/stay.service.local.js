@@ -19,15 +19,28 @@ export const stayService = {
 }
 window.cs = stayService
 
+const gRegions = {
+  'I\'m flexible': true,
+  'Middle East': ['GR', 'BH', 'CY', 'EG', 'AE', 'TR', 'SY', 'SA', 'QA', 'OM', 'LB', 'KW', 'JO', 'IL', 'IQ', 'IR', 'YE'],
+  'Italy': ['IT'],
+  'South America': ['AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'FK', 'GF', 'GY', 'PE', 'PY', 'SR', 'UY', 'VE',],
+  'France': ['FR'],
+  'United States': ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',],
+  'United Kingdom': ['GB'],
+}
 
-async function query(filterBy = { txt: '', label: '', price: 0 }) {
+
+async function query(filterBy = { txt: '', region: '', label: '', price: 0 }) {
   var stays = await storageService.query(STORAGE_KEY)
+  if (filterBy.region) {
+    stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.countryCode) || gRegions[filterBy.region] === true)
+  }
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
     stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.country) || regex.test(stay.countryCode) || regex.test(stay.city) || regex.test(stay.address))
   }
   if (filterBy.label) {
-    stays = stays.filter(stay => stay.labels.includes(filterBy.label))
+    stays = stays.filter(stay => stay.type.includes(filterBy.label))
   }
   if (filterBy.price) {
     stays = stays.filter(stay => stay.price <= filterBy.price)

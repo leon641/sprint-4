@@ -30,7 +30,7 @@
                   fill-rule="evenodd"
                 ></path>
               </svg>
-              <span>&nbsp;{{stay.reviews[0].rate}}&nbsp;</span>
+              <span>&nbsp;{{averageRate}}&nbsp;</span>
             </div>
             <p class="stay-summery">
               {{ stay.loc.address }}
@@ -59,6 +59,7 @@ export default {
   data() {
     return {
       loggedinUser : {},
+      averageRate : 0,
       imgs: [
         "../assets/img/demo.jpeg",
         "../assets/img/demo.jpeg",
@@ -74,6 +75,7 @@ export default {
   created() {
     // this.loggedinUser = this.$store.getters.loggedinUser
     // console.log(this.loggedinUser);
+    this.rate()
 
 
   },
@@ -93,6 +95,13 @@ export default {
             // this.$router.push("/wishlist")
            
         },
+      rate() {
+      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate,0); 
+      const averageRate = sum / this.stay.reviews?.length;
+      this.averageRate=averageRate.toFixed(2)      
+
+    },
+   
   },
   computed: {
     formattedPrice() {
@@ -105,6 +114,7 @@ export default {
       console.log(num);
       return formatter.format(this.stay.price);
     },
+   
   },
 
   components: {

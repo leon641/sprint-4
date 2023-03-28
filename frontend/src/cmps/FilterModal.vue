@@ -10,7 +10,7 @@
         <h5>Search by region</h5>
         <div class="grid">
           <div class="flex" v-for="region in regions" :key="region">
-            <div class="region-img">
+            <div class="region-img" @click="setRegion(region.title)">
               <img :src="region.url" />
             </div>
             <div class="region-title">
@@ -22,11 +22,16 @@
     </div>
   </div>
   <div v-if="propCheck || propCheckOut" class="check-modal">
-    <VDatePicker borderless
+    <VDatePicker
       class="date-picker"
+      expanded
+      :color="selectedColor"
       :min-date="new Date()"
+      borderless
       :attributes="attributes"
+      @click="renderDate()"
       :columns="columns"
+      :locale="locale"
       v-model="selectedDate"
     />
     <!-- <el-radio-group v-model="size" label="size control" size="small">
@@ -227,6 +232,8 @@ export default {
           url: "src/assets/img/regions/United Kingdom.jpg",
         },
       ],
+      selectedColor: "#222",
+      locale: { id: "en", firstDayOfWeek: 2, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
         sm: "640px",
@@ -243,6 +250,9 @@ export default {
           content: "true", // Boolean, String, Object
           highlight: {
             start: {
+              content: "true", // Boolean, String, Object
+              content: "#222",
+              color: "#222",
               fillMode: "outline",
             },
             base: { fillMode: "light" },
@@ -284,45 +294,49 @@ export default {
         this.attributes[0].dates.end = this.selectedDate;
       }
     },
+    setRegion(title) {
+      console.log('title',title)
+      this.$emit("setRegion", title);
+    },
   },
-  emits: [],
+  emits: ["setRegion"],
 };
 
-import { ref } from "vue";
+// import { ref } from "vue";
 
-const size = (ref < "default") | "large" | ("small" > "default");
+// const size = (ref < "default") | "large" | ("small" > "default");
 
-const value1 = ref("");
-const value2 = ref("");
+// const value1 = ref("");
+// const value2 = ref("");
 
-const shortcuts = [
-  {
-    text: "Last week",
-    value: () => {
-      const end = new Date();
-      const start = new Date();
-      start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-      return [start, end];
-    },
-  },
-  {
-    text: "Last month",
-    value: () => {
-      const end = new Date();
-      const start = new Date();
-      start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-      return [start, end];
-    },
-  },
-  {
-    text: "Last 3 months",
-    value: () => {
-      const end = new Date();
-      const start = new Date();
-      start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-      return [start, end];
-    },
-  },
-];
+// const shortcuts = [
+//   {
+//     text: "Last week",
+//     value: () => {
+//       const end = new Date();
+//       const start = new Date();
+//       start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+//       return [start, end];
+//     },
+//   },
+//   {
+//     text: "Last month",
+//     value: () => {
+//       const end = new Date();
+//       const start = new Date();
+//       start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+//       return [start, end];
+//     },
+//   },
+//   {
+//     text: "Last 3 months",
+//     value: () => {
+//       const end = new Date();
+//       const start = new Date();
+//       start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+//       return [start, end];
+//     },
+//   },
+// ];
 </script>
 
