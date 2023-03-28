@@ -107,6 +107,7 @@ export default {
     return {
       avregeRate: 0,
       desc: "",
+      loggedinUser:null,
     };
   },
   created() {
@@ -114,10 +115,11 @@ export default {
     const { stayId } = this.$route.params;
      this.$store.dispatch({type: "getStayById",stayId})
      .then(res=>{
-       console.log('this.stay',this.stay.reviews.map(review=>review.rate));
       this.rate()
+      this.loggedinUser= this.$store.loggedinUser
+      console.log('this.loggedinUser',this.loggedinUser);
+      
      })
-     
     this.desc = this.stay.summary;
   },
   methods: {
