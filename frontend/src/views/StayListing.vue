@@ -15,7 +15,7 @@ export default {
     };
   },
   created() {
-    this.stays = this.$store.getters.stays.filter(stay=>stay.)
+    // this.stays = this.$store.getters.stays.filter(stay=>stay.)
     ;
   },
   computed: {},
