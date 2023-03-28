@@ -125,6 +125,7 @@ function saveWishListToUser(stay) {
     saveLocalUser(user)
 }
 
+
 ;(async ()=>{
     await userService.signup({
      _id:utilService.makeId(), 
