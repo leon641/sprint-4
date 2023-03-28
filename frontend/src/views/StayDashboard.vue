@@ -1,9 +1,13 @@
 <template>
-
+    <nav class="dashbaord-header">
     <RouterLink to="/dashboard/reservations">Reservations</RouterLink>|
     <RouterLink to="/dashboard/edit">Create listing</RouterLink>|
-    <RouterLink to="/dashboard/listing">Listing</RouterLink>|
-      <RouterView/>
+    <RouterLink  to="/dashboard/listing">Listing</RouterLink>|
+    </nav>
+    
+      <RouterView 
+      :orders="orders"
+      :userId="loggedinUser._id"/>
 
 </template>
 <script>
@@ -13,16 +17,17 @@ import StayReservations from "./StayReservations.vue";
 
 export default {
   async created() {
-    await this.$store.dispatch({ type: "loadOrders" });
+  await this.$store.dispatch({ type: "loadOrders" });
     this.loggedinUser = this.$store.getters.loggedinUser;
     this.orders = this.$store.getters.orders;
+ console.log("loging in dash",  this.orders);
     console.log("loging in dash", this.loggedinUser);
-    console.log("this.orders in dash", this.orders);
+  
   },
   data() {
     return {
-      loggedinUser: null,
-      orders: [],
+      loggedinUser: {},
+     orders:[]
     };
   },
   computed: {},

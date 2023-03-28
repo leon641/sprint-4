@@ -222,7 +222,7 @@ export default {
     return {
       sercivesFee: 101,
       cleaningFee: 221,
-      loggedinUser: null,
+      loggedinUser: {},
       isShown2: false,
       selectedColor: "#222",
       locale: { id: "en", firstDayOfWeek: 2, masks: { weekdays: "WW" } },
