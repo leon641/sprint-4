@@ -30,10 +30,10 @@
                   fill-rule="evenodd"
                 ></path>
               </svg>
-              <span>&nbsp;{{stay.rate}}&nbsp;</span>
+              <span>&nbsp;{{stay.reviews[0].rate}}&nbsp;</span>
             </div>
             <p class="stay-summery">
-              {{ stay.shortSummary }}
+              {{ stay.loc.address }}
             </p>
             <p class="stay-capacity">{{stay.capacity}}&nbsp;beds</p>
             <p class="stay-price">

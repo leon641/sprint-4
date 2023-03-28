@@ -101,8 +101,12 @@
 
   .btn-close-guests-modal {
     grid-column: 3;
-    grid-row: 6;
+    grid-row: 7;
+    display: flex;
+justify-content: flex-end;
+    text-decoration: underline;
     background-color: transparent;
+
   }
 
   .category-container {

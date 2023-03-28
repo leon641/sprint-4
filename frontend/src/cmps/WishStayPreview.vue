@@ -1,7 +1,7 @@
 <template>
 
 <div v-if="place.imgUrls" class="imgs-container">
-        <img  v-for="(url,index) in place.imgUrls" :src="url" :class="`wish-img`+(index+1)"  :key="index" />
+        <img  v-for="(url,index) in place.imgUrls.slice(0,3)" :src="url" :class="`wish-img`+(index+1)"  :key="index" />
       </div>
       <h3>{{place.name}}</h3>
 

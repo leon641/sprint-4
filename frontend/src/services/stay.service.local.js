@@ -5,7 +5,7 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { includes } from 'lodash'
 import stayDB from "../assets/data/stay.json" assert { type: "json" }
-console.log('stayDB', stayDB);
+// console.log('stayDB', stayDB);
 
 const STORAGE_KEY = 'stay'
 
