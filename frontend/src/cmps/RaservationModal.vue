@@ -67,6 +67,7 @@
           <label>GUESTS</label>
           <input value="2" />
           <svg
+            @click="isShown2=!isShown2"
             class="angle-down-svg"
             viewBox="0 0 320 512"
             width="100"
@@ -76,7 +77,7 @@
               d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
             />
           </svg>
-          <section class="guests-info-model">
+          <section v-if="isShown2" class="guests-info-model">
 
             <div class="category-container category1">
               <div class="category-title">Adults</div>
@@ -156,7 +157,7 @@
           ></span></button>
            </div>
             <!-- <small>This place has a maximum of 3 guests, not including infants. If you're bringing more than 2 pets, please let your host know.</small> -->
-             <button class="btn-close-guests-modal">Close</button>
+             <button @click="closeGuestesModal" class="btn-close-guests-modal">Close</button>
          </section>
         </div>
       </div>
@@ -196,6 +197,7 @@ export default {
   },
   data() {
     return {
+      isShown2:false,
       selectedColor: "#222",
       locale:{ id: 'en', firstDayOfWeek: 2, masks: { weekdays: 'WW' }},
       columns: useScreens({
@@ -262,11 +264,9 @@ export default {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-    // rate() {
-    //   const sum = this.stay.reviews?.reduce((a, b) => a.rate + b.rate);
-    //   const avregeRate = sum / this.stay.reviews?.length;
-    //   this.avregeRate = avregeRate;
-    // },
+   closeGuestesModal(){
+    this.isShown2=false
+   },
     renderDate() {
       if (this.selectedDate < this.attributes[0].dates.start) {
         this.attributes[0].dates.start = this.selectedDate;
