@@ -36,7 +36,7 @@
    .stay-desc-container {
 
       .stay-desc {
-         margin-top: 0.75rem;
+         margin-top: 0.6rem;
          padding: 0;
          min-height: auto;
          width: 100%;
@@ -50,7 +50,7 @@
          .stay-name {
             grid-column: 1/2;
             grid-row: 1;
-            font-size: rem(16px);
+            font-size: 0.95rem;
             line-height: 1.125rem;
             text-transform: capitalize;
             color: $clr8;
