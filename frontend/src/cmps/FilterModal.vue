@@ -22,11 +22,16 @@
     </div>
   </div>
   <div v-if="propCheck || propCheckOut" class="check-modal">
-    <VDatePicker borderless
+    <VDatePicker
       class="date-picker"
+      expanded
+      :color="selectedColor"
       :min-date="new Date()"
+      borderless
       :attributes="attributes"
+      @click="renderDate()"
       :columns="columns"
+      :locale="locale"
       v-model="selectedDate"
     />
     <!-- <el-radio-group v-model="size" label="size control" size="small">
@@ -227,6 +232,8 @@ export default {
           url: "src/assets/img/regions/United Kingdom.jpg",
         },
       ],
+      selectedColor: "#222",
+      locale:{ id: 'en', firstDayOfWeek: 2, masks: { weekdays: 'WW' }},
       columns: useScreens({
         xs: "0px",
         sm: "640px",
@@ -243,6 +250,9 @@ export default {
           content: "true", // Boolean, String, Object
           highlight: {
             start: {
+              content: "true", // Boolean, String, Object
+              content:"#222",
+              color: "#222",
               fillMode: "outline",
             },
             base: { fillMode: "light" },
