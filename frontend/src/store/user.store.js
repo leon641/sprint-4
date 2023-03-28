@@ -26,6 +26,7 @@ export const userStore = {
         setLoggedinUser(state, { user }) {
             // Yaron: needed this workaround as for score not reactive from birth
             state.loggedinUser = (user) ? { ...user } : null
+            console.log('on set logedin',state.loggedinUser);
         },
         setWatchedUser(state, { user }) {
             state.watchedUser = user
@@ -92,6 +93,10 @@ export const userStore = {
                 console.log('userStore: Error in loadAndWatchUser', err)
                 throw err
             }
+        },
+        loadLoggedinUser({ commit }) {
+                const loggedinUser = userService.getLoggedinUser()
+                commit({type : 'setLoggedinUser', loggedinUser})
         },
         async removeUser({ commit }, { userId }) {
             try {
