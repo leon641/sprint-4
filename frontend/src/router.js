@@ -35,16 +35,16 @@ const routes = [
     component: StayDashboard,
     children: [
       {
-        path: "/dashboard/edit",
-        component: StayEdit
+        path: "/dashboard/reservations",
+        component: StayReservations
       },
       {
         path: '/dashboard/listing',
         component: StayListing
       },
       {
-        path: '/dashboard/reservations',
-        component: StayReservations
+        path: '/dashboard/edit',
+        component: StayEdit
       },
 
     ]

@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: minmax(20px,1fr) auto minmax(20px,1fr);
 }
-.table-reservation{
-    margin: 80px auto
-
+.dashbaord-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
