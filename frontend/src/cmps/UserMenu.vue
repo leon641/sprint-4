@@ -2,7 +2,7 @@
     <div class="user-nav">
             <a v-if="!user" @click="openLoginModal">Login</a>
             <router-link v-if="user" to="/dashboard/host/orders">Dashboard</router-link>
-            <router-link v-if="user" to="/dashboard/buyer/trips">My Trips</router-link>
+            <router-link v-if="user" to="/trips">My Trips</router-link>
             <router-link v-if="user" to="/wishlist">Wishlist</router-link>
             <a v-if="user" @click.stop="logout">Logout</a>
     </div>

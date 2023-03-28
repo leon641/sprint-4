@@ -58,6 +58,7 @@ export default {
   },
   data() {
     return {
+      loggedinUser : {},
       imgs: [
         "../assets/img/demo.jpeg",
         "../assets/img/demo.jpeg",
@@ -70,7 +71,12 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    // this.loggedinUser = this.$store.getters.loggedinUser
+    // console.log(this.loggedinUser);
+
+
+  },
   methods: {
     cardClicked(stayId) {
       this.$router.push(`/details/${stayId}`);
