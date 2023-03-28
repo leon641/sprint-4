@@ -112,20 +112,38 @@ function saveWishListToUser(stay) {
 }
 
 
-;(async ()=>{
-    await userService.signup({_id:utilService.makeId(),  "_id": "u101",
-    "fullname": "nadav dori",
-    "imgUrl": "/img/img1.jpg",
-    "username": "nadav",
-    "password": "111",
-    "orders": [],
-    "trips": [],
-    "stays": [],
-    "likedByUsers": [],
-    "reviews" : []})
-    await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-    await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-})()
+// ;(async ()=>{
+//     await userService.signup({_id:utilService.makeId(),  "_id": "u101",
+//     "fullname": "nadav dori",
+//     "imgUrl": "/img/img1.jpg",
+//     "username": "nadav",
+//     "password": "111",
+//     "orders": [],
+//     "trips": [],
+//     "stays": [],
+//     "likedByUsers": [],
+//     "reviews" : []})
+//     await userService.signup({_id:utilService.makeId(),  "_id": "u101",
+//     "fullname": "nadav dori",
+//     "imgUrl": "/img/img1.jpg",
+//     "username": "nadav",
+//     "password": "111",
+//     "orders": [],
+//     "trips": [],
+//     "stays": [],
+//     "likedByUsers": [],
+//     "reviews" : []})
+//     await userService.signup({_id:utilService.makeId(),  "_id": "u101",
+//     "fullname": "nadav dori",
+//     "imgUrl": "/img/img1.jpg",
+//     "username": "nadav",
+//     "password": "111",
+//     "orders": [],
+//     "trips": [],
+//     "stays": [],
+//     "likedByUsers": [],
+//     "reviews" : []})
+// })()
 
 
 

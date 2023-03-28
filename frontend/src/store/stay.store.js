@@ -87,7 +87,6 @@ export const stayStore = {
             return Promise.resolve()
         },
         setWishlist({ commit }, { stay }) {
-            console.log('in set wishList', stay._id)
             userService.saveWishListToUser(stay)
             commit({ type: 'addToWishList', stay })
 

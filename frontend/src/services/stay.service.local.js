@@ -27,7 +27,7 @@ async function query(filterBy = { txt: '', label: '', price: 0 }) {
     stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.country) || regex.test(stay.countryCode) || regex.test(stay.city) || regex.test(stay.address))
   }
   if (filterBy.label) {
-    stays = stays.filter(stay => stay.labels.includes(filterBy.label))
+    stays = stays.filter(stay => stay.type.includes(filterBy.label))
   }
   if (filterBy.price) {
     stays = stays.filter(stay => stay.price <= filterBy.price)

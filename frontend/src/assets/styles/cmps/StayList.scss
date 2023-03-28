@@ -21,8 +21,9 @@
     }
 
     img {
-        height: 305px;
-        width: -webkit-fill-available;
+        // height: 305px;
+        // width: -webkit-fill-available;
+        aspect-ratio: 1/0.8;
     }
 
     .el-carousel__item {
