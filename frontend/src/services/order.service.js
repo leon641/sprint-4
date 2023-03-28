@@ -15,7 +15,8 @@ export const orderService = {
     save,
     remove,
     getEmptyStay,
-    addStayMsg
+    addStayMsg,
+    setOrder
 }
 window.cs = orderService
 
@@ -32,6 +33,10 @@ async function query(filterBy = { txt: '', price: 0 }) {
     //     orders = orders.filter(order => order.price <= filterBy.price)
     // }
     // return orders
+
+}
+async function setOrder(order) {
+   await storageService.post(STORAGE_KEY, order)
 
 }
 function getById(orderId) {

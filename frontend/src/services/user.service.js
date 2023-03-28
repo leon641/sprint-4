@@ -8,6 +8,8 @@ import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from
 import { showSuccessMsg } from './event-bus.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY_USER = 'user'
+
 
 export const userService = {
     login,
@@ -21,7 +23,7 @@ export const userService = {
     update,
     changeScore,
     saveWishListToUser,
-    setOrder
+ 
 }
 
 window.userService = userService
@@ -87,13 +89,7 @@ async function logout() {
     // socketService.logout()
     // return await httpService.post('auth/logout')
 }
-async function setOrder(order) {
-    const user = getLoggedinUser()
-    console.log('user',user);
-    
-    user.orders.push(order)
-    return user
-}
+
 
 async function changeScore(by) {
     const user = getLoggedinUser()
@@ -127,8 +123,21 @@ function saveWishListToUser(stay) {
 
 
 ;(async ()=>{
-    await userService.signup({
-     _id:utilService.makeId(), 
+
+    utilService.saveToStorage(STORAGE_KEY_USER,[
+        { 
+        fullname: "koki",
+        imgUrl: "/img/img1.jpg",
+        username: "koki",
+        password: "000",
+        orders: [],
+        trips: [],
+        stays: [],
+        likedByUsers: [],
+        reviews : []
+    }])
+
+    await storageService.post(STORAGE_KEY_USER,{ 
     fullname: "nadav dori",
     imgUrl: "/img/img1.jpg",
     username: "nadav",
@@ -138,7 +147,7 @@ function saveWishListToUser(stay) {
     stays: [],
     likedByUsers: [],
     reviews : []})
-    await userService.signup({ _id:utilService.makeId(), 
+    await storageService.post(STORAGE_KEY_USER, {  
         fullname: "Francesco",
         imgUrl: "/img/img1.jpg",
         username: "Francesco",
@@ -148,7 +157,7 @@ function saveWishListToUser(stay) {
         stays: [],
         likedByUsers: [],
         reviews : [] })
-    // await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
+    // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
 })()
 
 

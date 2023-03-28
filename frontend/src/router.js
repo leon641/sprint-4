@@ -13,6 +13,7 @@ import Wishlist from './views/Wishlist.vue'
 import Reservation from './views/Reservation.vue'
 import UserTrips from './views/UserTrips.vue'
 import Explore from './views/Explore.vue'
+import StayDashboard from './views/StayDashboard.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/details/:stayId?',
     name: 'StayDetails',
     component: StayDetails
+  },
+  {
+    path: '/dashboard',
+    name: 'StayDashboard',
+    component: StayDashboard
   },
   {
     path: '/wishlist',
