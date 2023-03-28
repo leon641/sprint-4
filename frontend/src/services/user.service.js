@@ -70,6 +70,8 @@ async function update({_id, score}) {
 async function login(userCred) {
     const users = await storageService.query('user')
     const user = users.find(user => user.username === userCred.username)
+    console.log('user in user service',user);
+    
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
         // socketService.login(user._id)
@@ -159,7 +161,21 @@ function saveWishListToUser(stay) {
         likedByUsers: [],
         reviews : [] })
     // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
+    login({  
+         fullname: "Francesco",
+         imgUrl: "/img/img1.jpg",
+         username: "Francesco",
+         password: "123",
+         orders: [],
+         trips: [],
+         stays: [],
+         likedByUsers: [],
+         reviews : [] })
 })()
+
+
+    // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
+
 
 
 

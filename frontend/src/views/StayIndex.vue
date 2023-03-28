@@ -40,9 +40,12 @@ export default {
       return this.$store.getters.stays;
     },
   },
-  created() {
-    this.$store.dispatch({ type: "loadStays" });
-    this.$store.dispatch({ type: "loadLoggedinUser" });
+  async created() {
+   await this.$store.dispatch({ type: "loadStays" });
+   await this.$store.dispatch({ type: "loadLoggedinUser" });
+  },
+  mounted(){
+
   },
   methods: {
     async addStay() {

@@ -1,0 +1,34 @@
+.stay-edit {
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 12px;
+}
+
+.address-inputs {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    gap: 15px;
+
+}
+.add-input {
+    border: 1px solid $clr9;
+    padding: 5px;
+    font-size: rem(16px);
+    border-radius: 3px;
+}
+
+.add-input-name{
+    border: 1px solid $clr9;
+    padding: 5px;
+    font-size: rem(16px);
+    border-radius: 3px;
+    width: 100%;
+}
+
+.save-form-btn {
+    height: 30px;
+    padding: 5px;
+    background-color: $clr1;
+    border-radius: 5px;
+}
