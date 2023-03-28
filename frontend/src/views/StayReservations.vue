@@ -1,7 +1,7 @@
 <template>
 
   <section class="dashBoard-container">
-    <h1>Reservations</h1>
+    <pre>{{userId}}</pre>
 
     <section class="reservations-chart">
       <table class="table-reservation">
@@ -15,13 +15,14 @@
           <th>Status</th>
           <th>Action</th>
         </thead>
-        <tbody>
-          <td>img</td>
+        <tbody >
+          <td >img</td>
           <td>10/14/2018</td>
           <td>10/20/2018</td>
           <td>12/12/2022</td>
           <td>Moshe's house</td>
           <td>$546.00</td>
+          <td>Completed</td>
           <td>Completed</td>
         </tbody>
       </table>
@@ -32,17 +33,21 @@
 
 
 export default {
-  async created() {
-    await this.$store.dispatch({ type: "loadOrders" });
-    this.loggedinUser = this.$store.getters.loggedinUser;
-    this.orders = this.$store.getters.orders;
-    console.log("loging in dash", this.loggedinUser);
-    console.log("this.orders in dash", this.orders);
+  props:{
+    userId:String
+    
+  },
+async created() {
+  
+  console.log('userId',this.userId);
+this.orders = this.$store.getters.orders;
+ console.log("loging in reservation",  this.orders);
+
+  
   },
   data() {
     return {
-      loggedinUser: null,
-      orders: [],
+     orders:[]
     };
   },
   computed: {},
