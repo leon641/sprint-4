@@ -77,26 +77,87 @@
             />
           </svg>
           <section class="guests-info-model">
-            <div class="category-container">
+
+            <div class="category-container category1">
               <div class="category-title">Adults</div>
               <div class="category-subtitle">Age 13+</div>
             </div>
 
-            <div class="btns-container">
-              <div></div>
+            <div class="btns-container item1">
+              <!-- <div></div> -->
               <button class="btn-guests-modal subtract"><span
             class="subtract-svg"
             v-html="getSvg('subtract')"
           ></span></button>
           
-            <span>0</span>
+            <span class="counter">0</span>
             
               <button class="btn-guests-modal add-more"><span
             class="user-stay-info-svg"
             v-html="getSvg('addMore')"
           ></span></button>
            </div>
-          </section>
+
+            <div class="category-container category2">
+              <div class="category-title">Childern</div>
+              <div class="category-subtitle">Ages 2-12</div>
+            </div>
+
+            <div class="btns-container item2 ">
+   
+              <button class="btn-guests-modal subtract"><span
+            class="subtract-svg"
+            v-html="getSvg('subtract')"
+          ></span></button>
+          
+            <span class="counter">1</span>
+            
+              <button class="btn-guests-modal add-more"><span
+            class="user-stay-info-svg"
+            v-html="getSvg('addMore')"
+          ></span></button>
+           </div>
+            <div class="category-container category3">
+              <div class="category-title">Infants</div>
+              <div class="category-subtitle">Under 2</div>
+            </div>
+
+            <div class="btns-container item3 ">
+   
+              <button class="btn-guests-modal subtract"><span
+            class="subtract-svg"
+            v-html="getSvg('subtract')"
+          ></span></button>
+          
+            <span class="counter">1</span>
+            
+              <button class="btn-guests-modal add-more"><span
+            class="user-stay-info-svg"
+            v-html="getSvg('addMore')"
+          ></span></button>
+           </div>
+            <div class="category-container category4">
+              <div class="category-title">Pets</div>
+              <div class="category-subtitle">Bringing a service animal?</div>
+            </div>
+
+            <div class="btns-container item4 ">
+   
+              <button class="btn-guests-modal subtract"><span
+            class="subtract-svg"
+            v-html="getSvg('subtract')"
+          ></span></button>
+          
+            <span class="counter">1</span>
+            
+              <button class="btn-guests-modal add-more"><span
+            class="user-stay-info-svg"
+            v-html="getSvg('addMore')"
+          ></span></button>
+           </div>
+            <!-- <small>This place has a maximum of 3 guests, not including infants. If you're bringing more than 2 pets, please let your host know.</small> -->
+             <button class="btn-close-guests-modal">Close</button>
+         </section>
         </div>
       </div>
       <ReserveBtn @click="reservation" />
