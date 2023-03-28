@@ -205,7 +205,7 @@ export default defineComponent({
   methods : {
     filterLabel(label) {
       this.filterLabels = label
-      this.$router.push({ path: '/', query: { filter: label } })
+      this.$router.push({ path: '/', query: { search: label } })
           this.$store.dispatch({
                 type: "setFilterBy",
                 label: this.filterLabels,
