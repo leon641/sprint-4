@@ -118,7 +118,6 @@ export default {
      this.$store.dispatch({type: "getStayById",stayId})
      .then(res=>{
       this.rate()
-      console.log('this.loggedinUser',this.loggedinUser);
       
      })
     this.desc = this.stay.summary;

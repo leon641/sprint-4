@@ -206,15 +206,17 @@ export default {
   },
   created() {
     let loggedinUser = this.$store.getters.loggedinUser;
-    console.log("this.loggedinUser in modal", this.loggedinUser);
+
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
-    this.order.hostId = this.stay.host?._id;
-     this.order.stay._id= this.stay._id
-     this.order.stay.name= this.stay.name
-     this.order.stay.price= this.stay.price
-    console.log("this.order", this.order);
-       
+    this.order.hostId = this.stay.host._id;
+    this.order.stay._id = this.stay._id;
+    this.order.stay.name = this.stay.name;
+    this.order.stay.price = this.stay.price;
+    console.log("this.order in created", this.order);
+    console.log("stay in created", this.stay);
+
+    console.log("this.loggedinUser in created", loggedinUser);
   },
   data() {
     return {
@@ -298,7 +300,6 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24);
-      console.log("this.order", this.order);
     },
 
     renderDate() {
