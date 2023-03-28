@@ -1,0 +1,84 @@
+
+h1.trips-title {
+    font-size: 32px;
+    color: #222;
+    margin-block-start: 36px;
+    margin-block-end: 24px;
+}
+
+.user-trips {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(2,2fr) 1.6fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    margin-block-end: 10px;
+    
+    .mini-card {
+        width: 100%;
+
+        border: 1px solid #DDDDDD;
+        color: #222;
+        border-radius: 12px;
+        padding: 18px;
+        margin-block-start: 20px;
+
+    }
+
+}
+
+.mini-card-header {
+    // display: flex;
+    // flex-wrap: wrap;
+    grid-column: 5/7;
+    grid-row: 1/2;
+    width: 100%;
+    
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        color: #717171;
+    font-size: 16px;
+    line-height: 22px;
+
+    span {
+        font-family: Airbnb-Cereal-Medium;
+    }
+
+}
+}
+.mini-card-btn {
+    border: opx solid transparent;
+    background-color: #f7f7f7;
+    transition: .1s;
+    padding: 8px;
+    align-items: center;
+    height: 40px;
+    border-radius: 4px;
+    color: #222;
+    width: 150px;
+    margin-inline-start: 0;
+    font-size: rem(20px);
+    font-family: Airbnb-Cereal-Medium;
+    align-self: flex-end;
+    box-shadow: 0 0 5px #0000001f;
+
+    &:hover {
+            background-color: $clr13;
+    }
+}
+
+.card-item-2 {
+    grid-column: 5 / 7;
+    grid-row: 1/2;
+width: 100%;
+}
+
+.card-item-3 {
+    grid-column: 5/7;
+grid-row: 2/3;
+width: 100%;
+}
+

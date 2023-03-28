@@ -106,10 +106,8 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 function saveWishListToUser(stay) {
-    console.log('in user service', stay);
     const user = getLoggedinUser()
     user.wishlist.push(stay)
-    console.log('in user service', user);
     saveLocalUser(user)
 }
 

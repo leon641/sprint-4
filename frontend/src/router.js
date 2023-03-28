@@ -11,6 +11,7 @@ import UserDetails from './views/UserDetails.vue'
 import StayDetails from './views/StayDetails.vue'
 import Wishlist from './views/Wishlist.vue'
 import Reservation from './views/Reservation.vue'
+import UserTrips from './views/UserTrips.vue'
 
 const routes = [
   {
@@ -27,6 +28,11 @@ const routes = [
     path: '/wishlist',
     name: 'Wishlist',
     component: Wishlist
+  },
+  {
+    path: '//trips',
+    name: 'UserTrips',
+    component: UserTrips
   },
   {
     path: '/reservation',
