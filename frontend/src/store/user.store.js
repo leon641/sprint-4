@@ -18,6 +18,9 @@ export const userStore = {
         watchedUser({ watchedUser }) { return watchedUser }
     },
     mutations: {
+        updatedLoggedin(state, { updatedUser }) {
+            state.loggedinUser = updatedUser
+        },
         setLoggedinUser(state, { user }) {
             // Yaron: needed this workaround as for score not reactive from birth
             state.loggedinUser = (user) ? { ...user } : null
@@ -36,20 +39,20 @@ export const userStore = {
         },
     },
     actions: {
-         login({ commit }, { userCred }) {
-            
-                const user =  userService.login(userCred)
-                commit({ type: 'setLoggedinUser', user })
-                return user
+        login({ commit }, { userCred }) {
+
+            const user = userService.login(userCred)
+            commit({ type: 'setLoggedinUser', user })
+            return user
             // catch (err) {
             //     console.log('userStore: Error in login', err)
             //     throw err
             // }
         },
         signup({ commit }, { userCred }) {
-                const user =  userService.signup(userCred)
-                commit({ type: 'setLoggedinUser', user })
-                return user
+            const user = userService.signup(userCred)
+            commit({ type: 'setLoggedinUser', user })
+            return user
             // } catch (err) {
             //     console.log('userStore: Error in signup', err)
             //     throw err
@@ -75,6 +78,13 @@ export const userStore = {
                 throw err
             }
         },
+
+        async setOrder({ commit }, { order }) {
+
+            const updatedUser = await userService.setOrder(order)
+            commit({ type: 'updatedLoggedin', updatedUser })
+        },
+
         async loadAndWatchUser({ commit }, { userId }) {
             try {
                 const user = await userService.getById(userId)

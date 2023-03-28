@@ -20,7 +20,8 @@ export const userService = {
     remove,
     update,
     changeScore,
-    saveWishListToUser
+    saveWishListToUser,
+    setOrder
 }
 
 window.userService = userService
@@ -86,6 +87,11 @@ async function logout() {
     // socketService.logout()
     // return await httpService.post('auth/logout')
 }
+async function setOrder(order) {
+    const user = getLoggedinUser()
+    user.orders.push(order)
+    return user
+}
 
 async function changeScore(by) {
     const user = getLoggedinUser()
@@ -96,8 +102,14 @@ async function changeScore(by) {
 }
 
 
-function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl,likedByUsers : user.likedByUsers, score: user.score}
+function saveLocalUser(user) {    
+    user = {
+        _id: user._id,
+         fullname: user.fullname,
+          imgUrl: user.imgUrl,
+          likedByUsers : user.likedByUsers,
+           oreders : user.orders
+        }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -113,36 +125,19 @@ function saveWishListToUser(stay) {
 
 
 ;(async ()=>{
-    await userService.signup({_id:utilService.makeId(),  "_id": "u101",
-    "fullname": "nadav dori",
-    "imgUrl": "/img/img1.jpg",
-    "username": "nadav",
-    "password": "111",
-    "orders": [],
-    "trips": [],
-    "stays": [],
-    "likedByUsers": [],
-    "reviews" : []})
-    await userService.signup({_id:utilService.makeId(),  "_id": "u101",
-    "fullname": "nadav dori",
-    "imgUrl": "/img/img1.jpg",
-    "username": "nadav",
-    "password": "111",
-    "orders": [],
-    "trips": [],
-    "stays": [],
-    "likedByUsers": [],
-    "reviews" : []})
-    await userService.signup({_id:utilService.makeId(),  "_id": "u101",
-    "fullname": "nadav dori",
-    "imgUrl": "/img/img1.jpg",
-    "username": "nadav",
-    "password": "111",
-    "orders": [],
-    "trips": [],
-    "stays": [],
-    "likedByUsers": [],
-    "reviews" : []})
+    await userService.signup({
+     _id:utilService.makeId(), 
+    fullname: "nadav dori",
+    imgUrl: "/img/img1.jpg",
+    username: "nadav",
+    password: "111",
+    orders: [],
+    trips: [],
+    stays: [],
+    likedByUsers: [],
+    reviews : []})
+    // await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
+    // await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 })()
 
 
