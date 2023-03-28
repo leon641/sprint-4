@@ -138,9 +138,10 @@ export default {
   created() {},
   methods: {
     toExplore() {
+      console.log('this.filterBy',this.filterBy)
       this.$router.push({
         path: "/explore",
-        query: { txt: this.filterBy.txt },
+        query: { txt: this.filterBy.txt, region: this.filterBy.region },
       });
     },
   },

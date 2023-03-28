@@ -3,10 +3,14 @@
 <template>
   <div class="big-pill">
     <div class="where-container" :class="propWhere" @click="switchToWhere">
-      <div class="where-contant">
+      <div class="where-content">
         <div class="where">
           <p>Where</p>
-          <input type="text" placeholder="Search destinations" v-model="filterBy.txt" />
+          <input
+            type="text"
+            placeholder="Search destinations"
+            v-model="filterBy.txt"
+          />
         </div>
       </div>
     </div>
@@ -31,7 +35,7 @@
         </div>
         <span class="search">
           <div>
-            <SearchBtn :filterBy="filterBy"/>
+            <SearchBtn :filterBy="filterBy" />
           </div>
         </span>
       </div>
@@ -48,17 +52,28 @@ export default {
     propCheck: String,
     propCheckOut: String,
     propWho: String,
+    propRegion: String,
   },
   data() {
     return {
-      filterBy:{
-        txt:''
-
-      }
+      filterBy: {
+        txt: this.propRegion || "",
+        region: this.propRegion || "",
+      },
     };
   },
-  created() {},
-  computed: {},
+  created() {
+    // this.filterBy.txt = "";
+    // this.filterBy.region = "";
+  },
+  computed: {
+    // txt() {
+    //   return this.propRegion;
+    // },
+    // region() {
+    //   return this.propRegion;
+    // },
+  },
   methods: {
     switchToWhere() {
       this.$emit("switchTWhere");

@@ -37,6 +37,7 @@ export const stayStore = {
         wishList: [],
         filterBy: {
             txt: '',
+            region: '',
             label: '',
             price: 0,
         },
@@ -77,7 +78,13 @@ export const stayStore = {
         },
         addToWishList(state, { stay }) {
             state.wishList.push(stay)
-        }
+        },
+        setFilter(state, { filterBy }) {
+            console.log('filterBy',filterBy)
+            state.filterBy.txt = filterBy.txt
+            state.filterBy.region = filterBy.region
+            // state.filterBy.region = filterBy.region
+        },
     },
     actions: {
         async getStayById({ commit }, { stayId }) {
@@ -90,16 +97,10 @@ export const stayStore = {
             console.log('in set wishList', stay._id)
             userService.saveWishListToUser(stay)
             commit({ type: 'addToWishList', stay })
-
-
         },
         setFilterBy(context, { label }) {
-
             context.commit({ type: 'setFilterBy', label })
             context.dispatch({ type: 'loadStays', filterBy: context.state.filterBy })
-
-
-
         },
         async addStay(context, { stay }) {
             try {
@@ -149,6 +150,8 @@ export const stayStore = {
                 throw err
             }
         },
-
+        setFilter(context, { filterBy }) {
+            context.commit({ type: 'setFilter', filterBy })
+        }
     }
 }

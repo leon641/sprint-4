@@ -44,9 +44,8 @@
             src="https://a0.muscache.com/im/pictures/user/71e528e9-e78f-4f64-9be2-568194f777b0.jpg?aki_policy=profile_medium"
             alt=""
           />
-          
-          <UserMenu v-if="isMenu" @openLogin="openLogin"/>
-           
+
+          <UserMenu v-if="isMenu" @openLogin="openLogin" />
         </div>
       </div>
     </div>
@@ -57,6 +56,7 @@
       :propCheck="propCheck"
       :propCheckOut="propCheckOut"
       :propWho="propWho"
+      :propRegion="propRegion"
       @switchTWhere="switchTWhere"
       @switchTCheck="switchTCheck"
       @switchTCheckOut="switchTCheckOut"
@@ -69,9 +69,10 @@
     :propCheck="propCheck"
     :propCheckOut="propCheckOut"
     :propWho="propWho"
+    @setRegion="setRegion"
   />
 
-  <LoginSignUp v-if="isOpen" @openLogin="openLogin"/>
+  <LoginSignUp v-if="isOpen" @openLogin="openLogin" />
 </template>
 
 <script>
@@ -93,6 +94,7 @@ export default {
       propCheck: "",
       propCheckOut: "",
       propWho: "",
+      propRegion: "",
       isMenu: false,
       isOpen: false,
     };
@@ -158,15 +160,19 @@ export default {
       this.clearProps();
       this.propWho = "focus";
     },
-      toggleUserMenu() {
-            this.isMenu = !this.isMenu;
-        },
-        closeMenu() {
-            this.isMenu = false;
-        },
-        openLogin() {
-          this.isOpen = !this.isOpen
-        }
+    toggleUserMenu() {
+      this.isMenu = !this.isMenu;
+    },
+    closeMenu() {
+      this.isMenu = false;
+    },
+    openLogin() {
+      this.isOpen = !this.isOpen;
+    },
+    setRegion(payload) {
+      console.log('payload',payload)
+      this.propRegion = payload;
+    },
   },
   emits: ["inIndex"],
   components: {
@@ -175,7 +181,7 @@ export default {
     FilterModal,
     DetailsFilter,
     UserMenu,
-    LoginSignUp
+    LoginSignUp,
   },
 };
 </script>

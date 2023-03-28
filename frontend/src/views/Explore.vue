@@ -23,6 +23,7 @@ export default {
     return {
       filterBy: {
         txt: this.$route.query.txt,
+        region: this.$route.query.region,
       },
     };
   },
