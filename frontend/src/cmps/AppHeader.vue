@@ -17,6 +17,7 @@
       />
       <DetailsFilter
         v-if="layout === 'stay-details'"
+        :layout="layout"
         @expand="expand"
         @toWhere="toWhere"
       />

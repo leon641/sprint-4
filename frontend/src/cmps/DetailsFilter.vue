@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="filter" @click="expand">
+  <div class="filter" :class="layout" @click="expand">
     <section class="filter-btns">
       <div class="start-content">
         <div class="start">Start your search</div>
@@ -27,6 +27,9 @@
 
 <script>
 export default {
+  props: {
+    layout: String,
+  },
   data() {
     return {};
   },
