@@ -29,7 +29,18 @@ const routes = [
   {
     path: '/dashboard',
     name: 'StayDashboard',
-    component: StayDashboard
+    component: StayDashboard,
+    children:[
+      {
+          path:"/dashboard/stay/edit",
+          component: StayEdit
+      },
+      {
+          path:'/dashboard/listing',
+          component: StayListing
+      },
+  
+  ]
   },
   {
     path: '/wishlist',
