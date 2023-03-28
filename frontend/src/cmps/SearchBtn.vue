@@ -138,12 +138,14 @@ export default {
   created() {},
   methods: {
     toExplore() {
-      console.log('this.filterBy',this.filterBy)
+      console.log("this.filterBy", this.filterBy);
+      this.$emit("closeFilter");
       this.$router.push({
         path: "/explore",
         query: { txt: this.filterBy.txt, region: this.filterBy.region },
       });
     },
   },
+  emits: ["closeFilter"],
 };
 </script>

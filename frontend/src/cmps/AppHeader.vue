@@ -61,6 +61,7 @@
       @switchTCheck="switchTCheck"
       @switchTCheckOut="switchTCheckOut"
       @switchTWho="switchTWho"
+      @closeFilter="closeFilter"
     />
     <div class="screen" @click="closeFilter"></div>
   </div>
@@ -140,6 +141,8 @@ export default {
     closeFilter() {
       this.expand();
       this.clearProps();
+      console.log('ho');
+      
     },
     toggleModal() {
       this.isOpen = !this.isOpen;
