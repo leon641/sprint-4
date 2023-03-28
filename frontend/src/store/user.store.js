@@ -81,11 +81,7 @@ export const userStore = {
             }
         },
 
-        async setOrder({ commit }, { order }) {
-
-            const updatedUser = await userService.setOrder(order)
-            commit({ type: 'updatedLoggedin', updatedUser })
-        },
+      
 
         async loadAndWatchUser({ commit }, { userId }) {
             try {

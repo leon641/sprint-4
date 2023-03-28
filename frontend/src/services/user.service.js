@@ -21,7 +21,7 @@ export const userService = {
     update,
     changeScore,
     saveWishListToUser,
-    setOrder
+ 
 }
 
 window.userService = userService
@@ -87,13 +87,7 @@ async function logout() {
     // socketService.logout()
     // return await httpService.post('auth/logout')
 }
-async function setOrder(order) {
-    const user = getLoggedinUser()
-    console.log('user',user);
-    
-    user.orders.push(order)
-    return user
-}
+
 
 async function changeScore(by) {
     const user = getLoggedinUser()

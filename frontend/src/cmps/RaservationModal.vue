@@ -209,14 +209,14 @@ export default {
 
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
-    this.order.hostId = this.stay.host._id;
     this.order.stay._id = this.stay._id;
+    this.order.hostId = this.stay.host?._id;
     this.order.stay.name = this.stay.name;
     this.order.stay.price = this.stay.price;
-    console.log("this.order in created", this.order);
-    console.log("stay in created", this.stay);
+    // console.log("this.order in created", this.order);
+    // console.log("stay in created", this.stay);
 
-    console.log("this.loggedinUser in created", loggedinUser);
+    // console.log("this.loggedinUser in created", loggedinUser);
   },
   data() {
     return {
@@ -260,7 +260,6 @@ export default {
       ],
 
       order: {
-        _id: utilService.makeId(),
         hostId: "",
         buyer: {
           _id: null,
