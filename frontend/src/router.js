@@ -14,6 +14,9 @@ import Reservation from './views/Reservation.vue'
 import UserTrips from './views/UserTrips.vue'
 import Explore from './views/Explore.vue'
 import StayDashboard from './views/StayDashboard.vue'
+import StayEdit from './views/StayEdit.vue'
+import StayListing from './views/StayListing.vue'
+import StayReservations from './views/StayReservations.vue'
 
 const routes = [
   {
@@ -29,7 +32,22 @@ const routes = [
   {
     path: '/dashboard',
     name: 'StayDashboard',
-    component: StayDashboard
+    component: StayDashboard,
+    children: [
+      {
+        path: "/dashboard/edit",
+        component: StayEdit
+      },
+      {
+        path: '/dashboard/listing',
+        component: StayListing
+      },
+      {
+        path: '/dashboard/reservations',
+        component: StayReservations
+      },
+
+    ]
   },
   {
     path: '/wishlist',

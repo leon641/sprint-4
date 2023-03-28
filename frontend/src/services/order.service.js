@@ -21,18 +21,12 @@ export const orderService = {
 window.cs = orderService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function query() {
+    // return httpService.get(STORAGE_KEY, filterBy)
 
-    // var orders = await storageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     orders = orders.filter(order => regex.test(order.vendor) || regex.test(order.description))
-    // }
-    // if (filterBy.price) {
-    //     orders = orders.filter(order => order.price <= filterBy.price)
-    // }
-    // return orders
+    var orders = await storageService.query(STORAGE_KEY)
+   
+    return orders
 
 }
 async function setOrder(order) {

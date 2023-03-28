@@ -42,6 +42,7 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: "loadStays" });
+    this.$store.dispatch({ type: "loadLoggedinUser" });
   },
   methods: {
     async addStay() {

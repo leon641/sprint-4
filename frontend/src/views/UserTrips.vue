@@ -87,9 +87,9 @@ export default {
       loggedinUser : {},
     };
   },
-  created() {
+   created() {
     this.loggedinUser = this.$store.getters.loggedinUser
-    console.log('login user in trips',this.loggedinUser);
+    console.log('login user in trips',this.$store.getters.loggedinUser);
   },
   computed: {},
   methods : {

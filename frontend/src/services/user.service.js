@@ -102,7 +102,7 @@ async function changeScore(by) {
 
 function saveLocalUser(user) {    
     user = {
-        _id: user._id,
+         _id: user._id,
          fullname: user.fullname,
           imgUrl: user.imgUrl,
           likedByUsers : user.likedByUsers,
@@ -126,6 +126,7 @@ function saveWishListToUser(stay) {
 
     utilService.saveToStorage(STORAGE_KEY_USER,[
         { 
+        _id : utilService.makeId(),
         fullname: "koki",
         imgUrl: "/img/img1.jpg",
         username: "koki",
