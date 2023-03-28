@@ -53,12 +53,12 @@ const stays = [
     "likedByUsers": ['mini-user'] // for user-wishlist : use $in
   }
 ]
-
+//
 const orders = [
   {
     "_id": "o1225",
     "hostId": "u102",
-    "buyer": {
+    "buyer": {// the user that ordered
       "_id": "u101",
       "fullname": "User 1"
     },
@@ -86,9 +86,6 @@ const users = [
     "imgUrl": "/img/img1.jpg",
     "username": "user1",
     "password": "secret",
-    "orders": [],
-    "trips": [],
-    "stays": [],
     "wishlist": [],
     "reviews" : []
   },
@@ -98,7 +95,7 @@ const users = [
     "imgUrl": "/img/img2.jpg",
     "username": "user2",
     "password": "secret",
-    // "isOwner" : true // OPTIONAL
+    //"isOwner" : true // OPTIONAL
   }
 ]
 // Homepage: TOP categories: Best Rate / Houses / Kitchen  - show all - link to Explore
