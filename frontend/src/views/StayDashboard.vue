@@ -1,10 +1,8 @@
 <template>
-
-    <RouterLink to="/dashboard/reservations">Reservations</RouterLink>|
-    <RouterLink to="/dashboard/edit">Create listing</RouterLink>|
-    <RouterLink to="/dashboard/listing">Listing</RouterLink>|
-      <RouterView/>
-
+  <RouterLink to="/dashboard/reservations">Reservations</RouterLink>|
+  <RouterLink to="/dashboard/edit">Create listing</RouterLink>|
+  <RouterLink to="/dashboard/listing">Listing</RouterLink>|
+  <RouterView />
 </template>
 <script>
 import StayEdit from "./StayEdit.vue";
@@ -21,7 +19,7 @@ export default {
   },
   data() {
     return {
-      loggedinUser: null,
+      loggedinUser: {},
       orders: [],
     };
   },
