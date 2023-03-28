@@ -83,7 +83,13 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      loggedinUser : {},
+    };
+  },
+  created() {
+    this.loggedinUser = this.$store.getters.loggedinUser
+    console.log('login user in trips',this.loggedinUser);
   },
   computed: {},
   methods : {
