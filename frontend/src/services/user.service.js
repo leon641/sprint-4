@@ -89,6 +89,8 @@ async function logout() {
 }
 async function setOrder(order) {
     const user = getLoggedinUser()
+    console.log('user',user);
+    
     user.orders.push(order)
     return user
 }
@@ -108,7 +110,7 @@ function saveLocalUser(user) {
          fullname: user.fullname,
           imgUrl: user.imgUrl,
           likedByUsers : user.likedByUsers,
-           oreders : user.orders
+           orders : user.orders
         }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
@@ -135,8 +137,17 @@ function saveWishListToUser(stay) {
     stays: [],
     likedByUsers: [],
     reviews : []})
-    // await userService.signup({_id:utilService.makeId(),fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-    // await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+    await userService.signup({ _id:utilService.makeId(), 
+        fullname: "Francesco",
+        imgUrl: "/img/img1.jpg",
+        username: "Francesco",
+        password: "123",
+        orders: [],
+        trips: [],
+        stays: [],
+        likedByUsers: [],
+        reviews : [] })
+    // await userService.signup({_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
 })()
 
 

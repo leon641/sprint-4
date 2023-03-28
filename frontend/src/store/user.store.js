@@ -20,6 +20,8 @@ export const userStore = {
     mutations: {
         updatedLoggedin(state, { updatedUser }) {
             state.loggedinUser = updatedUser
+            console.log('state.loggedinUser in user store',state.loggedinUser);
+            
         },
         setLoggedinUser(state, { user }) {
             // Yaron: needed this workaround as for score not reactive from birth

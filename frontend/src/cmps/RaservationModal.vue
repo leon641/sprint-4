@@ -209,7 +209,12 @@ export default {
     console.log("this.loggedinUser in modal", this.loggedinUser);
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
+    this.order.hostId = this.stay.host?._id;
+     this.order.stay._id= this.stay._id
+     this.order.stay.name= this.stay.name
+     this.order.stay.price= this.stay.price
     console.log("this.order", this.order);
+       
   },
   data() {
     return {
@@ -254,7 +259,7 @@ export default {
 
       order: {
         _id: utilService.makeId(),
-        hostId: this.stay?.host?.fullname,
+        hostId: "",
         buyer: {
           _id: null,
           fullname: null,
@@ -279,7 +284,7 @@ export default {
   methods: {
     reservation() {
       console.log("reservation-order", this.order);
-      this.$store.dispatch({type: "setOrder",order:this.order})
+      this.$store.dispatch({ type: "setOrder", order: this.order });
       this.$router.push("/reservation");
     },
     getSvg(type) {
