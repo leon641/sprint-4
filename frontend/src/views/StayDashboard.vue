@@ -1,8 +1,13 @@
 <template>
 <section class="dashBoard-container">
+         <RouterLink to="/dashboard/reservations">Reservations</RouterLink>|
+            <RouterLink to="/dashboard/stay/listing">Create listing</RouterLink>|
+            <RouterLink to="/dashboard/listing">Listing</RouterLink>|
 <h1>Reservations</h1>
 <section class="reservations-chart">
+
     <table class="table-reservation">
+
         <thead>
             <th>Guest</th>
             <th>Check-in</th>
@@ -28,6 +33,8 @@
 </section>
 </template>
 <script>
+import StayEdit from './StayEdit.vue'
+import StayListing from './StayListing.vue'
 export default {
   async created(){
         await this.$store.dispatch({type:'loadOrders'})
