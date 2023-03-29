@@ -11,6 +11,7 @@
         <div class="thead col4">Check-out</div>
         <div class="thead col5">TotalPrice</div>
         <div class="thead col6">Status</div>
+        <div class="thead col6">Actions</div>
         </section>
       <ul  class="reservations-chart"
       v-for="order in myOrders" :key="order._id">

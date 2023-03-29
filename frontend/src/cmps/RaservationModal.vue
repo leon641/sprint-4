@@ -98,13 +98,19 @@
 
             <div class="btns-container item1">
               <!-- <div></div> -->
-              <button class="btn-guests-modal subtract">
+              <button
+                @click="updateGuests(-1, 'Adults')"
+                class="btn-guests-modal subtract"
+              >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span class="counter">0</span>
+              <span class="counter">{{ this.order.guests.adults }}</span>
 
-              <button class="btn-guests-modal add-more">
+              <button
+                @click="updateGuests(1, 'Adults')"
+                class="btn-guests-modal add-more"
+              >
                 <span
                   class="user-stay-info-svg"
                   v-html="getSvg('addMore')"
@@ -118,13 +124,19 @@
             </div>
 
             <div class="btns-container item2">
-              <button class="btn-guests-modal subtract">
+              <button
+                @click="updateGuests(-1, 'Childern')"
+                class="btn-guests-modal subtract"
+              >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span class="counter">1</span>
+              <span class="counter">{{ this.order.guests.kids }}</span>
 
-              <button class="btn-guests-modal add-more">
+              <button
+                @click="updateGuests(1, 'Childern')"
+                class="btn-guests-modal add-more"
+              >
                 <span
                   class="user-stay-info-svg"
                   v-html="getSvg('addMore')"
@@ -137,13 +149,19 @@
             </div>
 
             <div class="btns-container item3">
-              <button class="btn-guests-modal subtract">
+              <button
+                @click="updateGuests(-1, 'Infants')"
+                class="btn-guests-modal subtract"
+              >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span class="counter">1</span>
+              <span class="counter">{{ this.order.guests.infants }}</span>
 
-              <button class="btn-guests-modal add-more">
+              <button
+                @click="updateGuests(1, 'Infants')"
+                class="btn-guests-modal add-more"
+              >
                 <span
                   class="user-stay-info-svg"
                   v-html="getSvg('addMore')"
@@ -156,13 +174,19 @@
             </div>
 
             <div class="btns-container item4">
-              <button class="btn-guests-modal subtract">
+              <button
+                @click="updateGuests(-1, 'Pets')"
+                class="btn-guests-modal subtract"
+              >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span class="counter">1</span>
+              <span class="counter">{{ this.order.guests.pets }}</span>
 
-              <button class="btn-guests-modal add-more">
+              <button
+                @click="updateGuests(1, 'Pets')"
+                class="btn-guests-modal add-more"
+              >
                 <span
                   class="user-stay-info-svg"
                   v-html="getSvg('addMore')"
@@ -205,11 +229,10 @@ export default {
     stay: Object,
   },
   created() {
-
     let loggedinUser = this.$store.getters.loggedinUser;
-    let hostId=this.stay.host._id
-    console.log('hostId',hostId);
-    
+    let hostId = this.stay.host._id;
+    console.log("hostId", hostId);
+
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
     this.order.stay._id = this.stay._id;
@@ -274,6 +297,8 @@ export default {
         guests: {
           adults: 0,
           kids: 0,
+          infants: 0,
+          pets: 0,
         },
         stay: {
           _id: this.stay?._id,
@@ -290,6 +315,13 @@ export default {
       console.log("reservation-order", this.order);
       this.$store.dispatch({ type: "setOrder", order: this.order });
       this.$router.push("/reservation");
+    },
+    updateGuests(diff, type) {
+      if (type === "Adults") this.order.guests.adults = +diff;
+      if (type === "Childern") this.order.guests.kids = +diff;
+      if (type === "Infants") this.order.guests.infants = +diff;
+      if (type === "Pets") this.order.guests.pets = +diff;
+      console.log("order", this.order);
     },
     getSvg(type) {
       return svgService.getSvg(type);
