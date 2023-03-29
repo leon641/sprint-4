@@ -1,6 +1,6 @@
 .reservation-view-container {
     display: grid;
-    grid-template-columns: minmax(285px, 1fr) minmax(auto, 88.3vw) minmax(285px, 1fr);
+    grid-template-columns: minmax( 20px,1fr) minmax(auto,1140px) minmax(20px,1fr);
     color: $clr12;
 
     .reservation-header {
@@ -301,10 +301,19 @@
 
         }
     }
-
-    .reservation-btn-container {
-        position: relative;
-        
-        width: em(190px);
+}
+.res-action-btn{
+    background-color: transparent;
+    span{
+        color: #fff;
+    }
+}
+.res-btn-container {
+    position: relative;
+    left:5px;
+    width: em(175px);
+    height: em(50px);
+    .content{
+        top:42px
     }
 }

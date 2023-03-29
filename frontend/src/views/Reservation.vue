@@ -43,7 +43,9 @@
          <p>Your reservation won’t be confirmed until the Host accepts your request (within 24 hours). <span>You won’t be charged until then.</span></p>
         
       </div>
-     <div class="reservation-btn-container"><ReserveBtnReservation/></div> 
+
+      <ReserveBtnReservation/>
+     
     </section>
 
     <section class="reservation-price-details-modal">

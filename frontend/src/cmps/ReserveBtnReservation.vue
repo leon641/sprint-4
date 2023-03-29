@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="btn-container">
+  <div class="res-btn-container">
     <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
@@ -103,7 +103,7 @@
     <div class="cell"></div>
     <div class="cell"></div>
     <div class="content">
-      <button class="action-btn">
+      <button class="res-action-btn">
         <span>Request to book</span>
       </button>
     </div>
