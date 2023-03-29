@@ -15,7 +15,8 @@ export const stayService = {
   save,
   remove,
   getEmptyOrder,
-  addStayMsg
+  addStayMsg,
+  getEmptyStay
 }
 window.cs = stayService
 
@@ -109,6 +110,17 @@ function getEmptyOrder() {
     "status": "pending" // pending, approved
   }
   return order
+}
+function getEmptyStay() {
+  const stay = {
+
+    "name": "",
+    "city": "",
+    "country": "",
+    "street": "",
+    "imgUrls": [],
+  }
+  return stay
 }
 
 

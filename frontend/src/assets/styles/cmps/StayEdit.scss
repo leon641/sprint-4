@@ -31,4 +31,42 @@
     padding: 5px;
     background-color: $clr1;
     border-radius: 5px;
+    
+}
+
+.upload-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $clr6;
+    width: auto;
+    height: 250px;
+    font-family: CircularAir-Light;
+
+    .drop-upload {
+        display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+        color: rgb(10, 96, 224);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.img-upload-svg {
+    height: 80px;
+    width: 80px;
+    fill: $clr17;
+}
+
+p {
+    padding: 10px;
+    font-size: rem(16px);
+}
+}
+.input-file {
+    margin-left: 100px;
 }
