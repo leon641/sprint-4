@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <small> footer</small>
+  <!-- <small> footer</small> -->
 </template>
 <script>
 export default {
