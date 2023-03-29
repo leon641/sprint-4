@@ -7,16 +7,24 @@
 export default {
   props: {
     userId: String,
+    orders: Array,
   },
   data() {
     return {
       loggedinUser: {},
+      orders: [],
       stays: [],
     };
   },
   created() {
-    // this.stays = this.$store.getters.stays.filter(stay=>stay.)
-    ;
+    this.orders = this.$store.getters.orders.filter(
+      (order) => this.loggedinUser._id === order.buyer._id
+    );
+
+    this.stays = this.orders.map((order) => order.stay._id);
+
+    console.log("this.orders", this.orders);
+    console.log("this.orders", this.orders);
   },
   computed: {},
 };
