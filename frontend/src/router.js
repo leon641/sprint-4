@@ -16,7 +16,7 @@ import Explore from './views/Explore.vue'
 import StayDashboard from './views/StayDashboard.vue'
 import StayEdit from './views/StayEdit.vue'
 import StayListing from './views/StayListing.vue'
-import StayReservations from './views/StayReservations.vue'
+import DashboardReservation from './views/DashboardReservation.vue'
 
 const routes = [
   {
@@ -36,14 +36,14 @@ const routes = [
     children: [
       {
         path: "/dashboard/reservations",
-        component: StayReservations
+        component: DashboardReservation
       },
       {
         path: '/dashboard/listing',
         component: StayListing
       },
       {
-        path: '/dashboard/edit',
+        path: '/dashboard/edit/:stayId?',
         component: StayEdit
       },
 

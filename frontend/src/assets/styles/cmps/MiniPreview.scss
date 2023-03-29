@@ -1,0 +1,44 @@
+// בס"ד
+
+.mini-preview {
+
+    & .flex {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ul {
+        padding: 0;
+
+        &>*:not(:last-child) {
+            padding-block: rem(5px);
+            border-block-end: 1px solid rgb(221, 221, 221);
+        }
+
+        &:last-child {
+            padding-block-start: rem(5px);
+        }
+
+        li {
+            height: rem(50px);
+            list-style: none;
+
+            &>*{
+                // width: 120px;
+            }
+
+            div {
+                height: inherit;
+            }
+
+            img {
+                height: inherit;
+            }
+
+            h4,
+            p {
+                overflow: hidden;
+            }
+        }
+    }
+}

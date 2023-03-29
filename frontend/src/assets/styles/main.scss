@@ -30,11 +30,13 @@
 @import "cmps/WishList";
 @import "cmps/SearchBtn";
 @import "cmps/LoginSignUp";
-@import "cmps/UserMenu.scss";
-@import "cmps/UserTrips.scss";
-@import "cmps/StayEdit.scss";
+@import "cmps/UserMenu";
+@import "cmps/UserTrips";
+@import "cmps/StayEdit";
+@import "cmps/MiniPreview";
 
 //  views
 @import "views/StayDetails";
-@import "views/Reservation";
+@import "views/StayReservation";
+@import "views/DashboardReservation";
 @import "views/StayIndex";
