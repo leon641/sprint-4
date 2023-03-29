@@ -13,7 +13,7 @@
 <script>
 import StayEdit from "./StayEdit.vue";
 import StayListing from "./StayListing.vue";
-import StayReservations from "./StayReservations.vue";
+import DashboardReservation from "./DashboardReservation.vue";
 
 export default {
   async created() {
@@ -34,7 +34,7 @@ export default {
   components: {
     StayEdit,
     StayListing,
-    StayReservations,
+    DashboardReservation,
   },
 };
 </script>
