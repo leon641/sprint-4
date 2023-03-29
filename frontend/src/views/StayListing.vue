@@ -1,31 +1,44 @@
 <!-- בס"ד -->
 
 <template>
-  <h2>shalom</h2>
+  <div class="mini-preview">
+    <div class="flex">
+      <h3>Stay image</h3>
+      <h3>Stay name</h3>
+      <h3>Stay capacity</h3>
+      <h3>Stay bedrooms</h3>
+      <h3>Stay price</h3>
+      <h3>Edit stay</h3>
+    </div>
+    <ul>
+      <li v-for="stay in stays" :key="stay">
+        <MiniPreview :stay="stay" />
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
+import MiniPreview from "../cmps/MiniPreview.vue";
+
 export default {
   props: {
     userId: String,
-    orders: Array,
   },
   data() {
     return {
-      loggedinUser: {},
-      orders: [],
       stays: [],
     };
   },
-  created() {
-    this.orders = this.$store.getters.orders.filter(
-      (order) => this.loggedinUser._id === order.buyer._id
-    );
-
-    this.stays = this.orders.map((order) => order.stay._id);
-
-    console.log("this.orders", this.orders);
-    console.log("this.orders", this.orders);
+  async created() {
+    this.stays = await this.$store.dispatch({
+      type: "myStays",
+      userId: this.userId,
+    });
+    // console.log('this.stays',this.stays)
   },
   computed: {},
+  components: {
+    MiniPreview,
+  },
 };
 </script>

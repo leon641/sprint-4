@@ -43,7 +43,7 @@ const routes = [
         component: StayListing
       },
       {
-        path: '/dashboard/edit',
+        path: '/dashboard/edit/:stayId?',
         component: StayEdit
       },
 
