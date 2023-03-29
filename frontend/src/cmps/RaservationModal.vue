@@ -78,7 +78,7 @@
 
         <div class="guest-input">
           <label>GUESTS</label>
-          <input value="2" />
+          <input value="1" />
           <svg
             @click="isShown2 = !isShown2"
             class="angle-down-svg"
@@ -99,7 +99,7 @@
             <div class="btns-container item1">
               <!-- <div></div> -->
               <button
-                @click="updateGuests(-1, 'Adults')"
+                @click="updateGuests(-1, 'adults')"
                 class="btn-guests-modal subtract"
               >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
@@ -108,7 +108,7 @@
               <span class="counter">{{ this.order.guests.adults }}</span>
 
               <button
-                @click="updateGuests(1, 'Adults')"
+                @click="updateGuests(1, 'adults')"
                 class="btn-guests-modal add-more"
               >
                 <span
@@ -125,7 +125,7 @@
 
             <div class="btns-container item2">
               <button
-                @click="updateGuests(-1, 'Childern')"
+                @click="updateGuests(-1, 'kids')"
                 class="btn-guests-modal subtract"
               >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
@@ -134,7 +134,7 @@
               <span class="counter">{{ this.order.guests.kids }}</span>
 
               <button
-                @click="updateGuests(1, 'Childern')"
+                @click="updateGuests(1, 'kids')"
                 class="btn-guests-modal add-more"
               >
                 <span
@@ -150,7 +150,7 @@
 
             <div class="btns-container item3">
               <button
-                @click="updateGuests(-1, 'Infants')"
+                @click="updateGuests(-1, 'infants')"
                 class="btn-guests-modal subtract"
               >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
@@ -159,7 +159,7 @@
               <span class="counter">{{ this.order.guests.infants }}</span>
 
               <button
-                @click="updateGuests(1, 'Infants')"
+                @click="updateGuests(1, 'infants')"
                 class="btn-guests-modal add-more"
               >
                 <span
@@ -175,7 +175,7 @@
 
             <div class="btns-container item4">
               <button
-                @click="updateGuests(-1, 'Pets')"
+                @click="updateGuests(-1, 'pets')"
                 class="btn-guests-modal subtract"
               >
                 <span class="subtract-svg" v-html="getSvg('subtract')"></span>
@@ -184,7 +184,7 @@
               <span class="counter">{{ this.order.guests.pets }}</span>
 
               <button
-                @click="updateGuests(1, 'Pets')"
+                @click="updateGuests(1, 'pets')"
                 class="btn-guests-modal add-more"
               >
                 <span
@@ -317,10 +317,9 @@ export default {
       this.$router.push("/reservation");
     },
     updateGuests(diff, type) {
-      if (type === "Adults") this.order.guests.adults = +diff;
-      if (type === "Childern") this.order.guests.kids = +diff;
-      if (type === "Infants") this.order.guests.infants = +diff;
-      if (type === "Pets") this.order.guests.pets = +diff;
+      this.order.guests[type] += diff
+      if(this.order.guests[type]===-1)this.order.guests[type]=0
+      
       console.log("order", this.order);
     },
     getSvg(type) {
@@ -375,6 +374,12 @@ export default {
       const Total = (this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
       return Total + this.cleaningFee + this.sercivesFee;
+    },
+    guests(){
+       let guests = this.order.guests
+       for (let guest in guests) {
+  guests += guests[guest];
+} 
     },
     StayTotalPrice() {
       const nigths =

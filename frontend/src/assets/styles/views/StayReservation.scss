@@ -303,7 +303,8 @@
     }
 
     .reservation-btn-container {
-        padding-block-start: 24px;
+        position: relative;
+        
         width: em(190px);
     }
 }
