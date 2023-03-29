@@ -1,7 +1,9 @@
 <!-- בס"ד -->
 
 <template>
-  <!-- <small> footer</small> -->
+<section>
+  
+</section>
 </template>
 <script>
 export default {
