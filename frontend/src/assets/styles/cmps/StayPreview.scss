@@ -2,19 +2,27 @@
 
 .stay-preview {
    position: relative;
-&:hover {
 
-   .el-carousel__arrow--right {
-      right: 16px;
-      background-color: #efeeeefa;
-      color: black;
-  }
-   .el-carousel__arrow--left {
-      right: 16px;
-      background-color: #efeeeefa;
-      color: black;
-  }
-}
+   .el-carousel__arrow--right, .el-carousel__arrow--left {
+      visibility: hidden;
+      background-color: #fff;
+      transition: visibility 0s, opacity 0.5s linear;
+   }
+   
+   .el-carousel__container {
+      
+      &:hover {
+         
+         .el-carousel__arrow--right, .el-carousel__arrow--left  {
+            right: 16px;
+            background-color: #fff;
+            color: black;
+            visibility: visible;
+            opacity: 1;
+         }
+      }
+   
+   }
 
    .heartCarousel {
       position:absolute;
