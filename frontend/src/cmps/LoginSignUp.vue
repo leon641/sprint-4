@@ -15,6 +15,7 @@
                 <div class="form-line"></div>
                 <input v-model="userCred.password" placeholder="Password" type="password" autocomplete="password">
             </div>
+<div class="login-btn-container">
 
             <button class="btn-container">Log in</button>
 
@@ -22,6 +23,7 @@
             <div class="login-line-text">or</div>
 
             <button @click="loginAsGuest" @mousemove="hoverEffect" class="btn-container">Continue as a guest</button>
+</div>
 
         </form>
 
