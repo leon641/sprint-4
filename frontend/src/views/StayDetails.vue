@@ -14,7 +14,7 @@
               ></span>
               <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
-              <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
+              <a class="d-link reviews">{{ stay.reviews?.length }}  reviews</a>
               <span class="dot">•</span>
               <span class="d-link">{{ stay.loc?.country }}</span>
             </div>
@@ -90,7 +90,9 @@
         </section>
         <RaservationModal :stay="stay" :avregeRate="avregeRate" />
       </section>
-      <StayReviews :stay="stay" />
+      <StayReviews 
+      :rate="avregeRate"
+      :stay="stay" />
     </section>
     <StayMap :stay="stay"/>
   </section>

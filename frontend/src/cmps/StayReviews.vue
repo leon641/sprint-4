@@ -3,9 +3,9 @@
   <section class="details-reviews">
     <div class="total-review">
       <span class="total-review-svg" v-html="getSvg('starFill')"></span>
-      <span class="review-score"> 4.73 </span>
+      <span class="review-score"> {{rate}} </span>
       <span class="review-score-dot">•</span>
-      <span class="num-of-reviews">9 reviews</span>
+      <span class="num-of-reviews">{{stay.reviews.length}} reviews</span>
     </div>
 
     <div class="details-rating">
@@ -30,7 +30,7 @@
     </div>
 
     <main class="reviews-container">
-      <div class="review-preview">
+      <!-- <div class="review-preview">
         <div class="user-details">
           <img
             loading="lazy"
@@ -111,18 +111,18 @@
         </div>
         <p class="review-text"><LongTxt :desc="stay?.summary" /></p>
       
-      </div>
-      <div class="review-preview">
+      </div> -->
+      <div class="review-preview" v-for="review in stay.reviews" :key="review.id">
         <div class="user-details">
           <img
             loading="lazy"
-            src="https://a0.muscache.com/im/users/6107595/profile_pic/1442432675/original.jpg?aki_policy=profile_small"
+            :src="review.by.imgUrl"
             alt=""
           />
-          <p class="reviewer-name">Avi</p>
+          <p class="reviewer-name">{{review.by.fullname}}</p>
           <span class="visit-date">Apr 2023</span>
         </div>
-        <p class="review-text"><LongTxt :desc="stay?.summary" /></p>
+        <p class="review-text"><LongTxt :desc="review.txt" /></p>
       
       </div>
     </main>
@@ -134,6 +134,7 @@ import { svgService } from "../services/svg.service";
 export default {
   props: {
     stay: Object,
+    rate:Number,
   },
   data() {
     return {};
