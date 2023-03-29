@@ -78,7 +78,7 @@
 
         <div class="guest-input">
           <label>GUESTS</label>
-          <input value="1" />
+          <input :value="guests" />
           <svg
             @click="isShown2 = !isShown2"
             class="angle-down-svg"
@@ -228,7 +228,7 @@ export default {
     avregeRate: Number,
     stay: Object,
   },
-  created() {
+ async created() {
     let loggedinUser = this.$store.getters.loggedinUser;
     let hostId = this.stay.host._id;
     console.log("hostId", hostId);
@@ -291,10 +291,12 @@ export default {
           _id: null,
           fullname: null,
         },
+        totalGuests:0,
         totalPrice: "",
         startDate: "",
         endDate: "",
-        guests: {
+       nigths:0,
+       guests: {
           adults: 0,
           kids: 0,
           infants: 0,
@@ -314,7 +316,8 @@ export default {
     reservation() {
       console.log("reservation-order", this.order);
       this.$store.dispatch({ type: "setOrder", order: this.order });
-      this.$router.push("/reservation");
+      this.$store.dispatch({ type: "setCurrOrder", order: this.order });
+      this.$router.push("/reservation/");
     },
     updateGuests(diff, type) {
       this.order.guests[type] += diff
@@ -333,7 +336,10 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24);
-    },
+        this.order.nigths=Math.ceil(nigths / 1000 / 60 / 60 / 24);
+        console.log('this.order.nigths',this.order.nigths);
+        
+  },
 
     renderDate() {
       if (this.selectedDate < this.attributes[0].dates.start) {
@@ -376,10 +382,15 @@ export default {
       return Total + this.cleaningFee + this.sercivesFee;
     },
     guests(){
+        let count=0
        let guests = this.order.guests
        for (let guest in guests) {
-  guests += guests[guest];
-} 
+          count += +guests[guest];
+          } 
+          this.order.totalGuests=count
+          console.log(' this.totalGuests', this.order.totalGuests);
+          
+           return count
     },
     StayTotalPrice() {
       const nigths =
