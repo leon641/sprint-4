@@ -1,5 +1,6 @@
 // בס"ד
 
+import { configProviderContextKey } from 'element-plus'
 import { stayService } from '../services/stay.service.local'
 import { userService } from '../services/user.service'
 // import { stayService } from '../services/stay.service'
@@ -80,7 +81,7 @@ export const stayStore = {
             state.wishList.push(stay)
         },
         setFilter(state, { filterBy }) {
-            console.log('filterBy',filterBy)
+            console.log('filterBy', filterBy)
             state.filterBy.txt = filterBy.txt
             state.filterBy.region = filterBy.region
             // state.filterBy.region = filterBy.region
@@ -102,6 +103,7 @@ export const stayStore = {
             context.dispatch({ type: 'loadStays', filterBy: context.state.filterBy })
         },
         async addStay(context, { stay }) {
+            console.log('in store addStay', stay);
             try {
                 stay = await stayService.save(stay)
                 context.commit(getActionAddStay(stay))
@@ -151,6 +153,14 @@ export const stayStore = {
         },
         setFilter(context, { filterBy }) {
             context.commit({ type: 'setFilter', filterBy })
+        },
+        async myStays(context, { userId }) {
+            let stays = await stayService.query()
+            stays = stays.filter(
+                (stay) => stay.host._id === userId
+            );
+
+            return stays
         }
     }
 }
