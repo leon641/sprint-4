@@ -102,6 +102,7 @@ export const stayStore = {
             context.dispatch({ type: 'loadStays', filterBy: context.state.filterBy })
         },
         async addStay(context, { stay }) {
+            console.log('in store addStay', stay);
             try {
                 stay = await stayService.save(stay)
                 context.commit(getActionAddStay(stay))

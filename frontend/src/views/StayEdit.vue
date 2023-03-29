@@ -5,12 +5,12 @@
   <section class="stay-edit">
     <h3>Name</h3>
     <form @submit.prevent="submitStay">
-    <input class="add-input-name" type="text" placeholder="Name">
+    <input v-model="stay.stayName" class="add-input-name" type="text" placeholder="Name">
     <h3>Address</h3>
     <div class="address-inputs">
-    <input class="add-input" type="text" placeholder="City">
-    <input class="add-input" type="text" placeholder="Country">
-    <input class="add-input" type="text" placeholder="Street">
+    <input v-model="stay.city" class="add-input" type="text" placeholder="City">
+    <input v-model="stay.country" class="add-input" type="text" placeholder="Country">
+    <input v-model="stay.street" class="add-input" type="text" placeholder="Street">
     </div>
     <button class="save-form-btn">save</button>
 
@@ -20,8 +20,21 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+       stay: {
+                stayName: "",
+                city: "",
+                country: "",
+                street: "",
+            },
+    }
+  },
+  methods : {
+    submitStay() {
+              console.log('new stay', this.stay);
+      this.$store.dispatch({type : 'addStay', stay : {...this.stay}})
+    }
   },
   computed: {},
-};
+}
 </script>
