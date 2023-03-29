@@ -1,0 +1,35 @@
+.reservations-container{
+    display: grid;
+    grid-template-columns: minmax(50px,1fr)autominmax(50px,1fr);
+.reservations-chart-header{
+    
+}
+}
+.reservations-chart{
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(6,minmax(150px,1fr));
+    .reservations-chart-item{
+        list-style-type: none;
+    }
+    .reservations-chart-item.col1{
+        grid-column: 1;
+    }
+    .reservations-chart-item.col2{
+        grid-column: 2;
+
+    }
+    .reservations-chart-item.col3{
+        grid-column: 3;
+
+    }
+    .reservations-chart-item.col4{
+        grid-column: 4;
+
+    }
+    .reservations-chart-item.col5{
+        grid-column: 5;
+
+    }
+ 
+}

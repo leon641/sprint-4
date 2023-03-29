@@ -1,5 +1,6 @@
 // בס"ד
 
+import { orderService } from '../services/order.service'
 import { userService } from '../services/user.service'
 // import { socketService, SOCKET_EMIT_USER_WATCH, SOCKET_EVENT_USER_UPDATED } from '../services/socket.service'
 
@@ -20,15 +21,15 @@ export const userStore = {
     mutations: {
         updatedLoggedin(state, { updatedUser }) {
             state.loggedinUser = updatedUser
-            console.log('state.loggedinUser in user store',state.loggedinUser);
-            
+            console.log('state.loggedinUser in user store', state.loggedinUser);
+
         },
         setLoggedinUser(state, { user }) {
             console.log('user in user store', user);
-            
+
             // Yaron: needed this workaround as for score not reactive from birth
             state.loggedinUser = (user) ? { ...user } : null
-            console.log('on set logedin',state.user);
+            console.log('on set logedin', state.user);
         },
         setWatchedUser(state, { user }) {
             state.watchedUser = user
@@ -44,7 +45,7 @@ export const userStore = {
         },
     },
     actions: {
-       async login({ commit }, { userCred }) {
+        async login({ commit }, { userCred }) {
 
             const user = await userService.login(userCred)
             commit({ type: 'setLoggedinUser', user })
@@ -83,8 +84,21 @@ export const userStore = {
                 throw err
             }
         },
+        async getMyOrders({ commit }, { userId }) {
+            try {
+                const orders = await orderService.query()
+                console.log('orders in store', orders);
+                const myOrders = orders.filter(order => order.hostId === userId)
+                console.log('myOrders', myOrders);
+                return myOrders
+            } catch (err) {
+                console.log('userStore: Error in loadUsers', err)
+                throw err
+            }
+        },
 
-      
+
+
 
         async loadAndWatchUser({ commit }, { userId }) {
             try {
@@ -97,10 +111,10 @@ export const userStore = {
             }
         },
         loadLoggedinUser({ commit }) {
-                const user = userService.getLoggedinUser()
-                console.log('loggedinUser in action',user);
-                
-                commit({type : 'setLoggedinUser', user})
+            const user = userService.getLoggedinUser()
+            console.log('loggedinUser in action', user);
+
+            commit({ type: 'setLoggedinUser', user })
         },
         async removeUser({ commit }, { userId }) {
             try {
