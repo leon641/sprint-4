@@ -5,6 +5,7 @@
     <div class="reservation-header-svg-container">
       <span
         class="reservation-header-svg"
+        @click="backwords"
         v-html="getSvg('showMoreArrowLeft')"
       ></span>
     </div>
@@ -20,7 +21,7 @@
         </div>
         <div class="trip-summary-guests">
           <h3>Guests</h3>
-          <span>1 guest</span>
+          <span>{{this.currOrder.totalGuests}} guests</span>
         </div>
       </section>
       <div class="reservation-container-info-cancellation">
@@ -75,15 +76,15 @@
       <section class="reservation-price-details">
         <h3>Price details</h3>
         <div class="prices">
-          <p>$565 x 4 nights</p>
-          <p class="flex-end">$2,380.36</p>
+          <p>${{this.currOrder.stay.price}} x  {{this.currOrder.nigths}} nights</p>
+          <p class="flex-end">${{this.currOrder.totalPrice}}</p>
           <p>total guests</p>
-          <p class="flex-end">1</p>
+          <p class="flex-end">{{this.currOrder.totalGuests}}</p>
         </div>
       </section>
       <section class="reservation-price-total">
-        <p>Total(USD)</p>
-        <p>$3,022.60</p>
+        <p>Total (USD)</p>
+        <p>${{this.currOrder.totalPrice}}</p>
       </section>
     </section>
   </section>
@@ -95,14 +96,21 @@ import { svgService } from "../services/svg.service";
 
 export default {
   data() {
-    return {};
+    return {
+      currOrder:{}
+    }
   },
   created(){
 window.scrollTo(0, 0);
+this.currOrder=this.$store.getters.currOrder
+console.log('this.currOrder',this.currOrder);
+
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
+    },backwords(){
+      this.$router.push(`/details/${this.currOrder.stay._id}`)
     },
   },
   computed: {},

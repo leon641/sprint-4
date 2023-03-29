@@ -4,12 +4,8 @@
   <div class="stay-index">
     <Carousel />
     <StayList />
-    <hr />
-    <form @submit.prevent="addStay()">
-      <h2>Add stay</h2>
-      <input type="text" />
-      <button>Save</button>
-    </form>
+
+   
   </div>
 </template>
 
