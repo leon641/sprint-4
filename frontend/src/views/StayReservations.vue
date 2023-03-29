@@ -4,7 +4,7 @@
     <pre>{{userId}}</pre>
 
     <section class="reservations-chart">
-      <table class="table-reservation">
+      <!-- <table class="table-reservation">
         <thead>
           <th>Guest</th>
           <th>Check-in</th>
@@ -26,9 +26,11 @@
           <td>Completed</td>
           <td  v-for="order in orders" :key="order._id">{{order.hostId}}</td>
         </tbody>
-      </table>
-      <ul v-for="order in orders" :key="order._id">
-        <li>{{order.hostId}}
+      </table> -->
+      <ul v-for="order in myOrders" :key="order._id">
+        <li>
+
+          <pre>{{order}}</pre>
         </li></ul>
     </section>
   </section>
@@ -45,13 +47,17 @@ async created() {
     await this.$store.dispatch({ type: "loadOrders" });
   console.log('userId',this.userId);
 this.orders = this.$store.getters.orders;
- console.log("loging in reservation", { ...this.orders[0]});
+ console.log("loging in reservation",  this.orders);
 
+const myOrders = this.orders.find(order=>order.hostId===this.userId)
+this.myOrders={...myOrders}
+console.log('myOrders',this.myOrders);
   
   },
   data() {
     return {
-     orders:[]
+     orders:[],
+     myOrders:[],
     };
   },
   computed: {},

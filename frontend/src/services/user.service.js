@@ -141,6 +141,7 @@ function saveWishListToUser(stay) {
     }])
 
     await storageService.post(STORAGE_KEY_USER,{ 
+        _id:utilService.makeId(),
     fullname: "nadav dori",
     imgUrl: "/img/img1.jpg",
     username: "nadav",
@@ -150,27 +151,29 @@ function saveWishListToUser(stay) {
     stays: [],
     likedByUsers: [],
     reviews : []})
-    await storageService.post(STORAGE_KEY_USER, {  
-        fullname: "Francesco",
+    await storageService.post(STORAGE_KEY_USER, { 
+        _id:'622f3401e36c59e6164fabab',
+        fullname: "Angel",
         imgUrl: "/img/img1.jpg",
-        username: "Francesco",
-        password: "123",
+        username: "angel",
+        password: "555",
         orders: [],
         trips: [],
         stays: [],
         likedByUsers: [],
         reviews : [] })
     // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
-    login({  
-         fullname: "Francesco",
-         imgUrl: "/img/img1.jpg",
-         username: "Francesco",
-         password: "123",
-         orders: [],
-         trips: [],
-         stays: [],
-         likedByUsers: [],
-         reviews : [] })
+    login({ 
+        _id:'622f3401e36c59e6164fabab',
+        fullname: "Angel",
+        imgUrl: "/img/img1.jpg",
+        username: "angel",
+        password: "555",
+        orders: [],
+        trips: [],
+        stays: [],
+        likedByUsers: [],
+        reviews : [] })
 })()
 
 
