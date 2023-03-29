@@ -35,14 +35,35 @@
 }
 
 .upload-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: grid;
+    grid-template: 1fr 1fr/2fr 1fr 1fr;
+    border-radius: 20px;
+    gap: 8px;
+    margin-bottom: 15px;
+    height: 350px;
+    margin-top: 15px;
+    width: 100%;
     background-color: $clr6;
-    width: auto;
-    height: 250px;
-    font-family: CircularAir-Light;
+
+    .img-1 {
+        grid-row: 1/3;
+        border-bottom-left-radius: 12px;
+        border-top-left-radius: 12px;
+    }
+    .img-3 {
+        border-top-right-radius: 12px;
+    }
+    .img-5 {
+        border-bottom-right-radius: 12px;
+    }
+
+    .img-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid lightgrey;
+        cursor: pointer;
+    }
 
     .drop-upload {
         display: flex;

@@ -1,7 +1,7 @@
 .login-layout {
     background-color: $clr6;
-    position: absolute;
-    top: 55%;
+    position: fixed;
+    top: 50%;
     right: 50%;
     transform: translate(50%,-50%);
     box-shadow: $clr10 0 8px 28px;
@@ -11,18 +11,28 @@
     width: rem(551px);
     padding-inline: rem(24px);
 
+    .login-btn-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+    }
+
     .login-title {
         position: relative;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         border-bottom: 1px solid $clr14;
         height: rem(64px);
 
         .exit-login-btn {
-            margin-bottom: rem(10px);
+            background-color: transparent;
             border-radius: 50%;
+            position: absolute;
+            border: 0;
             &:hover {
+                left: 0;
                 background-color: $clr1;
                 scale: 1.1;
             }
@@ -34,6 +44,9 @@
 
 
 .login-layout .login-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     padding-block: rem(24px);
 
     .app-title { 

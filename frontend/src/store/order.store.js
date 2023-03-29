@@ -66,6 +66,10 @@ export const orderStore = {
             const updatedUser = await orderService.setOrder(order)
             commit({ type: 'updatedLoggedin', updatedUser })
         },
+        async setCurrOrder({ commit }, { order }) {
+
+            commit({ type: 'setCurrOrder', order })
+        },
         async loadOrders({ commit }) {
 
             const orders= await orderService.query()

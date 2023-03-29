@@ -7,6 +7,7 @@
 @import "setup/typography";
 @import "setup/mqr";
 
+
 // Basics
 @import "basics/helpers";
 @import "basics/layout";
@@ -16,6 +17,7 @@
 
 // Components
 @import "cmps/AppHeader";
+@import "cmps/AppFooter";
 @import "cmps/UserMsg";
 @import "cmps/ReviewList";
 @import "cmps/StayList";

@@ -1,6 +1,37 @@
 .stay-details {
     display: grid;
     grid-template-columns: minmax(20px,1fr) minmax(auto ,1120px) minmax(20px,1fr) ;
+    .stay-map{
+        grid-column: 2;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #dddddd;
+        h3{
+            margin-top: 15px;
+            margin-bottom: 0px;
+            padding-block: 30px;
+            padding-bottom: 21px;
+            font-size: 22px;
+        letter-spacing: .01px;
+
+        }
+        .map-stay-info{
+            display: flex;
+            margin-bottom: 14px
+            
+            
+        }
+        .stay-country{
+            font-family:  CircularAir-Light;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .stay-city{
+            margin-left: 5px;
+            font-family:  CircularAir-Light;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
 }
 
 .stay-details-container {
@@ -294,6 +325,7 @@
     margin-top: 32px;
     border-top: 1px solid #dddddd;
     padding-block: 48px;
+    border-bottom: 1px solid #dddddd;
 }
 
 .reviews-container {
@@ -301,7 +333,7 @@
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
     column-gap: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     
 
     .review-preview {

@@ -49,23 +49,27 @@
     }
 
     // @include for-narrow-layout {
+    //     // background-color: darkblue;
     //     grid-template-columns: 
     //         minmax(20px, 1fr)
     //         minmax(auto, $mobile-breakpoint)
     //         minmax(20px, 1fr);
     // }
     // @include for-normal-layout {
+    //     // background-color: salmon;
     //     grid-template-columns: 
     //         minmax(20px, 1fr)
     //         minmax(auto, $narrow-breakpoint)
     //         minmax(20px, 1fr);
     // }
     // @include for-wide-layout {
+    //     // background-color: violet;
     //     grid-template-columns: 
     //         minmax(20px, 1fr)
-    //         minmax(auto, $normal-breakpoint)
+    //         minmax(auto,1600px)
     //         minmax(20px, 1fr);
     // }
+
 }
 
 .card-grid {

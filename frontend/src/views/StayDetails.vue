@@ -92,6 +92,7 @@
       </section>
       <StayReviews :stay="stay" />
     </section>
+    <StayMap :stay="stay"/>
   </section>
 </template>
 
@@ -101,6 +102,8 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 import UserStayInfo from "../cmps/UserStayInfo.vue";
 import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
+import StayMap from '../cmps/StayMap.vue';
+
 
 export default {
   data() {
@@ -111,6 +114,7 @@ export default {
     };
   },
   created() {
+    window.scrollTo(0, 0);
     this.$emit("inDetails");
     this.loggedinUser= this.$store.getters.loggedinUser
     
@@ -143,6 +147,7 @@ export default {
     UserStayInfo,
     StayAmenities,
     StayReviews,
+    StayMap,
   },
   emits: ["inDetails"],
 };
