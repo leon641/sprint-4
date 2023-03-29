@@ -1,5 +1,4 @@
 <template>
-
   <section class="dashBoard-container">
       <h1>reserations</h1>
     <section class="reservations-container">
@@ -32,29 +31,26 @@
   </section>
 </template>
 <script>
-
-
 export default {
-  props:{
-    userId:String
-
+  props: {
+    userId: String,
   },
-async created() {
- await this.$store.dispatch({ type: "loadOrders" });
- const myOrders =await this.$store.dispatch({ type: "getMyOrders" ,userId:this.userId});
-this.myOrders=myOrders
-console.log('myOrders in reservation',myOrders);
-  
+  async created() {
+    await this.$store.dispatch({ type: "loadOrders" });
+    const myOrders = await this.$store.dispatch({
+      type: "getMyOrders",
+      userId: this.userId,
+    });
+    this.myOrders = myOrders;
+    console.log("myOrders in reservation", myOrders);
   },
   data() {
     return {
-     orders:[],
-     myOrders:[],
+      orders: [],
+      myOrders: [],
     };
   },
   computed: {},
-  components: {
-   
-  },
+  components: {},
 };
 </script>

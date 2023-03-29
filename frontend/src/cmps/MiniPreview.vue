@@ -4,6 +4,7 @@
   <div class="flex">
     <img :src="stay.imgUrls[0]" />
     <h4>{{ stay.name }}</h4>
+    <p>{{ stay.loc.address }}</p>
     <p>{{ stay.capacity }}</p>
     <p>{{ stay.bedrooms }}</p>
     <p>{{ stay.price }}</p>

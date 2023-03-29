@@ -5,6 +5,7 @@
     <div class="flex">
       <h3>Stay image</h3>
       <h3>Stay name</h3>
+      <h3>Stay address</h3>
       <h3>Stay capacity</h3>
       <h3>Stay bedrooms</h3>
       <h3>Stay price</h3>
