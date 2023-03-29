@@ -1,9 +1,8 @@
 // בס"ד
 
 .header-container {
-    border-block-end: 1px solid #ccc;
-    padding: 10px;
-    height: 80px;
+    border-block-end: rem(1px) solid #ccc;
+    height: rem(80px);
     position: sticky;
     top: 0;
     z-index: 101;
@@ -18,15 +17,15 @@
 
     .loggedin-user {
         background-color: $clr1;
-        padding: 2px 8px;
+        padding: rem(2px) rem(8px);
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
 
         span {
             background-color: $clr2;
-            padding: 4px;
-            margin: 10px;
+            padding: rem(4px);
+            margin: rem(10px);
             border-radius: 50%;
         }
 
@@ -39,13 +38,13 @@
 
     nav {
         background-color: $clr4;
-        padding: 5px 0;
+        padding: rem(5px) 0;
     }
 
     nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
+        border-top: rem(1px) solid $clr1;
+        padding: 0 rem(5px);
+        margin: rem(10px);
     }
 
     nav .active {
@@ -57,37 +56,48 @@
 .main-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     // grid-column: 2;
 }
 
 .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     color: #ff385c;
     font-weight: bolder;
-    font-size: 22px;
+    font-size: rem(22px);
+    padding-inline: rem(7.2px);
+    padding-inline-start: 0;
+    margin-inline-start: rem(-1px);
 
     img {
-        height: 32px;
-        transform: translate(-3px, 14px);
+        height: rem(32px);
+        // transform: translate(rem(-3px), rem(14px));
     }
 
     p {
         margin: 0;
         display: inline-block;
-        transform: translate(4px, 5px);
+        margin-block-end: rem(1.6px);
+        margin-inline-start: rem(4.8px);
+        font-weight: 600;
+        // transform: translaterem((4px),rem( 5px));
     }
 }
 
 .user-area {
     display: flex;
     align-items: center;
+    gap: rem(74px);
 
     :first-child:not(.login) {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 148.35px;
-        border-radius: 20px;
+        // width: rem(148.35px);
+        border-radius: rem(20px);
         text-align: center;
         cursor: pointer;
         transition: color 250ms ease;
@@ -95,43 +105,53 @@
 
         &:hover:not(svg, .login) {
             background-color: #f7f7f7;
-            height: 42px;
+            height: rem(42px);
         }
     }
 
     a {
-        font-size: 14px;
+        font-size: rem(14px);
+        font-weight: 600;
     }
 
     .hamburger {
         cursor: pointer;
-        width: 76.6px;
-        height: 42px;
-        border-radius: 25px;
-        border: 1px solid rgb(221, 221, 221);
-        margin-inline-start: 15px;
-        padding-inline-start: 2.2px;
-        padding-block-start: 0.5px;
+        // width: rem(76.6px);
+        // height: rem(42px);
+        border-radius: rem(25px);
+        border: rem(1px) solid rgb(221, 221, 221);
+        // margin-inline-start: rem(15px);
+        padding-inline-start: rem(2.2px);
+        padding-block-start: rem(0.5px);
         transition: box-shadow 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // margin-inline-end: 8px;
+        margin-inline-start: rem(-12px);
+        gap: rem(11.5px);
+        padding-inline-end: rem(6px);
+        padding-inline-start: rem(12px);
+        padding-block: rem(5px);
 
 
         svg {
             display: block;
-            height: 16px;
-            width: 16px;
+            height: rem(16px);
+            width: rem(16px);
             stroke: rgb(34, 34, 34);
             stroke-width: 3;
-            transform: translate(-56px, 12px);
+            // transform: translate(-rem(56px), rem(12px));
         }
 
         img {
-            height: 30px;
+            height: rem(30px);
             border-radius: 50%;
-            transform: translate(39px, -11px);
+            // transform: translate(rem(39px), -rem(11px));
         }
 
         &:hover {
-            box-shadow: 0 2px 4px rgb(0, 0, 0, 0.18);
+            box-shadow: 0rem(2px)rem(4px) rgb(0, 0, 0, 0.18);
         }
     }
 }
@@ -140,10 +160,10 @@
     background-color: #fff;
     display: flex;
     justify-content: center;
-    height: 81px;
+    height: rem(81px);
     width: 100vw;
     position: absolute;
-    top: 79px;
+    top: rem(79px);
     z-index: 101;
 
     .screen {
@@ -151,7 +171,7 @@
         height: 100vh;
         width: 100vw;
         position: absolute;
-        top: 80px;
+        top: rem(80px);
         z-index: 1;
     }
 
@@ -159,13 +179,13 @@
 
 .user-modal {
     background-color: #fff;
-    border: 1px solid black;
+    border: rem(1px) solid black;
 
     &>*:hover {
         background-color: rgb(221, 221, 221);
     }
 
     .login {
-        border-block-end: 1px solid black;
+        border-block-end: rem(1px) solid black;
     }
 }
