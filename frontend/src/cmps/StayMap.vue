@@ -9,7 +9,7 @@
       api-key="AIzaSyDIEKT0NOd__sBTWlouu15_p9C8d4jlkA4"
       style="width: 100%; height: 500px"
       :center="this.center"
-      :zoom="10"
+      :zoom="12"
     >
       <Marker :options="{ position: center, label: 'L', title: this.stay.name }" />
     

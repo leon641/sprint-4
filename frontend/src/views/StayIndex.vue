@@ -37,6 +37,7 @@ export default {
     },
   },
   async created() {
+    window.scrollTo(0, 0);
    await this.$store.dispatch({ type: "loadStays" });
    await this.$store.dispatch({ type: "loadLoggedinUser" });
   },
