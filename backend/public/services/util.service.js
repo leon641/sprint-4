@@ -1,5 +1,3 @@
-// בס"ד
-
 export const utilService = {
     makeId,
     makeLorem,

@@ -1,4 +1,3 @@
-// בס"ד
 
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'

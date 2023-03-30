@@ -1,5 +1,3 @@
-// בס"ד
-
 const Cryptr = require('cryptr')
 const bcrypt = require('bcrypt')
 const userService = require('../user/user.service')
