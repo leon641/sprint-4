@@ -28,8 +28,8 @@
     //   minmax(auto, 1376px)
     //    minmax(20px, 1fr);
     grid-template-columns: 20px 1fr 20px;
-    grid-template-columns:
-        minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
+    // grid-template-columns:
+    //     minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
 
     >* {
         grid-column: 2;
