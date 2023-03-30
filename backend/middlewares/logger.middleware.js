@@ -1,5 +1,3 @@
-// בס"ד
-
 const logger = require('../services/logger.service')
 
 async function log(req, res, next) {

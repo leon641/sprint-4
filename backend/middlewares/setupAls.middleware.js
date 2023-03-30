@@ -1,5 +1,3 @@
-// בס"ד
-
 const authService = require('../api/auth/auth.service')
 const asyncLocalStorage = require('../services/als.service')
 

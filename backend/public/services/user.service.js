@@ -1,5 +1,3 @@
-// בס"ד
-
 import { httpService } from './http.service.js'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'

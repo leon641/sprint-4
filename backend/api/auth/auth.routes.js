@@ -1,5 +1,3 @@
-// בס"ד
-
 const express = require('express')
 const {login, signup, logout} = require('./auth.controller')
 

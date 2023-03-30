@@ -1,5 +1,3 @@
-// בס"ד
-
 const logger = require('./logger.service')
 
 var gIo = null
