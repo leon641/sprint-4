@@ -17,7 +17,9 @@ export default {
     }
   },
   created() {
-    this.wishList = this.$store.getters.wishList
+    this.wishList = this.$store.getters.loggedinUser.likedByUsers
+    console.log('this.$store.getters.loggedinUser',this.$store.getters.loggedinUser);
+    
     
   },
   computed: {

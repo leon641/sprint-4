@@ -79,6 +79,8 @@ export const stayStore = {
             stay.msgs.push(msg)
         },
         addToWishList(state, { stay }) {
+            console.log('stay in mutation going to store');
+            
             state.wishList.push(stay)
         },
         setFilter(state, { filterBy }) {

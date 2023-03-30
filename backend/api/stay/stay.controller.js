@@ -11,7 +11,6 @@ async function getStays(req, res) {
       label: req.query.label||''
 
     }
-    console.log('filterBy',filterBy);
     
     const stays = await stayService.query(filterBy)
     res.json(stays)

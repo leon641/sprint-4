@@ -30,8 +30,8 @@ window.userService = userService
 
 
 function getUsers() {
-    return storageService.query('user')
-    // return httpService.get(`user`)
+    // return storageService.query('user')
+    return httpService.get(`user`)
 }
 
 function onUserUpdate(user) {
@@ -43,9 +43,9 @@ async function getById(userId) {
     // const user = await storageService.get('user', userId)
     const user = await httpService.get(`user/${userId}`)
 
-    socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
-    socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-    socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+    // socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
+    // socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+    // socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
 
     return user
 }
@@ -59,9 +59,9 @@ async function update(user) {
     // const user = await storageService.get('user', _id)
     // let user = getById(_id)
    
-    await storageService.put('user', user)
+    // await storageService.put('user', user)
 
-    // user = await httpService.put(`user/${user._id}`, user)
+    user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
@@ -69,11 +69,13 @@ async function update(user) {
 
 
 async function login(userCred) {
-    const users = await storageService.query('user')
-    const user = users.find(user => user.username === userCred.username)
+    // const users = await storageService.query('user')
+    // const user = users.find(user => user.username === userCred.username)
     // console.log('user in user service',user);
     
-    // const user = await httpService.post('auth/login', userCred)
+    const user = await httpService.post('auth/login', userCred)
+    console.log('user in service after back',user);
+    
     if (user) {
         // socketService.login(user._id)
         return saveLocalUser(user)
@@ -81,9 +83,9 @@ async function login(userCred) {
 }
 async function signup(userCred) {
     // userCred.score = 10000
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    const user = await storageService.post('user', userCred)
-    // const user = await httpService.post('auth/signup', userCred)
+    // if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    // const user = await storageService.post('user', userCred)
+    const user = await httpService.post('auth/signup', userCred)
     // socketService.login(user._id)
     return saveLocalUser(user)
 }
@@ -128,57 +130,57 @@ function saveWishListToUser(stay) {
 }
 
 
-;(async ()=>{
+// ;(async ()=>{
 
-    utilService.saveToStorage(STORAGE_KEY_USER,[
-        { 
-        _id : utilService.makeId(),
-        fullname: "koki",
-        imgUrl: "/img/img1.jpg",
-        username: "koki",
-        password: "000",
-        orders: [],
-        trips: [],
-        stays: [],
-        likedByUsers: [],
-        reviews : []
-    }])
+//     utilService.saveToStorage(STORAGE_KEY_USER,[
+//         { 
+//         _id : utilService.makeId(),
+//         fullname: "koki",
+//         imgUrl: "/img/img1.jpg",
+//         username: "koki",
+//         password: "000",
+//         orders: [],
+//         trips: [],
+//         stays: [],
+//         likedByUsers: [],
+//         reviews : []
+//     }])
 
-    await storageService.post(STORAGE_KEY_USER,{ 
-        _id:utilService.makeId(),
-    fullname: "nadav dori",
-    imgUrl: "/img/img1.jpg",
-    username: "nadav",
-    password: "111",
-    orders: [],
-    trips: [],
-    stays: [],
-    likedByUsers: [],
-    reviews : []})
-    await storageService.post(STORAGE_KEY_USER, { 
-        _id:'622f3401e36c59e6164fabab',
-        fullname: "Angel",
-        imgUrl: "/img/img1.jpg",
-        username: "angel",
-        password: "555",
-        orders: [],
-        trips: [],
-        stays: [],
-        likedByUsers: [],
-        reviews : [] })
-    // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
-    login({ 
-        _id:'622f3401e36c59e6164fabab',
-        fullname: "Angel",
-        imgUrl: "/img/img1.jpg",
-        username: "angel",
-        password: "555",
-        orders: [],
-        trips: [],
-        stays: [],
-        likedByUsers: [],
-        reviews : [] })
-})()
+//     await storageService.post(STORAGE_KEY_USER,{ 
+//         _id:utilService.makeId(),
+//     fullname: "nadav dori",
+//     imgUrl: "/img/img1.jpg",
+//     username: "nadav",
+//     password: "111",
+//     orders: [],
+//     trips: [],
+//     stays: [],
+//     likedByUsers: [],
+//     reviews : []})
+//     await storageService.post(STORAGE_KEY_USER, { 
+//         _id:'622f3401e36c59e6164fabab',
+//         fullname: "Angel",
+//         imgUrl: "/img/img1.jpg",
+//         username: "angel",
+//         password: "555",
+//         orders: [],
+//         trips: [],
+//         stays: [],
+//         likedByUsers: [],
+//         reviews : [] })
+//     // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
+//     login({ 
+//         _id:'622f3401e36c59e6164fabab',
+//         fullname: "Angel",
+//         imgUrl: "/img/img1.jpg",
+//         username: "angel",
+//         password: "555",
+//         orders: [],
+//         trips: [],
+//         stays: [],
+//         likedByUsers: [],
+//         reviews : [] })
+// })()
 
 
     // await utilService.saveToStorage(STORAGE_KEY_USER,{_id:utilService.makeId(),fullname: 'Muki G', username: 'muki', password:'123' })
