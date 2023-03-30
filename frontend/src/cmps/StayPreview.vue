@@ -33,7 +33,7 @@
               <span>&nbsp;{{averageRate}}&nbsp;</span>
             </div>
             <p class="stay-summery">
-              {{ stay.loc.address }}
+              {{ stay?.loc?.address }}
             </p>
             <p class="stay-capacity">{{stay.capacity}}&nbsp;beds</p>
             <p class="stay-price">
@@ -54,7 +54,7 @@ import { svgService } from "../services/svg.service.js";
 
 export default {
   props: {
-    stay: Object,
+    stay: [Object,String],
   },
   data() {
     return {

@@ -3,7 +3,7 @@
 <template>
   <div class="stay-index">
     <Carousel />
-    <StayList />
+    <StayList v-if="isShown" />
 
    
   </div>
@@ -26,6 +26,7 @@ export default {
   components: { StayList },
   data() {
     return {
+      isShown:false,
     };
   },
   computed: {
@@ -40,6 +41,7 @@ export default {
     window.scrollTo(0, 0);
    await this.$store.dispatch({ type: "loadStays" });
    await this.$store.dispatch({ type: "loadLoggedinUser" });
+   this.isShown=true
   },
   mounted(){
 

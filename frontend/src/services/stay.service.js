@@ -20,8 +20,10 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function query( filterBy = { txt: '', price: 0 }) {
+    console.log('filterBy',filterBy);
+    
+    return httpService.get(STORAGE_KEY,filterBy)
 
     // var stays = await storageService.query(STORAGE_KEY)
     // if (filterBy.txt) {
