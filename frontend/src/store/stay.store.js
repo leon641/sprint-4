@@ -1,7 +1,8 @@
 // בס"ד
 
 import { configProviderContextKey } from 'element-plus'
-import { stayService } from '../services/stay.service.local'
+// import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 import { userService } from '../services/user.service'
 // import { stayService } from '../services/stay.service'
 
@@ -128,7 +129,8 @@ export const stayStore = {
         async loadStays(context, { filterBy }) {
             try {
                 const stays = await stayService.query(filterBy)
-
+                console.log('stays stor',stays);
+                
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
                 console.log('stayStore: Error in loadStays', err)

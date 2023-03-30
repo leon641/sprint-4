@@ -2,15 +2,47 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
-
-async function query(filterBy={txt:''}) {
+const gRegions = {
+    'I\'m flexible': true,
+    'Middle East': ['GR', 'BH', 'CY', 'EG', 'AE', 'TR', 'SY', 'SA', 'QA', 'OM', 'LB', 'KW', 'JO', 'IL', 'IQ', 'IR', 'YE'],
+    'Italy': ['IT'],
+    'South America': ['AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'FK', 'GF', 'GY', 'PE', 'PY', 'SR', 'UY', 'VE',],
+    'France': ['FR'],
+    'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
+    'United Kingdom': ['GB'],
+  }
+async function query( filterBy = { txt: '', region: '', label: '' }) {
     try {
-        const criteria = {
-            vendor: { $regex: filterBy.txt, $options: 'i' }
-        }
+        // const criteria = {
+            // console.log('filterBy',filterBy); 
+            
+        //     vendor: { $regex: filterBy.txt, $options: 'i' }
+        // }
         const collection = await dbService.getCollection('stay')
         var stays = await collection.find({}).toArray()
-        return stays
+        if (filterBy.txt) {
+            if(!gRegions[filterBy.txt]){
+                gRegions[filterBy.txt]=[]
+            }
+          const regex = new RegExp(filterBy.txt, 'i')
+          stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
+          console.log('stays.length',stays.length);
+      }
+        if (filterBy.region) {
+            stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
+            console.log('stays.length',stays.length);
+        }
+          if (filterBy.label) {
+            stays = stays.filter(stay => stay.type.includes(filterBy.label))
+            console.log('stays.length',stays.length); 
+        }
+          if (filterBy.price) {
+            stays = stays.filter(stay => stay.price <= filterBy.price)
+          }
+          console.log('stays.length',stays.length);
+          
+          return stays
+
     } catch (err) {
         logger.error('cannot find stays', err)
         throw err
@@ -19,8 +51,9 @@ async function query(filterBy={txt:''}) {
 
 async function getById(stayId) {
     try {
-        const collection = await dbService.getCollection('stayDB')
-        const stay = collection.findOne({ _id: ObjectId(stayId) })
+        
+        const collection = await dbService.getCollection('stay')        
+        const stay = collection.findOne({ _id: ObjectId(stayId) })   
         return stay
     } catch (err) {
         logger.error(`while finding stay ${stayId}`, err)
@@ -43,6 +76,7 @@ async function add(stay) {
     try {
         const collection = await dbService.getCollection('stay')
         await collection.insertOne(stay)
+        
         return stay
     } catch (err) {
         logger.error('cannot insert stay', err)
@@ -53,7 +87,7 @@ async function add(stay) {
 async function update(stay) {
     try {
         const stayToSave = {
-            vendor: stay.vendor,
+            name: stay.name,
             price: stay.price
         }
         const collection = await dbService.getCollection('stay')

@@ -35,12 +35,13 @@ async function ajax(endpoint, method = 'GET', data = null) {
             data,
             params: (method === 'GET') ? data : null
         })
+        console.log(`Had Issues ${method}ing to the backend, endpoint: ${endpoint}, with data:`, data)
         return res.data
     } catch (err) {
         console.log(`Had Issues ${method}ing to the backend, endpoint: ${endpoint}, with data:`, data)
         console.dir(err)
         if (err.response && err.response.status === 401) {
-            sessionStorage.clear()
+            // sessionStorage.clear()
             window.location.assign('/')
             // Depends on routing startegy - hash or history
             // window.location.assign('/#/login')
