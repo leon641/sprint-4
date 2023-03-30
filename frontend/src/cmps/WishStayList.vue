@@ -13,10 +13,14 @@ export default {
     props : {
         wishList : Array
     },
+    created() {
+      console.log('in wishstaylist',this.wishList);
+    },
   data() {
     return {
       
     };
+    
   },
   computed: {},
 

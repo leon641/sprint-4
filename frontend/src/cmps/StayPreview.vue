@@ -33,7 +33,7 @@
               <span>&nbsp;{{averageRate}}&nbsp;</span>
             </div>
             <p class="stay-summery">
-              {{ stay.loc.address }}
+              {{ stay?.loc?.address }}
             </p>
             <p class="stay-capacity">{{stay.capacity}}&nbsp;beds</p>
             <p class="stay-price">
@@ -54,7 +54,7 @@ import { svgService } from "../services/svg.service.js";
 
 export default {
   props: {
-    stay: Object,
+    stay: [Object,String],
   },
   data() {
     return {
@@ -87,10 +87,12 @@ export default {
       return svgService.getSvg(iconName)
     },
       setWishlist() {
-            this.isMark = !this.isMark
+       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
+          this.isMark = !this.isMark
+          user.likedByUsers.push(this.stay)
              this.$store.dispatch({
-                type: "setWishlist",
-                stay: this.stay,
+                type: "updateUser",
+                user,
             })
             // this.$router.push("/wishlist")
            
@@ -122,4 +124,5 @@ export default {
   },
 };
 </script>
+
 

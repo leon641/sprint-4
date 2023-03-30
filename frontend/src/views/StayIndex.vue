@@ -3,7 +3,7 @@
 <template>
   <div class="stay-index">
     <Carousel />
-    <StayList />
+    <StayList v-if="isShown" />
 
    
   </div>
@@ -19,6 +19,7 @@ import {
   getActionUpdateStay,
   getActionAddStayMsg,
 } from "../store/stay.store";
+import { userService } from '../services/user.service';
 // import 'vue3-carousel/carousel.css'
 
 
@@ -26,6 +27,7 @@ export default {
   components: { StayList },
   data() {
     return {
+      isShown:false,
     };
   },
   computed: {
@@ -37,9 +39,12 @@ export default {
     },
   },
   async created() {
+    const user = userService.getLoggedinUser()
+    console.log(user,'in app index');
     window.scrollTo(0, 0);
    await this.$store.dispatch({ type: "loadStays" });
    await this.$store.dispatch({ type: "loadLoggedinUser" });
+   this.isShown=true
   },
   mounted(){
 

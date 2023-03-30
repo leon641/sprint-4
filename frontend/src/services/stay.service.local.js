@@ -31,7 +31,7 @@ const gRegions = {
 }
 
 
-async function query(filterBy = { txt: '', region: '', label: '', price: 0 }) {
+async function query( filterBy = { txt: '', region: '', label: '', price: 0 }) {
   // console.log('filterBy',filterBy)
   var stays = await storageService.query(STORAGE_KEY)
   if (filterBy.region) {

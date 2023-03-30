@@ -1,9 +1,10 @@
 <template>
     <div class="user-nav">
-            <a v-if="!user" @click="openLoginModal">Login</a>
+            <a class="user-nav-a" v-if="!user" @click="openLoginModal">Login</a>
             <router-link v-if="user" to="/dashboard">Dashboard</router-link>
             <router-link v-if="user" to="/trips">My Trips</router-link>
             <router-link v-if="user" to="/wishlist">Wishlist</router-link>
+            <div class="line-sep"></div>
             <a v-if="user" @click.stop="logout">Logout</a>
     </div>
          

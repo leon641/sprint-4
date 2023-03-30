@@ -20,8 +20,10 @@ export const stayService = {
 window.cs = stayService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function query( filterBy = { txt: '', price: 0 }) {
+    console.log('filterBy',filterBy);
+    
+    return httpService.get(STORAGE_KEY,filterBy)
 
     // var stays = await storageService.query(STORAGE_KEY)
     // if (filterBy.txt) {
@@ -35,13 +37,13 @@ async function query(filterBy = { txt: '', price: 0 }) {
 
 }
 function getById(stayId) {
-    return storageService.get(STORAGE_KEY, stayId)
-    // return httpService.get(`stay/${stayId}`)
+    // return storageService.get(STORAGE_KEY, stayId)
+    return httpService.get(`stay/${stayId}`)
 }
 
 async function remove(stayId) {
-    await storageService.remove(STORAGE_KEY, stayId)
-    // return httpService.delete(`stay/${stayId}`)
+    // await storageService.remove(STORAGE_KEY, stayId)
+    return httpService.delete(`stay/${stayId}`)
 }
 async function save(stay) {
     var savedStay

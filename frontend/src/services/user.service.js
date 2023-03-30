@@ -54,13 +54,14 @@ function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
 
-async function update({_id, score}) {
+async function update(user) {
+    console.log(user);
     // const user = await storageService.get('user', _id)
-    let user = getById(_id)
-    user.score = score
-    // await storageService.put('user', user)
+    // let user = getById(_id)
+   
+    await storageService.put('user', user)
 
-    user = await httpService.put(`user/${user._id}`, user)
+    // user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
@@ -119,9 +120,10 @@ function getLoggedinUser() {
 }
 function saveWishListToUser(stay) {
     console.log('in user service stay',stay);
-    const user = getLoggedinUser()
+    let user = getLoggedinUser()
     console.log('in user service user',user);
     user.likedByUsers.push(stay)
+    console.log('user before local', user);
     saveLocalUser(user)
 }
 

@@ -6,8 +6,13 @@ async function getStays(req, res) {
   try {
     logger.debug('Getting Stays')
     const filterBy = {
-      txt: req.query.txt || ''
+      txt: req.query.txt || '',
+      region:req.query.region|| '',
+      label: req.query.label||''
+
     }
+    console.log('filterBy',filterBy);
+    
     const stays = await stayService.query(filterBy)
     res.json(stays)
   } catch (err) {
@@ -19,7 +24,7 @@ async function getStays(req, res) {
 async function getStayById(req, res) {
   try {
     const stayId = req.params.id
-    const stay = await stayService.getById(stayId)
+    const stay = await stayService.getById(stayId)    
     res.json(stay)
   } catch (err) {
     logger.error('Failed to get stay', err)
@@ -28,11 +33,12 @@ async function getStayById(req, res) {
 }
 
 async function addStay(req, res) {
-  const {loggedinUser} = req
+  // const {loggedinUser} = req
 
   try {
     const stay = req.body
-    stay.owner = loggedinUser
+    // stay.owner = loggedinUser
+    
     const addedStay = await stayService.add(stay)
     res.json(addedStay)
   } catch (err) {
@@ -45,7 +51,7 @@ async function addStay(req, res) {
 async function updateStay(req, res) {
   try {
     const stay = req.body
-    const updatedStay = await stayService.update(stay)
+    const updatedStay = await stayService.update(stay)    
     res.json(updatedStay)
   } catch (err) {
     logger.error('Failed to update stay', err)
