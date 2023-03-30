@@ -3,16 +3,16 @@
 <template>
   <div class="filter" @click="expand">
     <section class="filter-btns">
-      <button @click="toWhere">
+      <button class="where-btn" @click="toWhere">
         <div class="anywhere">Anywhere</div>
       </button>
-      <div class="separator"></div>
-      <button @click="toCheck">
+      <!-- <div class="separator"></div> -->
+      <button class="week-btn" @click="toCheck">
         <div class="any-week">Any week</div>
       </button>
-      <div class="separator"></div>
-      <button @click="toWho">
-        <div>
+      <!-- <div class="separator"></div> -->
+      <button class="guests-btn" @click="toWho">
+        <div class="flex">
           <div class="add-guests">Add guests</div>
           <div className="icon">
             <svg

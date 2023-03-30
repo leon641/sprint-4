@@ -2,8 +2,8 @@
 
 .basad {
     position: absolute;
-    top: -3px;
-    right: 3px;
+    top: rem(-3px);
+    right: rem(3px);
     font-size: small;
     z-index: 10000;
 }
@@ -28,6 +28,8 @@
     //   minmax(auto, 1376px)
     //    minmax(20px, 1fr);
     grid-template-columns: 20px 1fr 20px;
+    grid-template-columns:
+        minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
 
     >* {
         grid-column: 2;
@@ -81,23 +83,8 @@
 
 }
 
-// .main-container {
-//     display: grid;
-//     // grid-template-columns: 20px 1fr 20px;
-
-//     >* {
-//         grid-column: 2;
-
-//         &.full {
-//             grid-column: 1 /-1;
-//         }
-//     }
-
-   
-// }
-
-// .card-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-//     grid-gap: 20px;
-// }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(300px), 1fr));
+    grid-gap: rem(20px);
+}

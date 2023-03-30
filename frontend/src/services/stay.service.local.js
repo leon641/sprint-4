@@ -26,19 +26,23 @@ const gRegions = {
   'Italy': ['IT'],
   'South America': ['AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'FK', 'GF', 'GY', 'PE', 'PY', 'SR', 'UY', 'VE',],
   'France': ['FR'],
-  'United States': ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',],
+  'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
   'United Kingdom': ['GB'],
 }
 
 
 async function query(filterBy = { txt: '', region: '', label: '', price: 0 }) {
+  // console.log('filterBy',filterBy)
   var stays = await storageService.query(STORAGE_KEY)
+  console.log('stays', stays)
   if (filterBy.region) {
-    stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.countryCode) || gRegions[filterBy.region] === true)
+    stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
+    console.log('stays', stays)
   }
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
-    stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.country) || regex.test(stay.countryCode) || regex.test(stay.city) || regex.test(stay.address))
+    stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
+    console.log('stays', stays)
   }
   if (filterBy.label) {
     stays = stays.filter(stay => stay.type.includes(filterBy.label))

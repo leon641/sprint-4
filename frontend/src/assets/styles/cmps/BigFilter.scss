@@ -13,23 +13,24 @@
     cursor: pointer;
     transform: translate(-9px, 0px);
     font-family: Airbnb_Cereal-Book;
+    position: relative;
 
     .where-content {
         padding-block-start: 1px;
     }
 
-    & div:first-child,
+    & div:first-child:not(.date-picker,.date-picker *, .flex),
     .in,
     .out {
         display: inline-block;
 
-        :first-child {
+        :first-child:not(h5) {
             font-size: rem(12px);
             font-weight: 800;
             color: rgb(34, 34, 34);
         }
 
-        :last-child:not(span) {
+        :last-child:not(span, h5) {
             font-size: rem(14px);
             font-weight: 50;
             color: rgb(113, 113, 113);

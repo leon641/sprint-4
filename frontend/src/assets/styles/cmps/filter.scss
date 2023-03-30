@@ -1,53 +1,74 @@
 // בס"ד
-
 .filter {
-    width: 350.61px;
-    transform: translate(70px, 6px);
+    // width: 350.61px);
+    // transform: translate(70px), 6px));
     font-family: Airbnb_Cereal-Book;
+    padding-inline-start: rem(133px);
 
-    & .stay-details{
-        width: inherit;
+    & .stay-details {
+        // width: inherit;
     }
 }
 
 .filter-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
-    border: solid 1px rgb(221, 221, 221);
-    border-radius: 50px;
+    border: solid rem(1px) rgb(221, 221, 221);
+    border-radius: rem(50px);
     cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
-    border-radius: 40px;
-    padding-inline: rem(9px);
-    padding-block: 0;
-    height: 48px;
+    box-shadow: 0 rem(1px) rem(2px) rgba(0, 0, 0, 0.08), 0 rem(4px) rem(12px) rgba(0, 0, 0, 0.05);
+    border-radius: rem(40px);
+    padding-inline: rem(8px);
+    padding-block: rem(6px);
+    // height: 48px);
     transition: box-shadow 0.2s ease;
 
 
     &:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 rem(2px) rem(4px) rgba(0, 0, 0, 0.18);
     }
 
     button {
         color: rgb(34, 34, 34);
         font-weight: 600;
         font-size: rem(14px);
-        transform: translate(5px, -10px);
-        height: rem(48px);
+        // transform: translate(5px), -10px));
+        // height: rem(48px));
         background-color: transparent;
-        padding-inline: 15px;
+        padding-inline: rem(15px);
     }
 
-    .anywhere {
-        transform: translate(-5px, 0px);
+    .where-btn {
+        padding-inline-end: rem(15px);
+        padding-inline-start: rem(17px);
     }
 
+    .anywhere,
     .any-week {
-        transform: translate(-3px, 0px);
+        // transform: translate(-5px), 0px));
+        letter-spacing: rem(0.2px);
+    }
+
+    .week-btn {
+        padding-inline-end: rem(18px);
+        padding-inline-start: rem(15px);
+        border-inline: rem(1px) solid rgb(211, 211, 211);
+
+        .any-week {
+            line-height: rem(21px);
+        }
+    }
+
+    .guests-btn {
+        padding-inline-end: 0;
+        padding-inline-start: rem(15px);
     }
 
     .add-guests {
         display: inline-block;
-        transform: translate(1px, 0px);
+        // transform: translate(1px), 0px));
     }
 
     :nth-child(5) {
@@ -58,19 +79,27 @@
 
 .separator {
     display: inline-block;
-    width: 1px;
-    height: 1.27em;
-    transform: translate(2px, -3px);
-    border-right: 1px solid rgb(221, 221, 221) // transform: translate(8px, 11px);
+    // width: 1px);
+    // height: 1.27em;
+    // transform: translate(2px), -3px));
+    border-right: rem(1px) solid rgb(221, 221, 221) // transform: translate(8px), 11px));
+}
+
+div.flex {
+    justify-content: center;
+    align-items: center;
+    gap: rem(13.6px);
 }
 
 .filter .icon {
-    transform: translate(19px, 11px);
+    // transform: translate(19px), 11px));
     background-color: #ff385c;
     border-radius: 50%;
     position: relative;
     width: rem(32px);
     height: rem(32px);
+    margin-inline-start: rem(3.3px);
+
 
     svg {
         position: relative;
@@ -81,5 +110,6 @@
         width: rem(12px);
         stroke: #fff;
         stroke-width: 5.33333;
+        padding-inline-start: rem(1px);
     }
 }

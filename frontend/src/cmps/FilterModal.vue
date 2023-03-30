@@ -219,10 +219,10 @@ export default {
           title: "Middle East",
           url: "src/assets/img/regions/Middle East.webp",
         },
-        {
-          title: "France",
-          url: "src/assets/img/regions/France.jpg",
-        },
+        // {
+        //   title: "France",
+        //   url: "src/assets/img/regions/France.jpg",
+        // },
         {
           title: "South America",
           url: "src/assets/img/regions/South America.jpg",
@@ -230,6 +230,10 @@ export default {
         {
           title: "United Kingdom",
           url: "src/assets/img/regions/United Kingdom.jpg",
+        },
+        {
+          title: "United States",
+          url: "src/assets/img/regions/United States.webp",
         },
       ],
       selectedColor: "#222",
@@ -295,7 +299,7 @@ export default {
       }
     },
     setRegion(title) {
-      console.log('title',title)
+      // console.log('title',title)
       this.$emit("setRegion", title);
     },
   },

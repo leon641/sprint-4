@@ -56,22 +56,21 @@
       :propCheck="propCheck"
       :propCheckOut="propCheckOut"
       :propWho="propWho"
-      :propRegion="propRegion"
-      @switchTWhere="switchTWhere"
-      @switchTCheck="switchTCheck"
-      @switchTCheckOut="switchTCheckOut"
-      @switchTWho="switchTWho"
+      @switchToWhere="switchToWhere"
+      @switchToCheck="switchToCheck"
+      @switchToCheckOut="switchToCheckOut"
+      @switchToWho="switchToWho"
       @closeFilter="closeFilter"
     />
     <div class="screen" @click="closeFilter"></div>
   </div>
-  <FilterModal
+  <!-- <FilterModal
     :propWhere="propWhere"
     :propCheck="propCheck"
     :propCheckOut="propCheckOut"
     :propWho="propWho"
     @setRegion="setRegion"
-  />
+  /> -->
 
   <LoginSignUp v-if="isOpen" @openLogin="openLogin" />
 </template>
@@ -80,7 +79,7 @@
 import Filter from "./Filter.vue";
 import DetailsFilter from "./DetailsFilter.vue";
 import BigFilter from "./BigFilter.vue";
-import FilterModal from "./FilterModal.vue";
+// import FilterModal from "./FilterModal.vue";
 import UserMenu from "./UserMenu.vue";
 import LoginSignUp from "./LoginSignUp.vue";
 
@@ -95,7 +94,6 @@ export default {
       propCheck: "",
       propCheckOut: "",
       propWho: "",
-      propRegion: "",
       isMenu: false,
       isOpen: false,
     };
@@ -141,25 +139,24 @@ export default {
     closeFilter() {
       this.expand();
       this.clearProps();
-      console.log('ho');
-      
+      // console.log("ho");
     },
     toggleModal() {
       this.isOpen = !this.isOpen;
     },
-    switchTWhere() {
+    switchToWhere() {
       this.clearProps();
       this.propWhere = "focus";
     },
-    switchTCheck() {
+    switchToCheck() {
       this.clearProps();
       this.propCheck = "focus";
     },
-    switchTCheckOut() {
+    switchToCheckOut() {
       this.clearProps();
       this.propCheckOut = "focus";
     },
-    switchTWho() {
+    switchToWho() {
       this.clearProps();
       this.propWho = "focus";
     },
@@ -172,16 +169,16 @@ export default {
     openLogin() {
       this.isOpen = !this.isOpen;
     },
-    setRegion(payload) {
-      console.log('payload',payload)
-      this.propRegion = payload;
-    },
+    // setRegion(payload) {
+    //   console.log('payload',payload)
+    //   this.propRegion = payload;
+    // },
   },
   emits: ["inIndex"],
   components: {
     Filter,
     BigFilter,
-    FilterModal,
+    // FilterModal,
     DetailsFilter,
     UserMenu,
     LoginSignUp,

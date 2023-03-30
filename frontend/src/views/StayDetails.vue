@@ -14,7 +14,7 @@
               ></span>
               <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
-              <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
+              <a class="d-link reviews">{{ stay.reviews?.length }}  reviews</a>
               <span class="dot">•</span>
               <span class="d-link">{{ stay.loc?.country }}</span>
             </div>
@@ -66,7 +66,7 @@
               alt=" Demet."
               decoding="async"
               elementtiming="LCP-target"
-              src="https://robohash.org/10711825?set=set5 "
+              :src="stay.host.thumbnailUrl"
               
             />
           </div>
@@ -90,8 +90,11 @@
         </section>
         <RaservationModal :stay="stay" :avregeRate="avregeRate" />
       </section>
-      <StayReviews :stay="stay" />
+      <StayReviews 
+      :rate="avregeRate"
+      :stay="stay" />
     </section>
+    <StayMap :stay="stay"/>
   </section>
 </template>
 
@@ -101,6 +104,8 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 import UserStayInfo from "../cmps/UserStayInfo.vue";
 import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
+import StayMap from '../cmps/StayMap.vue';
+
 
 export default {
   data() {
@@ -111,6 +116,7 @@ export default {
     };
   },
   created() {
+    window.scrollTo(0, 0);
     this.$emit("inDetails");
     this.loggedinUser= this.$store.getters.loggedinUser
     
@@ -143,6 +149,7 @@ export default {
     UserStayInfo,
     StayAmenities,
     StayReviews,
+    StayMap,
   },
   emits: ["inDetails"],
 };
