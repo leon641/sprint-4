@@ -177,17 +177,17 @@ export default defineComponent({
     breakpoints: {
       // 460 and up
       460: {
-        itemsToShow: 1,
+        itemsToShow: 3,
         snapAlign: 'center',
       },
       // 550px and up
       550: {
-        itemsToShow: 3,
+        itemsToShow: 5,
         snapAlign: 'center',
       },
       // 700px and up
       700: {
-        itemsToShow: 5,
+        itemsToShow: 7,
         snapAlign: 'center',
       },
       // 980 and up

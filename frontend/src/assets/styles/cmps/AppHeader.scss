@@ -91,11 +91,12 @@
     display: flex;
     align-items: center;
     gap: rem(74px);
+    position: relative;
 
     :first-child:not(.login) {
         display: flex;
         align-items: center;
-        justify-content: center;
+        // justify-content: center;
         // width: rem(148.35px);
         border-radius: rem(20px);
         text-align: center;

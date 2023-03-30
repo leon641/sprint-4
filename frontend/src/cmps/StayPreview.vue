@@ -87,10 +87,12 @@ export default {
       return svgService.getSvg(iconName)
     },
       setWishlist() {
-            this.isMark = !this.isMark
+       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
+          this.isMark = !this.isMark
+          user.likedByUsers.push(this.stay)
              this.$store.dispatch({
-                type: "setWishlist",
-                stay: this.stay,
+                type: "updateUser",
+                user,
             })
             // this.$router.push("/wishlist")
            
@@ -122,4 +124,5 @@ export default {
   },
 };
 </script>
+
 

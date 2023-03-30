@@ -1,10 +1,12 @@
 // בס"ד 
 
 .el-carousel {
+ aspect-ratio: 1/1;
+}
+.el-carousel_container{
   position: relative;
   height: 305px;
 }
-
 .heart-svg {
 
   svg {

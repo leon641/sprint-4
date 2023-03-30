@@ -95,7 +95,9 @@ export const stayStore = {
             return Promise.resolve()
         },
         setWishlist({ commit }, { stay }) {
-            userService.saveWishListToUser({...stay})
+            console.log('stay before',stay);
+            userService.saveWishListToUser(stay)
+            console.log('stay after',stay);
             commit({ type: 'addToWishList', stay })
         },
         setFilterBy(context, { label }) {
