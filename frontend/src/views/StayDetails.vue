@@ -66,7 +66,7 @@
               alt=" Demet."
               decoding="async"
               elementtiming="LCP-target"
-              src="https://robohash.org/10711825?set=set5 "
+              :src="stay.host.thumbnailUrl"
               
             />
           </div>
