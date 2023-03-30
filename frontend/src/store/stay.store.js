@@ -1,7 +1,8 @@
 // בס"ד
 
 import { configProviderContextKey } from 'element-plus'
-import { stayService } from '../services/stay.service.local'
+// import { stayService } from '../services/stay.service.local'
+import { stayService } from '../services/stay.service'
 import { userService } from '../services/user.service'
 // import { stayService } from '../services/stay.service'
 

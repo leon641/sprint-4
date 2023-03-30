@@ -35,13 +35,13 @@ async function query(filterBy = { txt: '', price: 0 }) {
 
 }
 function getById(stayId) {
-    return storageService.get(STORAGE_KEY, stayId)
-    // return httpService.get(`stay/${stayId}`)
+    // return storageService.get(STORAGE_KEY, stayId)
+    return httpService.get(`stay/${stayId}`)
 }
 
 async function remove(stayId) {
-    await storageService.remove(STORAGE_KEY, stayId)
-    // return httpService.delete(`stay/${stayId}`)
+    // await storageService.remove(STORAGE_KEY, stayId)
+    return httpService.delete(`stay/${stayId}`)
 }
 async function save(stay) {
     var savedStay

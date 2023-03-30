@@ -19,10 +19,7 @@ async function getStays(req, res) {
 async function getStayById(req, res) {
   try {
     const stayId = req.params.id
-    console.log(stayId);
-    const stay = await stayService.getById(stayId)
-    console.log(stay);
-    
+    const stay = await stayService.getById(stayId)    
     res.json(stay)
   } catch (err) {
     logger.error('Failed to get stay', err)
@@ -31,11 +28,12 @@ async function getStayById(req, res) {
 }
 
 async function addStay(req, res) {
-  const {loggedinUser} = req
+  // const {loggedinUser} = req
 
   try {
     const stay = req.body
-    stay.owner = loggedinUser
+    // stay.owner = loggedinUser
+    
     const addedStay = await stayService.add(stay)
     res.json(addedStay)
   } catch (err) {
@@ -48,7 +46,7 @@ async function addStay(req, res) {
 async function updateStay(req, res) {
   try {
     const stay = req.body
-    const updatedStay = await stayService.update(stay)
+    const updatedStay = await stayService.update(stay)    
     res.json(updatedStay)
   } catch (err) {
     logger.error('Failed to update stay', err)

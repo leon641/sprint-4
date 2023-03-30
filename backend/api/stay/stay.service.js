@@ -19,10 +19,9 @@ async function query(filterBy={txt:''}) {
 
 async function getById(stayId) {
     try {
-        console.log(stayId);
         
         const collection = await dbService.getCollection('stay')        
-        const stay = collection.findOne({ _id: ObjectId(stayId) })        
+        const stay = collection.findOne({ _id: ObjectId(stayId) })   
         return stay
     } catch (err) {
         logger.error(`while finding stay ${stayId}`, err)
@@ -45,6 +44,7 @@ async function add(stay) {
     try {
         const collection = await dbService.getCollection('stay')
         await collection.insertOne(stay)
+        
         return stay
     } catch (err) {
         logger.error('cannot insert stay', err)
@@ -55,7 +55,7 @@ async function add(stay) {
 async function update(stay) {
     try {
         const stayToSave = {
-            vendor: stay.vendor,
+            name: stay.name,
             price: stay.price
         }
         const collection = await dbService.getCollection('stay')
