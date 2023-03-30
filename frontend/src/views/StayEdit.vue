@@ -63,7 +63,25 @@
                 <input type="file" @change="handleFile" hidden >
        </label>
       </section>
+
+
     </div>
+    <div class="stay-edit-details">
+      <label>Capacity</label>
+    <input v-model="stay.capacity" class="add-input" type="number" min="0" max="20"  >
+      <label>Bedrooms</label>
+    <input v-model="stay.bedrooms" class="add-input" type="number" min="0" max="20">
+      <label>bathrooms</label>
+    <input v-model="stay.bathrooms" class="add-input" type="number" min="0" max="20">
+    </div>
+      <!-- <div class="stay-edit-details-desc">
+      <label>Labels</label>
+    <input v-model="stay.labels" class="add-input" type="number" min="0">
+      <label>Property type</label>
+    <input v-model="stay.bedrooms" class="add-input" type="number" min="0" max="20">
+      <label>price</label>
+    <input v-model="stay.bathrooms" class="add-input" type="number" min="0" max="20">
+    </div> -->
     <button class="save-form-btn">save</button>
 
     </form>

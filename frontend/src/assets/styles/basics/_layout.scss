@@ -23,8 +23,13 @@
 
 .stay-app {
     display: grid;
-    grid-template-columns:
-        minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
+    // grid-template-columns:
+    //  minmax(20px, 1fr)
+    //   minmax(auto, 1376px)
+    //    minmax(20px, 1fr);
+    grid-template-columns: 20px 1fr 20px;
+    // grid-template-columns:
+    //     minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
 
     >* {
         grid-column: 2;
@@ -33,42 +38,48 @@
             grid-column: 1 /-1;
         }
     }
-
-}
-
-.main-container {
-    display: grid;
-    grid-template-columns: rem(20px) 1fr rem(20px);
-
-    >* {
-        grid-column: 2;
-
-        &.full {
-            grid-column: 1 /-1;
-        }
+    @include for-mobile-layout {
+        // background-color: rgb(174, 239, 189);
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto,400px)
+            minmax(20px, 1fr);
     }
-
-    // @include for-narrow-layout {
-    //     // background-color: darkblue;
-    //     grid-template-columns: 
-    //         minmax(20px, 1fr)
-    //         minmax(auto, $mobile-breakpoint)
-    //         minmax(20px, 1fr);
-    // }
-    // @include for-normal-layout {
-    //     // background-color: salmon;
-    //     grid-template-columns: 
-    //         minmax(20px, 1fr)
-    //         minmax(auto, $narrow-breakpoint)
-    //         minmax(20px, 1fr);
-    // }
-    // @include for-wide-layout {
-    //     // background-color: violet;
-    //     grid-template-columns: 
-    //         minmax(20px, 1fr)
-    //         minmax(auto,1600px)
-    //         minmax(20px, 1fr);
-    // }
+    @include for-mobile2-layout {
+        // background-color: rgb(239, 174, 182);
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto,650px)
+            minmax(20px, 1fr);
+    }
+    @include for-narrow-layout {
+        // background-color: darkblue;
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto, 960px)
+            minmax(20px, 1fr);
+    }
+    @include for-narrow2-layout {
+        // background-color: rgb(12, 158, 133);
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto, $narrow-breakpoint + 100px)
+            minmax(20px, 1fr);
+    }
+    @include for-normal-layout {
+        // background-color: salmon;
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto, $narrow2-breakpoint)
+            minmax(20px, 1fr);
+    }
+    @include for-wide-layout {
+        // background-color: violet;
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto,1500px)
+            minmax(20px, 1fr);
+    }
 
 }
 

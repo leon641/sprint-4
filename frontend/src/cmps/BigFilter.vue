@@ -40,31 +40,40 @@
         </span>
       </div>
     </div>
+    <FilterModal
+      :propWhere="propWhere"
+      :propCheck="propCheck"
+      :propCheckOut="propCheckOut"
+      :propWho="propWho"
+      @setRegion="setRegion"
+    />
   </div>
 </template>
 
 <script>
 import SearchBtn from "./SearchBtn.vue";
+import FilterModal from "./FilterModal.vue";
+
 export default {
-  components: { SearchBtn },
+  components: { SearchBtn, FilterModal },
   props: {
     propWhere: String,
     propCheck: String,
     propCheckOut: String,
     propWho: String,
-    propRegion: String,
   },
   data() {
     return {
+      // propRegion: "",
       filterBy: {
-        txt: this.propRegion || "",
-        region: this.propRegion || "",
+        txt: "",
+        region: "",
       },
     };
   },
   created() {
-    console.log("filterBy", this.filterBy);
-    console.log("r", this.propRegion);
+    // console.log("filterBy", this.filterBy);
+    // console.log("r", this.propRegion);
     // this.filterBy.txt = "";
     // this.filterBy.region = "";
   },
@@ -75,31 +84,64 @@ export default {
     // region() {
     //   return this.propRegion;
     // },
+    // setRegion(payload) {
+    //   // console.log("payload", payload);
+    //   this.propRegion = payload;
+    // },
   },
   methods: {
     switchToWhere() {
-      this.$emit("switchTWhere");
+      this.$emit("switchToWhere");
     },
     switchToCheck() {
-      this.$emit("switchTCheck");
+      this.$emit("switchToCheck");
     },
     switchToCheckOut() {
-      this.$emit("switchTCheckOut");
+      this.$emit("switchToCheckOut");
     },
     switchToWho() {
-      this.$emit("switchTWho");
+      this.$emit("switchToWho");
     },
+    closeFilter() {
+      this.$emit("closeFilter");
+    },
+    // clearProps() {
+    //   this.$emit("clearProps");
+    //   console.log("15");
+    // },
     clearProps() {
-      this.$emit("clearProps");
-      console.log('15');
-      
+      this.propWhere = "";
+      this.propCheck = "";
+      this.propCheckOut = "";
+      this.propWho = "";
+    },
+    // switchTWhere() {
+    //   this.clearProps();
+    //   this.propWhere = "focus";
+    // },
+    // switchTCheck() {
+    //   this.clearProps();
+    //   this.propCheck = "focus";
+    // },
+    // switchTCheckOut() {
+    //   this.clearProps();
+    //   this.propCheckOut = "focus";
+    // },
+    // switchTWho() {
+    //   this.clearProps();
+    //   this.propWho = "focus";
+    // },
+    setRegion(payload) {
+      // console.log("payload", payload);
+      this.filterBy.txt = payload;
+      this.filterBy.region = payload;
     },
   },
   emits: [
-    "switchTWhere",
-    "switchTCheck",
-    "switchTCheckOut",
-    "switchTWho",
+    "switchToWhere",
+    "switchToCheck",
+    "switchToCheckOut",
+    "switchToWho",
     "closeFilter",
   ],
 };
