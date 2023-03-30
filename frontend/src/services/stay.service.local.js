@@ -119,6 +119,10 @@ function getEmptyStay() {
     "country": "",
     "street": "",
     "imgUrls": [],
+    "capacity" : 0,
+    "bedrooms" : 0,
+    "bathrooms" : 0,
+
   }
   return stay
 }
