@@ -23,7 +23,8 @@
 
     img {
         height: 100%;
-        
+        object-fit: cover;
+        aspect-ratio:  1/0.937;    
     }
     
     .el-carousel__item {
@@ -32,7 +33,7 @@
     
 }
 .el-carousel {
-   height: 268px;
+   width: 100%;
 
 }
 .el-carousel__container {

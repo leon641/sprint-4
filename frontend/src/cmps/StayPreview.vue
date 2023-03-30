@@ -76,8 +76,6 @@ export default {
     // this.loggedinUser = this.$store.getters.loggedinUser
     // console.log(this.loggedinUser);
     this.rate()
-
-
   },
   methods: {
     cardClicked(stayId) {
