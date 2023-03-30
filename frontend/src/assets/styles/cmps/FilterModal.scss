@@ -2,8 +2,8 @@
 
 .where-modal {
     position: absolute;
-    top: 158px;
-    left: 334px;
+    top: 79px;
+    left: 2px;
     z-index: 101;
     width: 840px;
     height: 473px;
@@ -23,7 +23,7 @@
 
             h5 {
                 padding-inline-start: 32px;
-                padding-block-start: 10px;
+                padding-block-start: 22px;
                 ;
             }
         }
@@ -91,8 +91,8 @@
 
 .check-modal {
     position: absolute;
-    top: 159px;
-    left: 343px;
+    top: 79px;
+    left: 2px;
     z-index: 101;
     height: 552px;
     width: 850px;
@@ -100,12 +100,15 @@
     background-color: #fff;
     font-family: Airbnb_Cereal-Book;
 
+    .date-picker {
+        display: flex;
+    }
 }
 
 .who-modal {
     position: absolute;
-    top: 158px;
-    left: 777px;
+    top: 79px;
+    left: 445px;
     z-index: 101;
     height: 400px;
     width: 406px;
