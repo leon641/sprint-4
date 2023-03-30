@@ -1,5 +1,3 @@
-// בס"ד
-
 import { carService } from './services/car.service.js'
 import { userService } from './services/user.service.js'
 import { utilService } from './services/util.service.js'

@@ -1,5 +1,3 @@
-// בס"ד
-
 const fs = require('fs')
 const asyncLocalStorage = require('./als.service')
 const utilService = require('./util.service')

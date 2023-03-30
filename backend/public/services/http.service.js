@@ -1,5 +1,3 @@
-// בס"ד
-
 // import Axios from 'axios'
 
 const BASE_URL =  '/api/'
