@@ -34,15 +34,12 @@ const gRegions = {
 async function query(filterBy = { txt: '', region: '', label: '', price: 0 }) {
   // console.log('filterBy',filterBy)
   var stays = await storageService.query(STORAGE_KEY)
-  console.log('stays', stays)
   if (filterBy.region) {
     stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
-    console.log('stays', stays)
   }
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
     stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
-    console.log('stays', stays)
   }
   if (filterBy.label) {
     stays = stays.filter(stay => stay.type.includes(filterBy.label))

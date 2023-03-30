@@ -10,7 +10,30 @@
             type="text"
             placeholder="Search destinations"
             v-model="filterBy.txt"
+            @input="select"
+            :class="selected"
           />
+          <button class="close-btn" :class="selected">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                fill: none;
+                height: 12px;
+                width: 12px;
+                stroke: currentcolor;
+                stroke-width: 4;
+                overflow: visible;
+              "
+            >
+              <path d="m6 6 20 20"></path>
+              <path d="m26 6-20 20"></path>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -19,11 +42,53 @@
       <div class="in" :class="propCheck" @click="switchToCheck">
         <div>Check in</div>
         <div>Add dates</div>
+        <button class="close-btn" :class="selected">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: none;
+              height: 12px;
+              width: 12px;
+              stroke: currentcolor;
+              stroke-width: 4;
+              overflow: visible;
+            "
+          >
+            <path d="m6 6 20 20"></path>
+            <path d="m26 6-20 20"></path>
+          </svg>
+        </button>
       </div>
       <div class="separator in-out"></div>
       <div class="out" :class="propCheckOut" @click="switchToCheckOut">
         <div>Check out</div>
         <div>Add dates</div>
+        <button class="close-btn" :class="selected">
+          <svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: none;
+              height: 12px;
+              width: 12px;
+              stroke: currentcolor;
+              stroke-width: 4;
+              overflow: visible;
+            "
+          >
+            <path d="m6 6 20 20"></path>
+            <path d="m26 6-20 20"></path>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="separator out-search"></div>
@@ -32,6 +97,27 @@
         <div class="who">
           <div>Who</div>
           <div>Add guests</div>
+          <button class="close-btn" :class="selected">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                fill: none;
+                height: 12px;
+                width: 12px;
+                stroke: currentcolor;
+                stroke-width: 4;
+                overflow: visible;
+              "
+            >
+              <path d="m6 6 20 20"></path>
+              <path d="m26 6-20 20"></path>
+            </svg>
+          </button>
         </div>
         <span class="search">
           <div>
@@ -46,6 +132,7 @@
       :propCheckOut="propCheckOut"
       :propWho="propWho"
       @setRegion="setRegion"
+      @switchToCheck="switchToCheck"
     />
   </div>
 </template>
@@ -64,7 +151,7 @@ export default {
   },
   data() {
     return {
-      // propRegion: "",
+      selected: "",
       filterBy: {
         txt: "",
         region: "",
@@ -135,6 +222,10 @@ export default {
       // console.log("payload", payload);
       this.filterBy.txt = payload;
       this.filterBy.region = payload;
+      this.selected = "selected";
+    },
+    select() {
+      this.selected = "selected";
     },
   },
   emits: [

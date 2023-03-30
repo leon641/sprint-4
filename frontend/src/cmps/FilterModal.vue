@@ -301,9 +301,10 @@ export default {
     setRegion(title) {
       // console.log('title',title)
       this.$emit("setRegion", title);
+      this.$emit("switchToCheck");
     },
   },
-  emits: ["setRegion"],
+  emits: ["setRegion","switchToCheck"],
 };
 
 // import { ref } from "vue";
