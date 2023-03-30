@@ -13,7 +13,7 @@
             @input="select"
             :class="selected"
           />
-          <button class="close-btn" :class="selected">
+          <button class="close-btn" :class="status">
             <svg
               viewBox="0 0 32 32"
               xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +41,8 @@
     <div class="check">
       <div class="in" :class="propCheck" @click="switchToCheck">
         <div>Check in</div>
-        <div>Add dates</div>
-        <button class="close-btn" :class="selected">
+        <div class="add-dates">Add dates</div>
+        <button class="close-btn" :class="status">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -66,9 +66,9 @@
       </div>
       <div class="separator in-out"></div>
       <div class="out" :class="propCheckOut" @click="switchToCheckOut">
-        <div>Check out</div>
-        <div>Add dates</div>
-        <button class="close-btn" :class="selected">
+        <div class="out-txt">Check out</div>
+        <div class="add-dates">Add dates</div>
+        <button class="close-btn" :class="status">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -96,8 +96,8 @@
       <div class="search-content">
         <div class="who">
           <div>Who</div>
-          <div>Add guests</div>
-          <button class="close-btn" :class="selected">
+          <div class="add-guests">Add guests</div>
+          <button class="close-btn" :class="status">
             <svg
               viewBox="0 0 32 32"
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@
           </button>
         </div>
         <span class="search">
-          <div>
+          <div class="search-btn-container">
             <SearchBtn :filterBy="filterBy" @closeFilter="closeFilter" />
           </div>
         </span>
@@ -151,7 +151,8 @@ export default {
   },
   data() {
     return {
-      selected: "",
+      status: "hidden",
+      selected: "hidden",
       filterBy: {
         txt: "",
         region: "",
