@@ -250,6 +250,7 @@ export default {
       cleaningFee: 221,
       loggedinUser: {},
       isShown2: false,
+      
       selectedColor: "#222",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({

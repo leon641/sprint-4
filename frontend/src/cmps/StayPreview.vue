@@ -50,6 +50,7 @@
 <script>
 import ImgCarousel from "./ImgCarousel.vue";
 import { svgService } from "../services/svg.service.js";
+import { userService } from '../services/user.service';
 
 
 export default {
@@ -85,9 +86,13 @@ export default {
       return svgService.getSvg(iconName)
     },
       setWishlist() {
-       let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
+      //  let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
           this.isMark = !this.isMark
-          user.likedByUsers.push(this.stay)
+          let user = userService.getLoggedinUser()
+   
+          user.likedByUsers.unshift(this.stay.name)
+          console.log('user in componenets',user);
+          
              this.$store.dispatch({
                 type: "updateUser",
                 user,

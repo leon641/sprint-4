@@ -14,11 +14,9 @@ async function getUser(req, res) {
 
 async function getUsers(req, res) {
     try {
-        const filterBy = {
-            txt: req.query?.txt || '',
-            minBalance: +req.query?.minBalance || 0
-        }
-        const users = await userService.query(filterBy)
+       
+        const users = await userService.query()
+        
         res.send(users)
     } catch (err) {
         logger.error('Failed to get users', err)
@@ -39,6 +37,7 @@ async function deleteUser(req, res) {
 async function updateUser(req, res) {
     try {
         const user = req.body
+        
         const savedUser = await userService.update(user)
         res.send(savedUser)
     } catch (err) {

@@ -79,6 +79,8 @@ export const stayStore = {
             stay.msgs.push(msg)
         },
         addToWishList(state, { stay }) {
+            console.log('stay in mutation going to store');
+            
             state.wishList.push(stay)
         },
         setFilter(state, { filterBy }) {
@@ -100,6 +102,12 @@ export const stayStore = {
             userService.saveWishListToUser(stay)
             console.log('stay after',stay);
             commit({ type: 'addToWishList', stay })
+        },
+       async getLikedStays({commit},{stayNames}){
+       
+            const stays = await stayService.getLikedStays(stayNames)
+                      return stays
+        
         },
         setFilterBy(context, { label }) {
             context.commit({ type: 'setFilterBy', label })
