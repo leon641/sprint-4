@@ -1,5 +1,5 @@
 .main-footer{
-    
+  
     position: fixed;
     bottom: 0;
     background-color: #F7F7F7;
@@ -15,7 +15,9 @@
         justify-content: space-between;
         margin-left:em(95px) ;
         width: em(350px);
-        margin-left: em(95px);
+        @include for-mobile-layout {
+            margin-left: em(7px);
+        }
     }
     .footer-item{
         font-family: CircularAir-Light;

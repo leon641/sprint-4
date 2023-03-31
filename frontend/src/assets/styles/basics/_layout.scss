@@ -41,9 +41,9 @@
     @include for-mobile-layout {
         // background-color: rgb(174, 239, 189);
         grid-template-columns: 
-            minmax(20px, 1fr)
+            minmax(2px, 1fr)
             minmax(auto,400px)
-            minmax(20px, 1fr);
+            minmax(2px, 1fr);
     }
     @include for-mobile2-layout {
         // background-color: rgb(239, 174, 182);

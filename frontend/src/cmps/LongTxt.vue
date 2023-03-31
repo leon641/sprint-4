@@ -3,10 +3,10 @@
     
 </p>
  <div class="show-more-btn">
-          <a>Show More</a><span
+          <!-- <a>Show More</a><span
             class="total-review-svg"
             v-html="getSvg('showMoreArrowRight')"
-          ></span>
+          ></span> -->
         </div>
 </template>
 <script>
@@ -19,7 +19,7 @@ export default {
         },
  data() {
      return {
-         defultNumOfChars: 130,
+         defultNumOfChars: 100,
      
             isShown: false,
         }

@@ -15,7 +15,7 @@
     }
     @include for-mobile-layout {
         // background-color: rgb(174, 239, 189);
-       grid-template-columns: minmax(auto, 165px);
+       grid-template-columns: minmax(auto, 440px);
     }
 }
 
@@ -41,7 +41,7 @@
         border-top-left-radius: 15px;
         @include for-mobile-layout {
             // background-color: rgb(174, 239, 189);
-          width: 262px;
+          width: 288px;
         }
     }
 
