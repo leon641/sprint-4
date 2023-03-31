@@ -228,7 +228,7 @@ export default {
     avregeRate: Number,
     stay: Object,
   },
- async created() {
+  async created() {
     let loggedinUser = this.$store.getters.loggedinUser;
     let hostId = this.stay.host._id;
     console.log("hostId", hostId);
@@ -251,7 +251,7 @@ export default {
       loggedinUser: {},
       isShown2: false,
       selectedColor: "#222",
-      locale: { id: "en", firstDayOfWeek: 2, masks: { weekdays: "WW" } },
+      locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
         sm: "640px",
@@ -291,12 +291,12 @@ export default {
           _id: null,
           fullname: null,
         },
-        totalGuests:0,
+        totalGuests: 0,
         totalPrice: "",
         startDate: "",
         endDate: "",
-       nigths:0,
-       guests: {
+        nigths: 0,
+        guests: {
           adults: 0,
           kids: 0,
           infants: 0,
@@ -320,9 +320,9 @@ export default {
       this.$router.push("/reservation/");
     },
     updateGuests(diff, type) {
-      this.order.guests[type] += diff
-      if(this.order.guests[type]===-1)this.order.guests[type]=0
-      
+      this.order.guests[type] += diff;
+      if (this.order.guests[type] === -1) this.order.guests[type] = 0;
+
       console.log("order", this.order);
     },
     getSvg(type) {
@@ -336,10 +336,9 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24);
-        this.order.nigths=Math.ceil(nigths / 1000 / 60 / 60 / 24);
-        console.log('this.order.nigths',this.order.nigths);
-        
-  },
+      this.order.nigths = Math.ceil(nigths / 1000 / 60 / 60 / 24);
+      console.log("this.order.nigths", this.order.nigths);
+    },
 
     renderDate() {
       if (this.selectedDate < this.attributes[0].dates.start) {
@@ -381,16 +380,16 @@ export default {
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
       return Total + this.cleaningFee + this.sercivesFee;
     },
-    guests(){
-        let count=0
-       let guests = this.order.guests
-       for (let guest in guests) {
-          count += +guests[guest];
-          } 
-          this.order.totalGuests=count
-          console.log(' this.totalGuests', this.order.totalGuests);
-          
-           return count
+    guests() {
+      let count = 0;
+      let guests = this.order.guests;
+      for (let guest in guests) {
+        count += +guests[guest];
+      }
+      this.order.totalGuests = count;
+      console.log(" this.totalGuests", this.order.totalGuests);
+
+      return count;
     },
     StayTotalPrice() {
       const nigths =

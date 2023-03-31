@@ -25,11 +25,10 @@
     <VDatePicker
       class="date-picker"
       expanded
-      :color="selectedColor"
       :min-date="new Date()"
       borderless
       :attributes="attributes"
-      @click="renderDate()"
+      @click="renderDate"
       :columns="columns"
       :locale="locale"
       v-model="selectedDate"
@@ -237,7 +236,7 @@ export default {
         },
       ],
       selectedColor: "#222",
-      locale: { id: "en", firstDayOfWeek: 2, masks: { weekdays: "WW" } },
+      locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
         sm: "640px",
@@ -251,22 +250,22 @@ export default {
         {
           key: "",
           // Attribute type definitions
-          content: "true", // Boolean, String, Object
+          // content: "white", // Boolean, String, Object
+          content: "red", // Boolean, String, Object
           highlight: {
             start: {
-              content: "true", // Boolean, String, Object
-              content: "#222",
-              color: "#222",
-              fillMode: "outline",
+              // content: "purple",
+              // color: "black",
+              fillMode: "light",
             },
             base: { fillMode: "light" },
-            end: { fillMode: "outline" },
+            end: { fillMode: "light" },
           },
           popover: {},
 
           customData: {},
 
-          dates: { start: new Date(), end: new Date(2023, 2, 30) },
+          dates: { start: new Date(), end: new Date(2023, 2, 30)         },
 
           order: 0,
         },
@@ -304,7 +303,7 @@ export default {
       this.$emit("switchToCheck");
     },
   },
-  emits: ["setRegion","switchToCheck"],
+  emits: ["setRegion", "switchToCheck"],
 };
 
 // import { ref } from "vue";
