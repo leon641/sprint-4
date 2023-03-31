@@ -9,7 +9,7 @@ async function getStays(req, res) {
       txt: req.query.txt || '',
       region:req.query.region|| '',
       label: req.query.label||'',
-      likedStays:req.query.likedStays||""
+      likedStays:req.query.likedStays||[],
     }
     
     const stays = await stayService.query(filterBy)

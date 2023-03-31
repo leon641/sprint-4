@@ -103,10 +103,10 @@ export const stayStore = {
             console.log('stay after',stay);
             commit({ type: 'addToWishList', stay })
         },
-       async getLikedStays({commit},{stayIds}){
+       async getLikedStays({commit},{stayNames}){
        
-            const stays = await stayService.getLikedStays(stayIds)
-                      return   stays
+            const stays = await stayService.getLikedStays(stayNames)
+                      return stays
         
         },
         setFilterBy(context, { label }) {

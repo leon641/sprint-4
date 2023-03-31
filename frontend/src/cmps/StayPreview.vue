@@ -90,7 +90,7 @@ export default {
           this.isMark = !this.isMark
           let user = userService.getLoggedinUser()
    
-          user.likedByUsers.push(this.stay._id)
+          user.likedByUsers.unshift(this.stay.name)
           console.log('user in componenets',user);
           
              this.$store.dispatch({

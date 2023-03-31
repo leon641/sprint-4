@@ -20,7 +20,7 @@ export default {
     const user=this.$store.getters.loggedinUser
 
     console.log('this.$store.getters.loggedinUser',this.$store.getters.loggedinUser);
-   const wishList= await this.$store.dispatch({type:'getLikedStays',stayIds:user.likedByUsers})
+   const wishList= await this.$store.dispatch({type:'getLikedStays',stayNames:user.likedByUsers})
     this.wishList=wishList
     
     

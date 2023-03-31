@@ -12,43 +12,42 @@ const gRegions = {
     'France': ['FR'],
     'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
     'United Kingdom': ['GB'],
-  }
-async function query( filterBy = { txt: '', region: '', label: '',likedStays:[] }) {
+}
+async function query(filterBy = { txt: '', region: '', label: '', likedStays: [] }) {
     try {
+        console.log('filterBy in likedby ',filterBy);
         // const criteria = {
             // console.log('filterBy',filterBy); 
             
-        //     vendor: { $regex: filterBy.txt, $options: 'i' }
-        // }
-        const collection = await dbService.getCollection('stay')
-        var stays = await collection.find({}).toArray()
+            //     vendor: { $regex: filterBy.txt, $options: 'i' }
+            // }
+            const collection = await dbService.getCollection('stay')
+            var stays = await collection.find({}).toArray()
         if (filterBy.txt) {
-            if(!gRegions[filterBy.txt]){
-                gRegions[filterBy.txt]=[]
+            if (!gRegions[filterBy.txt]) {
+                gRegions[filterBy.txt] = []
             }
-          const regex = new RegExp(filterBy.txt, 'i')
-          stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
-      }
+            const regex = new RegExp(filterBy.txt, 'i')
+            stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
+        }
         if (filterBy.region) {
             stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
         }
-        if(filterBy.likedStays){
-        
-            stays =  filterBy.likedStays.filter(stayId => {
-            stays.filter(stay => stay._id===stayId)
-            });
-            console.log('stays in qury likedby',stays);
+        console.log('stays in qury likedby1', filterBy.likedStays);
+        if (filterBy.likedStays.length) {
             
-            
+            stays = stays.filter(stay => filterBy.likedStays.includes(stay.name))
+            console.log('stays in qury likedby', stays);
+
         }
-          if (filterBy.label) {
+        if (filterBy.label) {
             stays = stays.filter(stay => stay.type.includes(filterBy.label))
         }
-          if (filterBy.price) {
+        if (filterBy.price) {
             stays = stays.filter(stay => stay.price <= filterBy.price)
-          }
-          
-          return stays
+        }
+
+        return stays
 
     } catch (err) {
         logger.error('cannot find stays', err)
@@ -58,9 +57,9 @@ async function query( filterBy = { txt: '', region: '', label: '',likedStays:[] 
 
 async function getById(stayId) {
     try {
-        
-        const collection = await dbService.getCollection('stay')        
-        const stay = collection.findOne({ _id: ObjectId(stayId) })   
+
+        const collection = await dbService.getCollection('stay')
+        const stay = collection.findOne({ _id: ObjectId(stayId) })
         return stay
     } catch (err) {
         logger.error(`while finding stay ${stayId}`, err)
@@ -83,7 +82,7 @@ async function add(stay) {
     try {
         const collection = await dbService.getCollection('stay')
         await collection.insertOne(stay)
-        
+
         return stay
     } catch (err) {
         logger.error('cannot insert stay', err)
@@ -121,7 +120,7 @@ async function addStayMsg(stayId, msg) {
 async function removeStayMsg(stayId, msgId) {
     try {
         const collection = await dbService.getCollection('stay')
-        await collection.updateOne({ _id: ObjectId(stayId) }, { $pull: { msgs: {id: msgId} } })
+        await collection.updateOne({ _id: ObjectId(stayId) }, { $pull: { msgs: { id: msgId } } })
         return msgId
     } catch (err) {
         logger.error(`cannot add stay msg ${stayId}`, err)
