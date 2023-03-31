@@ -119,6 +119,9 @@
     a {
         font-size: rem(14px);
         font-weight: 600;
+        @include for-mobile-layout {
+            display: none !important;
+        }
     
     }
 
