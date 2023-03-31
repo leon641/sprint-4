@@ -70,9 +70,10 @@ const orders = [
       "kids": 1
     },
     "stay": {
-      "_id": "h102",
-      "name": "House Of Uncle My",
-      "price": 80.00
+    "_id": "h102",
+    'img':"",
+    "name": "House Of Uncle My",
+    "price": 80.00
     },
     "msgs": [],
     "status": "pending" // pending, approved

@@ -4,7 +4,7 @@
 
 <template>
   <div class="stay-index">
-    <h1>NUM</h1>
+
     <StayList />
     <!-- <hr />
     <form @submit.prevent="addStay()">

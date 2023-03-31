@@ -1,5 +1,10 @@
 // בס"ד
 
+//css vars
+:root{
+    --vc-gray-600:#222;
+   
+}
 // Colors
 $clr1: #fe385c;
 $clr2: #4f3a65;
@@ -19,7 +24,10 @@ $clr15: #1b1b1b57;
 $clr16: #DDDDDD;
 $clr17: #969393;
 
-
+.vc-gray {
+    color: var(--vc-gray-600);
+ 
+}
 // Breakpoints
 // $mobile-breakpoint: 460px;
 // $narrow-breakpoint: 720px;

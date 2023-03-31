@@ -35,7 +35,7 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
         }
         console.log('stays in qury likedby1', filterBy.likedStays);
         if (filterBy.likedStays.length) {
-            
+            if(!filterBy.likedStays.length)return
             stays = stays.filter(stay => filterBy.likedStays.includes(stay.name))
             console.log('stays in qury likedby', stays);
 
