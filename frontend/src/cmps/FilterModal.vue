@@ -21,17 +21,19 @@
       </div>
     </div>
   </div>
-  <div v-if="propCheck || propCheckOut" class="check-modal">
+  <div v-if="propCheck || propCheckOut" class="check-modal vc-blue ">
     <VDatePicker
-      class="date-picker"
+      class="date-picker vc-blue  "
       expanded
       :min-date="new Date()"
       borderless
+      :color='selectedColor '
       :attributes="attributes"
       @click="renderDate"
       :columns="columns"
       :locale="locale"
       v-model="selectedDate"
+
     />
     <!-- <el-radio-group v-model="size" label="size control" size="small">
       <el-radio-button label="large">large</el-radio-button>
@@ -235,7 +237,7 @@ export default {
           url: "src/assets/img/regions/United States.webp",
         },
       ],
-      selectedColor: "#222",
+      selectedColor: "gray",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
@@ -245,31 +247,15 @@ export default {
       }).mapCurrent({ lg: 2 }, 1),
       selectedDate: null,
       isShown: false,
-      attributes: [
-        // This is a single attribute
-        {
-          key: "",
-          // Attribute type definitions
-          // content: "white", // Boolean, String, Object
-          content: "red", // Boolean, String, Object
-          highlight: {
-            start: {
-              // content: "purple",
-              // color: "black",
-              fillMode: "light",
-            },
-            base: { fillMode: "light" },
-            end: { fillMode: "light" },
-          },
-          popover: {},
-
-          customData: {},
-
-          dates: { start: new Date(), end: new Date(2023, 2, 30)         },
-
-          order: 0,
-        },
-      ],
+      attributes:[
+  {
+    key: '',
+    highlight: true,
+    fillmode:'outline',
+    
+    dates: { start: new Date(2023, 2, 31), end: new Date(2023, 3, 4) },
+  }
+],
     };
   },
   computed: {},

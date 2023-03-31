@@ -238,6 +238,7 @@ export default {
     this.order.stay._id = this.stay._id;
     this.order.hostId = hostId;
     this.order.stay.name = this.stay.name;
+    this.order.stay.img = this.stay.imgUrls[0];
     this.order.stay.price = this.stay.price;
     // console.log("this.order in created", this.order);
     // console.log("stay in created", this.stay);
@@ -287,6 +288,7 @@ export default {
       ],
 
       order: {
+        
         hostId: "",
         buyer: {
           _id: null,
@@ -297,6 +299,7 @@ export default {
         startDate: "",
         endDate: "",
         nigths: 0,
+        
         guests: {
           adults: 0,
           kids: 0,
@@ -307,6 +310,7 @@ export default {
           _id: this.stay?._id,
           name: this.stay?.name,
           price: this.stay?.price,
+          img:'',
         },
         msgs: [],
         status: "pending", // pending, approved

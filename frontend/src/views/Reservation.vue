@@ -52,9 +52,9 @@
     <section class="reservation-price-details-modal">
       <div class="reservation-privew">
        <div class="reservation-privew-img-container"><img class="reservation-privew-img"
-          src="src/assets/img/demo.jpeg"
+           :src="this.currOrder.stay.img"
           alt=""/></div>
-
+    
         <div class="reservation-privew-info">
           <div><span class="stay-type">Entire home</span>
           <p>Entire Villa, Cilento Paestum for 28 p!</p></div>
@@ -69,7 +69,8 @@
         </div>
       </div>
       <section class="reservation-privew-cover">
-        <span >Your booking is protected by </span><img class="air-cover-img" src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" alt="AirCover">
+        <span >Your booking is protected by </span>
+        <img class="air-cover-img" src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" alt="AirCover">
 
   
       </section>
