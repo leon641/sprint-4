@@ -251,40 +251,23 @@ export default {
       cleaningFee: 221,
       loggedinUser: {},
       isShown2: false,
-      
       selectedColor: "#222",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
-        sm: "640px",
+        sm: "500px",
         md: "768px",
         lg: "1024px",
-      }).mapCurrent({ lg: 2 }, 1),
+      }).mapCurrent({ lg: 2 ,sm:1} ,1),
       selectedDate: null,
       isShown: false,
       attributes: [
         // This is a single attribute
-        {
-          key: "",
-          // Attribute type definitions
-          highlight: {
-            start: {
-              content: "true", // Boolean, String, Object
-              content: "#222",
-              color: "#222",
-              fillMode: "outline",
-            },
-            base: { fillMode: "light" },
-            end: { fillMode: "outline" },
-          },
-          popover: {},
-
-          customData: {},
-
-          dates: { start: new Date(), end: new Date(2023, 2, 30) },
-
-          order: 0,
-        },
+     {
+    key: 'test',
+    highlight: true,
+    dates: { start: new Date(), end: new Date(2023,3,4)},
+  }
       ],
 
       order: {
