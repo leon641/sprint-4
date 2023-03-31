@@ -43,7 +43,7 @@ export default {
     // console.log(user,'in app index');
     window.scrollTo(0, 0);
    await this.$store.dispatch({ type: "loadStays" });
-   await this.$store.dispatch({ type: "loadUsers" });
+  //  await this.$store.dispatch({ type: "loadUsers" });
    await this.$store.dispatch({ type: "loadLoggedinUser" });
    this.isShown=true
   },

@@ -9,6 +9,7 @@
     background-color: #fff;
     font-family: Airbnb_Cereal-Book;
 
+
     &.stay-details {
         &>* {
             grid-column: 2;
@@ -84,6 +85,7 @@
         margin-inline-start: rem(4.8px);
         font-weight: 600;
         // transform: translaterem((4px),rem( 5px));
+       
     }
 }
 
@@ -92,6 +94,9 @@
     align-items: center;
     gap: rem(74px);
     position: relative;
+    @include for-mobile-layout {
+        gap: 45px;
+            }
 
     :first-child:not(.login) {
         display: flex;
@@ -108,11 +113,13 @@
             background-color: #f7f7f7;
             // height: 42px;
         }
+        
     }
 
     a {
         font-size: rem(14px);
         font-weight: 600;
+    
     }
 
     .hamburger {
@@ -134,7 +141,7 @@
         padding-inline-end: rem(6px);
         padding-inline-start: rem(12px);
         padding-block: rem(5px);
-
+        
 
         svg {
             display: block;
@@ -158,6 +165,9 @@
 }
 
 .secondary-header {
+    @include for-mobile-layout {
+        display: none;
+            }
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -189,4 +199,10 @@
     .login {
         border-block-end: rem(1px) solid black;
     }
+}
+
+.filter {
+    @include for-mobile-layout {
+        display: none;
+            }
 }

@@ -39,7 +39,7 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
             stays = stays.filter(stay => filterBy.likedStays.includes(stay.name))
             console.log('stays in qury likedby', stays);
 
-        }
+        } 
         if (filterBy.label) {
             stays = stays.filter(stay => stay.type.includes(filterBy.label))
         }

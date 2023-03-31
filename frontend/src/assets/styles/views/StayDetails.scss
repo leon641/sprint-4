@@ -1,6 +1,12 @@
 .stay-details {
     display: grid;
     grid-template-columns: minmax(20px,1fr) minmax(auto ,1120px) minmax(20px,1fr) ;
+    @include for-mobile-layout {
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto,400px)
+            minmax(20px, 1fr);
+    }
     .stay-map{
         grid-column: 2;
         padding-bottom: 30px;

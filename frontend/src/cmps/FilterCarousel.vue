@@ -176,8 +176,8 @@ export default defineComponent({
     // any settings not specified will fallback to the carousel settings
     breakpoints: {
       // 460 and up
-      460: {
-        itemsToShow: 3,
+      350: {
+        itemsToShow: 4,
         snapAlign: 'center',
       },
       // 550px and up
