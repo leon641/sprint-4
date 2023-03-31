@@ -21,19 +21,18 @@
       </div>
     </div>
   </div>
-  <div v-if="propCheck || propCheckOut" class="check-modal vc-blue ">
+  <div v-if="propCheck || propCheckOut" class="check-modal vc-blue">
     <VDatePicker
-      class="date-picker vc-blue  "
+      class="date-picker vc-blue"
       expanded
       :min-date="new Date()"
       borderless
-      :color='selectedColor '
+      :color="selectedColor"
       :attributes="attributes"
-      @click="renderDate"
+      @click="renderDate()"
       :columns="columns"
       :locale="locale"
       v-model="selectedDate"
-
     />
     <!-- <el-radio-group v-model="size" label="size control" size="small">
       <el-radio-button label="large">large</el-radio-button>
@@ -207,6 +206,9 @@ export default {
   },
   data() {
     return {
+      day: 1000 * 60 * 60 * 24,
+      checkIn: "",
+      checkOut: "",
       regions: [
         {
           title: "I'm flexible",
@@ -247,15 +249,16 @@ export default {
       }).mapCurrent({ lg: 2 }, 1),
       selectedDate: null,
       isShown: false,
-      attributes:[
-  {
-    key: '',
-    highlight: true,
-    fillmode:'outline',
-    
-    dates: { start: new Date(2023, 2, 31), end: new Date(2023, 3, 4) },
-  }
-],
+      attributes: [
+        {
+          key: "",
+          highlight: true,
+          fillmode: "outline",
+
+          dates: undefined,
+          // dates: { start: new Date(2222,2,2), end: new Date(2222,2,2) },
+        },
+      ],
     };
   },
   computed: {},
@@ -277,19 +280,32 @@ export default {
       console.log(" this.order", this.order);
     },
     renderDate() {
-      if (this.selectedDate < this.attributes[0].dates.start) {
-        this.attributes[0].dates.start = this.selectedDate;
+      console.log("this.dates", this.dates);
+      if (this.dates?.start) {
+        this.dates.end = this.selectedDate;
+        this.$emit("setDates", this.dates);
+
+        console.log("this.dates", this.dates);
       } else {
-        this.attributes[0].dates.end = this.selectedDate;
+        this.dates = { start: this.selectedDate, end: this.selectedDate };
+
+        // this.dates.start = this.selectedDate;
+        // this.dates.end = this.selectedDate;
+        console.log("this.dates", this.dates);
       }
+
+      // if (this.selectedDate < this.attributes[0].dates.start) {
+      //   this.attributes[0].dates.start = this.selectedDate;
+      // } else {
+      //   this.attributes[0].dates.end = this.selectedDate;
+      // }
     },
     setRegion(title) {
-      // console.log('title',title)
       this.$emit("setRegion", title);
       this.$emit("switchToCheck");
     },
   },
-  emits: ["setRegion", "switchToCheck"],
+  emits: ["setRegion", "switchToCheck", "setDates"],
 };
 
 // import { ref } from "vue";
@@ -303,7 +319,7 @@ export default {
 //   {
 //     text: "Last week",
 //     value: () => {
-//       const end = new Date();
+//       const end = this.selectedDate;
 //       const start = new Date();
 //       start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
 //       return [start, end];
