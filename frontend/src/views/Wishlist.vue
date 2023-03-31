@@ -16,9 +16,12 @@ export default {
         wishList : [],
     }
   },
-  created() {
-    this.wishList = this.$store.getters.loggedinUser.likedByUsers
+  async created() {
+    const user=this.$store.getters.loggedinUser
+
     console.log('this.$store.getters.loggedinUser',this.$store.getters.loggedinUser);
+   const wishList= await this.$store.dispatch({type:'getLikedStays',stayIds:user.likedByUsers})
+    this.wishList=wishList
     
     
   },

@@ -87,11 +87,10 @@ export default {
     },
       setWishlist() {
       //  let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
-       let user = userService.getLoggedinUser()
-    
-          console.log('user in componenets',user);
           this.isMark = !this.isMark
-          user.likedByUsers.push(this.stay)
+          let user = userService.getLoggedinUser()
+   
+          user.likedByUsers.push(this.stay._id)
           console.log('user in componenets',user);
           
              this.$store.dispatch({

@@ -15,11 +15,18 @@ export const stayService = {
     save,
     remove,
     getEmptyStay,
-    addStayMsg
+    addStayMsg,
+    getLikedStays
 }
 window.cs = stayService
 
-
+async function getLikedStays(stayIds){
+   const filterBy={}
+    filterBy.likedStays=stayIds
+    const likedStays= await query({...filterBy})
+    console.log('likedStays in stay service',likedStays);
+    
+}
 async function query( filterBy = { txt: '', price: 0 }) {
     console.log('filterBy',filterBy);
     

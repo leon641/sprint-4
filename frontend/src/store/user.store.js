@@ -127,10 +127,11 @@ export const userStore = {
                 throw err
             }
         },
-        async updateUser({ commit }, { user }) {
+        async updateUser(context, { user }) {
             console.log('before',user);
             try {
                 user = await userService.update(user)
+                
                 console.log('userrrr',user);
                 // commit({ type: 'setUsers', user })
             } catch (err) {

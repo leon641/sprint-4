@@ -13,7 +13,7 @@ const gRegions = {
     'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
     'United Kingdom': ['GB'],
   }
-async function query( filterBy = { txt: '', region: '', label: '' }) {
+async function query( filterBy = { txt: '', region: '', label: '',likedStays:[] }) {
     try {
         // const criteria = {
             // console.log('filterBy',filterBy); 
@@ -31,6 +31,15 @@ async function query( filterBy = { txt: '', region: '', label: '' }) {
       }
         if (filterBy.region) {
             stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
+        }
+        if(filterBy.likedStays){
+        
+            stays =  filterBy.likedStays.filter(stayId => {
+            stays.filter(stay => stay._id===stayId)
+            });
+            console.log('stays in qury likedby',stays);
+            
+            
         }
           if (filterBy.label) {
             stays = stays.filter(stay => stay.type.includes(filterBy.label))
