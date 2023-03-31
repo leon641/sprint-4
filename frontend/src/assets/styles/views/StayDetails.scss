@@ -1,39 +1,41 @@
 .stay-details {
     display: grid;
-    grid-template-columns: minmax(20px,1fr) minmax(auto ,1120px) minmax(20px,1fr) ;
+    grid-template-columns: minmax(20px, 1fr) minmax(auto, 1120px) minmax(20px, 1fr);
+
     @include for-mobile-layout {
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto,400px)
-            minmax(20px, 1fr);
+        display: flex;
+        flex-direction: column;
     }
-    .stay-map{
+
+    .stay-map {
         grid-column: 2;
         padding-bottom: 30px;
         border-bottom: 1px solid #dddddd;
-        h3{
+
+        h3 {
             margin-top: 15px;
             margin-bottom: 0px;
             padding-block: 30px;
             padding-bottom: 21px;
             font-size: 22px;
-        letter-spacing: .01px;
+            letter-spacing: .01px;
 
         }
-        .map-stay-info{
+
+        .map-stay-info {
             display: flex;
             margin-bottom: 14px
-            
-            
         }
-        .stay-country{
-            font-family:  CircularAir-Light;
+
+        .stay-country {
+            font-family: CircularAir-Light;
             font-size: 16px;
             font-weight: 400;
         }
-        .stay-city{
+
+        .stay-city {
             margin-left: 5px;
-            font-family:  CircularAir-Light;
+            font-family: CircularAir-Light;
             font-size: 16px;
             font-weight: 400;
         }
@@ -70,30 +72,31 @@
     .details-links-container {
         display: flex;
         justify-content: space-between;
-        
+
 
         .details-links {
             display: inline-flex;
             min-width: 0;
             align-items: center;
             margin-block-start: 0;
-            
-            .details-links-svg{
-                margin-block-start:4px ;
+
+            .details-links-svg {
+                margin-block-start: 4px;
                 margin-inline-start: 1px;
             }
+
             .review-rate {
                 font-size: rem(14px);
                 color: #222;
                 text-decoration: none;
             }
-           
+
             .d-link .reviews {
                 font-family: CircularAir-Light;
                 margin-inline-start: em(2px);
             }
         }
-        
+
         .d-link {
             margin-inline-start: em(4px);
             font-weight: 400;
@@ -117,10 +120,12 @@
                 max-height: 29px;
 
             }
-            .action-link-container:hover{
+
+            .action-link-container:hover {
                 border-radius: 7px;
-                background-color:$clr11;
+                background-color: $clr11;
             }
+
             .share-save-info-svg {
                 margin-block-start: 3px;
                 margin-inline-end: 0px;
@@ -130,17 +135,20 @@
             .share-svg {
                 margin-block-start: 0px;
             }
-                .d-link-save{
-                    letter-spacing: 0.1px;
-                    font-weight: bold;
-                }
-                .d-link-share{
-                    letter-spacing: 0px;
-                    font-weight: bold;
-                }
+
+            .d-link-save {
+                letter-spacing: 0.1px;
+                font-weight: bold;
+            }
+
+            .d-link-share {
+                letter-spacing: 0px;
+                font-weight: bold;
+            }
+
             .d-link-share,
             .d-link-save {
-             font-family: CircularAir-Light;
+                font-family: CircularAir-Light;
                 font-size: 14px;
                 color: #222;
                 text-decoration: underline;
@@ -153,6 +161,13 @@
 
 
 .details-gallery {
+    @include for-mobile-layout {
+        display: flex;
+        flex-direction: column;
+        background-color: aqua;
+
+    }
+
     display: grid;
 
     grid-template-rows: repeat(2, minmax(150px, 200px));
@@ -175,11 +190,31 @@
         border-top-left-radius: 15px;
     }
 
+    .item2 {
+        @include for-mobile-layout {
+            display: none;
+        }
+    }
+
     .item3 {
+        @include for-mobile-layout {
+            display: none;
+        }
+
         border-top-right-radius: 15px;
     }
 
+    .item4 {
+        @include for-mobile-layout {
+            display: none;
+        }
+    }
+
     .item5 {
+        @include for-mobile-layout {
+            display: none;
+        }
+
         border-bottom-right-radius: 15px;
 
     }
@@ -189,10 +224,19 @@
     display: flex;
     justify-content: space-between;
 
+    @include for-mobile-layout {
+
+        flex-direction: column;
+    }
+
 }
 
 .place-content {
     width: 58%;
+
+    @include for-mobile-layout {
+        width: 100%;
+    }
 
     .subtitle {
         display: grid;
@@ -206,7 +250,7 @@
         }
     }
 
-   
+
 
     .place-cpacity-services {
         grid-column: 1;
@@ -271,17 +315,18 @@
     padding-top: em(32px);
     padding-bottom: em(32px);
     border-bottom: 1px solid #dddddd;
-    img{
+
+    img {
         width: 120px;
     }
 
-    p{
+    p {
         margin-block-start: 10px;
         line-height: 22px;
-        font-size: 1rem; 
-         font-family: CircularAir-Light;
-         color: #222;
-     
+        font-size: 1rem;
+        font-family: CircularAir-Light;
+        color: #222;
+
     }
 }
 
@@ -290,23 +335,29 @@
     padding-bottom: em(32px);
     border-bottom: 1px solid #dddddd;
     line-height: 22px;
-    font-size: 1rem; 
-     font-family: CircularAir-Light;
-     color: #222;
+    font-size: 1rem;
+    font-family: CircularAir-Light;
+    color: #222;
 }
 
 .amenities-container {
     padding-bottom: 0;
     border-bottom: 0;
     padding-top: 32px;
-    h2{
+
+    h2 {
         font-size: 21px;
         letter-spacing: 0;
         margin-block-end: 25px;
     }
+
     .stay-amenities {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        @include for-mobile-layout {
+            display: block;
+        }
     }
 
     .user-stay-info-svg {
@@ -319,6 +370,10 @@
         padding-bottom: 16px;
         gap: em(10px);
         font-family: CircularAir-Light;
+
+        @include for-mobile-layout {
+            padding-bottom: 8px;
+        }
 
         p {
             margin: 0;
@@ -335,12 +390,18 @@
 }
 
 .reviews-container {
+    @include for-mobile-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 40px;
     column-gap: 10px;
     margin-bottom: 0px;
-    
+
 
     .review-preview {
         display: flex;
@@ -354,14 +415,16 @@
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(4, 1fr);
-   column-gap: 10px;
-   row-gap: 10px;
+    column-gap: 10px;
+    row-gap: 10px;
     margin-bottom: 40px;
     align-items: center;
-.rating-bar-container{
-    display: flex;
-    justify-content: space-between;
-}
+
+    .rating-bar-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
     p {
         font-family: CircularAir-Light;
         color: #222;
@@ -371,6 +434,10 @@
     }
 
     .rating-bar {
+        @include for-mobile-layout {
+            margin-inline-start: 0px;
+        }
+
         border-radius: 30em;
         height: min-content;
         overflow: hidden;
@@ -402,15 +469,19 @@
 }
 
 .total-review {
+    @include for-mobile-layout {}
+
     margin-bottom: 32px;
 
     .review-score {
         font-size: 1.25em;
     }
-    .review-score-dot{
+
+    .review-score-dot {
         font-size: 20px;
         margin-inline-start: 2px;
     }
+
     .num-of-reviews {
         font-size: 1.2em;
         letter-spacing: 0;
@@ -432,7 +503,8 @@
             margin: 0;
             line-height: em(24px);
             color: $clr7;
-            p{
+
+            p {
                 overflow-x: hidden;
                 font-family: CircularAir-Light;
                 margin-top: 10px;
@@ -465,7 +537,6 @@
             padding-inline-start: 12px;
             color: $clr9;
             font-family: CircularAir-Light
-
         }
 
         img {
