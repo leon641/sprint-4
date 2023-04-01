@@ -63,8 +63,8 @@ export const orderStore = {
     actions: {
         async setOrder({ commit }, { order }) {
 
-            const updatedUser = await orderService.setOrder(order)
-            commit({ type: 'updatedLoggedin', updatedUser })
+            await orderService.setOrder(order)
+          
         },
         async setCurrOrder({ commit }, { order }) {
 
@@ -73,6 +73,8 @@ export const orderStore = {
         async loadOrders({ commit }) {
 
             const orders= await orderService.query()
+            console.log('orders in orderStore',orders);
+            
             commit({ type: 'setOrders', orders })
         },
         async getOrderById({ commit }, { orderId }) {
@@ -109,9 +111,10 @@ export const orderStore = {
                 throw err
             }
         },
-        async loadOrders(context, { filterBy }) {
+        async loadOrders(context) {
             try {
-                const orders = await orderService.query(filterBy)
+                const orders = await orderService.query()
+                console.log('orders',orders)
 
                 context.commit({ type: 'setOrders', orders })
             } catch (err) {

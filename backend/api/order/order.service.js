@@ -1,5 +1,6 @@
 const Cryptr = require('cryptr')
 const bcrypt = require('bcrypt')
+const dbService = require('../../services/db.service')
 const orderService = require('../order/order.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
@@ -9,8 +10,8 @@ module.exports = {
     addOrder,
 }
 
-async function query(filterBy = {}) {
-    const criteria = _buildCriteria(filterBy)
+async function query() {
+  
     try {
         const collection = await dbService.getCollection('order')
         var orders = await collection.find({}).toArray()
@@ -54,8 +55,10 @@ async function addOrder(order) {
         console.log('orderToAdd before',orderToAdd);
         
         const collection = await dbService.getCollection('order')
+        console.log('collection',collection);
+        
         await collection.insertOne(orderToAdd)
-        console.log('orderToAdd before',orderToAdd);
+        console.log('orderToAdd after',orderToAdd);
         return orderToAdd
     } catch (err) {
         logger.error('cannot add order', err)

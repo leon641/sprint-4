@@ -22,11 +22,9 @@ window.cs = orderService
 
 
 async function query() {
-    return httpService.get(STORAGE_KEY, filterBy)
+    return httpService.get(STORAGE_KEY)
 
     // var orders = await storageService.query(STORAGE_KEY)
-   
-    return orders
 
 }
 async function setOrder(order) {
