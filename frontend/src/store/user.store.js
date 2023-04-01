@@ -128,7 +128,6 @@ export const userStore = {
             try {
                 user = await userService.update(user)
 
-                console.log('userrrr', user);
                 context.commit({ type: 'updatedLoggedin', user })
             } catch (err) {
                 console.log('userStore: Error in updateUser', err)
