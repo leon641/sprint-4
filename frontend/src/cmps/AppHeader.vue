@@ -17,7 +17,7 @@
       />
       <DetailsFilter
         v-if="layout === 'stay-details'"
-        :layout="layout"
+       
         @expand="expand"
         @toWhere="toWhere"
       />
@@ -102,7 +102,7 @@ export default {
     // console.log("km", this.$route);
     // if (this.$route.params.stayId) {
     //   console.log("545", this.$route.params.stayId);
-    //   this.layout = "stay-details";
+      // this.layout = "stay-details";
     // }
   },
   computed: {

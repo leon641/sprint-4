@@ -19,7 +19,7 @@ function createEventEmitter() {
 }
 
 export const eventBus = createEventEmitter()
-
+// esxport const eventBusService = { on, emit }
 export function showUserMsg(msg) {
     eventBus.emit('show-msg', msg)
 }

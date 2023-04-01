@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <div class="filter" :class="layout" @click="expand">
+  <div class="filter"  @click="expand">
     <section class="filter-btns">
       <div class="start-content">
         <div class="start">Start your search</div>
