@@ -42,8 +42,8 @@ export const orderStore = {
     },
 
     mutations: {
-        setOrders(state, { orders }) {
-            state.orders = orders
+        setOrders(state, { order }) {
+            state.orders.push(order)
         },
         setCurrOrder(state, { order }) {
             state.currOrder = order
