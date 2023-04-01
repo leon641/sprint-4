@@ -6,7 +6,7 @@
         <h1>Wishlist</h1>
       </div>
       <h4>
-        <span>8</span>
+        <span>{{loggedinUser.likedByUsers.length}}</span>
         &nbsp;saved stays
       </h4>
       <button class="mini-card-btn" @click="goToWishList">Go to wishlist</button>
@@ -85,11 +85,12 @@ export default {
   data() {
     return {
       loggedinUser : {},
+      currOrder : {},
     };
   },
    created() {
+    this.currOrder = this.$store.getters.orders
     this.loggedinUser = this.$store.getters.loggedinUser
-    console.log('login user in trips',this.$store.getters.loggedinUser);
   },
   computed: {},
   methods : {

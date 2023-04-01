@@ -19,11 +19,13 @@ export default {
   async created() {
     const user=this.$store.getters.loggedinUser
 
-    console.log('this.$store.getters.loggedinUser',this.$store.getters.loggedinUser);
    const wishList= await this.$store.dispatch({type:'getLikedStays',stayNames:user.likedByUsers})
-    this.wishList=wishList
-    
-    
+   const reverseWishList = []
+   for(let i = wishList.length-1; i > 0; i--) {
+    reverseWishList.push(wishList[i])
+   }
+   this.wishList = reverseWishList
+
   },
   computed: {
     

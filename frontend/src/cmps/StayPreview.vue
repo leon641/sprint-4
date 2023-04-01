@@ -95,7 +95,6 @@ export default {
       let user = userService.getLoggedinUser();
 
       user.likedByUsers.unshift(this.stay.name);
-      console.log("user in componenets", user);
 
       this.$store.dispatch({
         type: "updateUser",
@@ -117,7 +116,6 @@ export default {
         maximumFractionDigits: 0,
       });
       let num = Number(formatter.format(this.stay.price));
-      console.log(num);
       return formatter.format(this.stay.price);
     },
   },
