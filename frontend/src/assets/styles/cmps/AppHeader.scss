@@ -119,7 +119,12 @@
     a {
         font-size: rem(14px);
         font-weight: 600;
-    
+    }
+
+    .your, .home, .airbnb, .really, .strong, .one{
+        @include for-mobile-layout {
+            display: none !important;
+        }
     }
 
     .hamburger {
