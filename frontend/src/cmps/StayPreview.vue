@@ -4,8 +4,13 @@
   <div v-if="stay" class="stay-preview">
     <section>
       <div class="card" @click="cardClicked(stay._id)">
-        <ImgCarousel :imgs= "stay.imgUrls" />
-              <span class="heartCarousel" @click.stop.prevent="setWishlist" :class="{ mark: isMark }" v-html="getSvg('hreatCaroousel')"></span>
+        <ImgCarousel :imgs="stay.imgUrls" />
+        <span
+          class="heartCarousel"
+          @click.stop.prevent="setWishlist"
+          :class="{ mark: isMark }"
+          v-html="getSvg('hreatCaroousel')"
+        ></span>
 
         <div class="stay-desc-container">
           <div class="stay-desc">
@@ -30,12 +35,12 @@
                   fill-rule="evenodd"
                 ></path>
               </svg>
-              <span>&nbsp;{{averageRate}}&nbsp;</span>
+              <span>&nbsp;{{ averageRate }}&nbsp;</span>
             </div>
             <p class="stay-summery">
               {{ stay?.loc?.address }}
             </p>
-            <p class="stay-capacity">{{stay.capacity}}&nbsp;beds</p>
+            <p class="stay-capacity">{{ stay.capacity }}&nbsp;beds</p>
             <p class="stay-price">
               <span>${{ stay.price }}</span>
               night
@@ -50,17 +55,16 @@
 <script>
 import ImgCarousel from "./ImgCarousel.vue";
 import { svgService } from "../services/svg.service.js";
-import { userService } from '../services/user.service';
-
+import { userService } from "../services/user.service";
 
 export default {
   props: {
-    stay: [Object,String],
+    stay: [Object, String],
   },
   data() {
     return {
-      loggedinUser : {},
-      averageRate : 0,
+      loggedinUser: {},
+      averageRate: 0,
       imgs: [
         "../assets/img/demo.jpeg",
         "../assets/img/demo.jpeg",
@@ -70,43 +74,40 @@ export default {
         "../assets/img/demo.jpeg",
       ],
       isMark: false,
-    }
+    };
   },
 
   created() {
     // this.loggedinUser = this.$store.getters.loggedinUser
     // console.log(this.loggedinUser);
-    this.rate()
+    this.rate();
   },
   methods: {
     cardClicked(stayId) {
       this.$router.push(`/details/${stayId}`);
     },
-     getSvg(iconName) {
-      return svgService.getSvg(iconName)
+    getSvg(iconName) {
+      return svgService.getSvg(iconName);
     },
-      setWishlist() {
-      //  let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)) 
-          this.isMark = !this.isMark
-          let user = userService.getLoggedinUser()
-   
-          user.likedByUsers.unshift(this.stay.name)
-          console.log('user in componenets',user);
-          
-             this.$store.dispatch({
-                type: "updateUser",
-                user,
-            })
-            // this.$router.push("/wishlist")
-           
-        },
-      rate() {
-      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate,0); 
-      const averageRate = sum / this.stay.reviews?.length;
-      this.averageRate=averageRate.toFixed(2)      
+    setWishlist() {
+      //  let user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser))
+      this.isMark = !this.isMark;
+      let user = userService.getLoggedinUser();
 
+      user.likedByUsers.unshift(this.stay.name);
+      console.log("user in componenets", user);
+
+      this.$store.dispatch({
+        type: "updateUser",
+        user,
+      });
+      // this.$router.push("/wishlist")
     },
-   
+    rate() {
+      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate, 0);
+      const averageRate = sum / this.stay.reviews?.length;
+      this.averageRate = averageRate.toFixed(2);
+    },
   },
   computed: {
     formattedPrice() {
@@ -119,7 +120,6 @@ export default {
       console.log(num);
       return formatter.format(this.stay.price);
     },
-   
   },
 
   components: {

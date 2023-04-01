@@ -19,8 +19,8 @@ export const userStore = {
         watchedUser({ watchedUser }) { return watchedUser }
     },
     mutations: {
-        updatedLoggedin(state, { updatedUser }) {
-            state.loggedinUser = updatedUser
+        updatedLoggedin(state, { user }) {
+            state.loggedinUser = user
             console.log('state.loggedinUser in user store', state.loggedinUser);
 
         },
@@ -78,8 +78,8 @@ export const userStore = {
             // TODO: loading
             try {
                 const users = await userService.getUsers()
-                console.log('users in store',users);
-                
+                console.log('users in store', users);
+
                 commit({ type: 'setUsers', users })
             } catch (err) {
                 console.log('userStore: Error in loadUsers', err)
@@ -100,10 +100,6 @@ export const userStore = {
                 throw err
             }
         },
-
-
-
-
         async loadAndWatchUser({ commit }, { userId }) {
             try {
                 const user = await userService.getById(userId)
@@ -130,12 +126,12 @@ export const userStore = {
             }
         },
         async updateUser(context, { user }) {
-            console.log('before',user);
+            console.log('before', user);
             try {
                 user = await userService.update(user)
-                
-                console.log('userrrr',user);
-                // commit({ type: 'setUsers', user })
+
+                console.log('userrrr', user);
+                context.commit({ type: 'updatedLoggedin', user })
             } catch (err) {
                 console.log('userStore: Error in updateUser', err)
                 throw err
