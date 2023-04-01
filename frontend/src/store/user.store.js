@@ -90,6 +90,8 @@ export const userStore = {
             try {
                 const orders = await orderService.query()
                 console.log('orders in store', orders);
+                console.log('userId',userId);
+                
                 const myOrders = orders.filter(order => order.hostId === userId)
                 console.log('myOrders', myOrders);
                 return myOrders

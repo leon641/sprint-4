@@ -37,7 +37,9 @@ export default {
     userId: String,
   },
   async created() {
-    await this.$store.dispatch({ type: "loadOrders" });
+    const orders=await this.$store.dispatch({ type: "loadOrders" });
+    console.log('orders in dashres',orders);
+    
     const myOrders = await this.$store.dispatch({
       type: "getMyOrders",
       userId: this.userId,

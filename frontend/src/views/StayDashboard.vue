@@ -20,7 +20,7 @@ export default {
   await this.$store.dispatch({ type: "loadOrders" });
     this.loggedinUser = this.$store.getters.loggedinUser;
     this.orders = this.$store.getters.orders;
- console.log("loging in dash",  this.orders);
+ console.log("orders in dash",  this.orders);
     console.log("loging in dash", this.loggedinUser);
   
   },

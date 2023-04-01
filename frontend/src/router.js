@@ -35,7 +35,7 @@ const routes = [
     component: StayDashboard,
     children: [
       {
-        path: "/dashboard/reservation/",
+        path: "/dashboard/reservations",
         component: DashboardReservation
       },
       {
