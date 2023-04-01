@@ -64,6 +64,7 @@ export const orderStore = {
         async setOrder({ commit }, { order }) {
 
             await orderService.setOrder(order)
+            commit({ type: 'setOrders', order })
           
         },
         async setCurrOrder({ commit }, { order }) {
