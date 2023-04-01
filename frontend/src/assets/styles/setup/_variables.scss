@@ -2,8 +2,8 @@
 
 //css vars
 :root{
-    --vc-gray-600:#222;
-    --vc-highlight-solid-content-color:#222
+    // --vc-gray-600:#222;
+    // --vc-highlight-solid-content-color:#222
 }
 // Colors
 $clr1: #fe385c;
@@ -24,13 +24,13 @@ $clr15: #1b1b1b57;
 $clr16: #DDDDDD;
 $clr17: #969393;
 
-.vc-gray {
-    color: var(--vc-gray-600);
+// .vc-gray {
+//     color: var(--vc-gray-600);
  
-}
-.vc-light .vc-attr{
-    color: var(--vc-highlight-solid-content-color)
-}
+// }
+// .vc-light .vc-attr{
+//     color: var(--vc-highlight-solid-content-color)
+// }
 // Breakpoints
 // $mobile-breakpoint: 460px;
 // $narrow-breakpoint: 720px;
