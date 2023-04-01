@@ -85,12 +85,13 @@ export default {
   data() {
     return {
       loggedinUser : {},
-      currOrder : {},
+      orders : {},
     };
   },
    created() {
-    this.currOrder = this.$store.getters.orders
+    this.orders = this.$store.getters.orders
     this.loggedinUser = this.$store.getters.loggedinUser
+    console.log('currOrder in trips',this.orders);
   },
   computed: {},
   methods : {
