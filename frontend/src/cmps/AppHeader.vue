@@ -23,7 +23,7 @@
       />
       <div class="user-area">
         <div>
-          <a>Airbnb your home</a>
+          <a class="your home airbnb really strong one">Airbnb your home</a>
         </div>
         <div class="hamburger" @click="toggleUserMenu">
           <svg
