@@ -22,20 +22,21 @@ window.cs = orderService
 
 
 async function query() {
-    // return httpService.get(STORAGE_KEY, filterBy)
+    return httpService.get(STORAGE_KEY, filterBy)
 
-    var orders = await storageService.query(STORAGE_KEY)
+    // var orders = await storageService.query(STORAGE_KEY)
    
     return orders
 
 }
 async function setOrder(order) {
-   await storageService.post(STORAGE_KEY, order)
+//    await storageService.post(STORAGE_KEY, order)
+   return httpService.post(STORAGE_KEY, order)
 
 }
 function getById(orderId) {
-    return storageService.get(STORAGE_KEY, orderId)
-    // return httpService.get(`order/${orderId}`)
+    // return storageService.get(STORAGE_KEY, orderId)
+    return httpService.get(`order/${orderId}`)
 }
 
 async function remove(orderId) {

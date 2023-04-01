@@ -46,6 +46,9 @@
               expanded
               :color="selectedColor"
               borderless
+               :select-attribute="attribute"
+             
+              :drag-attribute="attribute"
               :attributes="attributes"
               @click="renderDate"
               :columns="columns"
@@ -261,13 +264,38 @@ export default {
       }).mapCurrent({ lg: 2 ,sm:1} ,1),
       selectedDate: null,
       isShown: false,
+        attribute :{
+                highlight: {
+                    start: {
+                        style: {
+                            backgroundColor: '#3dafcc', // blue
+                        },
+                        contentStyle: {
+                            color: '#ffffff' // color of the text
+                        }
+                    },
+                    base: {
+                        style: {
+                            backgroundColor: '#D3EAF1', // light blue
+                        }
+                    },
+                    end: {
+                        style: {
+                            backgroundColor: '#3dafcc', // blue
+                        },
+                        contentStyle: {
+                            color: '#ffffff' // color of the text
+                        }
+                    }
+                }
+            },// This is a single attribute
       attributes: [
-        // This is a single attribute
      {
     key: 'test',
     highlight: true,
     dates: { start: new Date(), end: new Date(2023,3,4)},
-  }
+  },
+
       ],
 
       order: {
