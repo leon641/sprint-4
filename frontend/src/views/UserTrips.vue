@@ -13,19 +13,24 @@
     </div>
       <div class="mini-card-header mini-card card-item-3">
         <h1>Messages</h1>
-      <h4>order #o1226 has been approved</h4>
-      <button class="mini-card-btn">Go to messages</button>
+      <h3>Order #o1226 in status: {{currOrder.status}}</h3>
+    
 
         
       </div>
       <div class="mini-card card-item-1">
         <div class="next-stay">
     <h1>Your Next Stay</h1>
-      <span>Entire amazing views hosted by Patty And Beckett</span>
+      <h3>{{currOrder.stay.name}}</h3>
+      <h4>Adults: {{currOrder.guests.adults}}</h4>
+      <h4>Kids: {{currOrder.guests.kids}}</h4>
+      <h4>Infants: {{currOrder.guests.infants}}</h4>
+      <h4>Pets: {{currOrder.guests.pets}}</h4>
+      <h4>Total price: ${{currOrder.totalPrice}}</h4>
       <button class="mini-card-btn">Go to stay</button>
         </div>
      <div class="next-stay-img">
-      <img src="../assets/img/demo.jpeg" alt="" srcset="">
+      <img :src="currOrder.stay.img" alt="" srcset="">
      </div>
       </div>
 
@@ -85,13 +90,13 @@ export default {
   data() {
     return {
       loggedinUser : {},
-      orders : {},
+      currOrder : {},
     };
   },
    created() {
-    this.orders = this.$store.getters.orders
+    this.currOrder = this.$store.getters.currOrder
     this.loggedinUser = this.$store.getters.loggedinUser
-    console.log('currOrder in trips',this.orders);
+    console.log('currOrder in trips',this.currOrder);
   },
   computed: {},
   methods : {
