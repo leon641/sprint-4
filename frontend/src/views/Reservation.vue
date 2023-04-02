@@ -1,5 +1,6 @@
 
 <template>
+
 <section class="reservation-view-container">
   <header class="reservation-header">
     <div class="reservation-header-svg-container">
@@ -93,6 +94,7 @@
 </template>
 <script>
 import ReserveBtnReservation from '../cmps/ReserveBtnReservation.vue';
+import DoughnutChart from '../cmps/DoughnutChart.vue';
 import { svgService } from "../services/svg.service";
 
 export default {
@@ -116,7 +118,9 @@ console.log('this.currOrder',this.currOrder);
   },
   computed: {},
   components:{
-    ReserveBtnReservation
+    ReserveBtnReservation,
+    
+    
   }
 };
 </script>

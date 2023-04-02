@@ -1,0 +1,28 @@
+#doughnut-chart{
+    max-width: 60%;
+    max-height: 60%;
+    display: block;
+    box-sizing: border-box;
+    height: 200px;
+    width: 400px;
+}
+
+
+.chart {
+    padding: 5px;
+    display: -webkit-inline-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: $clr4;
+    border: 1px solid black;
+    border-radius: 9px;
+
+    h2 {
+        color: rgb(248, 237, 223);
+    }
+}
+.char2 {
+    width: 25%;
+}
+

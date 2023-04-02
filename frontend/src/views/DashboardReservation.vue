@@ -1,5 +1,13 @@
 <template>
   <section class="dashBoard-container">
+    <div class="chart">
+    <DoughnutChart/>
+    <div class="chart2">
+    <BarChart/>
+
+    </div>
+    </div>
+
     <section class="reservations-container">
 
         <section class="reservations-chart header">
@@ -19,7 +27,7 @@
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
-         <li class="reservations-chart-item col6">{{order.status}}</li>
+         <li class="reservations-chart-item col6">{{order.status ||'Approved'}}</li>
          <li class="reservations-chart-item col7">
           <button>Approve</button>
          <button>Reject</button>
@@ -30,6 +38,10 @@
   </section>
 </template>
 <script>
+
+import DoughnutChart from "../cmps/DoughnutChart.vue"
+import BarChart from "../cmps/BarChart.vue"
+
 export default {
   props: {
     userId: String,
@@ -71,6 +83,9 @@ export default {
     //   return formatter.format(this.order.totalPrice);
     // },
   },
-  components: {},
+  components: {
+    DoughnutChart,
+    BarChart
+  },
 };
 </script>
