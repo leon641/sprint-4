@@ -29,7 +29,6 @@ export default {
   },
   computed: {},
   created() {
-    // console.log('this.filterBy',this.filterBy)
     this.$store.dispatch({ type: "loadStays", filterBy: this.filterBy });
   },
   methods: {},
