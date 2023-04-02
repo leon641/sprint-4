@@ -11,8 +11,8 @@
     <section class="reservations-container">
 
         <section class="reservations-chart header">
-        <div class="thead col1">Appartment</div>
         <div class="thead col2">Guest</div>
+        <div class="thead col1">Appartment</div>
         <div class="thead col3">Check-in</div>
         <div class="thead col4">Check-out</div>
         <div class="thead col5">Total Price</div>
@@ -22,8 +22,8 @@
       <ul  class="reservations-chart"
       v-for="order in myOrders" :key="order._id">
      
-        <li class="reservations-chart-item col1">{{order.stay.name}}</li>
-         <li class="reservations-chart-item col2">{{order.buyer.fullname}}</li>
+         <li class="reservations-chart-item col1"><img class="user-url" :src="order.buyer.img"/> {{order.buyer.fullname}}</li>
+        <li class="reservations-chart-item col2">{{order.stay.name}}</li>
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
@@ -64,7 +64,10 @@ export default {
       el.totalPrice=formatter.format(el.totalPrice)
     
     });
-    this.myOrders = myOrders;
+      for(let i = myOrders.length-1; i > 0; i--) {
+   this.myOrders.push(myOrders[i])
+   }
+   
     console.log("myOrders in reservation", myOrders);
   },
   data() {

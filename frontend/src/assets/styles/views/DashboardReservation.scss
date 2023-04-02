@@ -19,14 +19,17 @@
     justify-items: flex-start;
     align-items: center;
     border-bottom: 1px solid rgb(221, 221, 221);
-    .btn-approve{
+
+    .btn-approve {
         padding: 8px;
         background-color: lightgreen;
     }
-    .btn-reject{
+
+    .btn-reject {
         padding: 8px;
         background-color: lightcoral;
     }
+
     .reservations-chart-item {
         list-style-type: none;
 
@@ -36,15 +39,23 @@
 
     .reservations-chart-item.col1 {
         grid-column: 1;
-        white-space: nowrap;
-        width: 100px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .user-url {
+            width: 36px;
+            height: 36px;
+            border-radius: 100px;
+        }
     }
 
     .reservations-chart-item.col2 {
         grid-column: 2;
-
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .reservations-chart-item.col3 {
@@ -72,5 +83,5 @@
         display: flex;
         gap: 10px
     }
-    
+
 }
