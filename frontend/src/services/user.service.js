@@ -124,7 +124,7 @@ function saveWishListToUser(stay) {
     console.log('in user service stay',stay);
     let user = getLoggedinUser()
     console.log('in user service user',user);
-    user.likedByUsers.push(stay)
+    user.likedByUsers.unshift(stay)
     console.log('user before local', user);
     saveLocalUser(user)
 }

@@ -72,6 +72,8 @@ function emit(eventName, data) {
     window.dispatchEvent(new CustomEvent(eventName, { detail: data }))
 }
 
+// export const eventBus = createEventEmitter()
+// esxport const eventBusService = { on, emit }
 export function showUserMsg(msg) {
     eventBus.emit('show-msg', msg)
 }

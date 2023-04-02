@@ -42,8 +42,8 @@ export const orderStore = {
     },
 
     mutations: {
-        setOrders(state, { orders }) {
-            state.orders = orders
+        setOrders(state, { order }) {
+            state.orders.push(order)
         },
         setCurrOrder(state, { order }) {
             state.currOrder = order
@@ -64,6 +64,7 @@ export const orderStore = {
         async setOrder({ commit }, { order }) {
 
             await orderService.setOrder(order)
+            commit({ type: 'setOrders', order })
           
         },
         async setCurrOrder({ commit }, { order }) {
