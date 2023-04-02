@@ -13,16 +13,17 @@ const gRegions = {
     'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
     'United Kingdom': ['GB'],
 }
+
 async function query(filterBy = { txt: '', region: '', label: '', likedStays: [] }) {
     try {
-        console.log('filterBy in likedby ',filterBy);
+        console.log('filterBy in likedby ', filterBy);
         // const criteria = {
-            // console.log('filterBy',filterBy); 
-            
-            //     vendor: { $regex: filterBy.txt, $options: 'i' }
-            // }
-            const collection = await dbService.getCollection('stay')
-            var stays = await collection.find({}).toArray()
+        // console.log('filterBy',filterBy); 
+
+        //     vendor: { $regex: filterBy.txt, $options: 'i' }
+        // }
+        const collection = await dbService.getCollection('stay')
+        var stays = await collection.find({}).toArray()
         if (filterBy.txt) {
             if (!gRegions[filterBy.txt]) {
                 gRegions[filterBy.txt] = []
@@ -35,11 +36,11 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
         }
         console.log('stays in qury likedby1', filterBy.likedStays);
         if (filterBy.likedStays.length) {
-            if(!filterBy.likedStays.length)return
+            if (!filterBy.likedStays.length) stays = []
             stays = stays.filter(stay => filterBy.likedStays.includes(stay.name))
             console.log('stays in qury likedby', stays);
 
-        } 
+        }
         if (filterBy.label) {
             stays = stays.filter(stay => stay.type.includes(filterBy.label))
         }
