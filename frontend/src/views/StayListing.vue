@@ -2,13 +2,12 @@
 
 <template>
   <div class="mini-preview">
-    <h5>Stay image</h5>
-    <h5>Stay name</h5>
-    <h5>Stay address</h5>
-    <h5>Stay capacity</h5>
-    <h5>Stay bedrooms</h5>
-    <h5>Stay price</h5>
-    <h5>Edit stay</h5>
+    <h5>Preview</h5>
+    <h5>Name</h5>
+    <h5>Address</h5>
+    <h5>Capacity</h5>
+    <h5>Bedrooms</h5>
+    <h5>Price</h5>
   </div>
   <ul>
     <li v-for="stay in stays" :key="stay">
