@@ -1,6 +1,5 @@
 <template>
   <section class="dashBoard-container">
-      <h1>reserations</h1>
     <section class="reservations-container">
 
         <section class="reservations-chart header">
