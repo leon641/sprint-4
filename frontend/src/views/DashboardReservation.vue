@@ -20,7 +20,7 @@
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
-         <li class="reservations-chart-item col6">{{order.status}}</li>
+         <li class="reservations-chart-item col6">{{order.status ||'Approved'}}</li>
          <li class="reservations-chart-item col7">
           <button>Approve</button>
          <button>Reject</button>
