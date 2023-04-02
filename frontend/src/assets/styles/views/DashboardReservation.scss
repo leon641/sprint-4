@@ -1,55 +1,68 @@
-.reservations-container{
+.reservations-container {
     display: grid;
-    grid-template-columns: minmax(50px,1fr)autominmax(50px,1fr);
-.thead{
-    font-size: 14px;
-    font-family: CircularAir-Light;
-    font-weight: 600;
+    grid-template-columns: minmax(50px, 1fr)autominmax(50px, 1fr);
+
+    .thead {
+        font-size: 14px;
+        font-family: CircularAir-Light;
+        font-weight: 600;
+    }
 }
-}
-.reservations-chart{
-        padding: 0;
+
+.reservations-chart {
+    padding: 0;
     margin-block: 2.5px;
     grid-column: 1;
     display: grid;
-    grid-template-columns: repeat(7,minmax(150px,1fr));
-    justify-items: center;
+    grid-template-columns: repeat(7, minmax(150px, 1fr));
+    justify-items: flex-start;
     align-items: center;
-    border-bottom: 1px solid rgb(221,221,221);
-    .reservations-chart-item{
+    border-bottom: 1px solid rgb(221, 221, 221);
+
+    .reservations-chart-item {
         list-style-type: none;
-  
+
         font-size: 14px;
         font-family: CircularAir-Light;
     }
-    .reservations-chart-item.col1{
+
+    .reservations-chart-item.col1 {
         grid-column: 1;
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    .reservations-chart-item.col2{
+
+    .reservations-chart-item.col2 {
         grid-column: 2;
 
     }
-    .reservations-chart-item.col3{
+
+    .reservations-chart-item.col3 {
         grid-column: 3;
 
     }
-    .reservations-chart-item.col4{
+
+    .reservations-chart-item.col4 {
         grid-column: 4;
 
     }
-    .reservations-chart-item.col5{
+
+    .reservations-chart-item.col5 {
         grid-column: 5;
 
     }
-    .reservations-chart-item.col6{
+
+    .reservations-chart-item.col6 {
         grid-column: 6;
 
     }
-    .reservations-chart-item.col7{
+
+    .reservations-chart-item.col7 {
         grid-column: 7;
         display: flex;
-        gap:10px
-
+        gap: 10px
     }
- 
+
 }
