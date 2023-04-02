@@ -51,7 +51,6 @@ export const stayStore = {
         wishList({ wishList }) { return wishList },
         currStay({ currStay }) { return currStay },
         layout({ layout }) {
-            console.log('getting layout',layout)
 
             return layout },
     },
@@ -85,13 +84,11 @@ export const stayStore = {
             state.wishList.unshift(stay)
         },
         setFilter(state, { filterBy }) {
-            console.log('filterBy', filterBy)
             state.filterBy.txt = filterBy.txt
             state.filterBy.region = filterBy.region
             // state.filterBy.region = filterBy.region
         },
         switchLayout(state, { layout }) {
-            console.log('layout',layout)
 
             state.layout = layout
         },
@@ -104,9 +101,7 @@ export const stayStore = {
             return Promise.resolve()
         },
         setWishlist({ commit }, { stay }) {
-            console.log('stay before', stay);
             userService.saveWishListToUser(stay)
-            console.log('stay after', stay);
             commit({ type: 'addToWishList', stay })
         },
         async getLikedStays({ commit }, { stayNames }) {
@@ -120,7 +115,6 @@ export const stayStore = {
             context.dispatch({ type: 'loadStays', filterBy: context.state.filterBy })
         },
         async addStay(context, { stay }) {
-            console.log('in store addStay', stay);
             try {
                 stay = await stayService.save(stay)
                 context.commit(getActionAddStay(stay))
@@ -143,7 +137,6 @@ export const stayStore = {
         async loadStays(context, { filterBy }) {
             try {
                 const stays = await stayService.query(filterBy)
-                console.log('stays stor', stays);
 
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
@@ -181,7 +174,6 @@ export const stayStore = {
             return stays
         },
         switchLayout({ commit }, { layout }) {
-            console.log('store layout', layout)
             commit({ type: 'switchLayout', layout })
         },
     }

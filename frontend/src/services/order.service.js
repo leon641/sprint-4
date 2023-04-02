@@ -16,7 +16,8 @@ export const orderService = {
     remove,
     getEmptyStay,
     addStayMsg,
-    setOrder
+    setOrder,
+    updateOrder,
 }
 window.cs = orderService
 
@@ -40,6 +41,10 @@ function getById(orderId) {
 async function remove(orderId) {
     await storageService.remove(STORAGE_KEY, orderId)
     // return httpService.delete(`order/${orderId}`)
+}
+async function updateOrder(order) {
+    // await storageService.remove(STORAGE_KEY, orderId)
+    return httpService.put(`order/${order._id}`,order)
 }
 async function save(order) {
     var savedStay

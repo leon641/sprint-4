@@ -7,9 +7,12 @@
     border-radius: 1000px;
     margin-block-start: 15px;
     grid-column: 2;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
 
     @include for-mobile-layout {
-        display: inline-block;
+        display: flex;
     }
 
     .icon {
@@ -24,8 +27,8 @@
             // display: block;
             // top: rem(10.4px);
             // left: rem(9.28px);
-            // height: rem(12px);
-            width: rem(12px);
+            height: rem(15px);
+            width: rem(16px);
             stroke: #222;
             stroke-width: 5.33333;
             // padding-inline-start: rem(1px);

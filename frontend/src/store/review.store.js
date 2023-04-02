@@ -29,7 +29,6 @@ export const reviewStore = {
 
                 return review
             } catch (err) {
-                console.log('reviewStore: Error in addReview', err)
                 throw err
             }
         },

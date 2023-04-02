@@ -25,7 +25,6 @@ async function getLikedStays(stayNames){
     filterBy.likedStays=stayNames
 
     const likedStays= await query(filterBy)
-    console.log('likedStays in stay service',likedStays);
     return likedStays
     
 }

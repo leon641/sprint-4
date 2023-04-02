@@ -21,8 +21,6 @@ export const userStore = {
     mutations: {
         updatedLoggedin(state, { user }) {
             state.loggedinUser = user
-            console.log('state.loggedinUser in user store', state.loggedinUser);
-
         },
         setLoggedinUser(state, { user }) {
             // console.log('user in user store', user);
@@ -78,7 +76,6 @@ export const userStore = {
             // TODO: loading
             try {
                 const users = await userService.getUsers()
-                console.log('users in store', users);
 
                 commit({ type: 'setUsers', users })
             } catch (err) {
@@ -90,7 +87,6 @@ export const userStore = {
             try {
                 const orders = await orderService.query()
                 console.log('orders in store', orders);
-                console.log('userId',userId);
                 
                 const myOrders = orders.filter(order => order.hostId === userId)
                 console.log('myOrders', myOrders);
@@ -126,7 +122,6 @@ export const userStore = {
             }
         },
         async updateUser(context, { user }) {
-            console.log('before', user);
             try {
                 user = await userService.update(user)
 
