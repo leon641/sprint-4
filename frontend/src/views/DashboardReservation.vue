@@ -3,12 +3,11 @@
     <section class="reservations-container">
 
         <section class="reservations-chart header">
-
         <div class="thead col1">Appartment</div>
         <div class="thead col2">Guest</div>
         <div class="thead col3">Check-in</div>
         <div class="thead col4">Check-out</div>
-        <div class="thead col5">TotalPrice</div>
+        <div class="thead col5">Total Price</div>
         <div class="thead col6">Status</div>
         <div class="thead col6">Actions</div>
         </section>
@@ -22,7 +21,7 @@
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
          <li class="reservations-chart-item col6">{{order.status}}</li>
          <li class="reservations-chart-item col7">
-          <button>Aprove</button>
+          <button>Approve</button>
          <button>Reject</button>
          </li>
  
@@ -43,6 +42,16 @@ export default {
       type: "getMyOrders",
       userId: this.userId,
     });
+    myOrders.forEach(el => {
+      
+         const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+      el.totalPrice=formatter.format(el.totalPrice)
+    
+    });
     this.myOrders = myOrders;
     console.log("myOrders in reservation", myOrders);
   },
@@ -52,7 +61,16 @@ export default {
       myOrders: [],
     };
   },
-  computed: {},
+  computed: {
+    // totalPrice(){
+    //   const formatter = new Intl.NumberFormat("en-US", {
+    //     style: "currency",
+    //     currency: "USD",
+    //     maximumFractionDigits: 0,
+    //   });
+    //   return formatter.format(this.order.totalPrice);
+    // },
+  },
   components: {},
 };
 </script>

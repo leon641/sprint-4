@@ -208,7 +208,7 @@
     <p class="details-disclamer">You won't be charged yet</p>
     <div class="prices">
       <p class="fees-decs">${{ stay.price }} X {{ nigths }} nights</p>
-      <p class="amount">${{ StayTotalPrice }}</p>
+      <p class="amount">{{ StayTotalPrice }}</p>
       <p class="fees-decs">Cleaning fee</p>
       <p class="amount">${{ cleaningFee }}</p>
       <p class="fees-decs">Sercives fee</p>
@@ -216,7 +216,7 @@
     </div>
     <div class="total">
       <p class="total-txt">Total</p>
-      <p class="total-amount">${{ totalPrice }}</p>
+      <p class="total-amount">{{ totalPrice }}</p>
     </div>
   </section>
 </template>
@@ -224,8 +224,7 @@
 import { useScreens } from "vue-screen-utils";
 import ReserveBtn from "../cmps/ReserveBtn.vue";
 import { svgService } from "../services/svg.service.js";
-import { stayService } from "../services/stay.service.local.js";
-import { utilService } from "../services/util.service.js";
+
 export default {
   props: {
     avregeRate: Number,
@@ -243,10 +242,6 @@ export default {
     this.order.stay.name = this.stay.name;
     this.order.stay.img = this.stay.imgUrls[0];
     this.order.stay.price = this.stay.price;
-    // console.log("this.order in created", this.order);
-    // console.log("stay in created", this.stay);
-
-    // console.log("this.loggedinUser in created", loggedinUser);
   },
   data() {
     return {
@@ -254,7 +249,7 @@ export default {
       cleaningFee: 221,
       loggedinUser: {},
       isShown2: false,
-      selectedColor: "#222",
+      selectedColor: "gray",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
@@ -264,31 +259,7 @@ export default {
       }).mapCurrent({ lg: 2 ,sm:1} ,1),
       selectedDate: null,
       isShown: false,
-        attribute :{
-                highlight: {
-                    start: {
-                        style: {
-                            backgroundColor: '#3dafcc', // blue
-                        },
-                        contentStyle: {
-                            color: '#ffffff' // color of the text
-                        }
-                    },
-                    base: {
-                        style: {
-                            backgroundColor: '#D3EAF1', // light blue
-                        }
-                    },
-                    end: {
-                        style: {
-                            backgroundColor: '#3dafcc', // blue
-                        },
-                        contentStyle: {
-                            color: '#ffffff' // color of the text
-                        }
-                    }
-                }
-            },// This is a single attribute
+      // This is a single attribute
       attributes: [
      {
     key: 'test',
@@ -394,7 +365,14 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       const Total = (this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
-      return Total + this.cleaningFee + this.sercivesFee;
+        const finalPrice= Total + this.cleaningFee + this.sercivesFee;
+          const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+      return formatter.format(finalPrice);
+      
     },
     guests() {
       let count = 0;
@@ -412,7 +390,12 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       const Total = (this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
-      return Total;
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+      return formatter.format(Total);
     },
     nigths() {
       const nigths =
