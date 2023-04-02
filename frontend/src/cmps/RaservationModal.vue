@@ -233,10 +233,11 @@ export default {
   async created() {
     let loggedinUser = this.$store.getters.loggedinUser;
     let hostId = this.stay.host._id;
-    console.log("hostId", hostId);
+    console.log("loggedinUser.imgUrl", loggedinUser.imgUrl);
 
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
+    this.order.buyer.img = loggedinUser.imgUrl;
     this.order.stay._id = this.stay._id;
     this.order.hostId = hostId;
     this.order.stay.name = this.stay.name;
@@ -275,6 +276,7 @@ export default {
         buyer: {
           _id: null,
           fullname: null,
+          img:''
         },
         totalGuests: 0,
         totalPrice: "",

@@ -1,14 +1,29 @@
 <template>
 <div class="revenue-summery-container">
+<h3>Revenue summary</h3>
+<div class="revenue-box">
+<h5 class="revenue-item1">This week</h5>
+ <span class="revenue-item2">$1,040</span>
+<div class="img-percent revenue-item3">
+<img src="../assets/img/arrow/newarrow2.png" alt="" srcset="">
+<h4>12.3%</h4>
+</div>
 
-<h2>Revenue summary</h2>
-<h4>This week <span>$840</span></h4>
+</div>
+<div class="revenue-box">
+<h5 class="revenue-item1">This month</h5>
+<span class="revenue-item2">$6,212</span>
+<div class="img-percent revenue-item3">
+<img src="../assets/img/arrow/newarrow2.png" alt="" srcset="">
+<h4>8.7%</h4>
+</div>
 
-<h4>This month <span>$4,212</span></h4>
+</div>
 
-<h4>This quarter <span>$9,512</span></h4>
 
-<h4>This year <span>$14,439</span></h4>
+<!-- <h3>This quarter <span>$9,512</span></h3>
+
+<h3>This year <span>$14,439</span></h3> -->
 
 </div>
     <DoughnutChart :chartData="testData" :options="options"/>
@@ -42,7 +57,7 @@ export default {
             options: {
                 plugins: {
                     // legend: { display: false }
-                    legend: { position: 'left' }
+                    legend: { position: 'bottom' }
                 }, 
                 methods : {
 

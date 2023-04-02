@@ -1,18 +1,22 @@
 #doughnut-chart{
-    max-width: 60%;
-    max-height: 60%;
+    // max-width: 100%;
+    // max-height: 100%;
     display: block;
     box-sizing: border-box;
-    height: 350px;
-    width: 350px;
+    height: 305px;
+    width: 305px;
     padding: 10px;
     border-radius: 9px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
 }
 
 #bar-chart {
-    height: 350px;
-    width: 350px;
+    display: block;
+    box-sizing: border-box;
+    height: 305px;
+    width: 305px;
+    // min-height: 270px;
+    // min-width: 270px;
     padding: 10px;
     border-radius: 9px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
@@ -34,32 +38,78 @@
         color: #222;
     }
 }
-.char2 {
-    width: 25%;
+.chart2 {
+    width: 305px;
+    height: 305px;
 }
 
 .revenue-summery-container {
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
     display: flex;
-    min-height: 305px;
-    min-width: 350px;
+    min-height: 300px;
+    min-width: 250px;
     border-radius: 9px;
     padding: 10px;
     border-radius: 9px;
     flex-direction: column;
-    justify-content: space-between;
-    h4 {
+    justify-content: space-around;
+    h3 {
         display: flex;
-        flex-direction: column;
-        padding: 3px;
-        margin-bottom: 4px;
+    padding: 3px;
+    margin-bottom: 4px;
+    align-items: center;
+    justify-content: space-between;
     }
 
     span {
-        margin-top: 8px;
-        font-size: rem(16px);
-        color: #b4afaf;
+        // margin-top: 8px;
+        font-size: rem(24px);
+        color: #4e4e4e;
     }
 
+}
+
+.revenue-box {
+    display: grid;
+    border-radius: 9px;
+    width: 245px;
+    grid-template-rows: repeat(3,1fr);
+    height: 120px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
+    border-radius: 9px;
+
+    .revenue-item1 {
+        grid-row: 1;
+        padding: 5px;
+    }
+    .revenue-item2 {
+        grid-row: 2;
+    justify-self: center;
+    font-size: rem(35px);
+}
+.revenue-item3 {
+    grid-row: 3;
+    justify-self: center;
+    font-size: rem(12px);
+    }
+
+    .img-percent {
+        display: flex;
+        align-items: flex-start;
+        
+    }
+    h4{
+        color: #64c37d;
+        font-size: 17px;
+        font-family: CircularAir-Light;
+    }
+
+    // width: 305px;
+    height: 120px;
+   
+    img {
+        width: 19px;
+        height: 17px;
+    }
 }
 
