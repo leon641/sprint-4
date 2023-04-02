@@ -4,9 +4,18 @@
     display: flex;
     justify-content: space-between;
     padding-block-start: rem(8px);
-    width: rem(300px);
+    // width: rem(300px);
+
+    p {
+        margin-inline-start: 17px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-block-start: 5px;
+    }
 
     .icon {
         transform: none;
+        margin-inline-start: 127px;
+        margin-inline-end: 10px;
     }
 }
