@@ -1,5 +1,16 @@
 <template>
+<div class="revenue-summery-container">
+
 <h2>Revenue summary</h2>
+<h4>This week <span>$840</span></h4>
+
+<h4>This month <span>$4,212</span></h4>
+
+<h4>This quarter <span>$9,512</span></h4>
+
+<h4>This year <span>$14,439</span></h4>
+
+</div>
     <DoughnutChart :chartData="testData" :options="options"/>
 </template>
 
