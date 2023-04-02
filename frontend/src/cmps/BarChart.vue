@@ -20,12 +20,12 @@ export default {
                     {
                         data: [100, 130, 40, 60, 70, 20],
                         backgroundColor: [
-                            'darkseagreen',
-                            'orange',
-                            '#0079AF',
-                            '#123E6B',
-                            '#8a4fe8',
-                            '#A5C8ED',
+                            '#f1ed63',
+                            '#96cd39',
+                            '#df6a6a',
+                            '#d97d97',
+                            '#9862ae',
+                            '#ff5b44',
                         ],
                     },
                 ],

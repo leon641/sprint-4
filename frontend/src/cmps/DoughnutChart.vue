@@ -46,9 +46,9 @@ export default {
                     {
                         data: [130, 40, 20,],
                         backgroundColor: [
-                            'darkseagreen',
-                            'orange',
-                            '#0079AF',
+                            '#2eb872',
+                            '#f8f398',
+                            '#e46161',
                     
                         ],
                     },
