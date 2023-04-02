@@ -1,10 +1,23 @@
 .dashBoard-container{
     display: grid;
-    grid-template-columns: minmax(20px,1fr) auto minmax(20px,1fr);
+    // grid-template-columns: minmax(20px,1fr) auto minmax(20px,1fr);
 }
-.dashbaord-header{
+.dashboard-header{
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#ff385c;
+    color:#a19c9d;
+    .dashboard-link {
+        color: rgb(57, 56, 56);
+    text-decoration: none;
+    padding: 30px;
+    }
+
+
+  
+}
+.dashboard-link {
+    color: $clr7;
+text-decoration: none;
+padding: 10px;
 }

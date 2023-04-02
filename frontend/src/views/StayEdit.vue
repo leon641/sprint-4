@@ -1,7 +1,6 @@
 <!-- בס"ד -->
 
 <template>
-  <h1>hollllaaaa</h1>
   <section class="stay-edit">
     <h3>Name</h3>
     <form @submit.prevent="submitStay">
