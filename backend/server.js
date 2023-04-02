@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
     const corsOptions = {
-        origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'http://localhost:5177','http://127.0.0.1:5177'],
+        origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'http://localhost:5178','http://127.0.0.1:5178'],
         credentials: true
     }
     app.use(cors(corsOptions))

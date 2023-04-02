@@ -5,36 +5,119 @@
     <div class="flex">
       <div class="resent-searches">
         <h5>Recent searches</h5>
-      </div>
-      <div class="regions">
-        <h5>Search by region</h5>
-        <div class="grid">
-          <div class="flex" v-for="region in regions" :key="region">
-            <div class="region-img" @click="setRegion(region.title)">
-              <img :src="region.url" />
+        <div class="history">
+          <div class="search-item">
+            <div class="svg-container">
+              <svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  height: 22px;
+                  width: 22px;
+                  fill: currentcolor;
+                "
+              >
+                <path
+                  d="m15.9999.3335c8.6524795 0 15.6667 7.01422051 15.6667 15.6667 0 8.6524795-7.0142205 15.6667-15.6667 15.6667-8.65247949 0-15.6667-7.0142205-15.6667-15.6667 0-8.65247949 7.01422051-15.6667 15.6667-15.6667zm0 2c-7.54790999 0-13.6667 6.11879001-13.6667 13.6667 0 7.54791 6.11879001 13.6667 13.6667 13.6667 7.54791 0 13.6667-6.11879 13.6667-13.6667 0-7.54790999-6.11879-13.6667-13.6667-13.6667zm1.0001 3v10.0895l8.7375978 5.0444733-.9999956 1.7320534-9.7376022-5.6219748v-11.2440519z"
+                ></path>
+              </svg>
             </div>
-            <div class="region-title">
-              <p>{{ region.title }}</p>
+          </div>
+          <div class="search-item">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                height: 22px;
+                width: 22px;
+                fill: currentcolor;
+              "
+            >
+              <path
+                d="m15.9999.3335c8.6524795 0 15.6667 7.01422051 15.6667 15.6667 0 8.6524795-7.0142205 15.6667-15.6667 15.6667-8.65247949 0-15.6667-7.0142205-15.6667-15.6667 0-8.65247949 7.01422051-15.6667 15.6667-15.6667zm0 2c-7.54790999 0-13.6667 6.11879001-13.6667 13.6667 0 7.54791 6.11879001 13.6667 13.6667 13.6667 7.54791 0 13.6667-6.11879 13.6667-13.6667 0-7.54790999-6.11879-13.6667-13.6667-13.6667zm1.0001 3v10.0895l8.7375978 5.0444733-.9999956 1.7320534-9.7376022-5.6219748v-11.2440519z"
+              ></path>
+            </svg>
+          </div>
+          <div class="search-item">
+            <div class="search-item">
+              <svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  height: 22px;
+                  width: 22px;
+                  fill: currentcolor;
+                "
+              >
+                <path
+                  d="m15.9999.3335c8.6524795 0 15.6667 7.01422051 15.6667 15.6667 0 8.6524795-7.0142205 15.6667-15.6667 15.6667-8.65247949 0-15.6667-7.0142205-15.6667-15.6667 0-8.65247949 7.01422051-15.6667 15.6667-15.6667zm0 2c-7.54790999 0-13.6667 6.11879001-13.6667 13.6667 0 7.54791 6.11879001 13.6667 13.6667 13.6667 7.54791 0 13.6667-6.11879 13.6667-13.6667 0-7.54790999-6.11879-13.6667-13.6667-13.6667zm1.0001 3v10.0895l8.7375978 5.0444733-.9999956 1.7320534-9.7376022-5.6219748v-11.2440519z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="search-item">
+            <div class="svg-container">
+              <svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  height: 22px;
+                  width: 22px;
+                  fill: currentcolor;
+                "
+              >
+                <path
+                  d="m15.9999.3335c8.6524795 0 15.6667 7.01422051 15.6667 15.6667 0 8.6524795-7.0142205 15.6667-15.6667 15.6667-8.65247949 0-15.6667-7.0142205-15.6667-15.6667 0-8.65247949 7.01422051-15.6667 15.6667-15.6667zm0 2c-7.54790999 0-13.6667 6.11879001-13.6667 13.6667 0 7.54791 6.11879001 13.6667 13.6667 13.6667 7.54791 0 13.6667-6.11879 13.6667-13.6667 0-7.54790999-6.11879-13.6667-13.6667-13.6667zm1.0001 3v10.0895l8.7375978 5.0444733-.9999956 1.7320534-9.7376022-5.6219748v-11.2440519z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="regions">
+          <h5>Search by region</h5>
+          <div class="grid">
+            <div class="flex" v-for="region in regions" :key="region">
+              <div class="region-img" @click="setRegion(region.title)">
+                <img :src="region.url" />
+              </div>
+              <div class="region-title">
+                <p>{{ region.title }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-if="propCheck || propCheckOut" class="check-modal vc-blue">
-    <VDatePicker
-      class="date-picker vc-blue"
-      expanded
-      :min-date="new Date()"
-      borderless
-      :color="selectedColor"
-      :attributes="attributes"
-      @click="renderDate()"
-      :columns="columns"
-      :locale="locale"
-      v-model="selectedDate"
-    />
-    <!-- <el-radio-group v-model="size" label="size control" size="small">
+    <div v-if="propCheck || propCheckOut" class="check-modal vc-blue">
+      <VDatePicker
+        class="date-picker vc-blue"
+        expanded
+        :min-date="new Date()"
+        borderless
+        :color="selectedColor"
+        :attributes="attributes"
+        @click="renderDate()"
+        :columns="columns"
+        :locale="locale"
+        v-model="selectedDate"
+      />
+      <!-- <el-radio-group v-model="size" label="size control" size="small">
       <el-radio-button label="large">large</el-radio-button>
       <el-radio-button label="default">default</el-radio-button>
       <el-radio-button label="small">small</el-radio-button>
@@ -65,99 +148,100 @@
         /> 
       </div>
     </div>-->
-  </div>
-  <div v-if="propWho" class="who-modal">
-    <div class="flex">
-      <div class="guests-title">
-        <h5 class="adults">Adults</h5>
-        <p>Ages 13 or above</p>
-      </div>
-      <div class="adults flex">
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28"></path>
-          </svg>
-        </button>
-        <div>0</div>
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28m-14-14v28"></path>
-          </svg>
-        </button>
-      </div>
     </div>
-    <div class="flex">
-      <div class="guests-title">
-        <h5 class="children">Children</h5>
-        <p>Ages 2-12</p>
+    <div v-if="propWho" class="who-modal">
+      <div class="flex">
+        <div class="guests-title">
+          <h5 class="adults">Adults</h5>
+          <p>Ages 13 or above</p>
+        </div>
+        <div class="adults flex">
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28"></path>
+            </svg>
+          </button>
+          <div>0</div>
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28m-14-14v28"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="children flex">
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28"></path>
-          </svg>
-        </button>
-        <div>0</div>
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28m-14-14v28"></path>
-          </svg>
-        </button>
+      <div class="flex">
+        <div class="guests-title">
+          <h5 class="children">Children</h5>
+          <p>Ages 2-12</p>
+        </div>
+        <div class="children flex">
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28"></path>
+            </svg>
+          </button>
+          <div>0</div>
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28m-14-14v28"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="flex">
-      <div class="guests-title">
-        <h5 class="infants">Infants</h5>
-        <p>Under 2</p>
-      </div>
-      <div class="infants flex">
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28"></path>
-          </svg>
-        </button>
-        <div>0</div>
-        <button class="flex">
-          <svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="presentation"
-            focusable="false"
-          >
-            <path d="m2 16h28m-14-14v28"></path>
-          </svg>
-        </button>
+      <div class="flex">
+        <div class="guests-title">
+          <h5 class="infants">Infants</h5>
+          <p>Under 2</p>
+        </div>
+        <div class="infants flex">
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28"></path>
+            </svg>
+          </button>
+          <div>0</div>
+          <button class="flex">
+            <svg
+              viewBox="0 0 32 32"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            >
+              <path d="m2 16h28m-14-14v28"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
     <div class="flex">

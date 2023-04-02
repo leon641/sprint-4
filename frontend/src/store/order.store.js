@@ -42,10 +42,10 @@ export const orderStore = {
     },
 
     mutations: {
-        setOrders(state, { order }) {
-            console.log('order in mutations',order);
+        setOrders(state, { orders }) {
+            console.log('order in mutations',orders);
             
-            state.orders.push(order)
+            state.orders=orders
         },
         setCurrOrder(state, { order }) {
             state.currOrder = order
@@ -64,7 +64,7 @@ export const orderStore = {
             console.log('updatedOrder',updatedOrder);
             state.currOrder = updatedOrder
             const idx=state.orders.findIndex(order=>order._id===updatedOrder._id)
-            state.orders.splice(idx,1,orderToUpdate)
+            state.orders.splice(idx,1,updatedOrder)
     },
 },
 actions: {
