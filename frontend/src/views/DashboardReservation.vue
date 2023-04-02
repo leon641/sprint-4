@@ -48,8 +48,8 @@ export default {
     userId: String,
   },
   async created() {
-    const orders=await this.$store.dispatch({ type: "loadOrders" });
-  
+    await this.$store.dispatch({ type: "loadOrders" });
+
     
     const myOrders = await this.$store.dispatch({
       type: "getMyOrders",

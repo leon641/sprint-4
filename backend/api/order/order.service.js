@@ -17,7 +17,6 @@ async function query() {
     try {
         const collection = await dbService.getCollection('order')
         var orders = await collection.find({}).toArray()
-        console.log('orders',orders);
         
         return orders
     }

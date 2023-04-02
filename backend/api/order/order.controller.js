@@ -2,7 +2,7 @@ const orderService = require('./order.service')
 const logger = require('../../services/logger.service')
 async function getOrders(req, res) {
     try {
-        const orders = await orderService.query(req.params)
+        const orders = await orderService.query()
         console.log('req.params',req.params);
         console.log('req.params',req.params.id);
         
