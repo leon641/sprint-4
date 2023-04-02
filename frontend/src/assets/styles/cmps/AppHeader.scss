@@ -8,14 +8,15 @@
     z-index: 101;
     background-color: #fff;
     font-family: Airbnb_Cereal-Book;
+   
 
 
     &.stay-details {
         &>* {
             grid-column: 2;
         }
+   
     }
-
     .loggedin-user {
         background-color: $clr1;
         padding: rem(2px) rem(8px);
