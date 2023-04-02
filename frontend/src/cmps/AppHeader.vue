@@ -83,12 +83,13 @@ import BigFilter from "./BigFilter.vue";
 import UserMenu from "./UserMenu.vue";
 import LoginSignUp from "./LoginSignUp.vue";
 
+import { eventBusService } from "../services/event-bus.service.js";
+
 export default {
-  props: {
-    layout: String,
-  },
+  props: {},
   data() {
     return {
+      layout: "stay-app",
       isExpanded: false,
       propWhere: "",
       propCheck: "",
@@ -104,16 +105,32 @@ export default {
     //   console.log("545", this.$route.params.stayId);
       // this.layout = "stay-details";
     // }
+    // console.log("route name", this.$route.name);
+    // if (this.$route.name === "StayDetails") {
+    //   this.layout = "stay-details";
+    // } else {
+    //   this.layout = "stay-app";
+    // }
+    this.layout = this.$store.getters.layout;
+    console.log("this.$store.getters.layout", this.$store.getters.layout);
+    // console.log("this.$route.params", this.$route.params);
+    // const { stayId } = this.$route.params;
+    // console.log("stayId", stayId);
+    // this.checkParams();
   },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
+    // myLayout() {
+    //   console.log('this.$store.getters.layout',this.$store.getters.layout)
+    //   return this.$store.getters.layout;
+    // },
   },
   methods: {
     toHome() {
       this.$router.push("/");
-      this.$emit("inIndex");
+      // this.$emit("inIndex");
     },
     expand() {
       this.isExpanded = !this.isExpanded;
@@ -173,8 +190,17 @@ export default {
     //   console.log('payload',payload)
     //   this.propRegion = payload;
     // },
+    //
   },
-  emits: ["inIndex"],
+  watch: {
+    $route() {
+      this.layout =
+        this.$route.name === "StayDetails"
+          ? (this.layout = "stay-details")
+          : (this.layout = "stay-app");
+    },
+  },
+  // emits: ["inIndex"],
   components: {
     Filter,
     BigFilter,
