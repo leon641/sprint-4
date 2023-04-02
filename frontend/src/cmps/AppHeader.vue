@@ -17,7 +17,6 @@
       />
       <DetailsFilter
         v-if="layout === 'stay-details'"
-       
         @expand="expand"
         @toWhere="toWhere"
       />
@@ -50,6 +49,9 @@
       </div>
     </div>
   </div>
+
+  <MobileFilter />
+
   <div v-if="isExpanded" class="secondary-header">
     <BigFilter
       :propWhere="propWhere"
@@ -79,7 +81,7 @@
 import Filter from "./Filter.vue";
 import DetailsFilter from "./DetailsFilter.vue";
 import BigFilter from "./BigFilter.vue";
-// import FilterModal from "./FilterModal.vue";
+import MobileFilter from "./MobileFilter.vue";
 import UserMenu from "./UserMenu.vue";
 import LoginSignUp from "./LoginSignUp.vue";
 
@@ -103,7 +105,7 @@ export default {
     // console.log("km", this.$route);
     // if (this.$route.params.stayId) {
     //   console.log("545", this.$route.params.stayId);
-      // this.layout = "stay-details";
+    // this.layout = "stay-details";
     // }
     // console.log("route name", this.$route.name);
     // if (this.$route.name === "StayDetails") {
@@ -204,7 +206,7 @@ export default {
   components: {
     Filter,
     BigFilter,
-    // FilterModal,
+    MobileFilter,
     DetailsFilter,
     UserMenu,
     LoginSignUp,

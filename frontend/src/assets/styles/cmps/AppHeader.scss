@@ -9,6 +9,10 @@
     background-color: #fff;
     font-family: Airbnb_Cereal-Book;
 
+    @include for-mobile-layout {
+
+        display: none !important;
+    }
 
     &.stay-details {
         &>* {
@@ -85,7 +89,7 @@
         margin-inline-start: rem(4.8px);
         font-weight: 600;
         // transform: translaterem((4px),rem( 5px));
-       
+
     }
 }
 
@@ -94,9 +98,10 @@
     align-items: center;
     gap: rem(74px);
     position: relative;
+
     @include for-mobile-layout {
         gap: 45px;
-            }
+    }
 
     :first-child:not(.login) {
         display: flex;
@@ -113,7 +118,7 @@
             background-color: #f7f7f7;
             // height: 42px;
         }
-        
+
     }
 
     a {
@@ -121,7 +126,12 @@
         font-weight: 600;
     }
 
-    .your, .home, .airbnb, .really, .strong, .one{
+    .your,
+    .home,
+    .airbnb,
+    .really,
+    .strong,
+    .one {
         @include for-mobile-layout {
             display: none !important;
         }
@@ -146,7 +156,7 @@
         padding-inline-end: rem(6px);
         padding-inline-start: rem(12px);
         padding-block: rem(5px);
-        
+
 
         svg {
             display: block;
@@ -172,7 +182,8 @@
 .secondary-header {
     @include for-mobile-layout {
         display: none;
-            }
+    }
+
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -209,5 +220,5 @@
 .filter {
     @include for-mobile-layout {
         display: none;
-            }
+    }
 }

@@ -1,0 +1,55 @@
+// בס"ד
+
+.mobile-filter {
+    display: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1000px;
+    margin-block-start: 15px;
+    grid-column: 2;
+
+    @include for-mobile-layout {
+        display: inline-block;
+    }
+
+    .icon {
+        // position: relative;
+        width: rem(32px);
+        height: rem(32px);
+        // margin-inline-start: rem(3.3px);
+
+
+        svg {
+            // position: relative;
+            // display: block;
+            // top: rem(10.4px);
+            // left: rem(9.28px);
+            // height: rem(12px);
+            width: rem(12px);
+            stroke: #222;
+            stroke-width: 5.33333;
+            // padding-inline-start: rem(1px);
+        }
+    }
+
+    .anywhere-container {
+        padding-inline-start: 18px;
+
+
+        .anywhere {
+            font-size: 14px;
+        }
+
+        .mobile-search-container {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+
+            .dot {
+                padding-inline: 5px;
+                margin: 0;
+                font-size: 5px;
+            }
+        }
+    }
+}
