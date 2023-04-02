@@ -1,7 +1,7 @@
 <template>
     <div class="user-nav">
             <a class="user-nav-a" v-if="!user" @click="openLoginModal">Login</a>
-            <router-link v-if="user" to="/dashboard">Dashboard</router-link>
+            <router-link v-if="user" to="/dashboard/reservations">Dashboard</router-link>
             <router-link v-if="user" to="/trips">My Trips</router-link>
             <router-link v-if="user" to="/wishlist">Wishlist</router-link>
             <div class="line-sep"></div>

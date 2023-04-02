@@ -1,8 +1,8 @@
 <template>
-    <nav class="dashbaord-header">
-    <RouterLink to="/dashboard/reservations">Reservations</RouterLink>|
-    <RouterLink to="/dashboard/edit">Create listing</RouterLink>|
-    <RouterLink  to="/dashboard/listing">Listing</RouterLink>|
+    <nav class="dashboard-header">
+    <RouterLink to="/dashboard/reservations" class="dashboard-link">Reservations</RouterLink>|
+    <RouterLink to="/dashboard/edit" class="dashboard-link">Create listing</RouterLink>|
+    <RouterLink  to="/dashboard/listing" class="dashboard-link">Listing</RouterLink>
     </nav>
     
       <RouterView 

@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <el-carousel :autoplay=false arrow="always" >
+  <el-carousel :autoplay="false" :loop="false" >
     <el-carousel-item v-for="item in imgs" :key="item">
       <img :src="item">
     </el-carousel-item>
