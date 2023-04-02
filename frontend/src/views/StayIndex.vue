@@ -4,8 +4,6 @@
   <div class="stay-index">
     <Carousel />
     <StayList v-if="isShown" />
-
-   
   </div>
 </template>
 
@@ -19,15 +17,15 @@ import {
   getActionUpdateStay,
   getActionAddStayMsg,
 } from "../store/stay.store";
-import { userService } from '../services/user.service';
+import { userService } from "../services/user.service";
 // import 'vue3-carousel/carousel.css'
-
+import { eventBusService } from "../services/event-bus.service.js";
 
 export default {
   components: { StayList },
   data() {
     return {
-      isShown:false,
+      isShown: false,
     };
   },
   computed: {
@@ -42,14 +40,13 @@ export default {
     // const user = userService.getLoggedinUser()
     // console.log(user,'in app index');
     window.scrollTo(0, 0);
-   await this.$store.dispatch({ type: "loadStays" });
-  //  await this.$store.dispatch({ type: "loadUsers" });
-   await this.$store.dispatch({ type: "loadLoggedinUser" });
-   this.isShown=true
+    this.$store.dispatch({ type: "switchLayout", layout: "stay-app" });
+    await this.$store.dispatch({ type: "loadStays" });
+    //  await this.$store.dispatch({ type: "loadUsers" });
+    await this.$store.dispatch({ type: "loadLoggedinUser" });
+    this.isShown = true;
   },
-  mounted(){
-
-  },
+  mounted() {},
   methods: {
     async addStay() {
       try {
@@ -96,7 +93,7 @@ export default {
   },
   components: {
     StayList,
-    Carousel
+    Carousel,
   },
 };
 //

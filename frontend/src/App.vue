@@ -2,8 +2,8 @@
 
 <template>
   <section class="stay-app">
-    <AppHeader :layout="layout" @inIndex="inIndex"/>
-    <RouterView @inDetails="inDetails"/>
+    <AppHeader />
+    <RouterView />
     <AppFooter />
     <UserMsg />
   </section>
@@ -20,7 +20,7 @@ import UserMsg from "./cmps/UserMsg.vue";
 export default {
   data() {
     return {
-      layout: "stay-app",
+      // layout: "stay-app",
     };
   },
   created() {
@@ -29,12 +29,12 @@ export default {
     if (user) store.commit({ type: "setLoggedinUser", user });
   },
   methods: {
-    inDetails() {
-      this.layout = "stay-details";
-    },
-    inIndex() {
-      this.layout = "stay-app";
-    },
+    // inDetails() {
+    //   this.layout = "stay-details";
+    // },
+    // inIndex() {
+    //   this.layout = "stay-app";
+    // },
   },
   components: {
     AppHeader,
