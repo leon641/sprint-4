@@ -32,6 +32,7 @@ async function addOrder(order) {
             buyer: {
               _id: order.buyer._id,
               fullname: order.buyer.fullname,
+              img:order.buyer.img,
             },
             totalGuests: order.totalGuests,
             totalPrice: order.totalPrice,
