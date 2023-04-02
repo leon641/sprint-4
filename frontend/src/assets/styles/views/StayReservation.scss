@@ -3,6 +3,7 @@
     grid-template-columns: minmax( 20px,1fr) minmax(auto,1140px) minmax(20px,1fr);
     color: $clr12;
 
+
     .reservation-header {
         grid-column: 2;
         display: flex;
@@ -36,6 +37,12 @@
     }
 
     .reservation-container {
+
+        @include for-mobile-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
         color: $clr12;
         grid-column: 2;
         display: flex;
@@ -317,3 +324,25 @@
         top:42px
     }
 }
+.footer-section-btn {
+    width: 200px;
+    height: 48px;
+    
+}
+
+.footer-reservation-view-container {
+    background-color: #fefefe;
+    width: 40%;
+    position: absolute;
+    height: 50px;
+    
+}
+
+.footer-reservation-view {
+    width: 100%;
+}
+
+// @include for-mobile-layout {
+//     display: flex;
+//     flex-direction: column;
+// }

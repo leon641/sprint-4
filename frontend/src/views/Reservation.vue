@@ -46,7 +46,7 @@
         
       </div>
 
-      <ReserveBtnReservation/>
+      <ReserveBtnReservation @click="goToTrips"/>
      
     </section>
 
@@ -91,9 +91,17 @@
     </section>
   </section>
   </section>
+
+  <section class="footer-section-btn">
+    <div class="footer-reservation-view-container full">
+
+        <FooterReservationBtn @click="goToTrips"/>
+    </div>
+  </section>
 </template>
 <script>
 import ReserveBtnReservation from '../cmps/ReserveBtnReservation.vue';
+import FooterReservationBtn from '../cmps/FooterReservationBtn.vue';
 import DoughnutChart from '../cmps/DoughnutChart.vue';
 import { svgService } from "../services/svg.service";
 
@@ -115,10 +123,15 @@ console.log('this.currOrder',this.currOrder);
     },backwords(){
       this.$router.push(`/details/${this.currOrder.stay._id}`)
     },
+    goToTrips() {
+      this.$router.push("/trips")
+
+    },
   },
   computed: {},
   components:{
     ReserveBtnReservation,
+    FooterReservationBtn
     
     
   }
