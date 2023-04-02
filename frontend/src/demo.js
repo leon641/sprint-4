@@ -95,9 +95,6 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
         if (filterBy.label) {
             stays = stays.filter(stay => stay.type.includes(filterBy.label))
         }
-        if (filterBy.price) {
-            stays = stays.filter(stay => stay.price <= filterBy.price)
-        }
         return stays
     } catch (err) {
         logger.error('cannot find stays', err)
