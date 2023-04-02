@@ -14,7 +14,7 @@
               ></span>
               <span class="review-rate"> {{ avregeRate }} </span>
               <span class="dot">•</span>
-              <a class="d-link reviews">{{ stay.reviews?.length }}  reviews</a>
+              <a class="d-link reviews">{{ stay.reviews?.length }} reviews</a>
               <span class="dot">•</span>
               <span class="d-link">{{ stay.loc?.country }}</span>
             </div>
@@ -49,14 +49,14 @@
       <section class="place-info">
         <section class="place-content">
           <div class="subtitle">
-            <h2>{{stay.roomType}} hosted by {{ stay.host?.fullname }}</h2>
+            <h2>{{ stay.roomType }} hosted by {{ stay.host?.fullname }}</h2>
             <div class="place-cpacity-services">
               <div class="place-services-info">
                 <span>{{ stay.capacity }} guests</span>
                 <span class="dot">•</span>
-                <span class="num-of-beds">{{stay.bedrooms}} bedrooms</span>
-              <span class="dot">•</span>
-                <span class="num-of-beds">{{stay.bathrooms}} bathrooms</span>
+                <span class="num-of-beds">{{ stay.bedrooms }} bedrooms</span>
+                <span class="dot">•</span>
+                <span class="num-of-beds">{{ stay.bathrooms }} bathrooms</span>
               </div>
             </div>
             <img
@@ -67,7 +67,6 @@
               decoding="async"
               elementtiming="LCP-target"
               :src="stay.host.thumbnailUrl"
-              
             />
           </div>
           <UserStayInfo />
@@ -90,11 +89,9 @@
         </section>
         <RaservationModal :stay="stay" :avregeRate="avregeRate" />
       </section>
-      <StayReviews 
-      :rate="avregeRate"
-      :stay="stay" />
+      <StayReviews :rate="avregeRate" :stay="stay" />
     </section>
-    <StayMap :stay="stay"/>
+    <StayMap :stay="stay" />
   </section>
 </template>
 
@@ -104,44 +101,43 @@ import RaservationModal from "../cmps/RaservationModal.vue";
 import UserStayInfo from "../cmps/UserStayInfo.vue";
 import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
-import StayMap from '../cmps/StayMap.vue';
+import StayMap from "../cmps/StayMap.vue";
 
+import { eventBusService } from "../services/event-bus.service.js";
 
 export default {
   data() {
     return {
       avregeRate: 0,
       desc: "",
-      loggedinUser:null,
+      loggedinUser: null,
     };
   },
   created() {
     window.scrollTo(0, 0);
-    this.$emit("inDetails");
-    this.loggedinUser= this.$store.getters.loggedinUser
-    
+    // console.log('this.$route',this.$route)
+    this.$store.dispatch({ type: "switchLayout", layout: "stay-details" });
+    this.loggedinUser = this.$store.getters.loggedinUser;
+
     const { stayId } = this.$route.params;
-     this.$store.dispatch({type: "getStayById",stayId})
-     .then(res=>{
-      this.rate()
-      
-     })
+    this.$store.dispatch({ type: "getStayById", stayId }).then((res) => {
+      this.rate();
+    });
     this.desc = this.stay.summary;
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
-    rate() {      
-      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate,0); 
+    rate() {
+      const sum = this.stay.reviews?.reduce((a, b) => a + b.rate, 0);
       const avregeRate = sum / this.stay.reviews?.length;
-      this.avregeRate=avregeRate.toFixed(2)      
-
+      this.avregeRate = avregeRate.toFixed(2);
     },
   },
   computed: {
-    stay(){
-           return this.$store.getters.currStay
+    stay() {
+      return this.$store.getters.currStay;
     },
   },
   components: {
@@ -151,6 +147,6 @@ export default {
     StayReviews,
     StayMap,
   },
-  emits: ["inDetails"],
+  // emits: ["inDetails"],
 };
 </script>

@@ -35,6 +35,7 @@ export function getActionAddStayMsg(stayId) {
 
 export const stayStore = {
     state: {
+        layout: "stay-app",
         stays: [],
         wishList: [],
         filterBy: {
@@ -47,10 +48,12 @@ export const stayStore = {
     },
     getters: {
         stays({ stays }) { return stays },
-
         wishList({ wishList }) { return wishList },
+        currStay({ currStay }) { return currStay },
+        layout({ layout }) {
+            console.log('getting layout',layout)
 
-        currStay({ currStay }) { return currStay }
+            return layout },
     },
     mutations: {
         setStays(state, { stays }) {
@@ -80,7 +83,7 @@ export const stayStore = {
         },
         addToWishList(state, { stay }) {
             console.log('stay in mutation going to store');
-            
+
             state.wishList.push(stay)
         },
         setFilter(state, { filterBy }) {
@@ -88,6 +91,11 @@ export const stayStore = {
             state.filterBy.txt = filterBy.txt
             state.filterBy.region = filterBy.region
             // state.filterBy.region = filterBy.region
+        },
+        switchLayout(state, { layout }) {
+            console.log('layout',layout)
+
+            state.layout = layout
         },
     },
     actions: {
@@ -98,16 +106,16 @@ export const stayStore = {
             return Promise.resolve()
         },
         setWishlist({ commit }, { stay }) {
-            console.log('stay before',stay);
+            console.log('stay before', stay);
             userService.saveWishListToUser(stay)
-            console.log('stay after',stay);
+            console.log('stay after', stay);
             commit({ type: 'addToWishList', stay })
         },
-       async getLikedStays({commit},{stayNames}){
-       
+        async getLikedStays({ commit }, { stayNames }) {
+
             const stays = await stayService.getLikedStays(stayNames)
-                      return stays
-        
+            return stays
+
         },
         setFilterBy(context, { label }) {
             context.commit({ type: 'setFilterBy', label })
@@ -137,8 +145,8 @@ export const stayStore = {
         async loadStays(context, { filterBy }) {
             try {
                 const stays = await stayService.query(filterBy)
-                console.log('stays stor',stays);
-                
+                console.log('stays stor', stays);
+
                 context.commit({ type: 'setStays', stays })
             } catch (err) {
                 console.log('stayStore: Error in loadStays', err)
@@ -173,6 +181,10 @@ export const stayStore = {
             );
 
             return stays
-        }
+        },
+        switchLayout({ commit }, { layout }) {
+            console.log('store layout', layout)
+            commit({ type: 'switchLayout', layout })
+        },
     }
 }
