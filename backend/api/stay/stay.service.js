@@ -34,11 +34,9 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
         if (filterBy.region) {
             stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
         }
-        console.log('stays in qury likedby1', filterBy.likedStays);
         if (filterBy.likedStays.length) {
             if (!filterBy.likedStays.length) stays = []
             stays = stays.filter(stay => filterBy.likedStays.includes(stay.name))
-            console.log('stays in qury likedby', stays);
 
         }
         if (filterBy.label) {

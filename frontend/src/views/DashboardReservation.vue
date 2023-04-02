@@ -22,15 +22,16 @@
       <ul  class="reservations-chart"
       v-for="order in myOrders" :key="order._id">
      
-         <li class="reservations-chart-item col1"><img class="user-url" :src="order.buyer.img"/> {{order.buyer.fullname}}</li>
+         <li class="reservations-chart-item col1">
+          <img class="user-url" :src="order.buyer.img"/> {{order.buyer.fullname}}</li>
         <li class="reservations-chart-item col2">{{order.stay.name}}</li>
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
-         <li class="reservations-chart-item col6">{{order.status ||'Approved'}}</li>
+         <li class="reservations-chart-item col6">{{ order.status }}</li>
          <li class="reservations-chart-item col7">
-          <button class="btn-approve">Approve</button>
-         <button class="btn-reject">Reject</button>
+          <button @click="changeStatus(order._id,'approve')" class="btn-approve">Approve</button>
+         <button @click="changeStatus(order._id,'reject')" class="btn-reject">Reject</button>
          </li>
  
         </ul>
@@ -48,12 +49,13 @@ export default {
   },
   async created() {
     const orders=await this.$store.dispatch({ type: "loadOrders" });
-    console.log('orders in dashres',orders);
+  
     
     const myOrders = await this.$store.dispatch({
       type: "getMyOrders",
       userId: this.userId,
     });
+      console.log('orders in dashres',myOrders);
     myOrders.forEach(el => {
       
          const formatter = new Intl.NumberFormat("en-US", {
@@ -64,27 +66,29 @@ export default {
       el.totalPrice=formatter.format(el.totalPrice)
     
     });
-      for(let i = myOrders.length-1; i > 0; i--) {
+      for(let i = myOrders.length-1; i >= 0; i--) {
    this.myOrders.push(myOrders[i])
    }
    
-    console.log("myOrders in reservation", myOrders);
   },
   data() {
     return {
       orders: [],
       myOrders: [],
     };
+  },methods:{
+      changeStatus(orderId,type){
+        const orderToUpdate= this.myOrders.find(order=>order._id===orderId)
+        orderToUpdate.status=type
+        const idx=this.myOrders.findIndex(order=>order._id===orderId)
+      console.log('before this.myOrders',this.myOrders);
+      
+        this.myOrders.splice(idx,1,orderToUpdate)
+      console.log('after this.myOrders',this.myOrders);
+        this.$store.dispatch({type:'changeOrderStatus',orderToUpdate})
+      },
   },
   computed: {
-    // totalPrice(){
-    //   const formatter = new Intl.NumberFormat("en-US", {
-    //     style: "currency",
-    //     currency: "USD",
-    //     maximumFractionDigits: 0,
-    //   });
-    //   return formatter.format(this.order.totalPrice);
-    // },
   },
   components: {
     DoughnutChart,

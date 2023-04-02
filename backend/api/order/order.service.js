@@ -4,24 +4,47 @@ const dbService = require('../../services/db.service')
 const orderService = require('../order/order.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
+const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
     addOrder,
+    update,
 }
 
 async function query() {
-  
+
     try {
         const collection = await dbService.getCollection('order')
         var orders = await collection.find({}).toArray()
+        console.log('orders',orders);
         
-            return orders
-        }
-   
-     catch (err) {
+        return orders
+    }
+
+    catch (err) {
         logger.error('cannot find orders', err)
         throw err
+    }
+}
+async function update(order) {
+
+    try {
+        const orderToSave = {
+            status: order.status,
+        }
+        const collection = await dbService.getCollection('order')
+        await collection.updateOne(
+            { _id: ObjectId(order._id) }
+            ,{ $set: orderToSave }
+        )
+
+        return order
+    }
+    catch (err) {
+        logger.error(`cannot update order ${order._id}`, err)
+        throw err
+
     }
 }
 async function addOrder(order) {
@@ -30,36 +53,33 @@ async function addOrder(order) {
         const orderToAdd = {
             hostId: order.hostId,
             buyer: {
-              _id: order.buyer._id,
-              fullname: order.buyer.fullname,
-              img:order.buyer.img,
+                _id: order.buyer._id,
+                fullname: order.buyer.fullname,
+                img: order.buyer.img,
             },
             totalGuests: order.totalGuests,
             totalPrice: order.totalPrice,
             startDate: order.startDate,
             endDate: order.endDate,
             nigths: order.nigths,
-            
+            status: order.status,
+
             guests: {
-              adults: order.guests.adults,
-              kids: order.guests.kids,
-              infants: order.guests.infants,
-              pets: order.guests.pets,
+                adults: order.guests.adults,
+                kids: order.guests.kids,
+                infants: order.guests.infants,
+                pets: order.guests.pets,
             },
             stay: {
-              _id: order.stay._id,
-              name: order.stay.name,
-              price: order.stay.price,
-              img:order.stay.img,
+                _id: order.stay._id,
+                name: order.stay.name,
+                price: order.stay.price,
+                img: order.stay.img,
             }
         }
-        console.log('orderToAdd before',orderToAdd);
-        
+
         const collection = await dbService.getCollection('order')
-        console.log('collection',collection);
-        
         await collection.insertOne(orderToAdd)
-        console.log('orderToAdd after',orderToAdd);
         return orderToAdd
     } catch (err) {
         logger.error('cannot add order', err)
