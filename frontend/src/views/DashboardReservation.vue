@@ -21,8 +21,8 @@
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
          <li class="reservations-chart-item col6">{{order.status ||'Approved'}}</li>
          <li class="reservations-chart-item col7">
-          <button>Approve</button>
-         <button>Reject</button>
+          <button class="btn-approve">Approve</button>
+         <button class="btn-reject">Reject</button>
          </li>
  
         </ul>
