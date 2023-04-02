@@ -30,7 +30,7 @@
         }
 
         // color:#222222
-        
+
         &:hover {
             background-color: #dddddd;
         }
@@ -71,7 +71,7 @@
         width: rem(226.09px);
     }
 
-    svg {
+    svg:not(.search-item>svg) {
         display: inline-block;
         height: 16px;
         width: 16px;
