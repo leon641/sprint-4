@@ -44,7 +44,7 @@ export default {
                 labels: ['Yearly revenue', 'Monthly revenue', 'Weekly revenue'],
                 datasets: [
                     {
-                        data: [130, 40, 20,],
+                        data: [8547, 6212, 1040,],
                         backgroundColor: [
                             '#2eb872',
                             '#f8f398',
