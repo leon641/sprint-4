@@ -1,7 +1,9 @@
-.dashBoard-container{
+.dashBoard-container {
     display: grid;
     grid-template-columns: 120px 1fr 120px;
+    margin-block-end: 100px;
 }
+
 .reservations-container {
     display: grid;
     grid-column: 2;
@@ -12,9 +14,9 @@
         font-family: CircularAir-Light;
         font-weight: 600;
 
-      
 
-       
+
+
     }
 }
 
@@ -28,17 +30,18 @@
     justify-items: flex-start;
     align-items: center;
     border-bottom: 1px solid rgb(221, 221, 221);
+
     .col6 {
         display: flex;
         justify-content: center;
         width: 100%;
         margin-left: 60px;
     }
-    
+
     .btn-approve {
         padding: 8px;
-         background-color: #c3efc3;
-         border: 1px solid lightgray;
+        background-color: #c3efc3;
+        border: 1px solid lightgray;
         border-radius: 9px;
     }
 
@@ -49,17 +52,18 @@
         border-radius: 9px;
         min-width: 65px;
     }
+
     .btn-approve:hover {
-      
-         background-color: #2eb872;
-      
- 
+
+        background-color: #2eb872;
+
+
     }
 
     .btn-reject:hover {
 
         background-color: #e46161;
-       
+
     }
 
     .reservations-chart-item {
@@ -103,17 +107,17 @@
     .reservations-chart-item.col5 {
         grid-column: 5;
         width: 50%;
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
 
     }
 
     .reservations-chart-item.col6 {
         grid-column: 6;
-        
-           
 
-        
+
+
+
 
     }
 
