@@ -13,7 +13,7 @@
     </div>
       <div class="mini-card-header mini-card card-item-3">
         <h1>Messages</h1>
-      <h3>Order #o1226 in status: {{currOrder.status}}</h3>
+      <h3 >Order #o1226 in status: <span :class="currOrder.status">{{currOrder.status}}</span></h3>
     
 
         
