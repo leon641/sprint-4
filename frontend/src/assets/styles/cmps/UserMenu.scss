@@ -20,15 +20,12 @@
         background-color: lightgrey;
         width: 100%;
     }
-    
-    
 
-
-    a {
-        width: 148.35px;
+    & a {
+        width: 238.35px;
         height: 40px;
         font-size: rem(16px);
-        border-radius: 20px;
+        border-radius: 0px !important;
         padding-left: 15px;
         cursor: pointer;
         transition: color 250ms ease;
@@ -38,8 +35,7 @@
 
         &:hover {
             background-color: #f7f7f7;
-            
+
         }
     }
 }
-

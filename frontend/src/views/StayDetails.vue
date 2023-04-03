@@ -66,7 +66,7 @@
               alt=" Demet."
               decoding="async"
               elementtiming="LCP-target"
-              :src="stay.host.thumbnailUrl"
+              :src="stay.host?.thumbnailUrl"
             />
           </div>
           <UserStayInfo />
