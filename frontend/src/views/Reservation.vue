@@ -137,7 +137,7 @@ console.log('this.currOrder',this.currOrder);
       const pricePreNigth=this.currOrder.stay.price
       const nigths=this.currOrder.nigths
       const numOfGuests=this.currOrder.totalGuests
-      return pricePreNigth*nigths*numOfGuests
+      return pricePreNigth*nigths
     }
   },
   components:{
