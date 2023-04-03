@@ -24,13 +24,13 @@
 
 
 .chart {
-    padding: 5px;
     display: -webkit-inline-box;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     // background-color: $clr4;
     // border: 1px solid black;
+    grid-column: 2;
     border-radius: 9px;
     margin-bottom: 25px;
     
@@ -81,6 +81,7 @@
     .revenue-item1 {
         grid-row: 1;
         padding: 10px;
+        margin-bottom: 0;
     }
     .revenue-item2 {
         grid-row: 2;

@@ -1,14 +1,20 @@
 .dashBoard-container{
     display: grid;
+    grid-template-columns: 120px 1fr 120px;
 }
 .reservations-container {
     display: grid;
+    grid-column: 2;
     // grid-template-columns: minmax(50px, 1fr)auto minmax(50px, 1fr);
 
     .thead {
         font-size: 14px;
         font-family: CircularAir-Light;
         font-weight: 600;
+
+      
+
+       
     }
 }
 
@@ -18,10 +24,16 @@
     padding-left: 0;
     grid-column: 1;
     display: grid;
-    grid-template-columns: 150px 321px 110px 110px 121px 139px 324px;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr;
     justify-items: flex-start;
     align-items: center;
     border-bottom: 1px solid rgb(221, 221, 221);
+    .col6 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 60px;
+    }
     
     .btn-approve {
         padding: 8px;
@@ -95,13 +107,18 @@
 
     .reservations-chart-item.col6 {
         grid-column: 6;
+        
+           
+
+        
 
     }
 
     .reservations-chart-item.col7 {
         grid-column: 7;
         display: flex;
-        gap: 10px
+        gap: 10px;
+        margin-left: auto;
     }
 
 }
