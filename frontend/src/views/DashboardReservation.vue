@@ -24,7 +24,7 @@
     
      
          <li class="reservations-chart-item col1">
-          <img class="user-url" :src="order.buyer.img"/> {{order.buyer.fullname}}</li>
+          <img class="user-url" :src="order.buyer.img || userUrl"/> {{order.buyer.fullname}}</li>
         <li class="reservations-chart-item col2">{{order.stay.name}}</li>
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
@@ -75,6 +75,7 @@ export default {
   },
   data() {
     return {
+      userUrl:`https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&w=600`,
       orders: [],
       myOrders: [],
     };
@@ -91,6 +92,7 @@ export default {
       },
   },
   computed: {
+   
   },
   components: {
     DoughnutChart,

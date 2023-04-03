@@ -19,23 +19,22 @@ import UserMsg from "./cmps/UserMsg.vue";
 
 export default {
   data() {
-    return {
-      // layout: "stay-app",
-    };
+    return {}
   },
   created() {
     console.log("Vue App created");
     const user = userService.getLoggedinUser();
-    if (user) store.commit({ type: "setLoggedinUser", user });
+    if (user){
+      store.commit({ type: "setLoggedinUser", user })
+    }else{
+          const user = userService.login({ username: "shimon", password: "333" });
+          
+           store.commit({ type: "setLoggedinUser", user })
+          console.log('loggdin with ',user.username);
+    }
+
   },
-  methods: {
-    // inDetails() {
-    //   this.layout = "stay-details";
-    // },
-    // inIndex() {
-    //   this.layout = "stay-app";
-    // },
-  },
+  
   components: {
     AppHeader,
     UserMsg,
