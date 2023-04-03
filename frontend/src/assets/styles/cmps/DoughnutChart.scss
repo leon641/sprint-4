@@ -7,7 +7,7 @@
     width: 305px;
     padding: 10px;
     border-radius: 9px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.0823529412);
 }
 
 #bar-chart {
@@ -19,7 +19,7 @@
     // min-width: 270px;
     padding: 10px;
     border-radius: 9px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.0823529412);
 }
 
 
@@ -44,7 +44,7 @@
 }
 
 .revenue-summery-container {
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.0823529412);
     display: flex;
     min-height: 300px;
     min-width: 250px;
@@ -75,12 +75,12 @@
     width: 245px;
     grid-template-rows: repeat(3,1fr);
     height: 120px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.0823529412);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.0823529412);
     border-radius: 9px;
-
+   
     .revenue-item1 {
         grid-row: 1;
-        padding: 5px;
+        padding: 10px;
     }
     .revenue-item2 {
         grid-row: 2;
@@ -103,6 +103,7 @@
         font-size: 17px;
         font-family: CircularAir-Light;
     }
+    
 
     // width: 305px;
     height: 120px;
