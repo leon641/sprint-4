@@ -21,6 +21,19 @@
             height: 410px;
             border-right: 1px solid #ebebeb;
 
+            .search-item {
+                display: flex;
+
+                .svg-container {
+                    background-color: rgb(235, 235, 235);
+                }
+
+                svg {
+                    stroke: #222 !important;
+                    stroke-width: 1;
+                }
+            }
+
             h5 {
                 padding-inline-start: 32px;
                 padding-block-start: 22px;
