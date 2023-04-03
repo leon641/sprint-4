@@ -38,7 +38,7 @@
         <h2>Where you've been</h2>
           <div class="mini-stay">
             <div class="mini-stay1">
-             <img class="mini-img" src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg" alt="" srcset="">
+             <img class="mini-img" src="https://a0.muscache.com/im/pictures/miso/Hosting-565333856160262069/original/b4f30c28-6b22-4d39-80ba-6cda756cbc33.jpeg?im_w=720" alt="" srcset="">
               <div class="info">
               <h5>Montreal</h5>
               <small>hosted by angel</small>
@@ -48,7 +48,7 @@
             </div>
           <div class="mini-stay">
             <div class="mini-stay1">
-             <img class="mini-img" src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg" alt="" srcset="">
+             <img class="mini-img" src="https://a0.muscache.com/im/pictures/95166772/2cfd3e94_original.jpg?im_w=1200" alt="" srcset="">
               <div class="info">
               <h5>Rio De Janeiro</h5>
               <small>hosted by Luana</small>
@@ -59,7 +59,7 @@
           </div>
           <div class="mini-stay">
             <div class="mini-stay1">
-             <img class="mini-img" src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436556/mb70fifvvpvde8jub5cg.jpg" alt="" srcset="">
+             <img class="mini-img" src="https://a0.muscache.com/im/pictures/2587de26-b64d-4d83-9b16-cca6ed4953fc.jpg?im_w=720" alt="" srcset="">
               <div class="info">
               <h5>Maui</h5>
               <small>hosted by Franck</small>
@@ -70,7 +70,7 @@
           </div>
           <div class="mini-stay">
             <div class="mini-stay1">
-             <img class="mini-img" src="http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436983/pivldxmrxssnhyzixhes.jpg" alt="" srcset="">
+             <img class="mini-img" src="https://a0.muscache.com/im/pictures/f554f93b-7bbd-4024-ae97-5857f3cdaf1a.jpg?im_w=1440" alt="" srcset="">
               <div class="info">
               <h5>Barcelona</h5>
               <small>hosted by sonia</small>
