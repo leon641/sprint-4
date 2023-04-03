@@ -26,7 +26,7 @@
                 ></path>
               </svg>
             </div>
-            <div class="s-info">
+            <div class="search-info">
               <div class="search-title">Israel • Stays</div>
               <div class="search-when">Any week</div>
             </div>
