@@ -26,7 +26,7 @@
       <h4>Kids: {{currOrder.guests.kids}}</h4>
       <h4>Infants: {{currOrder.guests.infants}}</h4>
       <h4>Pets: {{currOrder.guests.pets}}</h4>
-      <h4>Total price: ${{currOrder.totalPrice}}</h4>
+      <h4>Total price: ${{currOrder.totalPrice.toLocaleString()}}</h4>
       <button class="mini-card-btn">Go to stay</button>
         </div>
      <div class="next-stay-img">
