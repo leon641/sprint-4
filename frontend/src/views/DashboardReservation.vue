@@ -17,11 +17,10 @@
         <div class="thead col4">Check-out</div>
         <div class="thead col5">Total Price</div>
         <div class="thead col6">Status</div>
-        <div class="thead col6">Actions</div>
+        <div class="thead col6"><span>Actions</span></div>
         </section>
-        <div  v-for="order in myOrders" :key="order._id" class="flex">
 
-      <ul  class="reservations-chart">
+      <ul v-for="order in myOrders" :key="order._id" class="reservations-chart">
     
      
          <li class="reservations-chart-item col1">
@@ -37,7 +36,7 @@
          </li>
  
         </ul>
-        </div>
+      
     </section>
   </section>
 </template>
