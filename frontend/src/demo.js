@@ -50,11 +50,12 @@ async function query(filterBy = { txt: '', region: '' /* etc. */ }) {
 //Data gets to backend and being used it the necessary function
 async function getStays(req, res) {
     try {
+        const {txt,region,label,likedStays} = req.query
         const filterBy = {
-            txt: req.query.txt || '',
-            region: req.query.region || '',
-            label: req.query.label || '',
-            likedStays: req.query.likedStays || [],
+            txt: txt || '',
+            region: region || '',
+            label: label || '',
+            likedStays: likedStays || [],
         }
         const stays = await stayService.query(filterBy)
         res.json(stays)
