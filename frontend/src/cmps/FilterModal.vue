@@ -6,7 +6,7 @@
       <div class="resent-searches">
         <h5>Recent searches</h5>
         <div class="history">
-          <div class="search-item">
+          <div class="search-item" @click="search('israel')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -26,10 +26,12 @@
                 ></path>
               </svg>
             </div>
-            
+            <div class="search-info">
+              <div class="search-title">Israel • Stays</div>
+              <div class="search-when">Any week</div>
+            </div>
           </div>
-          <img src="./" alt="" srcset="">
-          <div class="search-item">
+          <div class="search-item" @click="search('turkey')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -49,8 +51,12 @@
                 ></path>
               </svg>
             </div>
+            <div class="search-info">
+              <div class="search-title">Turkey • Stays</div>
+              <div class="search-when">Any week</div>
+            </div>
           </div>
-          <div class="search-item">
+          <div class="search-item" @click="search('greece')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -70,8 +76,12 @@
                 ></path>
               </svg>
             </div>
+            <div class="search-info">
+              <div class="search-title">Greece • Stays</div>
+              <div class="search-when">Any week</div>
+            </div>
           </div>
-          <div class="search-item">
+          <div class="search-item" @click="search('middle east')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -90,6 +100,10 @@
                   d="m15.9999.3335c8.6524795 0 15.6667 7.01422051 15.6667 15.6667 0 8.6524795-7.0142205 15.6667-15.6667 15.6667-8.65247949 0-15.6667-7.0142205-15.6667-15.6667 0-8.65247949 7.01422051-15.6667 15.6667-15.6667zm0 2c-7.54790999 0-13.6667 6.11879001-13.6667 13.6667 0 7.54791 6.11879001 13.6667 13.6667 13.6667 7.54791 0 13.6667-6.11879 13.6667-13.6667 0-7.54790999-6.11879-13.6667-13.6667-13.6667zm1.0001 3v10.0895l8.7375978 5.0444733-.9999956 1.7320534-9.7376022-5.6219748v-11.2440519z"
                 ></path>
               </svg>
+            </div>
+            <div class="search-info">
+              <div class="search-title">Middle East • Stays</div>
+              <div class="search-when">Any week</div>
             </div>
           </div>
         </div>
@@ -392,8 +406,17 @@ export default {
       this.$emit("setRegion", title);
       this.$emit("switchToCheck");
     },
+    search(string) {
+      console.log("string", string);
+      this.$router.push({
+        path: "/explore",
+        query: { txt: string },
+      });
+      this.$emit("closeFilter");
+    },
   },
-  emits: ["setRegion", "switchToCheck", "setDates"],
+
+  emits: ["setRegion", "switchToCheck", "setDates", "closeFilter"],
 };
 
 // import { ref } from "vue";
