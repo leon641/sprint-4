@@ -15,11 +15,12 @@
     padding-left: 0;
     grid-column: 1;
     display: grid;
-    grid-template-columns: 150px 321px 110px 110px 121px 150px 324px;
+    grid-template-columns: 150px 321px 110px 110px 121px 139px 324px;
     justify-items: flex-start;
     align-items: center;
     border-bottom: 1px solid rgb(221, 221, 221);
-
+    width: 84%;
+    margin-left: 8%;
     .btn-approve {
         padding: 8px;
          background-color: #c3efc3;
