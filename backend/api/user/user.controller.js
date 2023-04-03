@@ -14,6 +14,7 @@ async function getUser(req, res) {
 
 async function getUsers(req, res) {
     try {
+       console.log('getting the users');
        
         const users = await userService.query()
         

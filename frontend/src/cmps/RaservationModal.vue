@@ -265,7 +265,7 @@ export default {
      {
     key: 'test',
     highlight: true,
-    dates: { start: new Date(), end: new Date(2023,3,4)},
+    dates: { start: new Date(), end: new Date(2023,3,5)},
   },
 
       ],
@@ -385,6 +385,7 @@ export default {
       this.order.totalGuests = count;
       console.log(" this.totalGuests", this.order.totalGuests);
 
+      if(count===0)count='Add guests'
       return count;
     },
     StayTotalPrice() {

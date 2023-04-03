@@ -104,7 +104,7 @@
     <div class="cell"></div>
     <div class="content">
       <button class="action-btn">
-        <span>Reserve</span>
+        <span>Confirm and pay</span>
       </button>
     </div>
   </div>

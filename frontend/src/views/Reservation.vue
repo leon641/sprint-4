@@ -79,23 +79,23 @@
         <h3>Price details</h3>
         <div class="prices">
           <p>${{this.currOrder.stay.price}} x  {{this.currOrder.nigths}} nights</p>
-          <p class="flex-end">${{this.currOrder.totalPrice}}</p>
+          <p class="flex-end">${{totalPrice}}</p>
           <p>total guests</p>
           <p class="flex-end">{{this.currOrder.totalGuests}}</p>
         </div>
       </section>
       <section class="reservation-price-total">
         <p>Total (USD)</p>
-        <p>${{this.currOrder.totalPrice}}</p>
+        <p>${{finalPrice}}</p>
       </section>
     </section>
   </section>
   </section>
 
-  <section class="footer-section-btn">
-    <div class="footer-reservation-view-container full">
+  <section class="footer-reservation-view-container">
+    <div class="footer-reservation-view-btn">
+        <FooterReservationBtn  @click="goToTrips"/>
 
-        <FooterReservationBtn @click="goToTrips"/>
     </div>
   </section>
 </template>
@@ -127,8 +127,19 @@ console.log('this.currOrder',this.currOrder);
       this.$router.push("/trips")
 
     },
+    
   },
-  computed: {},
+  computed: {
+    totalPrice(){
+    return   this.currOrder.stay.price*this.currOrder.nigths
+    },
+    finalPrice(){
+      const pricePreNigth=this.currOrder.stay.price
+      const nigths=this.currOrder.nigths
+      const numOfGuests=this.currOrder.totalGuests
+      return pricePreNigth*nigths*numOfGuests
+    }
+  },
   components:{
     ReserveBtnReservation,
     FooterReservationBtn
