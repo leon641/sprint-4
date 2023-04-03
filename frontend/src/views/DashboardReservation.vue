@@ -19,8 +19,10 @@
         <div class="thead col6">Status</div>
         <div class="thead col6">Actions</div>
         </section>
-      <ul  class="reservations-chart"
-      v-for="order in myOrders" :key="order._id">
+        <div  v-for="order in myOrders" :key="order._id" class="flex">
+
+      <ul  class="reservations-chart">
+    
      
          <li class="reservations-chart-item col1">
           <img class="user-url" :src="order.buyer.img"/> {{order.buyer.fullname}}</li>
@@ -35,6 +37,7 @@
          </li>
  
         </ul>
+        </div>
     </section>
   </section>
 </template>
