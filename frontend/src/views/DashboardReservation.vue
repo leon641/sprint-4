@@ -29,7 +29,7 @@
          <li class="reservations-chart-item col3">{{order.startDate}}</li>
          <li class="reservations-chart-item col4">{{order.endDate}}</li>
          <li class="reservations-chart-item col5">{{order.totalPrice}}</li>
-         <li class="reservations-chart-item col6">{{ order.status }}</li>
+         <li class="reservations-chart-item col6"><span :class="order.status">{{ order.status }}</span></li>
          <li class="reservations-chart-item col7">
           <button @click="changeStatus(order._id,'approved')" class="btn-approve">Approve</button>
          <button @click="changeStatus(order._id,'rejected')" class="btn-reject">Reject</button>

@@ -51,14 +51,14 @@
     }
     .btn-approve:hover {
       
-         background-color: #88f788;
+         background-color: #2eb872;
       
  
     }
 
     .btn-reject:hover {
 
-        background-color: #f98686;
+        background-color: #e46161;
        
     }
 
@@ -102,6 +102,9 @@
 
     .reservations-chart-item.col5 {
         grid-column: 5;
+        width: 50%;
+    display: flex;
+    justify-content: center;
 
     }
 
