@@ -6,7 +6,7 @@
       <div class="resent-searches">
         <h5>Recent searches</h5>
         <div class="history">
-          <div class="search-item" @click="Search('israel')">
+          <div class="search-item" @click="search('israel')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -31,7 +31,7 @@
               <div class="search-when">Any week</div>
             </div>
           </div>
-          <div class="search-item" @click="Search('turkey')">
+          <div class="search-item" @click="search('turkey')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -56,7 +56,7 @@
               <div class="search-when">Any week</div>
             </div>
           </div>
-          <div class="search-item" @click="Search('greece')">
+          <div class="search-item" @click="search('greece')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -81,7 +81,7 @@
               <div class="search-when">Any week</div>
             </div>
           </div>
-          <div class="search-item" @click="Search('middle east')">
+          <div class="search-item" @click="search('middle east')">
             <div class="svg-container">
               <svg
                 viewBox="0 0 32 32"
@@ -406,8 +406,17 @@ export default {
       this.$emit("setRegion", title);
       this.$emit("switchToCheck");
     },
+    search(string) {
+      console.log("string", string);
+      this.$router.push({
+        path: "/explore",
+        query: { txt: string },
+      });
+      this.$emit("closeFilter");
+    },
   },
-  emits: ["setRegion", "switchToCheck", "setDates"],
+
+  emits: ["setRegion", "switchToCheck", "setDates", "closeFilter"],
 };
 
 // import { ref } from "vue";

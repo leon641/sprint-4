@@ -133,6 +133,7 @@
       :propWho="propWho"
       @setRegion="setRegion"
       @switchToCheck="switchToCheck"
+      @closeFilter="closeFilter"
     />
   </div>
 </template>
