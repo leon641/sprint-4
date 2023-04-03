@@ -20,7 +20,8 @@
         width: rem(32px);
         height: rem(32px);
         // margin-inline-start: rem(3.3px);
-
+        margin-block-start: 9px;
+        margin-inline-start: 15px;
 
         svg {
             // position: relative;
@@ -36,8 +37,6 @@
     }
 
     .anywhere-container {
-        padding-inline-start: 18px;
-
 
         .anywhere {
             font-size: 14px;

@@ -21,16 +21,58 @@
             height: 410px;
             border-right: 1px solid #ebebeb;
 
+            .history {
+                margin-block-start: 25px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .search-item {
                 display: flex;
+                align-items: center;
+
+                &:hover {
+                    background-color: rgb(247, 247, 247);
+                }
 
                 .svg-container {
                     background-color: rgb(235, 235, 235);
+                    margin-inline-start: 34px;
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 12px;
+                    // margin-block-start: 19px;
                 }
 
                 svg {
                     stroke: #222 !important;
-                    stroke-width: 1;
+                    stroke-width: 0;
+                    margin-inline-start: 4px;
+                }
+
+                .search-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-inline-start: 15px;
+                    // margin-block-start: 18px;
+
+                    .search-title {
+                        font-size: 16px;
+                        font-weight: 100;
+                    }
+
+                    .search-when {
+                        margin-inline-start: -36px;
+                        margin-block-start: -3px;
+                        font-weight: 100;
+                        font-size: 12px;
+                    }
                 }
             }
 
