@@ -314,15 +314,15 @@ export default {
       regions: [
         {
           title: "I'm flexible",
-          url: "src/assets/img/regions/I'm flexible.jpg",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/I_m_flexible_wcda2q.jpg",
         },
         {
           title: "Italy",
-          url: "src/assets/img/regions/Italy.webp",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/Italy_f6fta9.webp",
         },
         {
           title: "Middle East",
-          url: "src/assets/img/regions/Middle East.webp",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/Middle_East_soowo9.webp",
         },
         // {
         //   title: "France",
@@ -330,15 +330,15 @@ export default {
         // },
         {
           title: "South America",
-          url: "src/assets/img/regions/South America.jpg",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/South_America_qa5bfw.jpg",
         },
         {
           title: "United Kingdom",
-          url: "src/assets/img/regions/United Kingdom.jpg",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/United_Kingdom_aspb3p.jpg",
         },
         {
           title: "United States",
-          url: "src/assets/img/regions/United States.webp",
+          url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/United_States_of6qvy.webp",
         },
       ],
       selectedColor: "gray",

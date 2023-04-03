@@ -126,9 +126,9 @@ console.log('this.currOrder',this.currOrder);
     goToTrips() {
       this.$router.push("/trips")
 
-    },
-    
+    }, 
   },
+  
   computed: {
     totalPrice(){
     return   this.currOrder.stay.price*this.currOrder.nigths
