@@ -6,7 +6,7 @@
         <h1>Wishlist</h1>
       </div>
       <h4>
-        <span>{{loggedinUser.likedByUsers.length}}</span>
+        <span>{{loggedinUser.likedByUsers?.length}}</span>
         &nbsp;saved stays
       </h4>
       <button class="mini-card-btn" @click="goToWishList">Go to wishlist</button>

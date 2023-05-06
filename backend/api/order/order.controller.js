@@ -12,6 +12,18 @@ async function getOrders(req, res) {
         res.status(500).send({ err: 'Failed to get orders' })
     }
 }
+async function getOrderById(req, res) {
+  try {
+    const orderId = req.params.id
+    console.log('orderrrrrrrrrrrrrrrrrrr   iddddd',orderId);
+    const order = await orderService.getById(orderId)    
+    
+    res.json(order)
+  } catch (err) {
+    logger.error('Failed to get order', err)
+    res.status(500).send({ err: 'Failed to get order' })
+  }
+}
 async function addOrder(req, res) {
     try {
         const order = req.body
@@ -23,10 +35,12 @@ async function addOrder(req, res) {
         res.status(500).send({ err: 'Failed to add order' })
       }
 }
+
 async function updateOrder(req, res) {
     try {
         const order = req.body
-        const updatedOrder = await orderService.update(order)    
+        const updatedOrder = await orderService.update(order)  
+        // sockt here  
         console.log('updatedOrder in conttroller',updatedOrder);
         
         res.json(updatedOrder)
@@ -41,6 +55,7 @@ async function updateOrder(req, res) {
 
 module.exports = {
     addOrder,
+    getOrderById,
     getOrders,
-    updateOrder
+    updateOrder,
 }
