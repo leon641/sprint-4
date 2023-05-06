@@ -1,6 +1,6 @@
 
 <template>
-  <section class="reservation-view-container">
+  <section v-if="order" class="reservation-view-container">
     <header class="reservation-header">
       <div class="reservation-header-svg-container">
         <span
@@ -21,7 +21,7 @@
           </div>
           <div class="trip-summary-guests">
             <h3>Guests</h3>
-            <span>{{ this.currOrder.totalGuests }} guests</span>
+            <span>{{ this.order.totalGuests }} guests</span>
           </div>
         </section>
         <div class="reservation-container-info-cancellation">
@@ -64,7 +64,7 @@
           <div class="reservation-privew-img-container">
             <img
               class="reservation-privew-img"
-              :src="this.currOrder.stay.img"
+              :src="this.order.stay?.img"
               alt=""
             />
           </div>
@@ -99,12 +99,12 @@
           <h3>Price details</h3>
           <div class="prices">
             <p>
-              ${{ this.currOrder.stay.price }} x
-              {{ this.currOrder.nigths }} nights
+              ${{ this.order.stay.price }} x
+              {{ this.order.nigths }} nights
             </p>
             <p class="flex-end">${{ totalPrice }}</p>
             <p>total guests</p>
-            <p class="flex-end">{{ this.currOrder.totalGuests }}</p>
+            <p class="flex-end">{{ this.order.totalGuests }}</p>
           </div>
         </section>
         <section class="reservation-price-total">
@@ -114,6 +114,7 @@
       </section>
     </section>
   </section>
+  <div v-else>Loading....</div>
 
   <section class="footer-reservation-view-container">
     <div class="footer-reservation-view-btn">
@@ -126,39 +127,46 @@ import ReserveBtnReservation from "../cmps/ReserveBtnReservation.vue";
 import FooterReservationBtn from "../cmps/FooterReservationBtn.vue";
 import DoughnutChart from "../cmps/DoughnutChart.vue";
 import { svgService } from "../services/svg.service";
+import { orderService } from '../services/order.service';
 
 export default {
   data() {
     return {
       currOrder: {},
+      order:{}
     };
   },
-  created() {
+ async created() {
     window.scrollTo(0, 0);
+    const orderId = this.$route.query.order
+    const order = await orderService.getById(orderId)
+    this.order= order
+    console.log("orderId from params", order);
     this.currOrder = this.$store.getters.currOrder;
-    console.log("this.currOrder", this.currOrder);
+
   },
   methods: {
     getSvg(type) {
       return svgService.getSvg(type);
     },
     backwords() {
-      this.$router.push(`/details/${this.currOrder.stay._id}`);
+      this.$router.push(`/details/${this.order.stay._id}`);
     },
     goToTrips() {
-      this.$router.push("/trips")
-
+   this.$router.push({
+        path: "/trips/",
+        query: { order: this.order._id },
+      });
     }, 
   },
   
   computed: {
     totalPrice() {
-      return (this.currOrder.stay.price * this.currOrder.nigths).toLocaleString();
+      return (this.order.stay.price * this.order.nigths).toLocaleString();
     },
     finalPrice() {
-      const pricePreNigth = this.currOrder.stay.price;
-      const nigths = this.currOrder.nigths;
-      const numOfGuests = this.currOrder.totalGuests;
+      const pricePreNigth = this.order.stay.price;
+      const nigths = this.order.nigths;
       return (pricePreNigth * nigths).toLocaleString();
     },
   },
