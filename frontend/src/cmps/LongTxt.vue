@@ -35,7 +35,6 @@ export default {
         let shortTxt
         const txtLong=this.desc?.length
             if (txtLong > this.defultNumOfChars)
-            console.log('txtLong',txtLong);
             
               shortTxt=this.desc?.slice(0, this.defultNumOfChars) + '...';
               return shortTxt

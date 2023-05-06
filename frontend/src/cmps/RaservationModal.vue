@@ -227,13 +227,13 @@ import { svgService } from "../services/svg.service.js";
 
 export default {
   props: {
-    avregeRate: Number,
+    avregeRate: String,
     stay: Object,
   },
   async created() {
     let loggedinUser = this.$store.getters.loggedinUser;
-    let hostId = this.stay.host._id;
-    console.log("loggedinUser.imgUrl", loggedinUser.imgUrl);
+    let hostId = this.stay.host?._id;
+    console.log("loggedinUser.imgUrl", loggedinUser?.imgUrl);
 
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
