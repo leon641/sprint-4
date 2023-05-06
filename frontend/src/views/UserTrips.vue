@@ -1,6 +1,6 @@
 <template>
   <h1 class="trips-title">Trips</h1>
-  <section class="user-trips">
+  <section v-if="order" class="user-trips">
     <div class="mini-card card-item-2">
       <div class="mini-card-header">
         <h1>Wishlist</h1>
@@ -13,7 +13,7 @@
     </div>
       <div class="mini-card-header mini-card card-item-3">
         <h1>Messages</h1>
-      <h3 >Order #o1226 in status: <span :class="currOrder.status">{{currOrder.status}}</span></h3>
+      <h3 >Order #o1226 in status: <span :class="order.status">{{order.status}}</span></h3>
     
 
         
@@ -21,16 +21,16 @@
       <div class="mini-card card-item-1">
         <div class="next-stay">
     <h1>Your Next Stay</h1>
-      <h3>{{currOrder.stay.name}}</h3>
-      <h4>Adults: {{currOrder.guests.adults}}</h4>
-      <h4>Kids: {{currOrder.guests.kids}}</h4>
-      <h4>Infants: {{currOrder.guests.infants}}</h4>
-      <h4>Pets: {{currOrder.guests.pets}}</h4>
-      <h4>Total price: ${{currOrder.totalPrice.toLocaleString()}}</h4>
+      <h3>{{order.stay.name}}</h3>
+      <h4>Adults: {{order.guests.adults}}</h4>
+      <h4>Kids: {{order.guests.kids}}</h4>
+      <h4>Infants: {{order.guests.infants}}</h4>
+      <h4>Pets: {{order.guests.pets}}</h4>
+      <h4>Total price: ${{order.totalPrice.toLocaleString()}}</h4>
       <button class="mini-card-btn">Go to stay</button>
         </div>
      <div class="next-stay-img">
-      <img :src="currOrder.stay.img" alt="" srcset="">
+      <img :src="order.stay?.img" alt="" srcset="">
      </div>
       </div>
 
@@ -84,19 +84,32 @@
           </div>
       </section>
   </section>
+  <div v-else>Loading...</div>
 </template>
 <script>
+import { orderService } from '../services/order.service';
+import { socketService } from '../services/socket.service';
+
 export default {
+  
   data() {
     return {
       loggedinUser : {},
-      currOrder : {},
+      order : {},
+
     };
   },
-   created() {
-    this.currOrder = this.$store.getters.currOrder
+   async created() {
+     socketService.on('update-order', (data) => {
+          console.log('data.status',data);
+            this.order.status=data
+    
+      })
+      const orderId = this.$route.query.order
+    const order = await orderService.getById(orderId)
+    this.order= order
     this.loggedinUser = this.$store.getters.loggedinUser
-    console.log('currOrder in trips',this.currOrder);
+
   },
   computed: {},
   methods : {
