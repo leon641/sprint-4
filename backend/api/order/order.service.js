@@ -5,11 +5,12 @@ const orderService = require('../order/order.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
 const ObjectId = require('mongodb').ObjectId
-
+const socketService= require('../../services/socket.service')
 module.exports = {
     query,
     addOrder,
     update,
+    getById,
 }
 
 async function query() {
@@ -26,12 +27,26 @@ async function query() {
         throw err
     }
 }
+async function getById(orderId) {
+    try {
+
+        const collection = await dbService.getCollection('order')
+        const order = collection.findOne({ _id: ObjectId(orderId) })
+        return order
+    } catch (err) {
+        logger.error(`while finding order ${orderId}`, err)
+        throw err
+    }
+}
 async function update(order) {
 
     try {
         const orderToSave = {
             status: order.status,
         }
+        console.log('order.status',order.status);
+        
+        socketService.emit('update-order',order.status)
         const collection = await dbService.getCollection('order')
         await collection.updateOne(
             { _id: ObjectId(order._id) }

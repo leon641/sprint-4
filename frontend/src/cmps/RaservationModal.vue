@@ -227,13 +227,13 @@ import { svgService } from "../services/svg.service.js";
 
 export default {
   props: {
-    avregeRate: Number,
+    avregeRate: String,
     stay: Object,
   },
   async created() {
     let loggedinUser = this.$store.getters.loggedinUser;
-    let hostId = this.stay.host._id;
-    console.log("loggedinUser.imgUrl", loggedinUser.imgUrl);
+    let hostId = this.stay.host?._id;
+    console.log("loggedinUser.imgUrl", loggedinUser?.imgUrl);
 
     this.order.buyer._id = loggedinUser._id;
     this.order.buyer.fullname = loggedinUser.fullname;
@@ -302,11 +302,14 @@ export default {
     };
   },
   methods: {
-    reservation() {
-      console.log("reservation-order", this.order);
-      this.$store.dispatch({ type: "setOrder", order: this.order });
+  async  reservation() {
+      const id= await  this.$store.dispatch({ type: "setOrder", order: this.order });
+      console.log("id-order-after backend", id);
       this.$store.dispatch({ type: "setCurrOrder", order: this.order });
-      this.$router.push("/reservation/");
+       this.$router.push({
+        path: "/reservation/",
+        query: { order: id },
+      });
     },
     updateGuests(diff, type) {
       this.order.guests[type] += diff;

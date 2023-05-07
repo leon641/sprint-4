@@ -42,10 +42,10 @@ export const orderStore = {
     },
 
     mutations: {
-        setOrders(state, { orders }) {
-            console.log('order in mutations',orders);
-            
-            state.orders=orders
+        setOrders(state, { orderWithId }) {
+            console.log('newly added order in mutations',orderWithId); 
+            state.orders.push(orderWithId)
+            console.log('state.orders',state.orders); 
         },
         setCurrOrder(state, { order }) {
             state.currOrder = order
@@ -63,15 +63,18 @@ export const orderStore = {
         changeOrderStatus(state, { updatedOrder }) {
             console.log('updatedOrder',updatedOrder);
             state.currOrder = updatedOrder
-            const idx=state.orders.findIndex(order=>order._id===updatedOrder._id)
-            state.orders.splice(idx,1,updatedOrder)
+            // const idx=state.orders.findIndex(order=>order._id===updatedOrder._id)
+            // state.orders.splice(idx,1,updatedOrder)
     },
 },
 actions: {
     async setOrder({ commit }, { order }) {
 
-        await orderService.setOrder(order)
-        commit({ type: 'setOrders', order })
+      const orderWithId =  await orderService.setOrder(order)
+      console.log('new order with id ??? after backend',orderWithId);
+      
+        commit({ type: 'setOrders', orderWithId })
+        return orderWithId._id
       
     },
     async setCurrOrder({ commit }, { order }) {
