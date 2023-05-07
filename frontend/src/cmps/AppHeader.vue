@@ -114,7 +114,7 @@ export default {
     //   this.layout = "stay-app";
     // }
     this.layout = this.$store.getters.layout;
-    console.log("this.$store.getters.layout", this.$store.getters.layout);
+    // console.log("this.$store.getters.layout", this.$store.getters.layout);
     // console.log("this.$route.params", this.$route.params);
     // const { stayId } = this.$route.params;
     // console.log("stayId", stayId);

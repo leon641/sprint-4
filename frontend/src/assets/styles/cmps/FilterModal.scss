@@ -213,7 +213,7 @@
     button.flex {
         justify-content: center;
         background-color: #fff;
-        border: 1px solid rgb(235, 235, 235);
+        border: 1px solid #b0b0b0;
         border-radius: 50%;
         height: 32px;
         width: 32px;
@@ -226,12 +226,21 @@
             stroke-width: 5.33333;
         }
 
-        &:hover {
+        &.active:hover {
             border-color: rgb(34, 34, 34);
 
             svg {
                 stroke: rgb(34, 34, 34);
             }
+        }
+    }
+
+    button.minus {
+        border-color:#ebebeb ;
+        cursor: not-allowed;
+
+        svg{
+            stroke: #ebebeb;
         }
     }
 
@@ -283,6 +292,7 @@
         +a {
             transform: translate(1px, -1px);
             font-size: 14px;
+            text-decoration: underline;
         }
 
         &.flex {
