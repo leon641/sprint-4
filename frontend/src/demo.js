@@ -6,12 +6,6 @@ function onSetRegion(title) {
     this.$emit("setRegion", title)
 }
 
-//Selected information saved for further use.
-function setRegion(payload) {
-    this.filterBy.txt = payload
-    this.filterBy.region = payload
-}
-
 //After all the selections are done,by pressing the search button, explore the data base.
 function toExplore() {
     this.$router.push({
