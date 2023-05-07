@@ -5,8 +5,10 @@
         <WishStayList :wishList="wishList"/>
 
 </div>
+    <MobileFooter/>
 </template>
 <script>
+import MobileFooter from '../cmps/MobileFooter.vue';
 
 import WishStayList from "../cmps/WishStayList.vue"
 
@@ -32,6 +34,7 @@ export default {
   },
   components : {
     WishStayList,
+    MobileFooter
   },
 };
 </script>

@@ -5,10 +5,12 @@
     <Carousel />
     <StayList v-if="isShown" />
   </div>
+    <MobileFooter/>
 </template>
 
 <script>
 import StayList from "../cmps/StayList.vue";
+import MobileFooter from '../cmps/MobileFooter.vue';
 import Carousel from "../cmps/FilterCarousel.vue";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { stayService } from "../services/stay.service.local";
@@ -17,15 +19,12 @@ import {
   getActionUpdateStay,
   getActionAddStayMsg,
 } from "../store/stay.store";
-import { userService } from "../services/user.service";
-// import 'vue3-carousel/carousel.css'
-import { eventBusService } from "../services/event-bus.service.js";
 
 export default {
-  components: { StayList },
   data() {
     return {
       isShown: false,
+       
     };
   },
   computed: {
@@ -35,6 +34,7 @@ export default {
     stays() {
       return this.$store.getters.stays;
     },
+  
   },
   async created() {
     // const user = userService.getLoggedinUser()
@@ -94,6 +94,7 @@ export default {
   components: {
     StayList,
     Carousel,
+    MobileFooter,
   },
 };
 //

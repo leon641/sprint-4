@@ -1,0 +1,34 @@
+.mobile-footer{
+    @include for-mobile-layout {
+        bottom:-60px;
+    }
+    .mobile-footer-item{
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        margin-block-start: 15px;
+        cursor: pointer;
+        .footer-txt-btn{
+            position: absolute;
+            top: 2.5em;
+            margin: 0;
+            font-size: 10px ;
+            color: rgb(113, 113, 113);
+        }
+
+    }
+    margin: 0;
+    grid-column: 1/-1;
+    justify-content: space-around;
+    position: fixed;
+    
+    width: 100%;
+    height:125px;
+    bottom:-600px;
+    font-size: 14px;
+    
+    background-color: #fff;
+    border-top: 1px solid rgb(235, 235, 235);
+    z-index: 99999
+}

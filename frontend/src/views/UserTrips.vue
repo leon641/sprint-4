@@ -21,12 +21,12 @@
       <div class="mini-card card-item-1">
         <div class="next-stay">
     <h1>Your Next Stay</h1>
-      <h3>{{order.stay.name}}</h3>
-      <h4>Adults: {{order.guests.adults}}</h4>
-      <h4>Kids: {{order.guests.kids}}</h4>
-      <h4>Infants: {{order.guests.infants}}</h4>
-      <h4>Pets: {{order.guests.pets}}</h4>
-      <h4>Total price: ${{order.totalPrice.toLocaleString()}}</h4>
+      <h3>{{order.stay?.name}}</h3>
+      <h4>Adults: {{order.guests?.adults}}</h4>
+      <h4>Kids: {{order.guests?.kids}}</h4>
+      <h4>Infants: {{order.guests?.infants}}</h4>
+      <h4>Pets: {{order.guests?.pets}}</h4>
+      <h4>Total price: ${{order.totalPrice?.toLocaleString()}}</h4>
       <button class="mini-card-btn">Go to stay</button>
         </div>
      <div class="next-stay-img">
@@ -84,38 +84,51 @@
           </div>
       </section>
   </section>
-  <div v-else>Loading...</div>
+  <div class="not-booked-yet-container" v-else>
+    <h1>No trips booked...yet!</h1>
+  <p class="time-to">Time to dust off your bags and start planning your next adventure</p>
+  <button @click="toHome" class="btn-trips-begin-searching">Start searching</button>
+  </div>
+  <MobileFooterVue/>
 </template>
 <script>
+
 import { orderService } from '../services/order.service';
 import { socketService } from '../services/socket.service';
+import MobileFooterVue from '../cmps/MobileFooter.vue';
 
 export default {
   
   data() {
     return {
       loggedinUser : {},
-      order : {},
+      order : null,
 
     };
   },
    async created() {
+     this.loggedinUser = this.$store.getters.loggedinUser
+       console.log(' this.loggedinUser', this.loggedinUser);
      socketService.on('update-order', (data) => {
-          console.log('data.status',data);
-            this.order.status=data
+       this.order.status=data
     
       })
       const orderId = this.$route.query.order
+      if(!orderId)return 
     const order = await orderService.getById(orderId)
     this.order= order
-    this.loggedinUser = this.$store.getters.loggedinUser
 
   },
   computed: {},
   methods : {
     goToWishList() {
       this.$router.push('/wishlist')
+    },
+    toHome(){
+      this.$router.push('/')
     }
+  },components:{
+    MobileFooterVue,
   }
 };
 </script>
