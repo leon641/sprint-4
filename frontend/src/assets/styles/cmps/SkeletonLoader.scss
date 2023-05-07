@@ -1,5 +1,8 @@
 .skelaton-container{
-    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(263px, 1fr));
+column-gap: 23px;
+    row-gap: 45px;
 }
 .placeholder {
     // margin: 15px;
@@ -25,9 +28,10 @@
 
     .square {
         border-radius: 9px;
-        width: 307px;
+        // width: 307px;
         height: 328px;
-        margin: 0 0 10px;
+        margin: 0 0 10px ;
+       
     }
 
     .rectangle {
@@ -40,7 +44,7 @@
     .line1 {
         height: 12px;
         margin: 0 0 10px 0px;
-        width: 115%;
+        width: 100%;
     }
     .line2 {
         height: 12px;

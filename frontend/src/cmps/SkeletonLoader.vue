@@ -1,6 +1,6 @@
 
 <template>
-  <div class="skelaton-container stay-list">
+  <div class="skelaton-container ">
     <div class="placeholder wave">
       <div class="square"><br /></div>
       <div class="line1"><br /></div>
