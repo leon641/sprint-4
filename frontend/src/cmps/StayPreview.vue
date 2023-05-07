@@ -50,6 +50,7 @@
       </div>
     </section>
   </div>
+
 </template>
 
 <script>
@@ -122,6 +123,7 @@ export default {
 
   components: {
     ImgCarousel,
+
   },
 };
 </script>

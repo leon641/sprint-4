@@ -4,6 +4,7 @@
   <div class="stay-index">
     <Carousel />
     <StayList v-if="isShown" />
+      <SkeletonLoader v-else/>
   </div>
     <MobileFooter/>
 </template>
@@ -19,7 +20,7 @@ import {
   getActionUpdateStay,
   getActionAddStayMsg,
 } from "../store/stay.store";
-
+import SkeletonLoader from '../cmps/SkeletonLoader.vue';
 export default {
   data() {
     return {
@@ -95,6 +96,7 @@ export default {
     StayList,
     Carousel,
     MobileFooter,
+    SkeletonLoader,
   },
 };
 //

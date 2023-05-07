@@ -36,7 +36,7 @@ export function getActionAddStayMsg(stayId) {
 export const stayStore = {
     state: {
         layout: "stay-app",
-        stays: [],
+        stays: null,
         wishList: [],
         filterBy: {
             txt: '',
