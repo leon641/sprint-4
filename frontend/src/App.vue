@@ -1,8 +1,9 @@
 <!-- בס"ד -->
 
 <template>
-    <MobileExplore v-if="isShown"/>
-    
+    <MobileExplore v-if="isShown"
+    @tuggleFilterView="mobileFilter"/>
+
   <section v-else class="stay-app">
     <AppHeader @mobileFilter="mobileFilter" />
     <RouterView />
