@@ -34,8 +34,6 @@
         color: rgb(34, 34, 34);
         font-weight: 600;
         font-size: rem(14px);
-        // transform: translate(5px), -10px));
-        // height: rem(48px));
         background-color: transparent;
         padding-inline: rem(15px);
     }
@@ -47,8 +45,9 @@
 
     .anywhere,
     .any-week {
-        // transform: translate(-5px), 0px));
         letter-spacing: rem(0.2px);
+        font-family: CircularAir-Light;
+
     }
 
     .week-btn {
@@ -67,15 +66,16 @@
     }
 
     .add-guests {
+        font-family: CircularAir-Light;
         display: inline-block;
-        color: #717171;
-        // transform: translate(1px), 0px));
+        color: $clr18;
+        font-weight: 400;
     }
 
-    :nth-child(5) {
-        color: rgb(113, 113, 113);
-        font-weight: 50;
-    }
+    // :nth-child(5) {
+    //     color: rgb(113, 113, 113);
+    //     font-weight: 50;
+    // }
 }
 
 .separator {

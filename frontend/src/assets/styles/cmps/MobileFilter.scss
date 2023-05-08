@@ -1,57 +1,64 @@
 // בס"ד
-
-.mobile-filter {
+.mobile-filter-container {
     display: none;
-    border: 0.5px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 1000px;
-    margin-block-start: 15px;
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
     grid-column: 2;
     position: sticky;
     top: 0;
     z-index: 1001;
-    background-color: #fff;
 
     @include for-mobile-layout {
-        display: flex;
+        display: block;
     }
+    
+}
 
-    .icon {
-        // position: relative;
-        width: rem(32px);
-        height: rem(32px);
-        // margin-inline-start: rem(3.3px);
-        margin-block-start: 9px;
-        margin-inline-start: 15px;
+.mobile-filter {
 
-        svg {
-            // position: relative;
-            // display: block;
-            // top: rem(10.4px);
-            // left: rem(9.28px);
-            height: rem(15px);
-            width: rem(16px);
-            stroke: #222;
-            stroke-width: 5.33333;
-            // padding-inline-start: rem(1px);
-        }
+    display: flex;
+    align-items: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1000px;
+    margin-block-start: 15px;
+    padding: 5px;
+    background-color: #fff;
+
+
+    .mobile-search-icon {
+        position: relative;
+        top: 9px;
+        bottom: 0px;
+        left: 7px;
+        padding-inline-end: 19px;
     }
 
     .anywhere-container {
 
-        .anywhere {
+        .mobile-anywhere {
             font-size: 14px;
+            font-family: CircularAir-Light;
+            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+
         }
 
         .mobile-search-container {
             display: flex;
             align-items: center;
             font-size: 12px;
+            color: $clr18;
+            font-family: CircularAir-Light;
 
-            .dot {
+            .mobile-dot {
+                font-family: CircularAir-Light;
                 padding-inline: 5px;
-                margin: 0;
-                font-size: 5px;
+                margin-top: 2.5px;
+                font-size: 3px;
             }
         }
     }
