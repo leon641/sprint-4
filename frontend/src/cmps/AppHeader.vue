@@ -46,8 +46,8 @@
     </div>
   </div>
   <MobileFilter
-   @expand="expand" 
-    @toWhere="toWhere"/>
+   @expandMobile="expandMobile" 
+  />
 
 
   <div v-if="isExpanded" class="secondary-header">
@@ -159,11 +159,9 @@ export default {
     openLogin() {
       this.isOpen = !this.isOpen;
     },
-    // setRegion(payload) {
-    //   console.log('payload',payload)
-    //   this.propRegion = payload;
-    // },
-    //
+   expandMobile(){
+    this.$emit('mobileFilter')
+   }
   },
   watch: {
     $route() {

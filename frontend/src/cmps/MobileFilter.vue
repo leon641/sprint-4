@@ -1,10 +1,10 @@
 <!-- בס"ד -->
 
 <template>
-<section class="mobile-filter-container">
+<section class="mobile-filter-container"  @click="expand" >
 
 
-  <div class="mobile-filter" @click="expand">
+  <div class="mobile-filter">
    <div class="mobile-search-icon">
     <div  v-html="getSvg('search2')"></div>
     </div>
@@ -40,10 +40,10 @@ export default {
      return  svgService.getSvg(type)
     },
     expand() {
-      this.$emit("expand");
-      this.$emit("toWhere");
+      this.$emit("expandMobile");
+
     },
   },
-  emits: ["expand", "toWhere"],
+  emits: ["expandMobile"],
 };
 </script>
