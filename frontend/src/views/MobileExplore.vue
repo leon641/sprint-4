@@ -11,7 +11,7 @@
          <section v-if="routeWhere === null" @click="tuggleCmp('destination')" class="filter-type-container where-to">
                 <div  class="container-title">
                     <span>Where</span>
-                    <span class="container-title-txt">Choose Location</span>
+                    <span class="container-title-txt">{{ userChoise.txt?userChoise.txt: 'Choose Location'}}</span>
                 </div>
             </section>
 
@@ -34,7 +34,7 @@
                        </section>
                 </section>
 
-                <section v-if="routeDates=== null" class="filter-type-container dates">
+                <section v-if="routeDates=== null" @click="tuggleCmp('dates')" class="filter-type-container dates">
                         <div  class="container-title">
                     <span>When</span>
                     <span class="container-title-txt">Choose Dates</span>
@@ -114,7 +114,9 @@ export default {
             this.$emit('tuggleFilterView')
         },
         tuggleCmp(type){
-            this.route=type
+            if(type==='destination') this.routeWhere=type
+            if(type==='dates') this.routeWhere=null
+           
     },setRegion(name){
         this.userChoise.region=name
         this.userChoise.txt=name
