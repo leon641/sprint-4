@@ -1,6 +1,6 @@
 <template>
   <h1>mobile explore works</h1>
-  //
+
 </template>
 
 <script>
