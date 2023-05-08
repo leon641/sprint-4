@@ -175,7 +175,7 @@
         <p>Ages 13 or above</p>
       </div>
       <div class="adults flex">
-        <button class="flex minus" @click="addGuest('adults', -1)">
+        <button :class="adultsMinusBtnClasses" @click="addGuest('adults', -1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +187,7 @@
           </svg>
         </button>
         <div>{{ this.guests.adults }}</div>
-        <button class="flex plus active" @click="addGuest('adults', 1)">
+        <button :class="adultsPlusBtnClasses" @click="addGuest('adults', 1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -206,7 +206,10 @@
         <p>Ages 2-12</p>
       </div>
       <div class="children flex">
-        <button class="flex minus" @click="addGuest('children', -1)">
+        <button
+          :class="childrenMinusBtnClasses"
+          @click="addGuest('children', -1)"
+        >
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +221,10 @@
           </svg>
         </button>
         <div>{{ this.guests.children }}</div>
-        <button class="flex plus active" @click="addGuest('children', 1)">
+        <button
+          :class="childrenPlusBtnClasses"
+          @click="addGuest('children', 1)"
+        >
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +243,10 @@
         <p>Under 2</p>
       </div>
       <div class="infants flex">
-        <button class="flex minus" @click="addGuest('infants', -1)">
+        <button
+          :class="infantsMinusBtnClasses"
+          @click="addGuest('infants', -1)"
+        >
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +258,7 @@
           </svg>
         </button>
         <div>{{ this.guests.infants }}</div>
-        <button class="flex plus active" @click="addGuest('infants', 1)">
+        <button :class="infantsPlusBtnClasses" @click="addGuest('infants', 1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +277,7 @@
         <a>Bringing a service animal?</a>
       </div>
       <div class="pets flex">
-        <button class="flex minus" @click="addGuest('pets', -1)">
+        <button :class="petsMinusBtnClasses" @click="addGuest('pets', -1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -280,7 +289,7 @@
           </svg>
         </button>
         <div>{{ this.guests.pets }}</div>
-        <button class="flex plus active" @click="addGuest('pets', 1)">
+        <button :class="petsPlusBtnClasses" @click="addGuest('pets', 1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -367,6 +376,14 @@ export default {
         infants: 0,
         pets: 0,
       },
+      adultsMinusBtnClasses: "flex minus inactive",
+      adultsPlusBtnClasses: "flex plus active",
+      childrenMinusBtnClasses: "flex minus inactive",
+      childrenPlusBtnClasses: "flex plus active",
+      infantsMinusBtnClasses: "flex minus inactive",
+      infantsPlusBtnClasses: "flex plus active",
+      petsMinusBtnClasses: "flex minus inactive",
+      petsPlusBtnClasses: "flex plus active",
     };
   },
   created() {
