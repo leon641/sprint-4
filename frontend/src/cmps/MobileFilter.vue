@@ -10,15 +10,19 @@
     </div>
     
  
-    <div class="anywhere-container">
-      <div class="mobile-anywhere">Anywhere</div>
+    <div class="anywhere-container ">
+      <div class="mobile-anywhere">Anywhere
       <div class="mobile-search-container">
         <div class="mobile-anyweek">Any week</div>
         <div class="mobile-dot">•</div>
         <div class="mobile-any-guests">Add guests</div>
+        </div>
       </div>
+    <div class="filter-icon">
+    <div v-html="getSvg('filterIcon')"></div>
     </div>
   </div>
+    </div>
 
 
 </section>
