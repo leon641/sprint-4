@@ -8,29 +8,12 @@
     z-index: 10000;
 }
 
-// .main-layout {
-//     display: grid;
-// }
-
-
-// .app {
-//     min-height: 100vh;
-//     display: grid;
-//     position: relative;
-//     grid-template-rows: 80px 1fr;
-
-// }
 
 .stay-app {
     display: grid;
-    // grid-template-columns:
-    //  minmax(20px, 1fr)
-    //   minmax(auto, 1376px)
-    //    minmax(20px, 1fr);
+   
     grid-template-columns: 20px 1fr 20px;
-    // grid-template-columns:
-    //     minmax(rem(20px), 1fr) minmax(auto, rem(1360px)) minmax(rem(20px), 1fr);
-
+   
     >* {
         grid-column: 2;
 
@@ -84,7 +67,7 @@
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(rem(300px), 1fr));
-    grid-gap: rem(20px);
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(rem(300px), 1fr));
+    // grid-gap: rem(20px);
 }

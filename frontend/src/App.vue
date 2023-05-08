@@ -1,8 +1,10 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="stay-app">
-    <AppHeader />
+    <MobileExplore v-if="isShown"/>
+    
+  <section v-else class="stay-app">
+    <AppHeader @mobileFilter="mobileFilter" />
     <RouterView />
     <AppFooter />
     <UserMsg />
@@ -17,9 +19,12 @@ import AppHeader from "./cmps/AppHeader.vue";
 import AppFooter from "./cmps/AppFooter.vue";
 import UserMsg from "./cmps/UserMsg.vue";
 
+import MobileExplore from './views/MobileExplore.vue';
 export default {
   data() {
-    return {}
+    return {
+      isShown:false
+    }
   },
   created() {
     console.log("Vue App created");
@@ -33,12 +38,20 @@ export default {
           console.log('loggdin with ',user.username);
     }
 
-  },
+  },methods:{
+    mobileFilter(){
+      console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+      
+      this.isShown=!this.isShown
+    }
+  }
+  ,
   
   components: {
     AppHeader,
     UserMsg,
     AppFooter,
+    MobileExplore,
   },
 };
 </script>

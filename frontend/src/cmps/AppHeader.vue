@@ -38,19 +38,17 @@
               <path d="m2 8h28"></path>
             </g>
           </svg>
-          <img
-            class="fnky2vc dir dir-ltr"
-            src="https://a0.muscache.com/im/pictures/user/71e528e9-e78f-4f64-9be2-568194f777b0.jpg?aki_policy=profile_medium"
-            alt=""
-          />
+          <img class="fnky2vc dir dir-ltr" :src="loggedInUser.imgUrl" alt="" />
 
           <UserMenu v-if="isMenu" @openLogin="openLogin" />
         </div>
       </div>
     </div>
   </div>
+  <MobileFilter
+   @expandMobile="expandMobile" 
+  />
 
-  <MobileFilter />
 
   <div v-if="isExpanded" class="secondary-header">
     <BigFilter
@@ -66,13 +64,6 @@
     />
     <div class="screen" @click="closeFilter"></div>
   </div>
-  <!-- <FilterModal
-    :propWhere="propWhere"
-    :propCheck="propCheck"
-    :propCheckOut="propCheckOut"
-    :propWho="propWho"
-    @setRegion="setRegion"
-  /> -->
 
   <LoginSignUp v-if="isOpen" @openLogin="openLogin" />
 </template>
@@ -84,8 +75,6 @@ import BigFilter from "./BigFilter.vue";
 import MobileFilter from "./MobileFilter.vue";
 import UserMenu from "./UserMenu.vue";
 import LoginSignUp from "./LoginSignUp.vue";
-
-import { eventBusService } from "../services/event-bus.service.js";
 
 export default {
   props: {},
@@ -102,32 +91,14 @@ export default {
     };
   },
   created() {
-    // console.log("km", this.$route);
-    // if (this.$route.params.stayId) {
-    //   console.log("545", this.$route.params.stayId);
-    // this.layout = "stay-details";
-    // }
-    // console.log("route name", this.$route.name);
-    // if (this.$route.name === "StayDetails") {
-    //   this.layout = "stay-details";
-    // } else {
-    //   this.layout = "stay-app";
-    // }
     this.layout = this.$store.getters.layout;
-    // console.log("this.$store.getters.layout", this.$store.getters.layout);
-    // console.log("this.$route.params", this.$route.params);
-    // const { stayId } = this.$route.params;
-    // console.log("stayId", stayId);
-    // this.checkParams();
+    console.log('this.$store.getters.loggedinUser;',this.$store.getters.loggedinUser);
+    
   },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
-    // myLayout() {
-    //   console.log('this.$store.getters.layout',this.$store.getters.layout)
-    //   return this.$store.getters.layout;
-    // },
   },
   methods: {
     toHome() {
@@ -188,11 +159,9 @@ export default {
     openLogin() {
       this.isOpen = !this.isOpen;
     },
-    // setRegion(payload) {
-    //   console.log('payload',payload)
-    //   this.propRegion = payload;
-    // },
-    //
+   expandMobile(){
+    this.$emit('mobileFilter')
+   }
   },
   watch: {
     $route() {
