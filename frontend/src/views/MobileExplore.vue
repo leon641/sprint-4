@@ -65,13 +65,96 @@
 
       </section>
       <section v-if="routeGuests === null"
-        @click="tuggleCmp('guests')" class="filter-type-container dates">
+        @click="tuggleCmp('guests')" class="filter-type-container dates ">
         <div class="container-title">
           <span>Guests</span>
           <span class="container-title-txt">Add Guests</span>
         </div>
       </section>
-      <section ></section>
+    
+   <section v-else-if="routeGuests ==='guests'"  class="mobile-guests-info-model filter-type-container">
+    <p class="title-guests" >Who's coming?</p>
+    <ul class="categories-container clean">
+        <li class="category-container">
+
+            <div class="category">
+              <p class="category-title">Adults</p>
+              <p class="category-subtitle">Age 13+</p>
+            </div>
+
+            <div class="btns-container item1">
+              <button @click="updateGuests(-1, 'adults')" class="btn-guests-modal ">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">{{ this.userChoise.guests.adults }}</span>
+
+              <button @click="updateGuests(1, 'adults')" class="btn-guests-modal add-more">
+                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+              </button>
+            </div>
+        </li>
+        <li class="category-container">
+
+            <div class="category">
+              <p class="category-title">Childern</p>
+              <p class="category-subtitle">Ages 2-12</p>
+            </div>
+
+            <div class="btns-container item1">
+              <button @click="updateGuests(-1, 'kids')" class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">{{ this.userChoise.guests.kids }}</span>
+
+              <button @click="updateGuests(1, 'kids')" class="btn-guests-modal add-more">
+                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+              </button>
+            </div>
+        </li>
+        <li class="category-container">
+
+            <div class="category">
+              <p class="category-title">Infants</p>
+              <p class="category-subtitle">Under 2</p>
+            </div>
+
+            <div class="btns-container item1">
+              <button @click="updateGuests(-1, 'infants')" class="btn-guests-modal ">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">{{ this.userChoise.guests.infants }}</span>
+
+              <button @click="updateGuests(1, 'infants')" class="btn-guests-modal add-more">
+                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+              </button>
+            </div>
+        </li>
+        <li class="category-container">
+
+            <div class="category">
+              <p class="category-title">Pets</p>
+              <p class="category-subtitle">Bringing a service animal?</p>
+            </div>
+
+            <div class="btns-container item1">
+              <button @click="updateGuests(-1, 'pets')" class="btn-guests-modal subtract">
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              </button>
+
+              <span class="counter">{{ this.userChoise.guests.pets }}</span>
+
+              <button @click="updateGuests(1, 'pets')" class="btn-guests-modal add-more">
+                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+              </button>
+            </div>
+        </li>
+    </ul>
+
+
+          </section>
     </main>
   </section>
 </template>
@@ -162,6 +245,12 @@ export default {
       this.userChoise.region = name;
       this.userChoise.txt = name;
     },
+     updateGuests(diff, type) {
+      this.userChoise.guests[type] += diff;
+      if (this.userChoise.guests[type] === -1) this.userChoise.guests[type] = 0;
+
+      console.log("order", this.userChoise);
+    }
   },
   components:{
     MyDatePicker,
