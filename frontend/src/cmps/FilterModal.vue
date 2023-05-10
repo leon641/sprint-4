@@ -175,7 +175,10 @@
         <p>Ages 13 or above</p>
       </div>
       <div class="adults flex">
-        <button :class="adultsMinusBtnClasses" @click="addGuest('adults', -1)">
+        <button
+          :class="btnClasses.minus.adults"
+          @click="addGuest('adults', -1)"
+        >
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +190,7 @@
           </svg>
         </button>
         <div>{{ this.guests.adults }}</div>
-        <button :class="adultsPlusBtnClasses" @click="addGuest('adults', 1)">
+        <button :class="btnClasses.plus.adults" @click="addGuest('adults', 1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +210,7 @@
       </div>
       <div class="children flex">
         <button
-          :class="childrenMinusBtnClasses"
+          :class="btnClasses.minus.children"
           @click="addGuest('children', -1)"
         >
           <svg
@@ -222,7 +225,7 @@
         </button>
         <div>{{ this.guests.children }}</div>
         <button
-          :class="childrenPlusBtnClasses"
+          :class="btnClasses.plus.children"
           @click="addGuest('children', 1)"
         >
           <svg
@@ -244,7 +247,7 @@
       </div>
       <div class="infants flex">
         <button
-          :class="infantsMinusBtnClasses"
+          :class="btnClasses.minus.infants"
           @click="addGuest('infants', -1)"
         >
           <svg
@@ -258,7 +261,10 @@
           </svg>
         </button>
         <div>{{ this.guests.infants }}</div>
-        <button :class="infantsPlusBtnClasses" @click="addGuest('infants', 1)">
+        <button
+          :class="btnClasses.plus.infants"
+          @click="addGuest('infants', 1)"
+        >
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +283,7 @@
         <a>Bringing a service animal?</a>
       </div>
       <div class="pets flex">
-        <button :class="petsMinusBtnClasses" @click="addGuest('pets', -1)">
+        <button :class="btnClasses.minus.pets" @click="addGuest('pets', -1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -289,7 +295,7 @@
           </svg>
         </button>
         <div>{{ this.guests.pets }}</div>
-        <button :class="petsPlusBtnClasses" @click="addGuest('pets', 1)">
+        <button :class="btnClasses.plus.pets" @click="addGuest('pets', 1)">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -376,14 +382,20 @@ export default {
         infants: 0,
         pets: 0,
       },
-      adultsMinusBtnClasses: "flex minus inactive",
-      adultsPlusBtnClasses: "flex plus active",
-      childrenMinusBtnClasses: "flex minus inactive",
-      childrenPlusBtnClasses: "flex plus active",
-      infantsMinusBtnClasses: "flex minus inactive",
-      infantsPlusBtnClasses: "flex plus active",
-      petsMinusBtnClasses: "flex minus inactive",
-      petsPlusBtnClasses: "flex plus active",
+      btnClasses: {
+        minus: {
+          adults: "flex minus inactive",
+          children: "flex minus inactive",
+          infants: "flex minus inactive",
+          pets: "flex minus inactive",
+        },
+        plus: {
+          adults: "flex plus active",
+          children: "flex plus active",
+          infants: "flex plus active",
+          pets: "flex plus active",
+        },
+      },
     };
   },
   created() {
@@ -444,21 +456,22 @@ export default {
       this.$emit("closeFilter");
     },
     addGuest(title, num) {
-      if (this.guests.adults === "16+" && num > 0) {
-        this.guests.adults = "16+";
+      if (this.guests[title] === "16+" && num > 0) {
+        this.guests[title] = "16+";
         return;
       }
-      if (this.guests.adults === "16+" && num < 0) {
-        this.guests.adults = 16 + num;
+      if (this.guests[title] === "16+" && num < 0) {
+        this.guests[title] = 16 + num;
         return;
       }
 
       if (
+        (title === "adults" || title === "children") &&
         this.guests.adults + this.guests.children === 16 &&
-        num > 0 &&
-        (title === "adults" || title === "children")
-      )
+        num > 0
+      ) {
         return;
+      }
 
       this.guests[title] += num;
 
@@ -467,6 +480,30 @@ export default {
       if (this.guests.children > 14) this.guests.children = 15;
       if (this.guests.infants > 4) this.guests.infants = 5;
       if (this.guests.pets > 4) this.guests.pets = 5;
+
+      this.setClasses(title);
+    },
+    setClasses(title) {
+      if (this.guests[title] > 0 || this.guests[title] === "16+") {
+        this.btnClasses.minus[title] = "flex minus active";
+      } else this.btnClasses.minus[title] = "flex minus inactive";
+
+      if (title === "infants" || title === "pets") {
+        if (this.guests[title] > 4)
+          this.btnClasses.plus[title] = "flex plus inactive";
+      }
+
+      if (title === "children") {
+        if (this.guests[title] > 14)
+          this.btnClasses.plus[title] = "flex plus inactive";
+      }
+
+      if (title === "adults") {
+        // debugger
+        if (this.guests[title] === "16+")
+          this.btnClasses.plus[title] = "flex plus inactive"; 
+        else this.btnClasses.plus[title] = "flex plus active";
+      }
     },
   },
 
