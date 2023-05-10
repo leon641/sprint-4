@@ -156,13 +156,23 @@
 
           </section>
     </main>
+    <section class="search-mobile-footer">
+        <p class="clear-all" @click="clearAll">Clear All</p>
+        <div class="btn-container" @click="toExplore">
+               <div class="mobile-serach-btn-container"><span v-html="getSvg('search3')"></span></div> 
+           <p  class="txt">Search</p> 
+        <MobileSearchBtn/>
+
+        </div>
+
+    </section>
   </section>
 </template>
 
 <script>
+import MobileSearchBtn from '../cmps/MobileSearchBtn .vue';
 import MyDatePicker from '../cmps/MyDatePicker.vue';
 import { svgService } from "../services/svg.service";
-
 //TODO where to cmp
 //TODO dates cmp
 //TODO guests cmp
@@ -250,7 +260,29 @@ export default {
       if (this.userChoise.guests[type] === -1) this.userChoise.guests[type] = 0;
 
       console.log("order", this.userChoise);
+    },
+    clearAll(){
+        this.routeWhere= "destination",
+          this.routeDates=null,
+          this.routeGuests=null,
+        this.userChoise={ 
+        txt: "",
+        region: "",
+        dates: "",
+        guests: {
+          adults: 0,
+          kids: 0,
+          pets: 0,
+          infants: 0,}
     }
+    },
+      toExplore() {
+     this.onTuggleFilterView()
+      this.$router.push({
+        path: "/explore",
+        query: { txt: this.userChoise.txt, region: this.userChoise.region },
+      });
+    },
   },computed:{
     subtractAdultsBtn(){
             return {gray:this.userChoise.guests.adults === 0,
@@ -270,6 +302,7 @@ export default {
   },
   components:{
     MyDatePicker,
+    MobileSearchBtn,
   }
 };
 </script>

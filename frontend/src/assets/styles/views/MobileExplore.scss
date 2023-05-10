@@ -176,10 +176,10 @@
 }
 
 .mobile-guests-info-model {
- padding: 19px;
-box-shadow: 0 0 0 1px #0000000a,0 6px 20px #0003;
-border-radius: 24px;
-background-color: #fff;
+    padding: 19px;
+    box-shadow: 0 0 0 1px #0000000a, 0 6px 20px #0003;
+    border-radius: 24px;
+    background-color: #fff;
 }
 
 .title-guests {
@@ -200,7 +200,7 @@ background-color: #fff;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    
+
     .category-container {
         display: flex;
         gap: 0;
@@ -239,21 +239,67 @@ background-color: #fff;
                 height: 32px;
                 border: 1px solid rgb(176, 176, 176);
                 background-color: #fff;
-        
+
             }
-            .btn-guests-modal:disabled{}
-            .counter{
+
+            .btn-guests-modal:disabled {}
+
+            .counter {
                 padding: 10px;
-width: 2em;
-font-family: CircularAir-Light;
+                width: 2em;
+                font-family: CircularAir-Light;
             }
         }
     }
 }
-.gray{
-    stroke:lightgrey
-}
-.black{
-    stroke:#222
 
+.search-mobile-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    padding-block: 10px;
+    padding-inline: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    .clear-all {
+        cursor: pointer;
+        border-bottom: 1px solid black;
+        font-family: CircularAir-Light;
+    }
+    .btn-container{
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 50px;
+   width: 125px;
+   cursor: pointer;
+   .txt{
+       font-family: CircularAir-Light;
+           font-weight: 600;
+   }
+   .mobile-serach-btn-container{
+    margin-top: 18px;
+// position: absolute;
+   }
+    }
+    .mobile-search-btn{
+        position: absolute;
+        color: #fff;
+        font-weight: 400;
+        font-family: CircularAir-Light;
+      
+        
+    }
+}
+
+.gray {
+    stroke: lightgrey
+}
+
+.black {
+    stroke: #222
 }
