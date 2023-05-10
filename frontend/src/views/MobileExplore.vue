@@ -83,8 +83,8 @@
             </div>
 
             <div class="btns-container item1">
-              <button @click="updateGuests(-1, 'adults')" class="btn-guests-modal ">
-                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+              <button @click="updateGuests(-1, 'adults')"  class="btn-guests-modal ">
+                <span :class="subtractAdultsBtn" v-html="getSvg('subtract')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.adults }}</span>
@@ -103,7 +103,7 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'kids')" class="btn-guests-modal subtract">
-                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+                <span :class="subtractkidsBtn" v-html="getSvg('subtract')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.kids }}</span>
@@ -122,13 +122,13 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'infants')" class="btn-guests-modal ">
-                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+                <span :class="subtractinfantsBtn" v-html="getSvg('subtract')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.infants }}</span>
 
               <button @click="updateGuests(1, 'infants')" class="btn-guests-modal add-more">
-                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+                <span  v-html="getSvg('addMore')"></span>
               </button>
             </div>
         </li>
@@ -141,13 +141,13 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'pets')" class="btn-guests-modal subtract">
-                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+                <span :class="subtractpetsBtn" v-html="getSvg('subtract')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.pets }}</span>
 
               <button @click="updateGuests(1, 'pets')" class="btn-guests-modal add-more">
-                <span class="user-stay-info-svg" v-html="getSvg('addMore')"></span>
+                <span  v-html="getSvg('addMore')"></span>
               </button>
             </div>
         </li>
@@ -251,6 +251,22 @@ export default {
 
       console.log("order", this.userChoise);
     }
+  },computed:{
+    subtractAdultsBtn(){
+            return {gray:this.userChoise.guests.adults === 0,
+                    black:this.userChoise.guests.adults >0 }
+    },subtractkidsBtn(){
+        return {gray:this.userChoise.guests.kids === 0,
+                black:this.userChoise.guests.kids >0 }
+    },
+    subtractinfantsBtn(){
+        return {gray:this.userChoise.guests.infants === 0,
+                black:this.userChoise.guests.infants >0 }
+    },
+    subtractpetsBtn(){
+        return {gray:this.userChoise.guests.pets === 0,
+                black:this.userChoise.guests.pets >0 }
+    },
   },
   components:{
     MyDatePicker,
