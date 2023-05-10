@@ -46,8 +46,7 @@
               expanded
               :color="selectedColor"
               borderless
-               :select-attribute="attribute"
-             
+              :select-attribute="attribute"
               :drag-attribute="attribute"
               :attributes="attributes"
               @click="renderDate"

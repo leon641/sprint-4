@@ -38,34 +38,61 @@
             box-shadow: 0 0 0 1px #0000000a, 0 6px 20px #0003;
             border-radius: 24px;
             background-color: #fff;
-}
-.where-to{
+          .date-picker-wapper{
+            max-height: 300px;
+            overflow: hidden;
+            overflow: scroll;
+          }
+        }
 
-}
+        .whrere-to-txt {
+            font-size: 22px;
+            line-height: 26px;
+            font-weight: 800;
+            padding-bottom: 10px;
+        }
 
 
+    }
 
-}
-.container-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer
-}
+    .day-names {
+        position: sticky;
+        top: 0;
+        display: grid;
+        padding-top: 10px;
+        background-color: #fff;
+        grid-template-columns: repeat(7, 1fr);
 
-.container-title:first-of-type {
-    font-family: Airbnb_Cereal-Medium;
-    background-color: transparent;
-    color: #717171;
-    line-height: 18px;
-    font-size: 14px;
-    font-weight: 600;
-}
+        span {
+            display: flex;
+            color: #949494;
+            justify-content: center;
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
 
-.container-title-txt {
+    .container-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer
+    }
 
-    font-weight: 400;
-}
+    .container-title:first-of-type {
+        font-family: Airbnb_Cereal-Medium;
+        background-color: transparent;
+        color: #717171;
+        line-height: 18px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .container-title-txt {
+
+        font-weight: 400;
+    }
 }
 
 .destination-modal {
@@ -125,12 +152,14 @@
                 aspect-ratio: 1/1;
                 cursor: pointer
             }
-            img:hover{
+
+            img:hover {
                 border: 1px solid #000;
             }
-            .region-name{
+
+            .region-name {
                 font-size: 0.9rem;
-                font-family:CircularAir-Light ;
+                font-family: CircularAir-Light;
                 margin-inline-start: 3px;
             }
         }
