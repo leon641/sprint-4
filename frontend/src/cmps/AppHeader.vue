@@ -38,7 +38,7 @@
               <path d="m2 8h28"></path>
             </g>
           </svg>
-          <img class="fnky2vc dir dir-ltr" :src="loggedInUser.imgUrl" alt="" />
+          <img class="fnky2vc dir dir-ltr" :src="loggedInUser?.imgUrl" alt="" />
 
           <UserMenu v-if="isMenu" @openLogin="openLogin" />
         </div>

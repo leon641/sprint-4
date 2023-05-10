@@ -2,10 +2,10 @@
 
 <template  >
 
-  <div class="stay-list"   >
+  <div v-if="stays" class="stay-list"   >
     <StayPreview v-for="stay in stays" :stay="stay" :key="stay._id" />
   </div>
-
+ <SkeletonLoader v-else/>
   
 </template>
 
@@ -13,7 +13,7 @@
 <script>
 import StayPreview from "./StayPreview.vue";
 import LoginSignUp from "./LoginSignUp.vue";
-
+import SkeletonLoader from '../cmps/SkeletonLoader.vue';
 
 
 export default {
@@ -28,7 +28,7 @@ export default {
   components: {
     StayPreview,
     LoginSignUp,
-
+      SkeletonLoader,
 
   },
 };

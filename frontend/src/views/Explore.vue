@@ -6,18 +6,13 @@
   <div class="stay-index">
 
     <StayList />
-    <!-- <hr />
-    <form @submit.prevent="addStay()">
-      <h2>Add stay</h2>
-      <input type="text" />
-      <button>Save</button>
-    </form> -->
+   
   </div>
 </template>
 
 <script>
-import StayList from "../cmps/StayList.vue";
 
+import StayList from "../cmps/StayList.vue";
 export default {
   data() {
     return {
@@ -34,6 +29,7 @@ export default {
   methods: {},
   components: {
     StayList,
+  
   },
 };
 </script>
