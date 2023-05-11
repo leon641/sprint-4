@@ -104,10 +104,10 @@
                 @click="updateGuests(-1, 'adults')"
                 class="btn-guests-modal subtract"
               >
-                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+          <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span class="counter">{{ this.order.guests.adults }}</span>
+              <span  class="counter">{{ this.order.guests.adults }}</span>
 
               <button
                 @click="updateGuests(1, 'adults')"
