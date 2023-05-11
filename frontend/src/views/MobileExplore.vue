@@ -259,7 +259,7 @@ export default {
     },
     setRegion(name) {
       this.userChoise.region = name;
-      this.userChoise.txt = name;
+    
     },
      updateGuests(diff, type) {
       this.userChoise.guests[type] += diff;
