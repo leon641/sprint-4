@@ -49,7 +49,7 @@
         class="filter-type-container dates">
         <div class="container-title">
           <span>When</span>
-          <span class="container-title-txt">Choose Dates</span>
+          <span class="container-title-txt">{{dates}}</span>
         </div>
       </section>
       <section v-else-if="routeDates === 'dates'" class="filter-type-container ">
@@ -57,7 +57,10 @@
         <section class="day-names"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></section>
       
       <div class="date-picker-wapper">
-       <MyDatePicker v-for="month in months" 
+       <MyDatePicker
+       @start="setStartDate"
+       @end="setEndDate"
+        v-for="month in months" 
        :key="month.id" 
        :month="month" 
         />
@@ -68,7 +71,7 @@
         @click="tuggleCmp('guests')" class="filter-type-container dates ">
         <div class="container-title">
           <span>Guests</span>
-          <span class="container-title-txt">Add Guests</span>
+          <span class="container-title-txt">{{guests}}</span>
         </div>
       </section>
     
@@ -122,7 +125,7 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'infants')" class="btn-guests-modal ">
-                <span :class="subtractinfantsBtn" v-html="getSvg('subtract')"></span>
+                <span :class="subtractinfantsBtn" v-html="getSvg('subtract1')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.infants }}</span>
@@ -141,7 +144,7 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'pets')" class="btn-guests-modal subtract">
-                <span :class="subtractpetsBtn" v-html="getSvg('subtract')"></span>
+                <span :class="subtractpetsBtn" v-html="getSvg('subtract1')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.pets }}</span>
@@ -187,7 +190,10 @@ export default {
       userChoise: {
         txt: "",
         region: "",
-        dates: "",
+        dates:{
+          start:'',
+          end:''
+        },
         guests: {
           adults: 0,
           kids: 0,
@@ -268,12 +274,16 @@ export default {
         this.userChoise={ 
         txt: "",
         region: "",
-        dates: "",
+        dates: {
+          start:"",
+          end:""
+        },
         guests: {
           adults: 0,
           kids: 0,
           pets: 0,
-          infants: 0,}
+          infants: 0,
+          }
     }
     },
       toExplore() {
@@ -283,7 +293,26 @@ export default {
         query: { txt: this.userChoise.txt, region: this.userChoise.region },
       });
     },
-  },computed:{
+    setStartDate(d){
+      
+            const formatedDate= d.month.slice(0,3)+" "+d.day
+            console.log('formatedDate start', formatedDate);
+                  this.userChoise.dates.start =formatedDate
+      
+    },
+    setEndDate(d){
+
+      const formatedDate= d.month.slice(0,3)+" "+d.day
+      console.log('formatedDate end', formatedDate);
+                  this.userChoise.dates.end =formatedDate
+      
+      
+    }
+ 
+ 
+ },
+  
+  computed:{
     subtractAdultsBtn(){
             return {gray:this.userChoise.guests.adults === 0,
                     black:this.userChoise.guests.adults >0 }
@@ -299,6 +328,23 @@ export default {
         return {gray:this.userChoise.guests.pets === 0,
                 black:this.userChoise.guests.pets >0 }
     },
+    guests() {
+      let count = 0;
+      let guests = this.userChoise.guests;
+      for (let guest in guests) {
+        count += +guests[guest];
+      }
+      this.userChoise.totalGuests = count;
+      console.log(" this.totalGuests", this.userChoise.totalGuests);
+
+      if(count===0)count='Add Guests'
+      return count;
+    },dates(){
+      if(!this.userChoise.dates.start){
+        return'Choose Dates' 
+      }
+      return this.userChoise.dates.start +"-"+this.userChoise.dates.end
+    }
   },
   components:{
     MyDatePicker,

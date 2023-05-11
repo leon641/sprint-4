@@ -1,19 +1,31 @@
 // בס"ד
 
+.nth-found{
+  font-size: 1em;
+  padding-block: 0;
+  margin: 0;
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  padding-block: 15px;
+  font-family:  Airbnb_Cereal-Medium;
+  color:$clr8
+
+}
 .stay-list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(263px, 1fr));
     gap: 23px;
     row-gap: 45px;
-    
 
     li {
         color: $clr6;
         padding: 1px;
         margin: 3px;
         margin-bottom: 11px;
-        
+
     }
 
     a {
@@ -24,19 +36,25 @@
     img {
         height: 100%;
         object-fit: cover;
-        aspect-ratio:  1/0.937;    
+        aspect-ratio: 1/0.937;
     }
-    
+
     .el-carousel__item {
         border-radius: 9px;
     }
-    
-}
-.el-carousel {
-   width: 100%;
 
 }
+
+.el-carousel {
+    width: 100%;
+
+}
+
 .el-carousel__container {
     height: 100%;
 
+}
+
+.explore-sub-header {
+   
 }

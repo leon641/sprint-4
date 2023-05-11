@@ -33,14 +33,14 @@ created(){
 methods:{
     createDays(){
         for (let i = 1; i <= this.month.days; i++) {
-            const day = {id:Date.now(),num:i,isSelected:false,isBetween:false}
+            const day = {id:Date.now(),num:i,isSelected:false,isBetween:false ,month:this.month.m}
             this.days.push(day)
         }
     },
     handelClick(ev,day){
-        console.log('this.count',this.count);
+        console.log('day',day);
         if(this.count === 3 ){
-this.resetSelectedDays()
+        this.resetSelectedDays()
         }
         this.count++
             console.log('this.count',this.count);
@@ -48,9 +48,19 @@ this.resetSelectedDays()
         if(this.count===1){
             day.isSelected = true
       this.startDay=day.num
+            const start= {
+                day:day.num,
+                month:day.month
+            }
+            this.$emit('start',start)
     }
     if(this.count === 2){
         this.count++
+            const end= {
+                day:day.num,
+                month:day.month
+            }
+            this.$emit('end',end)
         day.isSelected = true
         if(day.num < this.startDay){
             this.resetSelectedDays()
