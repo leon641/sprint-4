@@ -107,6 +107,7 @@ export default {
     };
   },
    async created() {
+     window.scrollTo(0, 0);
      this.loggedinUser = this.$store.getters.loggedinUser
        console.log(' this.loggedinUser', this.loggedinUser);
      socketService.on('update-order', (data) => {

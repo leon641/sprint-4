@@ -1,8 +1,8 @@
 <!-- בס"ד -->
 
 <template>
-  <footer class="full" :class="layout">
-    <section class="main-footer" >
+
+    <section class="main-footer full" :class="layout" >
       <div class="footer-items">
         <span class="footer-item item1">© 2023 Appbnb, Inc.</span>
         <span>·</span>
@@ -13,7 +13,7 @@
         <span class="footer-item item4">Privacy</span>
       </div>
     </section>
-  </footer>
+
 </template>
 <script>
 export default {

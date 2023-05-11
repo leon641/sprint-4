@@ -179,6 +179,6 @@ export default {
     DetailsFilter,
     UserMenu,
     LoginSignUp,
-  },
+  },emits:['mobileFilter']
 };
 </script>

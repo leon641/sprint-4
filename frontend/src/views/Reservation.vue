@@ -111,24 +111,26 @@
           <p>Total (USD)</p>
           <p>${{ finalPrice }}</p>
         </section>
-      </section>
     </section>
-  </section>
-  <div v-else>Loading....</div>
+  <section class="mobile-btn" @click="goToTrips">
+    <div class="btn-ceage">
+  <span class="txt">Request to book</span>
+   <MobileSearchBtn/>
 
-  <section class="footer-reservation-view-container">
-    <div class="footer-reservation-view-btn">
-      <FooterReservationBtn @click="goToTrips" />
     </div>
+      </section>
   </section>
+  <!-- <div v-else>Loading....</div> -->
+
+  </section>
+
 </template>
 <script>
 import ReserveBtnReservation from "../cmps/ReserveBtnReservation.vue";
 import FooterReservationBtn from "../cmps/FooterReservationBtn.vue";
-import DoughnutChart from "../cmps/DoughnutChart.vue";
 import { svgService } from "../services/svg.service";
 import { orderService } from '../services/order.service';
-
+import MobileSearchBtn from '../cmps/MobileSearchBtn .vue';
 export default {
   data() {
     return {
@@ -137,7 +139,7 @@ export default {
     };
   },
  async created() {
-    window.scrollTo(0, 0);
+   window.scrollTo(0, 0);
     const orderId = this.$route.query.order
     const order = await orderService.getById(orderId)
     this.order= order
@@ -153,7 +155,7 @@ export default {
       this.$router.push(`/details/${this.order.stay._id}`);
     },
     goToTrips() {
-   this.$router.push({
+      this.$router.push({
         path: "/trips/",
         query: { order: this.order._id },
       });
@@ -173,6 +175,7 @@ export default {
   components: {
     ReserveBtnReservation,
     FooterReservationBtn,
+    MobileSearchBtn
   },
 
 };

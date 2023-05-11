@@ -87,7 +87,7 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'adults')"  class="btn-guests-modal ">
-                <span :class="subtractAdultsBtn" v-html="getSvg('subtract')"></span>
+                <span :class="subtractAdultsBtn" v-html="getSvg('subtract1')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.adults }}</span>
@@ -106,7 +106,7 @@
 
             <div class="btns-container item1">
               <button @click="updateGuests(-1, 'kids')" class="btn-guests-modal subtract">
-                <span :class="subtractkidsBtn" v-html="getSvg('subtract')"></span>
+                <span :class="subtractkidsBtn" v-html="getSvg('subtract1')"></span>
               </button>
 
               <span class="counter">{{ this.userChoise.guests.kids }}</span>
@@ -259,7 +259,7 @@ export default {
     },
     setRegion(name) {
       this.userChoise.region = name;
-    
+    this.userChoise.txt = name
     },
      updateGuests(diff, type) {
       this.userChoise.guests[type] += diff;

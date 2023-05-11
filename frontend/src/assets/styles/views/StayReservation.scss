@@ -1,6 +1,6 @@
 .reservation-view-container {
     display: grid;
-    grid-template-columns: minmax( 20px,1fr) minmax(auto,1140px) minmax(20px,1fr);
+    grid-template-columns: minmax(20px, 1fr) minmax(auto, 1140px) minmax(20px, 1fr);
     color: $clr12;
 
 
@@ -53,14 +53,14 @@
         .trip-summary {
             color: $clr12;
             border-bottom: 1px solid rgb(222, 222, 222);
-       
+
             font-family: CircularAir-Light;
-       
+
 
             h2 {
                 font-size: rem(20px);
                 margin-block-end: 31px;
-             
+
 
             }
 
@@ -70,13 +70,13 @@
 
             .trip-summary-dates {
                 padding-bottom: 24px;
-       
+
 
                 h3 {
                     margin-bottom: 6px;
                     font-size: 16px;
                     font-weight: 600;
-                    
+
                 }
 
                 span {
@@ -86,6 +86,7 @@
 
             .trip-summary-guests {
                 padding-bottom: 24px;
+
                 h3 {
                     margin-bottom: 6px;
                     font-size: 16px;
@@ -102,13 +103,15 @@
             padding-top: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgb(222, 222, 222);
-            h2{
+
+            h2 {
                 font-family: CircularAir-Light;
                 font-size: em(22px);
                 margin-bottom: 20px;
-                
+
             }
-            p{
+
+            p {
                 font-family: CircularAir-Light;
                 font-size: 16px;
             }
@@ -118,11 +121,13 @@
             padding-top: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid rgb(222, 222, 222);
-                h2{
-              font-family: CircularAir-Light;
+
+            h2 {
+                font-family: CircularAir-Light;
                 font-size: em(20px);
                 margin-bottom: 20px;
-                }
+            }
+
             p {
                 font-family: CircularAir-Light;
                 display: flex;
@@ -131,12 +136,13 @@
                 margin-top: 25px;
                 margin-bottom: 0;
             }
-            .rules{
+
+            .rules {
                 margin: 0;
             }
 
             .remainder {
-                margin-block:0;
+                margin-block: 0;
                 margin-inline-start: 8px;
             }
         }
@@ -153,7 +159,8 @@
                 font-family: CircularAir-Light;
                 font-weight: 600;
                 margin: 0;
-                span{
+
+                span {
                     font-weight: 400;
 
                 }
@@ -166,10 +173,11 @@
         }
 
         .reservation-price-details-modal {
-                
-    @include for-mobile-layout {
-        margin-top: 20px;
-    }
+
+            @include for-mobile-layout {
+                margin-top: 20px;
+            }
+
             position: sticky;
             // display: flex;
             // flex-direction: column;
@@ -190,8 +198,9 @@
                     display: flex;
                     flex-direction: column;
                     border-bottom: none;
-                   
+
                 }
+
                 min-width: 300px;
                 display: grid;
                 grid-template-columns: 125px 2fr;
@@ -255,6 +264,7 @@
                     @include for-mobile-layout {
                         width: 200px;
                     }
+
                     .reservation-privew-img {
                         width: 100%;
                         object-fit: cover;
@@ -269,11 +279,12 @@
 
             .reservation-privew-cover {
                 padding-block: 45px;
-       
+
                 border-bottom: 1px solid rgb(222, 222, 222);
                 font-family: CircularAir-Light;
                 font-size: 1em;
-                .air-cover-img{
+
+                .air-cover-img {
                     width: 60px;
                 }
             }
@@ -281,11 +292,11 @@
             .reservation-price-details {
                 font-family: CircularAir-Light;
                 padding-bottom: 20px;
-                
+
                 h3 {
                     padding-top: 30px;
                     font-size: 21px;
-                
+
                     margin-bottom: 22px;
                 }
 
@@ -298,7 +309,8 @@
                     p {
                         margin: 0;
                     }
-                    .flex-end{
+
+                    .flex-end {
                         justify-self: flex-end;
                     }
                 }
@@ -311,7 +323,8 @@
                 justify-content: space-between;
                 font-weight: 600;
                 font-family: CircularAir-Light;
-                p{
+
+                p {
                     font-size: 0.8em;
                     margin: 0;
                 }
@@ -321,39 +334,64 @@
         }
     }
 }
-.res-action-btn{
+
+.res-action-btn {
     background-color: transparent;
-    span{
+
+    span {
         font-size: 17px;
         color: #fff;
     }
 }
+
 .res-btn-container {
-    
+
     @include for-mobile-layout {
         display: none
     }
+
     position: relative;
     left:5px;
     width: em(175px);
     height: em(50px);
-    .content{
-        top:42px
+
+    .content {
+        top: 42px
     }
 }
-.footer-reservation-view-container {
+
+.mobile-btn {
     display: none;
-    @include for-mobile-layout {
-        // display: block;
-   
-        // width: 100%;
-        // height: 48px
+    justify-content: center;
+  // background-color: $clr11;
+    width: 73%;
+    margin-left: 8.333%;
+    margin-top: 25px;
+    height: 45px;
+    cursor: pointer;
+        @include for-mobile-layout {
+            display: flex;
+        }
+
+    .btn-ceage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 56px;
+        .txt{
+            z-index: 1;
+            position: absolute;
+            color:#fff;
+        }
     }
-    
+
 }
 
 .footer-reservation-view-btn {
     display: none;
+
     @include for-mobile-layout {
         // display: block;
         // position: absolute;

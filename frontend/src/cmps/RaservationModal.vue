@@ -248,6 +248,7 @@ export default {
       sercivesFee: 101,
       cleaningFee: 221,
       loggedinUser: {},
+      endDay: Date.now() ,
       isShown2: false,
       selectedColor: "gray",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
@@ -264,7 +265,7 @@ export default {
      {
     key: 'test',
     highlight: true,
-    dates: { start: new Date(), end: new Date(2023,3,5)},
+    dates: { start: new Date(), end: new Date()},
   },
 
       ],
