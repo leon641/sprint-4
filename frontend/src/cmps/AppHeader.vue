@@ -165,6 +165,8 @@ export default {
   },
   watch: {
     $route() {
+      console.log('  this.$route',  this.$route);
+      
       this.layout =
         this.$route.name === "StayDetails"
           ? (this.layout = "stay-details")

@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(20px, 1fr) minmax(auto, 1140px) minmax(20px, 1fr);
     color: $clr12;
+    position: relative;
 
 
     .reservation-header {
@@ -318,6 +319,7 @@
 
             .reservation-price-total {
                 margin: 0;
+                margin-block-end: 50px;
                 padding: 0;
                 display: flex;
                 justify-content: space-between;

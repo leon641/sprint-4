@@ -2,7 +2,6 @@
 
 <template  >
 
-  <h2 class="nth-found">found {{stays.length}} homes</h2>
   <div v-if="stays.length!==0" class="stay-list"   >
     <StayPreview v-for="stay in stays" :stay="stay" :key="stay._id" />
   </div>

@@ -147,7 +147,7 @@
           :class="btnClasses.minus.adults"
           @click="addGuest('adults', -1)"
         >
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -159,7 +159,7 @@
         </button>
         <div>{{ this.guests.adults }}</div>
         <button :class="btnClasses.plus.adults" @click="addGuest('adults', 1)">
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -181,7 +181,7 @@
           :class="btnClasses.minus.children"
           @click="addGuest('children', -1)"
         >
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -196,7 +196,7 @@
           :class="btnClasses.plus.children"
           @click="addGuest('children', 1)"
         >
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -218,7 +218,7 @@
           :class="btnClasses.minus.infants"
           @click="addGuest('infants', -1)"
         >
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -233,7 +233,7 @@
           :class="btnClasses.plus.infants"
           @click="addGuest('infants', 1)"
         >
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -252,7 +252,7 @@
       </div>
       <div class="pets flex">
         <button :class="btnClasses.minus.pets" @click="addGuest('pets', -1)">
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -264,7 +264,7 @@
         </button>
         <div>{{ this.guests.pets }}</div>
         <button :class="btnClasses.plus.pets" @click="addGuest('pets', 1)">
-          <svg
+          <svg class="subtractPlus"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
