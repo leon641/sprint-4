@@ -127,7 +127,6 @@
     <VDatePicker
       class="date-picker vc-blue"
       expanded
-      :min-date="new Date()"
       borderless
       :color="selectedColor"
       :attributes="attributes"
@@ -136,37 +135,6 @@
       :locale="locale"
       v-model="selectedDate"
     />
-    <!-- <el-radio-group v-model="size" label="size control" size="small">
-      <el-radio-button label="large">large</el-radio-button>
-      <el-radio-button label="default">default</el-radio-button>
-      <el-radio-button label="small">small</el-radio-button>
-    </el-radio-group>
-    <div class="demo-date-picker">
-      <div class="block">
-        <span class="demonstration">Default</span>
-        <el-date-picker
-          v-model="value1"
-          type="daterange"
-          range-separator="To"
-          start-placeholder="Start date"
-          end-placeholder="End date"
-          :size="size"
-        />
-      </div>
-      <div class="block">
-        <span class="demonstration">With quick options</span>
-        <el-date-picker
-          v-model="value2"
-          type="daterange"
-          unlink-panels
-          range-separator="To"
-          start-placeholder="Start date"
-          end-placeholder="End date"
-          :shortcuts="shortcuts"
-          :size="size"
-        /> 
-      </div>
-    </div>-->
   </div>
   <div v-if="propWho" class="who-modal">
     <div class="flex">
@@ -324,6 +292,7 @@ export default {
   data() {
     return {
       day: 1000 * 60 * 60 * 24,
+      to:Date.now() +this.day,
       checkIn: "",
       checkOut: "",
       regions: [
@@ -356,25 +325,24 @@ export default {
           url: "https://res.cloudinary.com/dii16awkb/image/upload/v1680534540/United_States_of6qvy.webp",
         },
       ],
-      selectedColor: "gray",
+   selectedColor: "gray",
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
-        sm: "640px",
+        sm: "500px",
         md: "768px",
         lg: "1024px",
-      }).mapCurrent({ lg: 2 }, 1),
-      selectedDate: null,
+      }).mapCurrent({ lg: 2 ,sm:2} ,1),
+      selectedDate: new Date(),
       isShown: false,
+      // This is a single attribute
       attributes: [
-        {
-          key: "",
-          highlight: true,
-          fillmode: "outline",
+     {
+    key: 'test',
+    highlight: true,
+          dates: { start: new Date(), end:new Date(new Date().setDate(new Date().getDate() + 2))},
+  },
 
-          dates: undefined,
-          // dates: { start: new Date(2222,2,2), end: new Date(2222,2,2) },
-        },
       ],
       guests: {
         adults: 0,
@@ -399,6 +367,7 @@ export default {
     };
   },
   created() {
+    console.log('date' , new Date(Date.now()+this.day)) 
     // console.log("this.propWhere", this.propWhere);
     // console.log("this.propCheck", this.propCheck);
     // console.log("this.propCheckOut", this.propCheckOut);
@@ -423,25 +392,11 @@ export default {
       console.log(" this.order", this.order);
     },
     renderDate() {
-      console.log("this.dates", this.dates);
-      if (this.dates?.start) {
-        this.dates.end = this.selectedDate;
-        this.$emit("setDates", this.dates);
-
-        console.log("this.dates", this.dates);
+      if (this.selectedDate < this.attributes[0].dates.end) {
+        this.attributes[0].dates.start = this.selectedDate;
       } else {
-        this.dates = { start: this.selectedDate, end: this.selectedDate };
-
-        // this.dates.start = this.selectedDate;
-        // this.dates.end = this.selectedDate;
-        console.log("this.dates", this.dates);
+        this.attributes[0].dates.end = this.selectedDate;
       }
-
-      // if (this.selectedDate < this.attributes[0].dates.start) {
-      //   this.attributes[0].dates.start = this.selectedDate;
-      // } else {
-      //   this.attributes[0].dates.end = this.selectedDate;
-      // }
     },
     setRegion(title) {
       this.$emit("setRegion", title);
