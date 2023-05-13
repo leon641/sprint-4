@@ -108,16 +108,17 @@ export default {
   },
    async created() {
      window.scrollTo(0, 0);
+       const orderId = this.$route.query.order
+       if(!orderId)return 
+     const order = await orderService.getById(orderId)
+     this.order= order
+
      this.loggedinUser = this.$store.getters.loggedinUser
-       console.log(' this.loggedinUser', this.loggedinUser);
      socketService.on('update-order', (data) => {
+       console.log('data', data);
        this.order.status=data
     
       })
-      const orderId = this.$route.query.order
-      if(!orderId)return 
-    const order = await orderService.getById(orderId)
-    this.order= order
 
   },
   computed: {},

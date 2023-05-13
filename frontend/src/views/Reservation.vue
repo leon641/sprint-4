@@ -99,12 +99,12 @@
           <h3>Price details</h3>
           <div class="prices">
             <p>
-              ${{ this.order.stay.price }} x
-              {{ this.order.nigths }} nights
+              ${{ this.order.stay?.price }} x
+              {{ this.order?.nigths }} nights
             </p>
             <p class="flex-end">${{ totalPrice }}</p>
             <p>total guests</p>
-            <p class="flex-end">{{ this.order.totalGuests }}</p>
+            <p class="flex-end">{{ this.order?.totalGuests }}</p>
           </div>
         </section>
         <section class="reservation-price-total">

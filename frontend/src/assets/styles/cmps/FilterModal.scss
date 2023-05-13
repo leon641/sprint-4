@@ -154,9 +154,34 @@
     border-radius: 30px;
     background-color: #fff;
     font-family: Airbnb_Cereal-Book;
-
-    .date-picker {
+    .vc-title{
+        margin-block: 10px;
+    }
+    .vc-weekdays{
+        gap:26px
+    }
+    .vc-weeks {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        row-gap: 15px;
+        .vc-week{
+            gap:15px
+        }
+    }
+    .vc-arrow.vc-next.vc-focus{
+        background-color: transparent;
+        .vc-base-icon{
+            stroke: #222;
+        }
+    }
+    .vc-arrow.vc-prev.vc-focus{
+        background-color: transparent;
+        .vc-base-icon{
+            stroke: #222;
+        }
     }
 }
 

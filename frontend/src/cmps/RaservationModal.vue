@@ -42,14 +42,13 @@
               </div>
             </div>
             <VDatePicker
-              class="date-picker"
+              class="date-picker vc-blue"
               expanded
-              :color="selectedColor"
+              :min-date="new Date()"
               borderless
-              :select-attribute="attribute"
-              :drag-attribute="attribute"
+              :color="selectedColor"
               :attributes="attributes"
-              @click="renderDate"
+              @click="renderDate()"
               :columns="columns"
               :locale="locale"
               v-model="selectedDate"
@@ -104,10 +103,10 @@
                 @click="updateGuests(-1, 'adults')"
                 class="btn-guests-modal subtract"
               >
-          <span class="subtract-svg" v-html="getSvg('subtract')"></span>
+                <span class="subtract-svg" v-html="getSvg('subtract')"></span>
               </button>
 
-              <span  class="counter">{{ this.order.guests.adults }}</span>
+              <span class="counter">{{ this.order.guests.adults }}</span>
 
               <button
                 @click="updateGuests(1, 'adults')"
@@ -229,7 +228,7 @@ export default {
     avregeRate: String,
     stay: Object,
   },
-  async created() {
+  async created() {    
     let loggedinUser = this.$store.getters.loggedinUser;
     let hostId = this.stay.host?._id;
     console.log("loggedinUser.imgUrl", loggedinUser?.imgUrl);
@@ -248,42 +247,40 @@ export default {
       sercivesFee: 101,
       cleaningFee: 221,
       loggedinUser: {},
-      endDay: Date.now() ,
       isShown2: false,
       selectedColor: "gray",
+      selectedDate :new Date(),
       locale: { id: "en", firstDayOfWeek: 1, masks: { weekdays: "WW" } },
       columns: useScreens({
         xs: "0px",
         sm: "500px",
         md: "768px",
         lg: "1024px",
-      }).mapCurrent({ lg: 2 ,sm:1} ,1),
+      }).mapCurrent({ lg: 2, sm: 1 }, 1),
       selectedDate: null,
       isShown: false,
       // This is a single attribute
       attributes: [
-     {
-    key: 'test',
-    highlight: true,
-    dates: { start: new Date(), end: new Date()},
-  },
-
+        {
+          key: "test",
+          highlight: true,
+          dates: { start: new Date(), end:new Date(new Date().setDate(new Date().getDate() + 2))},
+        },
       ],
 
       order: {
-        
         hostId: "",
         buyer: {
           _id: null,
           fullname: null,
-          img:''
+          img: "",
         },
         totalGuests: 0,
         totalPrice: "",
         startDate: "",
         endDate: "",
         nigths: 0,
-        
+
         guests: {
           adults: 0,
           kids: 0,
@@ -294,7 +291,7 @@ export default {
           _id: this.stay?._id,
           name: this.stay?.name,
           price: this.stay?.price,
-          img:'',
+          img: "",
         },
         msgs: [],
         status: "pending", // pending, approved
@@ -302,15 +299,19 @@ export default {
     };
   },
   methods: {
-  async  reservation() {
-      const id= await  this.$store.dispatch({ type: "setOrder", order: this.order });
+    async reservation() {
+      const id = await this.$store.dispatch({
+        type: "setOrder",
+        order: this.order,
+      });
       console.log("id-order-after backend", id);
       this.$store.dispatch({ type: "setCurrOrder", order: this.order });
-       this.$router.push({
+      this.$router.push({
         path: "/reservation/",
         query: { order: id },
       });
     },
+  
     updateGuests(diff, type) {
       this.order.guests[type] += diff;
       if (this.order.guests[type] === -1) this.order.guests[type] = 0;
@@ -333,7 +334,9 @@ export default {
     },
 
     renderDate() {
-      if (this.selectedDate < this.attributes[0].dates.start) {
+      console.log('??????',this.selectedDate < this.attributes[0].dates.start);
+      
+      if (this.selectedDate < this.attributes[0].dates.end) {
         this.attributes[0].dates.start = this.selectedDate;
       } else {
         this.attributes[0].dates.end = this.selectedDate;
@@ -370,14 +373,13 @@ export default {
         this.attributes[0].dates.end - this.attributes[0].dates.start;
       const Total = (this.order.totalPrice =
         +this.stay.price * Math.ceil(nigths / 1000 / 60 / 60 / 24));
-        const finalPrice= Total + this.cleaningFee + this.sercivesFee;
-          const formatter = new Intl.NumberFormat("en-US", {
+      const finalPrice = Total + this.cleaningFee + this.sercivesFee;
+      const formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
         maximumFractionDigits: 0,
       });
       return formatter.format(finalPrice);
-      
     },
     guests() {
       let count = 0;
@@ -388,7 +390,7 @@ export default {
       this.order.totalGuests = count;
       console.log(" this.totalGuests", this.order.totalGuests);
 
-      if(count===0)count='Add guests'
+      if (count === 0) count = "Add guests";
       return count;
     },
     StayTotalPrice() {

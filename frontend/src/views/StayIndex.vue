@@ -40,6 +40,9 @@ export default {
   async created() {
     // const user = userService.getLoggedinUser()
     // console.log(user,'in app index');
+    var time =  Date()
+    console.log('time',time);
+    
     window.scrollTo(0, 0);
     this.$store.dispatch({ type: "switchLayout", layout: "stay-app" });
     await this.$store.dispatch({ type: "loadStays" });
