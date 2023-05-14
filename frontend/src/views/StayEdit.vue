@@ -3,7 +3,7 @@
 <template>
   <section class="stay-edit">
     <h3>Name</h3>
-    <form @submit.prevent="submitStay">
+    <form class="form-edit" @submit.prevent="submitStay">
       <input
         v-model="stay.name"
         class="add-input-name"
@@ -25,12 +25,13 @@
           placeholder="Country"
         />
         <input
-          v-model="stay.street"
+          v-model="stay.address"
           class="add-input"
           type="text"
           placeholder="Street"
         />
       </div>
+   
       <div class="upload-img">
         <section class="img-1 img-area">
             <img v-if="stay.imgUrls[0]" :src="stay.imgUrls[0]" alt="" />
@@ -131,8 +132,7 @@
           </label>
         </section>
       </div>
-      
-      <div class="stay-edit-details">
+          <div class="stay-edit-details">
         <label>Capacity</label>
         <input
           v-model="stay.capacity"
@@ -199,16 +199,15 @@ export default {
     }
   },
 
-  created() {
+  async created() {
+    await this.$store.dispatch({ type: "loadStays" });
     this.stay = stayService.getEmptyStay()
   },
   methods: {
     submitStay() {
-      console.log('new stay', this.stay)
       this.$store.dispatch({ type: 'addStay', stay: { ...this.stay } })
     },
     async handleFile(ev) {
-      console.log(ev)
       const file =
         ev.type === 'change' ? ev.target.files[0] : ev.dataTransfer.files[0]
 
