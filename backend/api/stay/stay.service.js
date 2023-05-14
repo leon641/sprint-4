@@ -7,7 +7,7 @@ const ObjectId = require('mongodb').ObjectId
 const gRegions = {
     'I\'m flexible': true,
     'Middle East': ['GR', 'BH', 'CY', 'EG', 'AE', 'TR', 'SY', 'SA', 'QA', 'OM', 'LB', 'KW', 'JO', 'IL', 'IQ', 'IR', 'YE'],
-    'Italy': ['IT'],
+    'Italy': ['IT','Italy'],
     'South America': ['AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'FK', 'GF', 'GY', 'PE', 'PY', 'SR', 'UY', 'VE',],
     'France': ['FR'],
     'United States': ['US'] /* ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',] */,
@@ -29,10 +29,10 @@ async function query(filterBy = { txt: '', region: '', label: '', likedStays: []
                 gRegions[filterBy.txt] = []
             }
             const regex = new RegExp(filterBy.txt, 'i')
-            stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.city) || regex.test(stay.loc.address))
+            stays = stays.filter(stay => regex.test(stay.name) || regex.test(stay.summery) || regex.test(stay.loc.country) || regex.test(stay.loc.countryCode) || gRegions[filterBy.txt].includes(stay.loc.countryCode) || regex.test(stay.loc.country) || regex.test(stay.loc.address))
         }
         if (filterBy.region) {
-            stays = stays.filter(stay => gRegions[filterBy.region].includes(stay.loc.countryCode) || gRegions[filterBy.region] === true)
+            stays = stays.filter(stay => filterBy.region.includes(stay.loc.country) || gRegions[filterBy.region] === true)
         }
         if (filterBy.likedStays.length) {
             if (!filterBy.likedStays.length) stays = []

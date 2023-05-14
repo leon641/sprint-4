@@ -23,7 +23,7 @@
 
 .date-picker-modal {
   @include for-mobile-layout {
-  width:rem(390px);
+  width:21.375rem;
   right: -27px;
 
     }
@@ -41,7 +41,7 @@
   .date-picker-modal-date-display {
     @include for-mobile-layout {
       top:19px;
-      left: 34px
+      left: 13px
       }
     display: flex;
     position: relative;
@@ -369,7 +369,7 @@ form{
 .order-data {
   @include for-mobile-layout {
  margin-inline-start: 5px;
- width:19em
+ width: 95%;
     }
   position: relative;
   left: 7px;
@@ -384,7 +384,7 @@ form{
 .reservation-modal-btn-container {
   position: relative;
   left: 10px;
-  width: 93%;
+  width: 95%;
   height: 48px;
   padding: 0 0;
   margin: 0 0;

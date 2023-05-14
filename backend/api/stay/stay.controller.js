@@ -8,9 +8,10 @@ async function getStays(req, res) {
     const filterBy = {
       txt: req.query.txt || '',
       region:req.query.region|| '',
-      label: req.query.label||'',
+      label: req.query.search||'',
       likedStays:req.query.likedStays||[],
     }
+    console.log('filterBy',filterBy);
     
     const stays = await stayService.query(filterBy)
     res.json(stays)

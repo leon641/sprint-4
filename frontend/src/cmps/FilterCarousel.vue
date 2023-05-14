@@ -54,10 +54,10 @@ export default defineComponent({
       key: 'Iconic',
       url: 'https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg',
     },
-    // {
-    //   key: 'Beachfront',
-    //   url: 'https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg',
-    // },
+    {
+      key: 'Beachfront',
+      url: 'https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg',
+    },
     {
       key: 'Campers',
       url: 'https://a0.muscache.com/pictures/31c1d523-cc46-45b3-957a-da76c30c85f9.jpg',
@@ -176,7 +176,7 @@ export default defineComponent({
     // any settings not specified will fallback to the carousel settings
     breakpoints: {
       // 460 and up
-      350: {
+      250: {
         itemsToShow: 4,
         snapAlign: 'center',
       },
@@ -205,7 +205,7 @@ export default defineComponent({
   methods : {
     filterLabel(label) {
       this.filterLabels = label
-      this.$router.push({ path: '/', query: { search: label } })
+      this.$router.push({ path: '/explore', query: { search: label } })
           this.$store.dispatch({
                 type: "setFilterBy",
                 label: this.filterLabels,

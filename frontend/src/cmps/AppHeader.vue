@@ -38,7 +38,8 @@
               <path d="m2 8h28"></path>
             </g>
           </svg>
-          <img class="fnky2vc dir dir-ltr" :src="loggedInUser?.imgUrl" alt="" />
+          <img v-if="loggedInUser"  :src="loggedInUser?.imgUrl" onerror="https://res.cloudinary.com/dii16awkb/image/upload/v1684053261/unprofile_ji7zus_z2immz.png" alt="" />
+          <img v-else src="https://res.cloudinary.com/dii16awkb/image/upload/v1684053261/unprofile_ji7zus_z2immz.png" alt="" />
 
           <UserMenu v-if="isMenu" @openLogin="openLogin" />
         </div>
