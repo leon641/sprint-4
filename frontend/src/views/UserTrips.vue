@@ -27,7 +27,7 @@
       <h4>Infants: {{order.guests?.infants}}</h4>
       <h4>Pets: {{order.guests?.pets}}</h4>
       <h4>Total price: ${{order.totalPrice?.toLocaleString()}}</h4>
-      <button class="mini-card-btn">Go to stay</button>
+      <button @click="toHome" class="mini-card-btn">Back home</button>
         </div>
      <div class="next-stay-img">
       <img :src="order.stay?.img" alt="" srcset="">
