@@ -28,25 +28,41 @@
             minmax(auto,350px)
             minmax(2px, 1fr);
     }
+ 
+    @include for-mobile4-layout {
+        // background-color: peru;
+        grid-template-columns: 
+            minmax(5px, 1fr)
+            minmax(auto,650px)
+            minmax(5px, 1fr);
+    }
+    @include for-mobile3-layout {
+        // background-color: greenyellow;
+        grid-template-columns: 
+            minmax(20px, 1fr)
+            minmax(auto,750px)
+            minmax(20px, 1fr);
+    }
     @include for-mobile2-layout {
         // background-color: rgb(239, 174, 182);
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto,650px)
+            minmax(auto,850px)
             minmax(20px, 1fr);
     }
+
     @include for-narrow-layout {
         // background-color: darkblue;
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto, 960px)
+            minmax(auto, 1000px)
             minmax(20px, 1fr);
     }
     @include for-narrow2-layout {
         // background-color: rgb(12, 158, 133);
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto, $narrow-breakpoint + 100px)
+            minmax(auto, 1100px + 100px)
             minmax(20px, 1fr);
     }
     @include for-normal-layout {
@@ -56,13 +72,7 @@
             minmax(auto, $narrow2-breakpoint)
             minmax(20px, 1fr);
     }
-    @include for-wide-layout {
-        // background-color: violet;
-        grid-template-columns: 
-            minmax(20px, 1fr)
-            minmax(auto,1500px)
-            minmax(20px, 1fr);
-    }
+
 
 }
 

@@ -7,7 +7,12 @@
     @include for-narrow3-layout {
         padding-inline-start: rem(30px);
         
-       
+        
+    }
+    @include for-mobile4-layout{
+        padding-inline-start: rem(15px);
+        padding-block: 0 ;
+
     }
 
     & .stay-details {
