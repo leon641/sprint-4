@@ -73,6 +73,7 @@
     .details-links-container {
         display: flex;
         justify-content: space-between;
+    
 
 
         .details-links {
@@ -93,27 +94,34 @@
             }
 
             .d-link .reviews {
+            
                 font-family: CircularAir-Light;
                 margin-inline-start: em(2px);
             }
         }
 
         .d-link {
+       
             margin-inline-start: em(4px);
             font-weight: 400;
-
+            
             font-size: em(13px);
             color: #222;
             text-decoration: underline;
         }
 
         .actions-container {
+            @include for-mobile-layout {
+         display: none;
+      
+              }
             display: flex;
             align-items: center;
             justify-content: flex-end;
             gap: 3px;
 
             .action-link-container {
+
                 display: flex;
                 gap: em(9px);
                 align-items: center;
@@ -255,6 +263,9 @@
 
 
     .place-cpacity-services {
+        @include for-mobile-layout {
+     display: none;
+          }
         grid-column: 1;
         position: relative;
         font-family: CircularAir-Light;

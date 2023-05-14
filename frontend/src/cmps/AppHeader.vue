@@ -21,8 +21,8 @@
         @toWhere="toWhere"
       />
       <div class="user-area">
-        <div>
-          <a class="your home airbnb really strong one">Appbnb your home</a>
+        <div class="txt-container">
+          <a style="{fontSize:14px;}" class="airbnb-slogen">Appbnb your home</a>
         </div>
         <div class="hamburger" @click="toggleUserMenu">
           <svg
@@ -38,7 +38,7 @@
               <path d="m2 8h28"></path>
             </g>
           </svg>
-          <img v-if="loggedInUser"  :src="loggedInUser?.imgUrl" onerror="https://res.cloudinary.com/dii16awkb/image/upload/v1684053261/unprofile_ji7zus_z2immz.png" alt="" />
+          <img v-if="loggedInUser"  :src="loggedInUser?.imgUrl"  alt="" />
           <img v-else src="https://res.cloudinary.com/dii16awkb/image/upload/v1684053261/unprofile_ji7zus_z2immz.png" alt="" />
 
           <UserMenu v-if="isMenu" @openLogin="openLogin" />
@@ -76,6 +76,7 @@ import BigFilter from "./BigFilter.vue";
 import MobileFilter from "./MobileFilter.vue";
 import UserMenu from "./UserMenu.vue";
 import LoginSignUp from "./LoginSignUp.vue";
+import { svgService } from '../services/svg.service';
 
 export default {
   props: {},
@@ -105,6 +106,9 @@ export default {
     toHome() {
       this.$router.push("/");
       // this.$emit("inIndex");
+    },
+    getSvg(type){
+      return svgService.getSvg(type)
     },
     expand() {
       this.isExpanded = !this.isExpanded;

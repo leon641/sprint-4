@@ -4,6 +4,11 @@
     // transform: translate(70px), 6px));
     font-family: Airbnb_Cereal-Book;
     padding-inline-start: rem(133px);
+    @include for-narrow3-layout {
+        padding-inline-start: rem(30px);
+        
+       
+    }
 
     & .stay-details {
         // width: inherit;
@@ -95,11 +100,12 @@ div.flex {
 .filter .icon {
     // transform: translate(19px), 11px));
     background-color: #ff385c;
-    border-radius: 50%;
+    border-radius: 100px;
     position: relative;
     width: rem(32px);
     height: rem(32px);
     margin-inline-start: rem(3.3px);
+    aspect-ratio: 1/1;
 
 
     svg {
