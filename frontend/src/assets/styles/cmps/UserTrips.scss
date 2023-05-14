@@ -8,7 +8,8 @@ h1.trips-title {
 .pending {
     background-color: rgb(219, 217, 146);
     border-radius: 6px;
-    padding: 3px;
+    padding: 2px;
+    font-size: em(13px);
 }
 
 .approved {
@@ -166,9 +167,7 @@ h1.trips-title {
 }
 
 .old-trips {
-    @include for-mobile-layout {
-        display: none;
-    }
+   
 
     grid-column: 1/7;
     grid-row: 3/4;
@@ -184,6 +183,10 @@ h1.trips-title {
         display: flex;
         justify-content: space-between;
         margin-block-end: 50px;
+        @include for-mobile-layout {
+            flex-direction: column;
+            margin: 0;
+        }
     }
 
     .mini-stay1 {
