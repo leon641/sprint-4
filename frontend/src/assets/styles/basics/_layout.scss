@@ -40,7 +40,7 @@
         // background-color: greenyellow;
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto,750px)
+            minmax(auto,700px)
             minmax(20px, 1fr);
     }
     @include for-mobile2-layout {
@@ -55,14 +55,14 @@
         // background-color: darkblue;
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto, 1000px)
+            minmax(auto, 1080px)
             minmax(20px, 1fr);
     }
     @include for-narrow2-layout {
         // background-color: rgb(12, 158, 133);
         grid-template-columns: 
             minmax(20px, 1fr)
-            minmax(auto, 1100px + 100px)
+            minmax(auto, 1200px)
             minmax(20px, 1fr);
     }
     @include for-normal-layout {
