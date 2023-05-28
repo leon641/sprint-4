@@ -12,7 +12,10 @@
 .stay-app {
     display: grid;
    
-    grid-template-columns: 20px 1fr 20px;
+    grid-template-columns: 
+    minmax(5px, 1fr)
+    minmax(auto,470px)
+    minmax(5px, 1fr);
    
     >* {
         grid-column: 2;
@@ -29,11 +32,18 @@
             minmax(2px, 1fr);
     }
  
+    @include for-mobile5-layout {
+        // background-color: peru;
+        grid-template-columns: 
+            minmax(5px, 1fr)
+            minmax(auto,500px)
+            minmax(5px, 1fr);
+    }
     @include for-mobile4-layout {
         // background-color: peru;
         grid-template-columns: 
             minmax(5px, 1fr)
-            minmax(auto,650px)
+            minmax(auto,520px)
             minmax(5px, 1fr);
     }
     @include for-mobile3-layout {

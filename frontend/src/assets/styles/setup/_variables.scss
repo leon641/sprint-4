@@ -1,10 +1,6 @@
 // בס"ד
 
-//css vars
-:root{
-    // --vc-gray-600:#222;
-    // --vc-highlight-solid-content-color:#222
-}
+
 // Colors
 $clr1: #fe385c;
 $clr2: #4f3a65;
@@ -26,21 +22,12 @@ $clr17: #969393;
 $clr18:#717171;
 $clr19:#e3e3e3;
 
-// .vc-gray {
-//     color: var(--vc-gray-600);
- 
-// }
-// .vc-light .vc-attr{
-//     color: var(--vc-highlight-solid-content-color)
-// }
-// Breakpoints
-// $mobile-breakpoint: 460px;
-// $narrow-breakpoint: 720px;
-// $normal-breakpoint: 960px;
 
-$mobile-breakpoint: 600px;
 
-$mobile4-breakpoint:550px;
+$mobile-breakpoint: 500px;
+
+$mobile5-breakpoint:500px;
+$mobile4-breakpoint:650px;
 $mobile3-breakpoint:750px;
 $mobile2-breakpoint:1000px;
 $narrow-breakpoint: 1200px;

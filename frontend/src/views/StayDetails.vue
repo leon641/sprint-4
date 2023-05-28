@@ -103,7 +103,6 @@ import StayAmenities from "../cmps/StayAmenities.vue";
 import StayReviews from "../cmps/StayReviews.vue";
 import StayMap from "../cmps/StayMap.vue";
 
-import { eventBusService } from "../services/event-bus.service.js";
 
 export default {
   data() {

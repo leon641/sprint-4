@@ -89,7 +89,6 @@
         margin-block-end: rem(1.6px);
         margin-inline-start: rem(4.8px);
         font-weight: 600;
-        // transform: translaterem((4px),rem( 5px));
 
     }
 }
@@ -99,6 +98,14 @@
     align-items: center;
     gap: rem(74px);
     position: relative;
+    @include for-mobile-layout {
+    gap:rem(24px)
+    
+    }
+    @include for-mobile5-layout {
+gap:rem(24px)
+    
+}
     .txt-container{
         .airbnb-slogen {
             font-size: rem(14px);

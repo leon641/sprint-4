@@ -8,8 +8,13 @@
     }
 }
 
+@mixin for-mobile5-layout {
+    @media (min-width:calc($mobile5-breakpoint + 40px) ) {
+        @content;
+    }
+}
 @mixin for-mobile4-layout {
-    @media (min-width:calc($mobile4-breakpoint + 40px) ) {
+    @media (min-width:calc($mobile4-breakpoint + 20px) ) {
         @content;
     }
 }

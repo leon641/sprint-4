@@ -1,7 +1,7 @@
 <!-- בס"ד -->
 
 <template>
-  <section class="reserve-modal">
+  <section  class="reserve-modal">
     <form @submit="reserve">
       <div class="order-form-header">
         <div>
@@ -228,7 +228,8 @@ export default {
     avregeRate: String,
     stay: Object,
   },
-  async created() {    
+   created() {  
+    
     let loggedinUser = this.$store.getters.loggedinUser;
     let hostId = this.stay.host?._id;
     console.log("loggedinUser.imgUrl", loggedinUser?.imgUrl);

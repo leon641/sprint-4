@@ -14,13 +14,19 @@
         padding-block: 0 ;
 
     }
-
+    
     & .stay-details {
         // width: inherit;
     }
 }
 
 .filter-btns {
+    @include for-mobile5-layout{
+      font-size: 11px;
+        padding-block: 0 ;
+        padding-right: 0;
+    
+    }
     display: flex;
     justify-content: center;
     align-items: center;
