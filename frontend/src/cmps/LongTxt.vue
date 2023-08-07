@@ -32,7 +32,7 @@ export default {
         let shortTxt
         const txtLong=this.desc?.length
             if (txtLong > this.defultNumOfChars){
-              shortTxt=this.desc?.slice(0, this.defultNumOfChars) + '...';
+              shortTxt=this.desc?.slice(0, this.defultNumOfChars) + '...'
               return shortTxt
 
             }else{
