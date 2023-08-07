@@ -1,7 +1,5 @@
 <template>
- <p >{{txt}}
-    
-</p>
+ <p >{{txt}}</p>
  <div class="show-more-btn">
           <!-- <a>Show More</a><span
             class="total-review-svg"
@@ -20,7 +18,6 @@ export default {
  data() {
      return {
          defultNumOfChars: 100,
-     
             isShown: false,
         }
     },methods: {
@@ -34,10 +31,14 @@ export default {
        
         let shortTxt
         const txtLong=this.desc?.length
-            if (txtLong > this.defultNumOfChars)
-            
+            if (txtLong > this.defultNumOfChars){
               shortTxt=this.desc?.slice(0, this.defultNumOfChars) + '...';
               return shortTxt
+
+            }else{
+              return this.desc
+            }
+            
           
         },
 

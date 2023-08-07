@@ -41,6 +41,7 @@
           <span class="visit-date">Apr 2023</span>
         </div>
         <p class="review-text"><LongTxt :desc="review.txt" /></p>
+        <!-- <p class="review-text">{{review.txt}}</p> -->
       
       </div>
     </main>
